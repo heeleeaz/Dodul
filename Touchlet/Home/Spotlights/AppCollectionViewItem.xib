@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="CoreCollectionViewItem" customModule="Touchlet" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="AppCollectionViewItem" customModule="Touchlet" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="jQQ-lR-D5X" id="Paj-GM-LAC"/>
                 <outlet property="textField" destination="MRD-eU-hpt" id="Jso-rc-UFr"/>

@@ -20,6 +20,15 @@ class BookmarkRepository{
     var bookmarksCount: Int {
         return (try? dataStore.findAll())?.count ?? 0
     }
+    
+    var bookmarks: [Link]  {
+        do{
+            return try dataStore.findAll()
+        }catch let error as NSError{
+            Logger.log(text: "bookmark list failed \(error.userInfo)")
+            return []
+        }
+    }
 
     func bookmark(atIndex index: Int) -> Link? {
         guard let links = try? dataStore.findAll() else { return nil }
@@ -49,7 +58,6 @@ class BookmarkRepository{
     func deleteBookmark(at index: Int) {
         do{
             var bookmarks = try dataStore.findAll()
-//            bookmarks[index].removeCachedFavicon()
             bookmarks.remove(at: index)
             try dataStore.setBookmarks(bookmarks)
         }catch let error as NSError{

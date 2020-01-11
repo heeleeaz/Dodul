@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class BookmarkUserDefaults: BookmarkStore {
+class BookmarkUserDefaults: BookmarkStore {
     public struct Constants {
         public static let groupName = "\(Global.groupIdPrefix).bookmarks"
     }
@@ -19,23 +19,23 @@ public class BookmarkUserDefaults: BookmarkStore {
 
     private let userDefaults: UserDefaults
 
-    public init(userDefaults: UserDefaults = UserDefaults(suiteName: Constants.groupName)!) {
+    init(userDefaults: UserDefaults = UserDefaults(suiteName: Constants.groupName)!) {
         self.userDefaults = userDefaults
     }
     
-    public func addBookmark(_ bookmark: Link) throws {
+    func addBookmark(_ bookmark: Link) throws {
         var newBookmarks = try findAll()
         newBookmarks.append(bookmark)
         try setBookmarks(newBookmarks)
     }
     
-    public func setBookmarks(_ bookmark: [Link]) throws {
+    func setBookmarks(_ bookmark: [Link]) throws {
         let data = try NSKeyedArchiver.archivedData(withRootObject: bookmark, requiringSecureCoding: false)
         return userDefaults.set(data, forKey: Keys.bookmarkKey)
     }
     
-    public func findAll() throws -> [Link]{
+    func findAll() throws -> [Link]{
         guard let data = userDefaults.data(forKey: Keys.bookmarkKey) else {return []}
-        return try NSKeyedUnarchiver.unarchivedObject(ofClasses: [Link.self], from: data) as? [Link] ?? []
+        return try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [Link]
     }
 }

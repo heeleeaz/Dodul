@@ -11,7 +11,7 @@ import Cocoa
 class SpotlightRepository{
     static var instance = SpotlightRepository()
     
-    var callback: ((SpotlightResult)->Void)?
+    var callback: ((SpotlightResult) -> ())?
 
     private var query: NSMetadataQuery? {willSet {if let query = self.query {query.stop()}}}
 

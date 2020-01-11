@@ -12,6 +12,12 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        do{
+//            try BookmarkUserDefaults().addBookmark(Link(title: "Facebook", url: URL(string: "https://google.com/")!))
+        }catch let error as NSError{
+            print("Error adding link \(error.userInfo)")
+        }
+        
         
         if #available(OSX 10.12.2, *) {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true

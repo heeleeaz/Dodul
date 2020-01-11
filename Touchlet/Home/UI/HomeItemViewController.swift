@@ -11,13 +11,13 @@ import Cocoa
 class HomeItemViewController: NSViewController, NibLoadable{
     @IBOutlet weak var tableView: NSTableView!
     
-    private let allPackages = CorePackageType.allCases
-    private let corePackageStore = MockCorePackageStore.init()
+    private let packageTypes: [CorePackageType] = CorePackageType.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(HomeItemTableRowView.nib, forIdentifier: HomeItemTableRowView.reuseIdentifier)
+        tableView.register(AppItemTableRowView.nib, forIdentifier: AppItemTableRowView.reuseIdentifier)
+        tableView.register(BookmarkTableRowView.nib, forIdentifier: BookmarkTableRowView.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 100
@@ -26,14 +26,15 @@ class HomeItemViewController: NSViewController, NibLoadable{
 
 extension HomeItemViewController: NSTableViewDelegate, NSTableViewDataSource{
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        let package = allPackages[row]
-    
-        let view = tableView.makeView(withIdentifier: HomeItemTableRowView.reuseIdentifier, owner: self)
-        guard let tableViewItem = view as? HomeItemTableRowView else {return nil}
-        corePackageStore.findAll(with: package, result: {tableViewItem.corePackageItems = $0})
-        
-        return tableViewItem
+        var identifier: NSUserInterfaceItemIdentifier
+        switch packageTypes[row] {
+        case .App:
+            identifier = AppItemTableRowView.reuseIdentifier
+        case .Bookmark:
+            identifier = BookmarkTableRowView.reuseIdentifier
+        }
+        return tableView.makeView(withIdentifier: identifier, owner: self) as? NSTableRowView
     }
     
-    func numberOfRows(in tableView: NSTableView) -> Int { return allPackages.count }
+    func numberOfRows(in tableView: NSTableView) -> Int { return packageTypes.count }
 }

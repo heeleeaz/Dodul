@@ -1,15 +1,43 @@
+////
+////  FeaturePackageStore.swift
+////  Touchlet
+////
+////  Created by Elias on 08/01/2020.
+////  Copyright © 2020 Elias Igbalajobi. All rights reserved.
+////
 //
-//  FeaturePackageStore.swift
-//  Touchlet
+//import Foundation
 //
-//  Created by Elias on 08/01/2020.
-//  Copyright © 2020 Elias Igbalajobi. All rights reserved.
+//public class CorePackageStore {
+//    public static let instance = CorePackageStore.init()
 //
-
-import Foundation
-
-public protocol CorePackageStore {
-    func findAll(with snippetType: CorePackageType, result: @escaping (([CorePackageItem])->Void))
-    func addPackageItems(_ items: [CorePackageItem])
-    func addPackageItem(_ item: CorePackageItem)
-}
+//    private lazy var spotlight = { return SpotlightRepository.instance }()
+//    private lazy var bookmark = { return BookmarkRepository() }()
+//    
+//    private init(){}
+//    
+//    func packageCount(type: CorePackageType) -> Int {
+//        switch type {
+//        case .App:
+//            return -1
+//        default:
+//            return bookmark.bookmarksCount
+//        }
+//    }
+//    
+//    func packages(type: CorePackageType, completion: @escaping ([CorePackageItem])->()){
+//        switch type {
+//        case .App:
+//            spotlight.callback = {completion($0.sortedItems.map{CorePackageItem($0)})}
+//            spotlight.doSpotlightQuery()
+//        default:
+//            completion(bookmark.bookmarks.map{CorePackageItem($0)})
+//        }
+//    }
+//    
+//    func save(type: CorePackageType, item: [CorePackageItem]) {
+//    }
+//    
+//    func deletePackage(type: CorePackageType, at index: Int) {
+//    }
+//}
