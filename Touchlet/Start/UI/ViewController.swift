@@ -9,7 +9,6 @@
 import Cocoa
 
 class ViewController: NSViewController, NSTouchBarDelegate {
-    
     let tab = [NSTouchBarItem.Identifier("hello")]
     
     private lazy var homeItemViewController = {
@@ -19,6 +18,14 @@ class ViewController: NSViewController, NSTouchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         addChildHelper(homeItemViewController)
+        
+//        let slp = SwiftLinkPreview()
+//        slp.preview("http://www.google.com", onSuccess: {print($0)}, onError: {print($0)})
+//
+//        let slp = SwiftLinkPreview(session: URLSession = URLSession.shared,
+//        workQueue: DispatchQueue = SwiftLinkPreview.defaultWorkQueue,
+//        responseQueue: DispatchQueue = DispatchQueue.main,
+//            cache: Cache = DisabledCache.instance)
     }
     
 //    func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {

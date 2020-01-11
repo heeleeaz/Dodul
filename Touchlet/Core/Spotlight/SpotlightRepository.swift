@@ -8,8 +8,8 @@
 
 import Cocoa
 
-class SpotlightAssistance{
-    static var instance = SpotlightAssistance()
+class SpotlightRepository{
+    static var instance = SpotlightRepository()
     
     var callback: ((SpotlightResult)->Void)?
 

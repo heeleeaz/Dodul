@@ -42,9 +42,10 @@ extension HomeItemTableRowView: NSCollectionViewDataSource, NSCollectionViewDele
         let item = corePackageItems[indexPath.item]
         collectionViewItem.label = item.title
         
+
         switch item.type {
         case .App:
-            collectionViewItem.icon = SpotlightAssistance.findAppIcon(bundleIdentifier: item.id)
+            collectionViewItem.icon = SpotlightRepository.findAppIcon(bundleIdentifier: item.id)
         default:
             print("Set Image for non app \(item.type)")
         }

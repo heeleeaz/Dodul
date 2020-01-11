@@ -21,7 +21,7 @@ class MockCorePackageStore: CorePackageStore{
     func findAll(with type: CorePackageType,  result: @escaping (([CorePackageItem]) -> Void)) {
         switch type {
         case .App:
-            let spotlight = SpotlightAssistance.instance
+            let spotlight = SpotlightRepository.instance
             spotlight.callback = {
                 let mapped = $0.sortedItems.map{CorePackageItem(id: $0.bundleIdentifier, type: type, title: $0.displayName, url: nil)}
                 result(mapped)
