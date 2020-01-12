@@ -14,10 +14,16 @@ class ViewController: NSViewController, NSTouchBarDelegate {
     private lazy var homeItemViewController = {
         return HomeItemViewController.createFromNib(in: Bundle.main)!
     }()
+    
+    override func viewDidAppear() {
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addChildHelper(homeItemViewController)
+        
+        
+        
         
 //        let slp = SwiftLinkPreview()
 //        slp.preview("http://www.google.com", onSuccess: {print($0)}, onError: {print($0)})

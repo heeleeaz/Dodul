@@ -23,6 +23,12 @@ class BookmarkUserDefaults: BookmarkStore {
         self.userDefaults = userDefaults
     }
     
+    func removeBookmark(_ bookmark: Link) throws {
+        var newBookmarks = try findAll()
+        newBookmarks.removeAll(where: {$0 == bookmark})
+        try setBookmarks(newBookmarks)
+    }
+    
     func addBookmark(_ bookmark: Link) throws {
         var newBookmarks = try findAll()
         newBookmarks.append(bookmark)

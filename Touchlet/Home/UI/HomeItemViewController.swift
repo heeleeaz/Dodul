@@ -20,7 +20,15 @@ class HomeItemViewController: NSViewController, NibLoadable{
         tableView.register(BookmarkTableRowView.nib, forIdentifier: BookmarkTableRowView.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 100
+        tableView.rowHeight = 200
+    }
+    
+    //And add the functions of the protocol
+    func presentAlert(title:String, message:String){
+        //This is the function that'll be called from the cell
+        //Here you can personalize how the alert will be displayed
+
+        print("title \(title)")
     }
 }
 
