@@ -9,7 +9,7 @@
 import Cocoa
 
 extension NSView {
-    var backgroundColor: NSColor? {
+    @IBInspectable var backgroundColor: NSColor? {
         set {
             wantsLayer = true
             layer?.backgroundColor = newValue?.cgColor
@@ -30,6 +30,26 @@ extension NSView {
             }
         }
         return nil
+    }
+}
+
+extension NSView {
+    var heightConstaint: NSLayoutConstraint? {
+        get {
+            return constraints.first(where: {
+                $0.firstAttribute == .height && $0.relation == .equal
+            })
+        }
+        set { needsLayout = true }
+    }
+    
+    var widthConstaint: NSLayoutConstraint? {
+        get {
+            return constraints.first(where: {
+                $0.firstAttribute == .width && $0.relation == .equal
+            })
+        }
+        set { needsLayout = true }
     }
 }
 
@@ -72,3 +92,4 @@ extension NSView {
         if let action = self.clickGestureRecognizerAction {action?()}
     }
 }
+

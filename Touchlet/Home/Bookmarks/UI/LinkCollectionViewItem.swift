@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import FavIcon
 
 class LinkCollectionViewItem: NSCollectionViewItem {
     static let reuseIdentifier = NSUserInterfaceItemIdentifier("LinkCollectionViewItem")
@@ -15,14 +16,18 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         
     private func updateView(){
         textField?.stringValue = link.displayTitle ?? ""
+        try? FavIcon.downloadPreferred(link.url, width: 192, height: 192, completion: {
+            switch $0{
+            case IconDownloadResult.success(let image):
+                self.imageView?.image = image
+            case IconDownloadResult.failure(let error):
+                print(error)
+            }
+        })
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.addClickGestureRecognizer{
-//            self.view.parentViewController?.presentAsSheet(self.addLinkViewController)
-        }
     }
 }
 

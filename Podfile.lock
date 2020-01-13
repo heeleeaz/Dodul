@@ -1,0 +1,16 @@
+PODS:
+  - FavIcon (3.0.6)
+
+DEPENDENCIES:
+  - FavIcon (~> 3.0.0)
+
+SPEC REPOS:
+  trunk:
+    - FavIcon
+
+SPEC CHECKSUMS:
+  FavIcon: e07ba9dd3cac1f76b81ccaa08fc2b41baa000b07
+
+PODFILE CHECKSUM: 3957c4300254902d40dde5213d3110e254000337
+
+COCOAPODS: 1.8.3

@@ -9,14 +9,13 @@
 import Cocoa
 
 @nonobjc extension NSViewController {
-    func addChildHelper(_ child: NSViewController, frame: CGRect? = nil) {
+    func addChildHelper(_ child: NSViewController, view: NSView? = nil) {
         addChild(child)
-        if let frame = frame {child.view.frame = frame}
-        view.addSubview(child.view)
+        (view ?? self.view).addSubview(child.view)
     }
     
-    func removeChildHelper() {
-        view.removeFromSuperview()
+    func removeChildHelper(view: NSView? = nil) {
+        (view ?? self.view).removeFromSuperview()
         removeFromParent()
     }
 }

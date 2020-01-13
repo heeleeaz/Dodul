@@ -1,0 +1,637 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		015DDFC9654852D7647E70BB81801D75 /* FavIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A9DEB25B221B4370F6C9E3BBECD66 /* FavIcon.swift */; };
+		0A88D65155C6DC44732EEB63859D7570 /* XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD05C36D50A36A554DBC2D27AF0ABB7 /* XML.swift */; };
+		33F2E2C8578EAB69AA96567BC7840069 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB62B6B2DF58856B96FE55DE9CE1774 /* Download.swift */; };
+		571B7768705A3751D6094128DB1FC206 /* FavIcon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AE49160F260BA49A4B41EE7970329 /* FavIcon-dummy.m */; };
+		7C382164F522DE2CDA88DFC350EBC28F /* Pods-Touchlet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FB7143C6851DAFED2561ADACB22759A /* Pods-Touchlet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8B66850BFB3845C0CDDE736CA0BAA5CE /* FavIcon-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D480531D32ED2780E7DF696598408D9 /* FavIcon-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9173CD6197D00419BA41518E9B53B94A /* Pods-Touchlet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1C259A72ACDF9FCC7900DB5CDED8AF /* Pods-Touchlet-dummy.m */; };
+		A4E0CB77395339735BE6EAC6594B00A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */; };
+		A5CA58A87A926BDC9FA54A9A6C153DF1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */; };
+		B68470A1EF2BCB0DF8915B4033FE26A1 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF777A33AEB08A8F21C53D0565E02E /* Icon.swift */; };
+		C1BB62B2F6C7AB2E8C73F7C367F04A03 /* ContentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B6F12EABAF925D51EE3F502FC2B63 /* ContentTypes.swift */; };
+		CE7935C7A1B9A027A7123394E58F136D /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7889B6B877B955414B85A2E548E3ADC /* HTML.swift */; };
+		D787C0B99682EACF832B01F810133C94 /* Detection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966339C15222B368AC05E3C003516390 /* Detection.swift */; };
+		E0CBE6C6D07C0F57199A5A1FD87758F8 /* IconType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9BB113DF0F5A45130B82762B8DAA93 /* IconType.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7BE668F1FE9A8AE5D2264E41614768D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E0E5697831D9F90E0E6C76493E419A2;
+			remoteInfo = FavIcon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0C9BB113DF0F5A45130B82762B8DAA93 /* IconType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IconType.swift; path = Sources/FavIcon/IconType.swift; sourceTree = "<group>"; };
+		0D480531D32ED2780E7DF696598408D9 /* FavIcon-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FavIcon-umbrella.h"; sourceTree = "<group>"; };
+		1B00BF7BF9108EA02CD7E2CCE8D52200 /* Pods-Touchlet-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Touchlet-acknowledgements.plist"; sourceTree = "<group>"; };
+		1C212E509AB9F5935346EEBF952C3C9D /* FavIcon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FavIcon-prefix.pch"; sourceTree = "<group>"; };
+		1FB7143C6851DAFED2561ADACB22759A /* Pods-Touchlet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Touchlet-umbrella.h"; sourceTree = "<group>"; };
+		2C6AE49160F260BA49A4B41EE7970329 /* FavIcon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FavIcon-dummy.m"; sourceTree = "<group>"; };
+		466B5A75D7F101712FD5C5D27E427322 /* FavIcon-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FavIcon-Info.plist"; sourceTree = "<group>"; };
+		560A9DEB25B221B4370F6C9E3BBECD66 /* FavIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FavIcon.swift; path = Sources/FavIcon/FavIcon.swift; sourceTree = "<group>"; };
+		5D9BF762B6295A27D08CD09577B513AD /* Pods_Touchlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Touchlet.framework; path = "Pods-Touchlet.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		761C71E84FF73273012484CBC5D41968 /* Pods-Touchlet-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Touchlet-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8C41EFEE91329A56DFD1CA47977EFCC7 /* Pods-Touchlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Touchlet.release.xcconfig"; sourceTree = "<group>"; };
+		8CB6208DE53EC3E7501305A5FC7BD217 /* FavIcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FavIcon.framework; path = FavIcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9306B1A1A0A8DB70CAFA06006470DB03 /* Pods-Touchlet-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Touchlet-Info.plist"; sourceTree = "<group>"; };
+		966339C15222B368AC05E3C003516390 /* Detection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Detection.swift; path = Sources/FavIcon/Detection.swift; sourceTree = "<group>"; };
+		9B1A496C7192A0495EB73E07C3E6150D /* FavIcon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FavIcon.modulemap; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A56B6F12EABAF925D51EE3F502FC2B63 /* ContentTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContentTypes.swift; path = Sources/FavIcon/ContentTypes.swift; sourceTree = "<group>"; };
+		ADB62B6B2DF58856B96FE55DE9CE1774 /* Download.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Download.swift; path = Sources/FavIcon/Download.swift; sourceTree = "<group>"; };
+		B2BFBC63B2EB147AF779B0E94060AFDD /* FavIcon.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FavIcon.xcconfig; sourceTree = "<group>"; };
+		B3DD00C414A2041174B586262589FF78 /* Pods-Touchlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Touchlet.debug.xcconfig"; sourceTree = "<group>"; };
+		B7889B6B877B955414B85A2E548E3ADC /* HTML.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTML.swift; path = Sources/FavIcon/HTML.swift; sourceTree = "<group>"; };
+		E4BF777A33AEB08A8F21C53D0565E02E /* Icon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Icon.swift; path = Sources/FavIcon/Icon.swift; sourceTree = "<group>"; };
+		E637B5CA8F92EDFB937B12C188DB1E9B /* Pods-Touchlet-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Touchlet-frameworks.sh"; sourceTree = "<group>"; };
+		ECD05C36D50A36A554DBC2D27AF0ABB7 /* XML.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XML.swift; path = Sources/FavIcon/XML.swift; sourceTree = "<group>"; };
+		EF1C259A72ACDF9FCC7900DB5CDED8AF /* Pods-Touchlet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Touchlet-dummy.m"; sourceTree = "<group>"; };
+		F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		FD914B87637AE55CB0CB6F011563B491 /* Pods-Touchlet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Touchlet.modulemap"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3961DBD2018569754DF21F7B0C86E6A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4E0CB77395339735BE6EAC6594B00A4 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C2BA6A7C06A2C35C3E9E3BADA7A3A5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5CA58A87A926BDC9FA54A9A6C153DF1 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04FF7933DF06B427D453BA14811E96AB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B1A496C7192A0495EB73E07C3E6150D /* FavIcon.modulemap */,
+				B2BFBC63B2EB147AF779B0E94060AFDD /* FavIcon.xcconfig */,
+				2C6AE49160F260BA49A4B41EE7970329 /* FavIcon-dummy.m */,
+				466B5A75D7F101712FD5C5D27E427322 /* FavIcon-Info.plist */,
+				1C212E509AB9F5935346EEBF952C3C9D /* FavIcon-prefix.pch */,
+				0D480531D32ED2780E7DF696598408D9 /* FavIcon-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FavIcon";
+			sourceTree = "<group>";
+		};
+		1780C4A008CFFEFECE2184D7D5AEFDE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8CB6208DE53EC3E7501305A5FC7BD217 /* FavIcon.framework */,
+				5D9BF762B6295A27D08CD09577B513AD /* Pods_Touchlet.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C7DADAA5140F7E803BECB178F590226 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CBC38CA80DCBFB0DFBB0E1BB37DE34B3 /* FavIcon */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B563DBD2E08C738851AB6456E92AC7DD /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FCA76A0E949469EE774FD09941DC1DBC /* Pods-Touchlet */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CBC38CA80DCBFB0DFBB0E1BB37DE34B3 /* FavIcon */ = {
+			isa = PBXGroup;
+			children = (
+				A56B6F12EABAF925D51EE3F502FC2B63 /* ContentTypes.swift */,
+				966339C15222B368AC05E3C003516390 /* Detection.swift */,
+				ADB62B6B2DF58856B96FE55DE9CE1774 /* Download.swift */,
+				560A9DEB25B221B4370F6C9E3BBECD66 /* FavIcon.swift */,
+				B7889B6B877B955414B85A2E548E3ADC /* HTML.swift */,
+				E4BF777A33AEB08A8F21C53D0565E02E /* Icon.swift */,
+				0C9BB113DF0F5A45130B82762B8DAA93 /* IconType.swift */,
+				ECD05C36D50A36A554DBC2D27AF0ABB7 /* XML.swift */,
+				04FF7933DF06B427D453BA14811E96AB /* Support Files */,
+			);
+			name = FavIcon;
+			path = FavIcon;
+			sourceTree = "<group>";
+		};
+		CBD43E0947D94E318A0ED1350CFF29ED /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				E0A1E60606E0BF6E2E10F1F01350DFE8 /* Frameworks */,
+				1C7DADAA5140F7E803BECB178F590226 /* Pods */,
+				1780C4A008CFFEFECE2184D7D5AEFDE1 /* Products */,
+				B563DBD2E08C738851AB6456E92AC7DD /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		E0A1E60606E0BF6E2E10F1F01350DFE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBD43E0947D94E318A0ED1350CFF29ED /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FCA76A0E949469EE774FD09941DC1DBC /* Pods-Touchlet */ = {
+			isa = PBXGroup;
+			children = (
+				FD914B87637AE55CB0CB6F011563B491 /* Pods-Touchlet.modulemap */,
+				761C71E84FF73273012484CBC5D41968 /* Pods-Touchlet-acknowledgements.markdown */,
+				1B00BF7BF9108EA02CD7E2CCE8D52200 /* Pods-Touchlet-acknowledgements.plist */,
+				EF1C259A72ACDF9FCC7900DB5CDED8AF /* Pods-Touchlet-dummy.m */,
+				E637B5CA8F92EDFB937B12C188DB1E9B /* Pods-Touchlet-frameworks.sh */,
+				9306B1A1A0A8DB70CAFA06006470DB03 /* Pods-Touchlet-Info.plist */,
+				1FB7143C6851DAFED2561ADACB22759A /* Pods-Touchlet-umbrella.h */,
+				B3DD00C414A2041174B586262589FF78 /* Pods-Touchlet.debug.xcconfig */,
+				8C41EFEE91329A56DFD1CA47977EFCC7 /* Pods-Touchlet.release.xcconfig */,
+			);
+			name = "Pods-Touchlet";
+			path = "Target Support Files/Pods-Touchlet";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4828F60333767B7886321D96B442C9A3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B66850BFB3845C0CDDE736CA0BAA5CE /* FavIcon-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3BEB7C1AAC17213A84211CB2BD6FDF3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C382164F522DE2CDA88DFC350EBC28F /* Pods-Touchlet-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1E0E5697831D9F90E0E6C76493E419A2 /* FavIcon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5223E56D07403EA91B6E3E1979CCEF4 /* Build configuration list for PBXNativeTarget "FavIcon" */;
+			buildPhases = (
+				4828F60333767B7886321D96B442C9A3 /* Headers */,
+				78665F4EAF49B061AE721528D77B9B2D /* Sources */,
+				3961DBD2018569754DF21F7B0C86E6A5 /* Frameworks */,
+				1C3652C84277FAA03DFB2B8BFABA0D94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FavIcon;
+			productName = FavIcon;
+			productReference = 8CB6208DE53EC3E7501305A5FC7BD217 /* FavIcon.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CC49778B7959D4E839185E5F22C5BD42 /* Pods-Touchlet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F332DAA528EFAEDDDDD45DB758C8841 /* Build configuration list for PBXNativeTarget "Pods-Touchlet" */;
+			buildPhases = (
+				A3BEB7C1AAC17213A84211CB2BD6FDF3 /* Headers */,
+				D279998922FCB3956AF282A2602740AA /* Sources */,
+				7C2BA6A7C06A2C35C3E9E3BADA7A3A5D /* Frameworks */,
+				79978D90BD08A576137F922E266C5300 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B921FE9EB45E6620912BD9FCDB2032E /* PBXTargetDependency */,
+			);
+			name = "Pods-Touchlet";
+			productName = "Pods-Touchlet";
+			productReference = 5D9BF762B6295A27D08CD09577B513AD /* Pods_Touchlet.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 1780C4A008CFFEFECE2184D7D5AEFDE1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1E0E5697831D9F90E0E6C76493E419A2 /* FavIcon */,
+				CC49778B7959D4E839185E5F22C5BD42 /* Pods-Touchlet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C3652C84277FAA03DFB2B8BFABA0D94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79978D90BD08A576137F922E266C5300 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		78665F4EAF49B061AE721528D77B9B2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1BB62B2F6C7AB2E8C73F7C367F04A03 /* ContentTypes.swift in Sources */,
+				D787C0B99682EACF832B01F810133C94 /* Detection.swift in Sources */,
+				33F2E2C8578EAB69AA96567BC7840069 /* Download.swift in Sources */,
+				571B7768705A3751D6094128DB1FC206 /* FavIcon-dummy.m in Sources */,
+				015DDFC9654852D7647E70BB81801D75 /* FavIcon.swift in Sources */,
+				CE7935C7A1B9A027A7123394E58F136D /* HTML.swift in Sources */,
+				B68470A1EF2BCB0DF8915B4033FE26A1 /* Icon.swift in Sources */,
+				E0CBE6C6D07C0F57199A5A1FD87758F8 /* IconType.swift in Sources */,
+				0A88D65155C6DC44732EEB63859D7570 /* XML.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D279998922FCB3956AF282A2602740AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9173CD6197D00419BA41518E9B53B94A /* Pods-Touchlet-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9B921FE9EB45E6620912BD9FCDB2032E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FavIcon;
+			target = 1E0E5697831D9F90E0E6C76493E419A2 /* FavIcon */;
+			targetProxy = 7BE668F1FE9A8AE5D2264E41614768D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0E5B4CC9CFEB78EABFEF2AADD2B92FFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3DD00C414A2041174B586262589FF78 /* Pods-Touchlet.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-Touchlet/Pods-Touchlet-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MODULEMAP_FILE = "Target Support Files/Pods-Touchlet/Pods-Touchlet.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		430C0A1F2A9CB52955BEC7CE69B7B629 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		476DA6CBEB009DABC3050C42C5FAB1B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2BFBC63B2EB147AF779B0E94060AFDD /* FavIcon.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/FavIcon/FavIcon-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FavIcon/FavIcon-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/FavIcon/FavIcon.modulemap";
+				PRODUCT_MODULE_NAME = FavIcon;
+				PRODUCT_NAME = FavIcon;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4FF634AF6D6E0A86399545F4194C81EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2BFBC63B2EB147AF779B0E94060AFDD /* FavIcon.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/FavIcon/FavIcon-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FavIcon/FavIcon-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/FavIcon/FavIcon.modulemap";
+				PRODUCT_MODULE_NAME = FavIcon;
+				PRODUCT_NAME = FavIcon;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		597E092427DF423992C59C814880FE96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		7C0096563FCE88646D59B4A6D2079C4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C41EFEE91329A56DFD1CA47977EFCC7 /* Pods-Touchlet.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-Touchlet/Pods-Touchlet-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MODULEMAP_FILE = "Target Support Files/Pods-Touchlet/Pods-Touchlet.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				430C0A1F2A9CB52955BEC7CE69B7B629 /* Debug */,
+				597E092427DF423992C59C814880FE96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F332DAA528EFAEDDDDD45DB758C8841 /* Build configuration list for PBXNativeTarget "Pods-Touchlet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E5B4CC9CFEB78EABFEF2AADD2B92FFD /* Debug */,
+				7C0096563FCE88646D59B4A6D2079C4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5223E56D07403EA91B6E3E1979CCEF4 /* Build configuration list for PBXNativeTarget "FavIcon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FF634AF6D6E0A86399545F4194C81EA /* Debug */,
+				476DA6CBEB009DABC3050C42C5FAB1B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

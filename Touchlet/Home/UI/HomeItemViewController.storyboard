@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="sg6-Tc-rBb">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home Item View Controller-->
+        <scene sceneID="fkH-3s-IR0">
+            <objects>
+                <viewController id="sg6-Tc-rBb" customClass="HomeItemViewController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="7DD-An-dkQ">
+                        <rect key="frame" x="0.0" y="0.0" width="1200" height="400"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <containerView identifier="Hello" translatesAutoresizingMaskIntoConstraints="NO" id="QXF-8b-vzG">
+                                <rect key="frame" x="0.0" y="250" width="1200" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="U8h-2m-sFV"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="ffA-6c-ZT6" kind="embed" id="H4w-XI-PFa"/>
+                                </connections>
+                            </containerView>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="4ur-Fg-lx1">
+                                <rect key="frame" x="0.0" y="100" width="1200" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Ohl-h1-B5t"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="Ahp-dm-4Wr" kind="embed" id="5Ax-YP-qvS"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4ur-Fg-lx1" secondAttribute="trailing" id="EuN-MH-kEA"/>
+                            <constraint firstAttribute="trailing" secondItem="QXF-8b-vzG" secondAttribute="trailing" id="I27-7K-FSZ"/>
+                            <constraint firstItem="4ur-Fg-lx1" firstAttribute="leading" secondItem="7DD-An-dkQ" secondAttribute="leading" id="Mqj-cl-Te1"/>
+                            <constraint firstItem="QXF-8b-vzG" firstAttribute="leading" secondItem="7DD-An-dkQ" secondAttribute="leading" id="NnT-La-Rar"/>
+                            <constraint firstItem="QXF-8b-vzG" firstAttribute="top" secondItem="7DD-An-dkQ" secondAttribute="top" id="hTs-cH-0eg"/>
+                            <constraint firstItem="4ur-Fg-lx1" firstAttribute="top" secondItem="QXF-8b-vzG" secondAttribute="bottom" id="tZM-l1-E1z"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="tTA-Ho-UTD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="1581"/>
+        </scene>
+        <!--App Item View Controller-->
+        <scene sceneID="rn5-zy-DJz">
+            <objects>
+                <customObject id="iCg-6o-A71" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController id="ffA-6c-ZT6" customClass="AppItemViewController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="D7f-kJ-n94">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdk-aB-xrR" customClass="MYOuterScrollView" customModule="Touchlet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="BvD-du-kta">
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView selectable="YES" allowsEmptySelection="NO" id="juc-JF-YBy" customClass="LNSCollectionView" customModule="Touchlet" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="VgJ-q7-bUG">
+                                                <size key="itemSize" width="50" height="50"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="pOr-3c-j6K">
+                                    <rect key="frame" x="-100" y="-100" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="FmD-hJ-Kkr">
+                                    <rect key="frame" x="434" y="0.0" width="16" height="300"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Xdk-aB-xrR" secondAttribute="trailing" id="8Sz-65-y5t"/>
+                            <constraint firstItem="Xdk-aB-xrR" firstAttribute="leading" secondItem="D7f-kJ-n94" secondAttribute="leading" id="KFW-Bm-v8k"/>
+                            <constraint firstAttribute="bottom" secondItem="Xdk-aB-xrR" secondAttribute="bottom" id="Prl-FE-kEX"/>
+                            <constraint firstItem="Xdk-aB-xrR" firstAttribute="top" secondItem="D7f-kJ-n94" secondAttribute="top" id="gWI-8K-P1g"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="juc-JF-YBy" id="sW2-XT-v98"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-983" y="1276"/>
+        </scene>
+        <!--Bookmark View Controller-->
+        <scene sceneID="pCj-kj-Yg4">
+            <objects>
+                <customObject id="gMh-SP-u2i" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController id="Ahp-dm-4Wr" customClass="BookmarkViewController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="WNs-Aj-W02">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asB-Ln-9qf" customClass="MYOuterScrollView" customModule="Touchlet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="ueD-b4-XdY">
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView selectable="YES" allowsEmptySelection="NO" id="47O-Gb-ONo" customClass="LNSCollectionView" customModule="Touchlet" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="TWF-l4-xk1">
+                                                <size key="itemSize" width="50" height="50"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="LYa-Xb-nH8">
+                                    <rect key="frame" x="-100" y="-100" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Z0i-aj-dnE">
+                                    <rect key="frame" x="434" y="0.0" width="16" height="295"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="asB-Ln-9qf" secondAttribute="bottom" id="85d-OH-plJ"/>
+                            <constraint firstAttribute="trailing" secondItem="asB-Ln-9qf" secondAttribute="trailing" id="BRd-vd-pXP"/>
+                            <constraint firstItem="asB-Ln-9qf" firstAttribute="leading" secondItem="WNs-Aj-W02" secondAttribute="leading" id="O6X-c8-mNg"/>
+                            <constraint firstItem="asB-Ln-9qf" firstAttribute="top" secondItem="WNs-Aj-W02" secondAttribute="top" id="dCA-pT-uEE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="47O-Gb-ONo" id="BCQ-Z8-Dbj"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-990" y="1675"/>
+        </scene>
+    </scenes>
+</document>
