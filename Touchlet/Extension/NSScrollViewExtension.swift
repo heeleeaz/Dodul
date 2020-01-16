@@ -11,10 +11,10 @@ import Cocoa
 extension NSScrollView{
     func resizeScrollViewContentSize(){
 
-        let contentRect: CGRect = subviews.reduce(into: .zero) { rect, view in
-            rect = rect.union(view.frame)
-        }
-                
+//        let contentRect: CGRect = subviews.reduce(into: .zero) { rect, view in
+//            rect = rect.union(view.frame)
+//        }
+//
 //        print(contentRect)
 //        documentView?.setFrameSize(contentRect.size)
         hasVerticalScroller = true

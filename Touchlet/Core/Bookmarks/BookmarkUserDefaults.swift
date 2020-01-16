@@ -10,7 +10,7 @@ import Foundation
 
 class BookmarkUserDefaults: BookmarkStore {
     public struct Constants {
-        public static let groupName = "\(Global.groupIdPrefix).bookmarks"
+        public static let groupName = "\(Global.groupIdPrefix).bookmarks_"
     }
 
     private struct Keys {

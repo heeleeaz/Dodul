@@ -30,7 +30,7 @@ class FaviconImageProvider{
             image.addRepresentation(bitmap)
             completion(image, nil)
         }else{
-            try? FavIcon.downloadPreferred(url, width: 192, height: 192, completion: {
+            try? FavIcon.downloadPreferred(url, width: 400, height: 400, completion: {
                 switch $0{
                 case .success(let image):
                     guard let data = image.data else {return}

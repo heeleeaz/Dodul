@@ -23,25 +23,23 @@ class BookmarkViewController: NSViewController{
     override func viewDidLoad() {
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.itemSize = NSSize(width: 109, height: 107)
-        flowLayout.minimumLineSpacing = 10
-        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.minimumLineSpacing = 5
+        flowLayout.minimumInteritemSpacing = 5
         collectionView.collectionViewLayout = flowLayout
 
         collectionView.register(LinkCollectionViewItem.self, forItemWithIdentifier: LinkCollectionViewItem.reuseIdentifier)
-        collectionView.register(AddLinkCollectionViewItem.self, forItemWithIdentifier: AddLinkCollectionViewItem.reuseIdentifier)
+        collectionView.register(ButtonCollectionViewItem.self, forItemWithIdentifier: ButtonCollectionViewItem.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
-               
+    }
+    
+    override func viewDidAppear() {
         reloadItem()
     }
     
     private func reloadItem(){
         links = (try? bookmarkUserDafault.findAll()) ?? []
-        
-        if let controller = (self.parent as? HomeItemViewControllerDelegate){
-            controller.resizeControllerView(controller: self, size: self.collectionView.contentSize)
-            print("Here \(self.collectionView.contentSize)")
-        }
+        fitSize(view: self.view.superview!, collectionView: self.collectionView)
     }
 }
 
@@ -56,10 +54,11 @@ extension BookmarkViewController: NSCollectionViewDataSource, NSCollectionViewDe
             collectionViewItem.link = links[indexPath.item]
             return collectionViewItem
         }else{
-            let reuseIdentifer = AddLinkCollectionViewItem.reuseIdentifier
+            let reuseIdentifer = ButtonCollectionViewItem.reuseIdentifier
             let view = collectionView.makeItem(withIdentifier: reuseIdentifer, for: indexPath)
-            guard let collectionViewItem = view as? AddLinkCollectionViewItem else {return view}
-            collectionViewItem.addLinkButton.addClickGestureRecognizer{
+            guard let collectionViewItem = view as? ButtonCollectionViewItem else {return view}
+            
+            collectionViewItem.showAction(action: .plusIcon) {
                 collectionViewItem.presentAsSheet(self.addLinkViewController)
             }
 
@@ -75,15 +74,15 @@ extension BookmarkViewController: NSCollectionViewDataSource, NSCollectionViewDe
 extension BookmarkViewController: AddLinkViewControllerDelegate{
     func addLinkViewController(_ controller: AddLinkViewController, deleteLink link: Link?) {
         if let link = link{try? bookmarkUserDafault.removeBookmark(link)}
-        reloadItem(); controller.dismiss(self)
+        reloadItem(); self.dismiss(controller)
     }
     
     func addLinkViewController(_ controller: AddLinkViewController, saveLink link: Link) {
         try? bookmarkUserDafault.addBookmark(link); reloadItem()
-        controller.dismiss(self)
+        self.dismiss(controller)
     }
     
     func addLinkViewController(_ controller: AddLinkViewController, dismiss byUser: Bool) {
-        controller.dismiss(self)
+        self.dismiss(controller)
     }
 }

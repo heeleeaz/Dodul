@@ -15,6 +15,9 @@ class AppCollectionViewItem: NSCollectionViewItem {
     
     private func updateView(){
         textField?.stringValue = spotlight.displayName ?? ""
-        imageView?.image = SpotlightRepository.findAppIcon(bundleIdentifier: spotlight.bundleIdentifier)
+        if let image = SpotlightRepository.findAppIcon(bundleIdentifier: spotlight.bundleIdentifier){
+            imageView?.image = image
+        }
+        
     }
 }

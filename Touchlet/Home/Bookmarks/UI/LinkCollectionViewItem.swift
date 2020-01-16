@@ -33,19 +33,3 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         super.viewDidLoad()
     }
 }
-
-class AddLinkCollectionViewItem: NSCollectionViewItem {
-    static let reuseIdentifier = NSUserInterfaceItemIdentifier("AddLinkCollectionViewItem")
-    @IBOutlet weak var addLinkButton: NSButton!
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        addLinkButton.addClickGestureRecognizer{
-            
-        }
-    }
-    
-}

@@ -10,7 +10,6 @@
 		83751E29B9CEA1BBE3E0B628 /* Pods_Touchlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB4BCE4A7A57B19483220DC /* Pods_Touchlet.framework */; };
 		92183C0923CA94B800C7667F /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92183C0723CA94B800C7667F /* AddLinkViewController.swift */; };
 		92183C0A23CA94B800C7667F /* AddLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92183C0823CA94B800C7667F /* AddLinkViewController.xib */; };
-		92183C1223CAB17B00C7667F /* AddLinkCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92183C1023CAB17B00C7667F /* AddLinkCollectionViewItem.xib */; };
 		9239C71E23CB927C00990745 /* NSScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239C71D23CB927C00990745 /* NSScrollViewExtension.swift */; };
 		923B986123C5CF8D00BC48A7 /* AppCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */; };
 		923B986223C5CF8D00BC48A7 /* AppCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923B986023C5CF8D00BC48A7 /* AppCollectionViewItem.xib */; };
@@ -53,6 +52,9 @@
 		92FE9B1623CF79E900FA6AC6 /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1523CF79E900FA6AC6 /* NSImageExtension.swift */; };
 		92FE9B1823CFB4AD00FA6AC6 /* ImageCacheProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1723CFB4AD00FA6AC6 /* ImageCacheProvider.swift */; };
 		92FE9B2023CFDAF600FA6AC6 /* SpotlightWhitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 92FE9B1F23CFDAF600FA6AC6 /* SpotlightWhitelist.json */; };
+		92FE9B2223D0718100FA6AC6 /* HomeCollectionItemsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */; };
+		92FE9B2523D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */; };
+		92FE9B2623D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92FE9B2423D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +79,6 @@
 		90C094CC103844EACE7A68D7 /* Pods-Touchlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Touchlet.debug.xcconfig"; path = "Target Support Files/Pods-Touchlet/Pods-Touchlet.debug.xcconfig"; sourceTree = "<group>"; };
 		92183C0723CA94B800C7667F /* AddLinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkViewController.swift; sourceTree = "<group>"; };
 		92183C0823CA94B800C7667F /* AddLinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLinkViewController.xib; sourceTree = "<group>"; };
-		92183C1023CAB17B00C7667F /* AddLinkCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLinkCollectionViewItem.xib; sourceTree = "<group>"; };
 		9239C71D23CB927C00990745 /* NSScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSScrollViewExtension.swift; sourceTree = "<group>"; };
 		923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewItem.swift; sourceTree = "<group>"; };
 		923B986023C5CF8D00BC48A7 /* AppCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppCollectionViewItem.xib; sourceTree = "<group>"; };
@@ -128,6 +129,9 @@
 		92FE9B1523CF79E900FA6AC6 /* NSImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
 		92FE9B1723CFB4AD00FA6AC6 /* ImageCacheProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheProvider.swift; sourceTree = "<group>"; };
 		92FE9B1F23CFDAF600FA6AC6 /* SpotlightWhitelist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpotlightWhitelist.json; sourceTree = "<group>"; };
+		92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionItemsUtil.swift; sourceTree = "<group>"; };
+		92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewItem.swift; sourceTree = "<group>"; };
+		92FE9B2423D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCollectionViewItem.xib; sourceTree = "<group>"; };
 		AAB4BCE4A7A57B19483220DC /* Pods_Touchlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Touchlet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -177,8 +181,11 @@
 		923B986323C5E51F00BC48A7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */,
+				92FE9B2423D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib */,
 				923B986C23C600C000BC48A7 /* HomeItemViewController.swift */,
 				9246321F23CB32C200042EFE /* HomeItemViewController.storyboard */,
+				92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -283,7 +290,6 @@
 				9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */,
 				92183C0723CA94B800C7667F /* AddLinkViewController.swift */,
 				92183C0823CA94B800C7667F /* AddLinkViewController.xib */,
-				92183C1023CAB17B00C7667F /* AddLinkCollectionViewItem.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -521,7 +527,7 @@
 				923B986223C5CF8D00BC48A7 /* AppCollectionViewItem.xib in Resources */,
 				92183C0A23CA94B800C7667F /* AddLinkViewController.xib in Resources */,
 				92FE9B2023CFDAF600FA6AC6 /* SpotlightWhitelist.json in Resources */,
-				92183C1223CAB17B00C7667F /* AddLinkCollectionViewItem.xib in Resources */,
+				92FE9B2623D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib in Resources */,
 				9246322023CB32C200042EFE /* HomeItemViewController.storyboard in Resources */,
 				92A1B30023C4AA2200D7BEF1 /* Main.storyboard in Resources */,
 				9283108123CA773200B115D1 /* LinkCollectionViewItem.xib in Resources */,
@@ -594,12 +600,14 @@
 				92A1B2FB23C4AA2100D7BEF1 /* Touchlet.xcdatamodeld in Sources */,
 				923B986123C5CF8D00BC48A7 /* AppCollectionViewItem.swift in Sources */,
 				92FE9B1423CF794900FA6AC6 /* NSDataExtension.swift in Sources */,
+				92FE9B2523D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift in Sources */,
 				92FE9B1123CF5AC400FA6AC6 /* Cache.swift in Sources */,
 				9239C71E23CB927C00990745 /* NSScrollViewExtension.swift in Sources */,
 				92A1B33123C4C0A000D7BEF1 /* NSViewExtension.swift in Sources */,
 				92183C0923CA94B800C7667F /* AddLinkViewController.swift in Sources */,
 				923B987323C6107000BC48A7 /* NSViewControllerExtension.swift in Sources */,
 				92A1B33223C4C0A000D7BEF1 /* NibLoadable.swift in Sources */,
+				92FE9B2223D0718100FA6AC6 /* HomeCollectionItemsUtil.swift in Sources */,
 				925A245723C8D811002BB85F /* BookmarkStore.swift in Sources */,
 				925A241523C7378B002BB85F /* BookmarkRepository.swift in Sources */,
 				92A1B2F823C4AA2100D7BEF1 /* MainViewController.swift in Sources */,

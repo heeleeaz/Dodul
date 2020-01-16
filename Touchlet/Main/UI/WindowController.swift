@@ -12,7 +12,11 @@ class WindowController: NSWindowController{
     let label = NSTouchBarItem.Identifier("com.TouchBarCatalog.TouchBarItem.label")
     
     override func windowDidLoad() {
-        guard let window = window else {return}
+        guard let window = window else {
+            return
+        }
+
+        
         window.contentView?.wantsLayer = true
         window.contentView?.layer?.masksToBounds = true
         window.contentView?.layer?.cornerRadius = 20

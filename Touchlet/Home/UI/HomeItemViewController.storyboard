@@ -34,7 +34,7 @@
                                                     </connections>
                                                 </containerView>
                                                 <containerView translatesAutoresizingMaskIntoConstraints="NO" id="4ur-Fg-lx1">
-                                                    <rect key="frame" x="0.0" y="2180" width="499" height="150"/>
+                                                    <rect key="frame" x="0.0" y="2190" width="499" height="150"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="150" id="PBs-dp-fg0"/>
                                                     </constraints>
@@ -48,7 +48,7 @@
                                                 <constraint firstItem="QXF-8b-vzG" firstAttribute="top" secondItem="EZY-yJ-GBF" secondAttribute="top" id="fIh-9L-6Ah"/>
                                                 <constraint firstAttribute="trailing" secondItem="QXF-8b-vzG" secondAttribute="trailing" id="pMl-t5-GgE"/>
                                                 <constraint firstItem="4ur-Fg-lx1" firstAttribute="leading" secondItem="EZY-yJ-GBF" secondAttribute="leading" id="qPk-tZ-szR"/>
-                                                <constraint firstItem="4ur-Fg-lx1" firstAttribute="top" secondItem="QXF-8b-vzG" secondAttribute="bottom" constant="20" id="vx8-Mg-48O"/>
+                                                <constraint firstItem="4ur-Fg-lx1" firstAttribute="top" secondItem="QXF-8b-vzG" secondAttribute="bottom" constant="10" id="vx8-Mg-48O"/>
                                                 <constraint firstItem="QXF-8b-vzG" firstAttribute="leading" secondItem="EZY-yJ-GBF" secondAttribute="leading" id="wF9-5N-5HQ"/>
                                             </constraints>
                                         </view>
@@ -59,7 +59,7 @@
                                     <rect key="frame" x="0.0" y="384" width="514" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="v1b-GR-A16">
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="v1b-GR-A16">
                                     <rect key="frame" x="498" y="0.0" width="16" height="400"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>

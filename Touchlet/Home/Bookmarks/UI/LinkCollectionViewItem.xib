@@ -23,19 +23,19 @@
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="PYf-ZG-D0P">
                     <rect key="frame" x="10" y="41" width="90" height="40"/>
                     <subviews>
-                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lml-Sq-Ai9">
-                            <rect key="frame" x="27" y="2" width="36" height="36"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lml-Sq-Ai9">
+                            <rect key="frame" x="32" y="7" width="26" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="26" id="1jg-wq-dF2"/>
+                                <constraint firstAttribute="height" constant="26" id="rtt-bC-EW5"/>
+                            </constraints>
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSBookmarksTemplate" id="yCw-ep-r50"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="4"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
                         </imageView>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="B53-SH-gr0"/>
+                        <constraint firstItem="lml-Sq-Ai9" firstAttribute="centerX" secondItem="PYf-ZG-D0P" secondAttribute="centerX" id="Q86-9M-tUy"/>
+                        <constraint firstItem="lml-Sq-Ai9" firstAttribute="centerY" secondItem="PYf-ZG-D0P" secondAttribute="centerY" id="fy6-dd-F7J"/>
                         <constraint firstAttribute="width" constant="90" id="sr2-E1-irp"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
