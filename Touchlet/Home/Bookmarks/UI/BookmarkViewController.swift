@@ -9,6 +9,7 @@
 import Cocoa
 
 class BookmarkViewController: NSViewController{
+    @objc weak var scrollView: NSScrollView!
     @IBOutlet weak var collectionView: NSCollectionView!
     
     private lazy var addLinkViewController: AddLinkViewController = {
@@ -36,9 +37,9 @@ class BookmarkViewController: NSViewController{
     
     private func reloadItem(){
         links = (try? bookmarkUserDafault.findAll()) ?? []
+        
         if let controller = (self.parent as? HomeItemViewControllerDelegate){
             controller.resizeControllerView(controller: self, size: self.collectionView.contentSize)
-            
             print("Here \(self.collectionView.contentSize)")
         }
     }

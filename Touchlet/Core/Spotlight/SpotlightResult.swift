@@ -6,7 +6,7 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Foundation
+import Cocoa
 
 class SpotlightResult{
     private var items: [SpotlightItem] = []
@@ -15,7 +15,9 @@ class SpotlightResult{
         self.items = items
     }
 
-    lazy var sortedItems = {
-        return items.sorted {$0.lastUsed ?? Date.init(timeIntervalSince1970: 0) > $1.lastUsed ?? Date.init(timeIntervalSince1970: 0)}
-    }()
+    func sortedItems(exempt: [String] = SpotlightRepository.whitelist) -> [SpotlightItem] {
+        let filtered = items.filter{!exempt.contains($0.displayName ?? "")}
+        return filtered.sorted {$0.lastUsed > $1.lastUsed && $0.useCount > $1.useCount}
+    }
+
 }

@@ -198,50 +198,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="1200" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView blendingMode="behindWindow" material="titlebar" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="JtP-Rb-5bf">
+                            <visualEffectView blendingMode="behindWindow" material="selection" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="JtP-Rb-5bf">
                                 <rect key="frame" x="0.0" y="0.0" width="1200" height="400"/>
                                 <subviews>
-                                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yx-xd-P0H">
+                                    <containerView translatesAutoresizingMaskIntoConstraints="NO" id="Ksd-TQ-GBa">
                                         <rect key="frame" x="0.0" y="0.0" width="1200" height="400"/>
-                                        <clipView key="contentView" drawsBackground="NO" id="Wg9-Nx-WMt">
-                                            <rect key="frame" x="0.0" y="0.0" width="1200" height="400"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <view identifier="dwscjsdpjcpd" id="FzY-40-V7h">
-                                                    <rect key="frame" x="0.0" y="0.0" width="1185" height="3000"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <subviews>
-                                                        <containerView translatesAutoresizingMaskIntoConstraints="NO" id="Ksd-TQ-GBa">
-                                                            <rect key="frame" x="0.0" y="0.0" width="1185" height="3000"/>
-                                                            <connections>
-                                                                <segue destination="k9J-22-Svm" kind="embed" id="id9-SC-x2T"/>
-                                                            </connections>
-                                                        </containerView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="Ksd-TQ-GBa" firstAttribute="leading" secondItem="FzY-40-V7h" secondAttribute="leading" id="FLc-8X-S4j"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Ksd-TQ-GBa" secondAttribute="trailing" id="L4T-F1-Q3a"/>
-                                                        <constraint firstItem="Ksd-TQ-GBa" firstAttribute="top" secondItem="FzY-40-V7h" secondAttribute="top" id="VCJ-zK-ppa"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Ksd-TQ-GBa" secondAttribute="bottom" id="mNG-1b-ZxR"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                        </clipView>
-                                        <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="hUw-Pg-1fS">
-                                            <rect key="frame" x="0.0" y="384" width="1200" height="16"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </scroller>
-                                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="16i-17-GiX">
-                                            <rect key="frame" x="1184" y="0.0" width="16" height="400"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </scroller>
-                                    </scrollView>
+                                        <connections>
+                                            <segue destination="k9J-22-Svm" kind="embed" id="id9-SC-x2T"/>
+                                        </connections>
+                                    </containerView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="5Yx-xd-P0H" secondAttribute="trailing" id="BNL-wo-s90"/>
-                                    <constraint firstAttribute="bottom" secondItem="5Yx-xd-P0H" secondAttribute="bottom" id="E8I-d8-BDk"/>
-                                    <constraint firstItem="5Yx-xd-P0H" firstAttribute="leading" secondItem="JtP-Rb-5bf" secondAttribute="leading" id="I33-QU-Pp9"/>
-                                    <constraint firstItem="5Yx-xd-P0H" firstAttribute="top" secondItem="JtP-Rb-5bf" secondAttribute="top" id="bbS-kb-rlP"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ksd-TQ-GBa" secondAttribute="trailing" id="EiD-lb-Nof"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ksd-TQ-GBa" secondAttribute="bottom" id="WaB-E8-d0O"/>
+                                    <constraint firstItem="Ksd-TQ-GBa" firstAttribute="top" secondItem="JtP-Rb-5bf" secondAttribute="top" id="tBf-St-UN5"/>
+                                    <constraint firstItem="Ksd-TQ-GBa" firstAttribute="leading" secondItem="JtP-Rb-5bf" secondAttribute="leading" id="uWt-zO-M4Y"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>
@@ -252,9 +223,6 @@
                             <constraint firstItem="JtP-Rb-5bf" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="TSO-8B-0kf"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="scrollView" destination="5Yx-xd-P0H" id="285-KK-cr0"/>
-                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

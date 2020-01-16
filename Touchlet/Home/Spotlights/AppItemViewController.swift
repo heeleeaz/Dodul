@@ -9,6 +9,7 @@
 import Cocoa
 
 class AppItemViewController: NSViewController{
+    @objc weak var scrollView: NSScrollView!
     @IBOutlet weak var collectionView: NSCollectionView!
     
     private var spotlightRepository = SpotlightRepository.instance
@@ -28,8 +29,7 @@ class AppItemViewController: NSViewController{
         
         
         spotlightRepository.callback = {
-            self.spotlightItem = $0.sortedItems
-
+            self.spotlightItem = $0.sortedItems()
             if let controller = (self.parent as? HomeItemViewControllerDelegate){
                 controller.resizeControllerView(controller: self, size: self.collectionView.contentSize)
             }

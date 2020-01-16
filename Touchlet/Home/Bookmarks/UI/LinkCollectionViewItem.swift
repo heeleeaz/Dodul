@@ -12,19 +12,22 @@ import FavIcon
 class LinkCollectionViewItem: NSCollectionViewItem {
     static let reuseIdentifier = NSUserInterfaceItemIdentifier("LinkCollectionViewItem")
     
+    private let cache = Cache<String, Data>()
+    
     var link: Link!{didSet{if isViewLoaded { updateView() }}}
         
     private func updateView(){
         textField?.stringValue = link.displayTitle ?? ""
-        try? FavIcon.downloadPreferred(link.url, width: 192, height: 192, completion: {
-            switch $0{
-            case IconDownloadResult.success(let image):
+        
+        FaviconImageProvider.instance.load(url: link.url, completion: {
+            if let image = $0{
                 self.imageView?.image = image
-            case IconDownloadResult.failure(let error):
-                print(error)
+            }else{
+                print($1)
             }
         })
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

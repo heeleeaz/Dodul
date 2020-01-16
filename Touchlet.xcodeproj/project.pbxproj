@@ -47,6 +47,12 @@
 		92A1B33523C4D8A200D7BEF1 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33423C4D8A200D7BEF1 /* WindowController.swift */; };
 		92A1B33A23C4DC0D00D7BEF1 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33923C4DC0D00D7BEF1 /* Logger.swift */; };
 		92A1B33C23C4DC2400D7BEF1 /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33B23C4DC2400D7BEF1 /* FileLoader.swift */; };
+		92FE9B0F23CF56AC00FA6AC6 /* OuterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */; };
+		92FE9B1123CF5AC400FA6AC6 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1023CF5AC400FA6AC6 /* Cache.swift */; };
+		92FE9B1423CF794900FA6AC6 /* NSDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1323CF794900FA6AC6 /* NSDataExtension.swift */; };
+		92FE9B1623CF79E900FA6AC6 /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1523CF79E900FA6AC6 /* NSImageExtension.swift */; };
+		92FE9B1823CFB4AD00FA6AC6 /* ImageCacheProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1723CFB4AD00FA6AC6 /* ImageCacheProvider.swift */; };
+		92FE9B2023CFDAF600FA6AC6 /* SpotlightWhitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 92FE9B1F23CFDAF600FA6AC6 /* SpotlightWhitelist.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +122,12 @@
 		92A1B33423C4D8A200D7BEF1 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		92A1B33923C4DC0D00D7BEF1 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		92A1B33B23C4DC2400D7BEF1 /* FileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
+		92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterScrollView.swift; sourceTree = "<group>"; };
+		92FE9B1023CF5AC400FA6AC6 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		92FE9B1323CF794900FA6AC6 /* NSDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDataExtension.swift; sourceTree = "<group>"; };
+		92FE9B1523CF79E900FA6AC6 /* NSImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
+		92FE9B1723CFB4AD00FA6AC6 /* ImageCacheProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheProvider.swift; sourceTree = "<group>"; };
+		92FE9B1F23CFDAF600FA6AC6 /* SpotlightWhitelist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpotlightWhitelist.json; sourceTree = "<group>"; };
 		AAB4BCE4A7A57B19483220DC /* Pods_Touchlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Touchlet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -195,6 +207,7 @@
 				925A240F23C68779002BB85F /* SpotlightResult.swift */,
 				925A240623C65EEE002BB85F /* SpotlightRepository.swift */,
 				925A241123C69487002BB85F /* SpotlightItem.swift */,
+				92FE9B1F23CFDAF600FA6AC6 /* SpotlightWhitelist.json */,
 			);
 			path = Spotlight;
 			sourceTree = "<group>";
@@ -218,6 +231,9 @@
 				925A245F23C8DBFD002BB85F /* NSStringExtension.swift */,
 				9246322123CB399100042EFE /* NSCollectionViewItem.swift */,
 				9239C71D23CB927C00990745 /* NSScrollViewExtension.swift */,
+				92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */,
+				92FE9B1323CF794900FA6AC6 /* NSDataExtension.swift */,
+				92FE9B1523CF79E900FA6AC6 /* NSImageExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -234,6 +250,7 @@
 		925A244E23C87F2F002BB85F /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				92FE9B1223CF60F100FA6AC6 /* PersistentCache */,
 				925A245323C8B2CA002BB85F /* DataController.swift */,
 				925A244F23C87F49002BB85F /* PersistentContainer.swift */,
 			);
@@ -243,6 +260,7 @@
 		925A245523C8D7D8002BB85F /* Bookmarks */ = {
 			isa = PBXGroup;
 			children = (
+				92FE9B1723CFB4AD00FA6AC6 /* ImageCacheProvider.swift */,
 				9283108223CA773A00B115D1 /* UI */,
 				925A241423C7378B002BB85F /* BookmarkRepository.swift */,
 			);
@@ -385,6 +403,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		92FE9B1223CF60F100FA6AC6 /* PersistentCache */ = {
+			isa = PBXGroup;
+			children = (
+				92FE9B1023CF5AC400FA6AC6 /* Cache.swift */,
+			);
+			path = PersistentCache;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -494,6 +520,7 @@
 				92A1B2FD23C4AA2200D7BEF1 /* Assets.xcassets in Resources */,
 				923B986223C5CF8D00BC48A7 /* AppCollectionViewItem.xib in Resources */,
 				92183C0A23CA94B800C7667F /* AddLinkViewController.xib in Resources */,
+				92FE9B2023CFDAF600FA6AC6 /* SpotlightWhitelist.json in Resources */,
 				92183C1223CAB17B00C7667F /* AddLinkCollectionViewItem.xib in Resources */,
 				9246322023CB32C200042EFE /* HomeItemViewController.storyboard in Resources */,
 				92A1B30023C4AA2200D7BEF1 /* Main.storyboard in Resources */,
@@ -566,6 +593,8 @@
 			files = (
 				92A1B2FB23C4AA2100D7BEF1 /* Touchlet.xcdatamodeld in Sources */,
 				923B986123C5CF8D00BC48A7 /* AppCollectionViewItem.swift in Sources */,
+				92FE9B1423CF794900FA6AC6 /* NSDataExtension.swift in Sources */,
+				92FE9B1123CF5AC400FA6AC6 /* Cache.swift in Sources */,
 				9239C71E23CB927C00990745 /* NSScrollViewExtension.swift in Sources */,
 				92A1B33123C4C0A000D7BEF1 /* NSViewExtension.swift in Sources */,
 				92183C0923CA94B800C7667F /* AddLinkViewController.swift in Sources */,
@@ -574,6 +603,7 @@
 				925A245723C8D811002BB85F /* BookmarkStore.swift in Sources */,
 				925A241523C7378B002BB85F /* BookmarkRepository.swift in Sources */,
 				92A1B2F823C4AA2100D7BEF1 /* MainViewController.swift in Sources */,
+				92FE9B0F23CF56AC00FA6AC6 /* OuterScrollView.swift in Sources */,
 				9246322223CB399100042EFE /* NSCollectionViewItem.swift in Sources */,
 				92A1B33C23C4DC2400D7BEF1 /* FileLoader.swift in Sources */,
 				925A245923C8D88C002BB85F /* BookmarkUserDefaults.swift in Sources */,
@@ -583,8 +613,10 @@
 				925A241223C69487002BB85F /* SpotlightItem.swift in Sources */,
 				9283108423CA78D700B115D1 /* BookmarkViewController.swift in Sources */,
 				92A1B33A23C4DC0D00D7BEF1 /* Logger.swift in Sources */,
+				92FE9B1623CF79E900FA6AC6 /* NSImageExtension.swift in Sources */,
 				9283107B23CA763D00B115D1 /* CorePackageType.swift in Sources */,
 				92A1B33023C4C0A000D7BEF1 /* NSColorExtension.swift in Sources */,
+				92FE9B1823CFB4AD00FA6AC6 /* ImageCacheProvider.swift in Sources */,
 				925A246023C8DBFD002BB85F /* NSStringExtension.swift in Sources */,
 				923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */,
 				9246321D23CB2F6600042EFE /* AppItemViewController.swift in Sources */,

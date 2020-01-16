@@ -8,11 +8,16 @@
 
 import Cocoa
 
-class MainViewController: NSViewController, NSTouchBarDelegate, MainViewControllerDelegate {
-    @IBOutlet weak var scrollView: NSScrollView!
-    let tab = [NSTouchBarItem.Identifier("hello")]
+class MainViewController: NSViewController, NSTouchBarDelegate {
+}
+
+
+//    let tab = [NSTouchBarItem.Identifier("hello")]
     
-    func fitScrollViewContent() { scrollView.resizeScrollViewContentSize() }
+    
+    
+    
+
     
     //        let slp = SwiftLinkPreview()
     //        slp.preview("http://www.google.com", onSuccess: {print($0)}, onError: {print($0)})
@@ -34,6 +39,3 @@ class MainViewController: NSViewController, NSTouchBarDelegate, MainViewControll
 //        touchBar.templateItems = [TextTab(identifier: tab[0])]
 //        return touchBar
 //    }
-}
-
-protocol MainViewControllerDelegate: class{ func fitScrollViewContent() }

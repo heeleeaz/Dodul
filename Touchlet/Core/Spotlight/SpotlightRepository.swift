@@ -9,6 +9,12 @@
 import Cocoa
 
 class SpotlightRepository{
+    static var whitelist: [String] = {
+        guard let path = Bundle.main.path(forResource: "SpotlightWhitelist", ofType: "json"),
+            let data = try? Data(contentsOf: URL.init(fileURLWithPath: path)) else {return []}
+        return (try? JSONDecoder().decode([String].self, from: data)) ?? []
+    }()
+    
     static var instance = SpotlightRepository()
     
     var callback: ((SpotlightResult) -> ())?
@@ -32,9 +38,10 @@ class SpotlightRepository{
         var items: [SpotlightItem] = []
         for result in query.results {
             guard let item = result as? NSMetadataItem, let identifer = item.value(forAttribute: kMDItemCFBundleIdentifier as String) as? String else {continue}
-            let lastUsed = item.value(forAttribute: kMDItemLastUsedDate as String) as? Date
+            let lastUsed = item.value(forAttribute: kMDItemLastUsedDate as String) as? Date ?? Date.init(timeIntervalSince1970: 0)
             let displayName = item.value(forAttribute: kMDItemDisplayName as String) as? String
-            items.append(SpotlightItem(bundleIdentifier: identifer, displayName: displayName, lastUsed: lastUsed))
+            let useCount = item.value(forAttribute: "kMDItemUseCount") as? Int ?? 0
+            items.append(SpotlightItem(bundleIdentifier: identifer, displayName: displayName, lastUsed: lastUsed, useCount: useCount))            
         }
         callback?(SpotlightResult(items: items))
 //        print((query.results[0] as? NSMetadataItem)?.attributes)

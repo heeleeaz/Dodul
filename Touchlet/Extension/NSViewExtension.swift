@@ -93,3 +93,36 @@ extension NSView {
     }
 }
 
+extension NSView{
+    @IBInspectable var borderColor: NSColor? {
+        set {
+            wantsLayer = true
+            layer?.borderColor = newValue?.cgColor
+        }
+        get {
+            if let color = layer?.borderColor { return NSColor(cgColor: color)} else {
+                return nil
+            }
+        }
+    }
+       
+    @IBInspectable var cornerRadius: CGFloat {
+        get{
+            return layer?.cornerRadius ?? 0
+        }
+        set{
+            wantsLayer = true
+            layer?.cornerRadius = newValue
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat{
+        set {
+            wantsLayer = true
+            layer?.borderWidth = newValue
+        }
+        get {
+            return layer?.borderWidth ?? 0
+        }
+    }
+}

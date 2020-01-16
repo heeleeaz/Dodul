@@ -11,5 +11,6 @@ import Foundation
 struct SpotlightItem{
     let bundleIdentifier: String!
     let displayName: String?
-    let lastUsed: Date?
+    var lastUsed: Date!
+    var useCount: Int!
 }

@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if #available(OSX 10.12.2, *) {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
         }
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
