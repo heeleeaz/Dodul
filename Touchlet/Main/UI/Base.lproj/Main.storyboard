@@ -9,6 +9,9 @@
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
+                <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Touchlet" customModuleProvider="target"/>
+                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
@@ -162,9 +165,6 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Touchlet" customModuleProvider="target"/>
-                <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="-26"/>
         </scene>
@@ -172,7 +172,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" bottomStrut="YES"/>
                         <rect key="contentRect" x="585" y="150" width="1200" height="400"/>
@@ -194,47 +194,54 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController showSeguePresentationStyle="single" id="XfG-lQ-9wD" customClass="MainViewController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="1200" height="400"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <customView key="view" id="IQN-7z-XBS" userLabel="View">
+                        <rect key="frame" x="0.0" y="0.0" width="1340" height="1318"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <visualEffectView blendingMode="behindWindow" material="selection" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="JtP-Rb-5bf">
-                                <rect key="frame" x="0.0" y="0.0" width="1200" height="400"/>
+                            <visualEffectView blendingMode="behindWindow" material="windowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="qJW-7v-89d">
+                                <rect key="frame" x="0.0" y="0.0" width="1340" height="1318"/>
                                 <subviews>
-                                    <containerView translatesAutoresizingMaskIntoConstraints="NO" id="Ksd-TQ-GBa">
-                                        <rect key="frame" x="0.0" y="0.0" width="1200" height="400"/>
+                                    <containerView translatesAutoresizingMaskIntoConstraints="NO" id="0qx-2D-8fR">
+                                        <rect key="frame" x="70" y="150" width="1200" height="400"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1200" id="1hb-FW-Qwe"/>
+                                            <constraint firstAttribute="height" constant="400" id="Ag4-bA-yVR"/>
+                                        </constraints>
                                         <connections>
-                                            <segue destination="k9J-22-Svm" kind="embed" id="id9-SC-x2T"/>
+                                            <segue destination="yYz-Hz-qMh" kind="embed" id="T3C-qL-MwK"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Ksd-TQ-GBa" secondAttribute="trailing" id="EiD-lb-Nof"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ksd-TQ-GBa" secondAttribute="bottom" id="WaB-E8-d0O"/>
-                                    <constraint firstItem="Ksd-TQ-GBa" firstAttribute="top" secondItem="JtP-Rb-5bf" secondAttribute="top" id="tBf-St-UN5"/>
-                                    <constraint firstItem="Ksd-TQ-GBa" firstAttribute="leading" secondItem="JtP-Rb-5bf" secondAttribute="leading" id="uWt-zO-M4Y"/>
+                                    <constraint firstItem="0qx-2D-8fR" firstAttribute="centerX" secondItem="qJW-7v-89d" secondAttribute="centerX" id="G0E-I7-YHN"/>
+                                    <constraint firstAttribute="bottom" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="150" id="ISa-nA-Whx"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="JtP-Rb-5bf" secondAttribute="bottom" id="48A-Av-4YW"/>
-                            <constraint firstAttribute="trailing" secondItem="JtP-Rb-5bf" secondAttribute="trailing" id="C7l-6T-2sI"/>
-                            <constraint firstItem="JtP-Rb-5bf" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="I0v-yr-vN4"/>
-                            <constraint firstItem="JtP-Rb-5bf" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="TSO-8B-0kf"/>
+                            <constraint firstAttribute="trailing" secondItem="qJW-7v-89d" secondAttribute="trailing" id="Yz3-e0-6k5"/>
+                            <constraint firstItem="qJW-7v-89d" firstAttribute="leading" secondItem="IQN-7z-XBS" secondAttribute="leading" id="pBT-5r-BMW"/>
+                            <constraint firstAttribute="bottom" secondItem="qJW-7v-89d" secondAttribute="bottom" id="vPR-ho-LEp"/>
+                            <constraint firstItem="qJW-7v-89d" firstAttribute="top" secondItem="IQN-7z-XBS" secondAttribute="top" id="yvw-Dq-IsF"/>
                         </constraints>
-                    </view>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                <color key="value" red="1" green="0.49143407410000001" blue="0.39896009449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </customView>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-40" y="809"/>
+            <point key="canvasLocation" x="-40" y="1328"/>
         </scene>
         <!--HomeItemViewController-->
-        <scene sceneID="5YV-8O-jZ9">
+        <scene sceneID="cMD-sp-umU">
             <objects>
-                <controllerPlaceholder storyboardName="HomeItemViewController" id="k9J-22-Svm" sceneMemberID="viewController"/>
-                <customObject id="d8n-MO-qW2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <controllerPlaceholder storyboardName="HomeItemViewController" id="yYz-Hz-qMh" sceneMemberID="viewController"/>
+                <customObject id="iO9-fM-5na" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-40" y="1117"/>
+            <point key="canvasLocation" x="-40" y="1082"/>
         </scene>
     </scenes>
 </document>

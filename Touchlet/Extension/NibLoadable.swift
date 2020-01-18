@@ -44,3 +44,10 @@ extension NibLoadable where Self: NSViewController{
         return Self(nibName: NSNib.Name(nibName!), bundle: bundle)
     }
 }
+
+extension NibLoadable where Self: NSViewController{
+    static func createFromStoryboard(in bundle: Bundle = Bundle.main) -> Self? {
+        let storyboard = NSStoryboard(name: NSStoryboard.Name(nibName!), bundle: bundle)
+        return storyboard.instantiateInitialController() as? Self
+    }
+}

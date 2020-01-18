@@ -8,18 +8,23 @@
 
 import Cocoa
 
-struct SpotlightResult{
+class SpotlightResult{
+    var position = 0
     var items: [SpotlightItem] = []
     
-    var filtered: [SpotlightItem] {
-        return self.items.filter{!SpotlightRepository.whitelist.contains($0.displayName ?? "")}
+    init(items: [SpotlightItem]) {
+        self.items = items
+            .filter{!SpotlightRepository.whitelist.contains($0.displayName ?? "")}
+            .sorted {$0.lastUsed > $1.lastUsed && $0.useCount > $1.useCount}
+    }
+
+    var hasNext: Bool{ return position < items.count}
+    
+    func next(forward by: Int) -> [SpotlightItem]{
+        let arr =  Array(items[position ..< min((by + position), count)])        
+        position += arr.count
+        return arr
     }
     
-    func sorted(limit: Int = 10) -> [SpotlightItem] {
-        var sorted =  filtered.sorted {$0.lastUsed > $1.lastUsed && $0.useCount > $1.useCount}
-        if(limit != -1 && sorted.count > limit){
-            sorted.removeSubrange(limit..<sorted.count)
-        }
-        return sorted
-    }
+    var count: Int { return items.count }
 }

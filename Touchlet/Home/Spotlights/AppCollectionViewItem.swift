@@ -18,6 +18,5 @@ class AppCollectionViewItem: NSCollectionViewItem {
         if let image = SpotlightRepository.findAppIcon(bundleIdentifier: spotlight.bundleIdentifier){
             imageView?.image = image
         }
-        
     }
 }

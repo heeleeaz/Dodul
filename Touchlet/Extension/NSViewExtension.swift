@@ -126,3 +126,21 @@ extension NSView{
         }
     }
 }
+
+extension NSView{
+    fileprivate func leastOrigin(view: NSView, minY: CGFloat) -> CGFloat{
+        print("\(minY) \(view.identifier)")
+
+        if view.subviews.count > 0 {
+            for v in view.subviews{
+                let y = v.frame.origin.y + (v.heightConstaint?.constant ?? 0)
+                return leastOrigin(view: v, minY: (minY > y ? y : minY))
+            }
+            return leastOrigin(view: view, minY: minY)
+        }else{
+            return CGFloat(view.frame.origin.y + (view.heightConstaint?.constant ?? 0))
+        }
+    }
+    
+    var leastOrigin: CGFloat{ leastOrigin(view: self, minY: CGFloat(Int.max))}
+}

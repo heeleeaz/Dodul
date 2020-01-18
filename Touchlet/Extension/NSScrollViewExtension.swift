@@ -9,17 +9,14 @@
 import Cocoa
 
 extension NSScrollView{
-    func resizeScrollViewContentSize(){
+    func fitContent(){
+        if let documentView = contentView.documentView{
+            var contentRect = documentView.frame
 
-//        let contentRect: CGRect = subviews.reduce(into: .zero) { rect, view in
-//            rect = rect.union(view.frame)
-//        }
-//
-//        print(contentRect)
-//        documentView?.setFrameSize(contentRect.size)
-        hasVerticalScroller = true
-//        showsHorizontalScrollIndicator = true
-//        showsVerticalScrollIndicator = true
-//        contentSize = contentRect.size
+            for view in documentView.subviews{
+                contentRect = contentRect.union(view.frame)
+            }
+            documentView.setFrameSize(contentRect.size)
+        }
     }
 }

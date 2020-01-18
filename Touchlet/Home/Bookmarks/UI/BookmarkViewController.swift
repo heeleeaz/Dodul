@@ -39,7 +39,8 @@ class BookmarkViewController: NSViewController{
     
     private func reloadItem(){
         links = (try? bookmarkUserDafault.findAll()) ?? []
-        fitSize(view: self.view.superview!, collectionView: self.collectionView)
+        compactSize(ofView: view.superview!, collectionView, append: 60)
+        DispatchQueue.main.async {self.scrollView.fitContent()}
     }
 }
 

@@ -8,7 +8,11 @@
 
 import Cocoa
 
-class MainViewController: NSViewController, NSTouchBarDelegate {
+class MainViewController: NSViewController, NSTouchBarDelegate {    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
 }
 
 

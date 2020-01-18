@@ -17,11 +17,9 @@ class WindowController: NSWindowController{
         }
 
         
-        window.contentView?.wantsLayer = true
-        window.contentView?.layer?.masksToBounds = true
-        window.contentView?.layer?.cornerRadius = 20
-        window.isOpaque = false
-        window.backgroundColor = .clear
+//        window.contentView?.wantsLayer = true
+//        window.contentView?.layer?.masksToBounds = true
+//        window.isOpaque = false
     }
     
     @available(OSX 10.12.2, *)
