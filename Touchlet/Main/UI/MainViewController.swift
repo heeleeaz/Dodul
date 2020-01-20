@@ -9,9 +9,25 @@
 import Cocoa
 
 class MainViewController: NSViewController, NSTouchBarDelegate {    
+    @IBOutlet weak var doneButton: NSButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        doneButton.addClickGestureRecognizer{ NSApplication.shared.terminate(self) }
+//        h(view: self.view)
+        
+    }
+    
+    private func h(view: NSView){
+        view.wantsLayer = true
+        view.layerUsesCoreImageFilters = true
+        view.layer?.backgroundColor = NSColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.5).cgColor
+
+        let blurFilter = CIFilter(name: "CIGaussianBlur")
+        blurFilter?.setDefaults()
+        blurFilter?.setValue(2.5, forKey: kCIInputRadiusKey)
+        view.layer?.backgroundFilters?.append(blurFilter!)
     }
 }
 
