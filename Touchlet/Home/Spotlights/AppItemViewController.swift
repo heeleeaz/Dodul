@@ -17,7 +17,7 @@ class AppItemViewController: NSViewController{
     private var spotlightItem: [SpotlightItem] = []{
         didSet{
             collectionView.reloadData()
-            compactSize(ofView: view.superview!, collectionView, append: 60)
+            compactSize(ofView: view.superview!, collectionView, append: 60)            
             DispatchQueue.main.async {self.scrollView.fitContent()}
         }
     }
@@ -52,6 +52,16 @@ class AppItemViewController: NSViewController{
         spotlightRepository.callback = {
             self.spotlightResult = $0
             self.spotlightItem = self.spotlightResult?.next(forward: 10) ?? []
+            
+            
+//            do{
+//                let item = TouchBarItem(identifier: self.spotlightItem[0].bundleIdentifier, type: .App)
+//                try TouchBarItemUserDefault().addItem(item)
+//            }catch let error as NSError{
+//                print("Hello WORLD")
+//                print("Hello \(error.userInfo)")
+//            }
+            
         }
         spotlightRepository.doSpotlightQuery()
     }
@@ -87,8 +97,6 @@ extension AppItemViewController{
     func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
         return true
     }
-    
-
     
     func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt index: Int) -> NSPasteboardWriting? {
         return spotlightItem[index].bundleIdentifier as NSPasteboardWriting?

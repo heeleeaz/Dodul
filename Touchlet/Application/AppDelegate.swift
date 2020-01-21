@@ -10,15 +10,17 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-                
+    func applicationWillBecomeActive(_ notification: Notification) {
         if let screenFrame = NSScreen.main?.frame {
             let window = NSApplication.shared.windows[0]
             window.backgroundColor = NSColor.clear
             window.setFrame(screenFrame, display: true)
+            window.setContentSize(screenFrame.size)
             window.contentView?.enterFullScreenMode(NSScreen.main!, withOptions: nil)
         }
-        
+    }
+    
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         if #available(OSX 10.12.2, *) {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
         }

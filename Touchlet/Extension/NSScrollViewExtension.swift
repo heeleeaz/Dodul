@@ -12,7 +12,6 @@ extension NSScrollView{
     func fitContent(){
         if let documentView = contentView.documentView{
             var contentRect = documentView.frame
-
             for view in documentView.subviews{
                 contentRect = contentRect.union(view.frame)
             }

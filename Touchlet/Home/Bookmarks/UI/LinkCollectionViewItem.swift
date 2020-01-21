@@ -19,17 +19,8 @@ class LinkCollectionViewItem: NSCollectionViewItem {
     private func updateView(){
         textField?.stringValue = link.displayTitle ?? ""
         
-        FaviconImageProvider.instance.load(url: link.url, completion: {
-            if let image = $0{
-                self.imageView?.image = image
-            }else{
-                print($1)
-            }
+        FaviconImageProvider.instance.load(url: link.url, completion: { (image, _) in
+            if let image = image {self.imageView?.image = image}
         })
-    }
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 }

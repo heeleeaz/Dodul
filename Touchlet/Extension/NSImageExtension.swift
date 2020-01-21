@@ -9,11 +9,10 @@
 import Cocoa
 import CoreImage
 
-extension NSImage {
-    var data: Data? {return tiffRepresentation}
-}
-
 extension NSImage{
+    
+    var data: Data? {return tiffRepresentation}
+
     var greyscale: NSImage? {
         guard let currentCGImage = cgImage else { return nil}
         let currentCIImage = CIImage(cgImage: currentCGImage)
@@ -39,5 +38,14 @@ extension NSImage{
             return CGImageSourceCreateImageAtIndex(source, 0, nil) ?? nil
         }
         return nil
+    }
+    
+    func resize(destSize: CGSize) -> NSImage {
+        let newImage = NSImage(size: destSize)
+        newImage.lockFocus()
+        draw(in: NSMakeRect(0, 0, destSize.width, destSize.height), from: NSMakeRect(0, 0, size.width, size.height), operation: NSCompositingOperation.sourceOver, fraction: CGFloat(1))
+        newImage.unlockFocus()
+        newImage.size = destSize
+        return newImage
     }
 }

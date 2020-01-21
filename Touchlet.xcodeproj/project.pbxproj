@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		83751E29B9CEA1BBE3E0B628 /* Pods_Touchlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB4BCE4A7A57B19483220DC /* Pods_Touchlet.framework */; };
+		92084DA323D7521A00661E60 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92084DA223D7521A00661E60 /* Utility.swift */; };
+		9212AE6023D60373003482FB /* TouchBarItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE5F23D60373003482FB /* TouchBarItemProvider.swift */; };
+		9212AE6623D606AC003482FB /* TouchBarItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE6523D606AC003482FB /* TouchBarItemStore.swift */; };
+		9212AE6823D60763003482FB /* TouchBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE6723D60763003482FB /* TouchBarItem.swift */; };
+		9212AE6A23D61579003482FB /* TouchBarItemUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE6323D605A7003482FB /* TouchBarItemUserDefault.swift */; };
+		92135A6223D7181200336567 /* TouchBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92135A6123D7181200336567 /* TouchBarButton.swift */; };
 		92183C0923CA94B800C7667F /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92183C0723CA94B800C7667F /* AddLinkViewController.swift */; };
 		92183C0A23CA94B800C7667F /* AddLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92183C0823CA94B800C7667F /* AddLinkViewController.xib */; };
 		9239C71E23CB927C00990745 /* NSScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239C71D23CB927C00990745 /* NSScrollViewExtension.swift */; };
@@ -77,6 +83,12 @@
 /* Begin PBXFileReference section */
 		25E1A65C9426C5503D4B6DB7 /* Pods-Touchlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Touchlet.release.xcconfig"; path = "Target Support Files/Pods-Touchlet/Pods-Touchlet.release.xcconfig"; sourceTree = "<group>"; };
 		90C094CC103844EACE7A68D7 /* Pods-Touchlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Touchlet.debug.xcconfig"; path = "Target Support Files/Pods-Touchlet/Pods-Touchlet.debug.xcconfig"; sourceTree = "<group>"; };
+		92084DA223D7521A00661E60 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		9212AE5F23D60373003482FB /* TouchBarItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItemProvider.swift; sourceTree = "<group>"; };
+		9212AE6323D605A7003482FB /* TouchBarItemUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItemUserDefault.swift; sourceTree = "<group>"; };
+		9212AE6523D606AC003482FB /* TouchBarItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItemStore.swift; sourceTree = "<group>"; };
+		9212AE6723D60763003482FB /* TouchBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItem.swift; sourceTree = "<group>"; };
+		92135A6123D7181200336567 /* TouchBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarButton.swift; sourceTree = "<group>"; };
 		92183C0723CA94B800C7667F /* AddLinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkViewController.swift; sourceTree = "<group>"; };
 		92183C0823CA94B800C7667F /* AddLinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLinkViewController.xib; sourceTree = "<group>"; };
 		9239C71D23CB927C00990745 /* NSScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSScrollViewExtension.swift; sourceTree = "<group>"; };
@@ -168,6 +180,26 @@
 				25E1A65C9426C5503D4B6DB7 /* Pods-Touchlet.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9212AE6223D604E6003482FB /* TouchBar */ = {
+			isa = PBXGroup;
+			children = (
+				92135A6323D718B300336567 /* UI */,
+				9212AE6723D60763003482FB /* TouchBarItem.swift */,
+				9212AE6523D606AC003482FB /* TouchBarItemStore.swift */,
+				9212AE5F23D60373003482FB /* TouchBarItemProvider.swift */,
+				9212AE6323D605A7003482FB /* TouchBarItemUserDefault.swift */,
+			);
+			path = TouchBar;
+			sourceTree = "<group>";
+		};
+		92135A6323D718B300336567 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				92135A6123D7181200336567 /* TouchBarButton.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		923B985A23C5CA1600BC48A7 /* Domain */ = {
@@ -379,6 +411,7 @@
 		92A1B33723C4DBEB00D7BEF1 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				9212AE6223D604E6003482FB /* TouchBar */,
 				925A245C23C8DB75002BB85F /* Domain */,
 				925A244E23C87F2F002BB85F /* Storage */,
 				925A241323C736E5002BB85F /* Bookmarks */,
@@ -394,6 +427,7 @@
 			children = (
 				92A1B33923C4DC0D00D7BEF1 /* Logger.swift */,
 				92A1B33B23C4DC2400D7BEF1 /* FileLoader.swift */,
+				92084DA223D7521A00661E60 /* Utility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -608,9 +642,11 @@
 				923B987323C6107000BC48A7 /* NSViewControllerExtension.swift in Sources */,
 				92A1B33223C4C0A000D7BEF1 /* NibLoadable.swift in Sources */,
 				92FE9B2223D0718100FA6AC6 /* HomeCollectionItemsUtil.swift in Sources */,
+				92084DA323D7521A00661E60 /* Utility.swift in Sources */,
 				925A245723C8D811002BB85F /* BookmarkStore.swift in Sources */,
 				925A241523C7378B002BB85F /* BookmarkRepository.swift in Sources */,
 				92A1B2F823C4AA2100D7BEF1 /* MainViewController.swift in Sources */,
+				9212AE6A23D61579003482FB /* TouchBarItemUserDefault.swift in Sources */,
 				92FE9B0F23CF56AC00FA6AC6 /* OuterScrollView.swift in Sources */,
 				9246322223CB399100042EFE /* NSCollectionViewItem.swift in Sources */,
 				92A1B33C23C4DC2400D7BEF1 /* FileLoader.swift in Sources */,
@@ -623,17 +659,21 @@
 				92A1B33A23C4DC0D00D7BEF1 /* Logger.swift in Sources */,
 				92FE9B1623CF79E900FA6AC6 /* NSImageExtension.swift in Sources */,
 				9283107B23CA763D00B115D1 /* CorePackageType.swift in Sources */,
+				9212AE6823D60763003482FB /* TouchBarItem.swift in Sources */,
 				92A1B33023C4C0A000D7BEF1 /* NSColorExtension.swift in Sources */,
 				92FE9B1823CFB4AD00FA6AC6 /* ImageCacheProvider.swift in Sources */,
 				925A246023C8DBFD002BB85F /* NSStringExtension.swift in Sources */,
+				9212AE6623D606AC003482FB /* TouchBarItemStore.swift in Sources */,
 				923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */,
 				9246321D23CB2F6600042EFE /* AppItemViewController.swift in Sources */,
 				925A245023C87F49002BB85F /* PersistentContainer.swift in Sources */,
+				92135A6223D7181200336567 /* TouchBarButton.swift in Sources */,
 				925A240723C65EEE002BB85F /* SpotlightRepository.swift in Sources */,
 				92A1B33523C4D8A200D7BEF1 /* WindowController.swift in Sources */,
 				925A241023C68779002BB85F /* SpotlightResult.swift in Sources */,
 				92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */,
 				925A245423C8B2CA002BB85F /* DataController.swift in Sources */,
+				9212AE6023D60373003482FB /* TouchBarItemProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,7 +771,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -786,7 +826,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -809,6 +849,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.Touchlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -829,6 +870,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.Touchlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -14,10 +14,7 @@ class HomeItemViewController: NSViewController, NibLoadable{
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if let controller = segue.destinationController as? NSViewController{
-            controller.setValue(scrollView, forKey: "scrollView")
+            controller.setValue(scrollView, forKey: #keyPath(scrollView))
         }
-    }
-    
-    override func viewDidAppear() {
     }
 }

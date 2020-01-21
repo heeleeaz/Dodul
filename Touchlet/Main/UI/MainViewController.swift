@@ -8,54 +8,16 @@
 
 import Cocoa
 
-class MainViewController: NSViewController, NSTouchBarDelegate {    
+class MainViewController: NSViewController, NSTouchBarDelegate {
     @IBOutlet weak var doneButton: NSButton!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        doneButton.addClickGestureRecognizer{ NSApplication.shared.terminate(self) }
-//        h(view: self.view)
-        
+
+        doneButton.addClickGestureRecognizer{ terminateApp(self) }
     }
     
-    private func h(view: NSView){
-        view.wantsLayer = true
-        view.layerUsesCoreImageFilters = true
-        view.layer?.backgroundColor = NSColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.5).cgColor
-
-        let blurFilter = CIFilter(name: "CIGaussianBlur")
-        blurFilter?.setDefaults()
-        blurFilter?.setValue(2.5, forKey: kCIInputRadiusKey)
-        view.layer?.backgroundFilters?.append(blurFilter!)
+    override func cancelOperation(_ sender: Any?) {
+        terminateApp(self)
     }
 }
-
-
-//    let tab = [NSTouchBarItem.Identifier("hello")]
-    
-    
-    
-    
-
-    
-    //        let slp = SwiftLinkPreview()
-    //        slp.preview("http://www.google.com", onSuccess: {print($0)}, onError: {print($0)})
-    //
-    //        let slp = SwiftLinkPreview(session: URLSession = URLSession.shared,
-    //        workQueue: DispatchQueue = SwiftLinkPreview.defaultWorkQueue,
-    //        responseQueue: DispatchQueue = DispatchQueue.main,
-    //            cache: Cache = DisabledCache.instance)
-
-//    func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
-//        return TextTab(identifier: identifier)
-//    }
-//
-//    override func makeTouchBar() -> NSTouchBar? {
-//        let touchBar = NSTouchBar()
-//        touchBar.delegate = self
-//
-//        touchBar.defaultItemIdentifiers = tab
-//        touchBar.templateItems = [TextTab(identifier: tab[0])]
-//        return touchBar
-//    }
