@@ -12,6 +12,8 @@ class AppItemViewController: NSViewController{
     @objc weak var scrollView: NSScrollView!
     @IBOutlet weak var collectionView: NSCollectionView!
     
+    private var indexPathsOfItemsBeingDragged: IndexSet?
+    
     private var spotlightResult: SpotlightResult?
     
     private var spotlightItem: [SpotlightItem] = []{
@@ -34,8 +36,6 @@ class AppItemViewController: NSViewController{
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.hideVerticalScrollView()
-        
         registerForDragAndDrop()
     }
     
@@ -52,16 +52,6 @@ class AppItemViewController: NSViewController{
         spotlightRepository.callback = {
             self.spotlightResult = $0
             self.spotlightItem = self.spotlightResult?.next(forward: 10) ?? []
-            
-            
-//            do{
-//                let item = TouchBarItem(identifier: self.spotlightItem[0].bundleIdentifier, type: .App)
-//                try TouchBarItemUserDefault().addItem(item)
-//            }catch let error as NSError{
-//                print("Hello WORLD")
-//                print("Hello \(error.userInfo)")
-//            }
-            
         }
         spotlightRepository.doSpotlightQuery()
     }
@@ -95,6 +85,7 @@ extension AppItemViewController: NSCollectionViewDataSource, NSCollectionViewDel
 
 extension AppItemViewController{
     func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
+        print(event.absoluteX)
         return true
     }
     
@@ -102,6 +93,27 @@ extension AppItemViewController{
         return spotlightItem[index].bundleIdentifier as NSPasteboardWriting?
     }
     
+    func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexes: IndexSet) {
+        indexPathsOfItemsBeingDragged = indexes
+
+        print(screenPoint)
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, updateDraggingItemsForDrag draggingInfo: NSDraggingInfo) {
+        print(draggingInfo)
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
+        print(draggingInfo)
+        return .move
+    }
+//    func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndex proposedDropIndex: UnsafeMutablePointer<Int>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
+//
+//        if proposedDropOperation.move() == NSCollectionView.DropOperation.on{
+//            proposedDropOperation.initialize(to: .before)
+//        }
+//    }
+//
 //    func collectionView(_ collectionView: NSCollectionView, updateDraggingItemsForDrag draggingInfo: NSDraggingInfo) {
 //        return true
 //    }

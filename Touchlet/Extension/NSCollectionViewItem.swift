@@ -13,9 +13,12 @@ extension NSCollectionView{
         return collectionViewLayout?.collectionViewContentSize
     }
     
-    func hideVerticalScrollView() {
-        if let scrollBar = enclosingScrollView{
-            scrollBar.verticalScroller = nil
+    @IBInspectable var hideVerticalScrollView: Bool {
+        set{
+            enclosingScrollView?.verticalScroller = nil
+        }
+        get{
+            return enclosingScrollView?.verticalScroller != nil
         }
     }
 }
