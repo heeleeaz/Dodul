@@ -49,4 +49,13 @@ extension TouchBarItem{
     enum TouchBarItemType: String {
         case Web="Web", App="App"
     }
+    
+    var iconImage: NSImage?{
+        switch type {
+        case .App:
+            return SpotlightRepository.findAppIcon(bundleIdentifier: identifier)
+        default:
+            return FaviconImageProvider.instance.load(fromCache: URL(string: identifier)!)
+        }
+    }
 }

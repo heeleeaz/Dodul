@@ -43,15 +43,9 @@ extension WindowController: NSTouchBarDelegate{
         guard let item = touchBarItems[identifier] else {return nil}
         
         let customTouchBarItem = NSCustomTouchBarItem(identifier: identifier)
-        switch(item.type){
-        case .App:
-            let icon = SpotlightRepository.findAppIcon(bundleIdentifier: item.identifier)
-            customTouchBarItem.view = createImageButton(image: icon!, identifier: identifier)
-        default:
-            let icon = FaviconImageProvider.instance.load(fromCache: URL(string: item.identifier)!)
-            customTouchBarItem.view = createImageButton(image: icon!, identifier: identifier)
+        if let image = item.iconImage{
+            customTouchBarItem.view = createImageButton(image: image, identifier: identifier)
         }
-        
         return customTouchBarItem
     }
 }

@@ -10,7 +10,6 @@ import Cocoa
 
 class HomeItemViewController: NSViewController, NibLoadable{
     @IBOutlet weak var scrollView: NSScrollView!
-    private let packageTypes: [CorePackageType] = CorePackageType.allCases
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if let controller = segue.destinationController as? NSViewController{

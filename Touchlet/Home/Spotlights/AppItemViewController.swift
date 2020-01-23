@@ -12,7 +12,7 @@ class AppItemViewController: NSViewController{
     @objc weak var scrollView: NSScrollView!
     @IBOutlet weak var collectionView: NSCollectionView!
     
-    private var indexPathsOfItemsBeingDragged: IndexSet?
+    private var indexPathsOfItemsBeingDragged: IndexPath?
     
     private var spotlightResult: SpotlightResult?
     
@@ -37,8 +37,18 @@ class AppItemViewController: NSViewController{
         collectionView.dataSource = self
         
         registerForDragAndDrop()
+
+//        NotificationCenter.default.addObserver(self, selector: #selector(a), name: UserDefaults.didChangeNotification, object: nil)
+        
+        let locationObserver = PointerLocationObserver()
+        locationObserver.start { _, inDropPoint in
+            print(inDropPoint )
+        }
     }
     
+    @objc func a(notification: NSNotification){
+    }
+
     func registerForDragAndDrop() {
         collectionView.registerForDraggedTypes([.URL])
         collectionView.setDraggingSourceOperationMask(NSDragOperation.every, forLocal: true)
@@ -85,7 +95,6 @@ extension AppItemViewController: NSCollectionViewDataSource, NSCollectionViewDel
 
 extension AppItemViewController{
     func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
-        print(event.absoluteX)
         return true
     }
     
@@ -93,28 +102,11 @@ extension AppItemViewController{
         return spotlightItem[index].bundleIdentifier as NSPasteboardWriting?
     }
     
-    func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexes: IndexSet) {
-        indexPathsOfItemsBeingDragged = indexes
-
-        print(screenPoint)
+    func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexPaths: Set<IndexPath>) {
+        indexPathsOfItemsBeingDragged = indexPaths.first
     }
     
-    func collectionView(_ collectionView: NSCollectionView, updateDraggingItemsForDrag draggingInfo: NSDraggingInfo) {
-        print(draggingInfo)
+    func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, dragOperation operation: NSDragOperation) {
+        indexPathsOfItemsBeingDragged = nil
     }
-    
-    func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
-        print(draggingInfo)
-        return .move
-    }
-//    func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndex proposedDropIndex: UnsafeMutablePointer<Int>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
-//
-//        if proposedDropOperation.move() == NSCollectionView.DropOperation.on{
-//            proposedDropOperation.initialize(to: .before)
-//        }
-//    }
-//
-//    func collectionView(_ collectionView: NSCollectionView, updateDraggingItemsForDrag draggingInfo: NSDraggingInfo) {
-//        return true
-//    }
 }
