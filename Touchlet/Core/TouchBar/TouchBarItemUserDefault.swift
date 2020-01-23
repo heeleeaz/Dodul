@@ -9,18 +9,15 @@
 import Foundation
 
 class TouchBarItemUserDefault: TouchBarItemStore {
+    static let instance = TouchBarItemUserDefault()
     
-    public struct Constants {
-        public static let groupName = "\(Global.groupIdPrefix).touchBarItem_"
-    }
-
-    private struct Keys {
+    struct Keys {
         static let touchBarItemKey = "com.heeleeaz.touchBarItem.touchBarItemKey"
     }
 
     private let userDefaults: UserDefaults
 
-    init(userDefaults: UserDefaults = UserDefaults(suiteName: Constants.groupName)!) {
+    init(userDefaults: UserDefaults = .touchBarSuite) {
         self.userDefaults = userDefaults
     }
     
@@ -38,7 +35,10 @@ class TouchBarItemUserDefault: TouchBarItemStore {
     
     func setItems(_ item: [TouchBarItem]) throws {
         let data = try NSKeyedArchiver.archivedData(withRootObject: item, requiringSecureCoding: false)
-        return userDefaults.set(data, forKey: Keys.touchBarItemKey)
+        userDefaults.set(data, forKey: Keys.touchBarItemKey)
+        
+        //notification seems not to fire, hence, post notification manually for now
+        NotificationCenter.default.post(name: .TouchBarItem, object: item)
     }
     
     func findAll() throws -> [TouchBarItem]{
@@ -47,3 +47,10 @@ class TouchBarItemUserDefault: TouchBarItemStore {
     }
 }
 
+extension UserDefaults {
+    static let touchBarSuite = UserDefaults(suiteName: "\(Global.groupIdPrefix).touchBarItem_")!
+}
+
+extension NSNotification.Name{
+    static let TouchBarItem = NSNotification.Name(TouchBarItemUserDefault.Keys.touchBarItemKey)
+}

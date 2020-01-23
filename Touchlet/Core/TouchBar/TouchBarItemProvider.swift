@@ -15,7 +15,7 @@ extension WindowController{
     
     private var touchBarItems: [NSTouchBarItem.Identifier: TouchBarItem]  {
         var dict: [NSTouchBarItem.Identifier: TouchBarItem] = [:]
-        try? TouchBarItemUserDefault().findAll().forEach({dict[$0.touchBarIdentifier] = $0})
+        try? TouchBarItemUserDefault.instance.findAll().forEach({dict[$0.touchBarIdentifier] = $0})
         return dict
     }
     
@@ -25,7 +25,7 @@ extension WindowController{
         let touchBar =  NSTouchBar()
         touchBar.delegate = self
         touchBar.customizationIdentifier = Constants.customizationIdentifier
-        touchBar.defaultItemIdentifiers = Array(touchBarItems.keys)        
+        touchBar.defaultItemIdentifiers = Array(touchBarItems.keys)
         return touchBar
     }
     
@@ -35,6 +35,10 @@ extension WindowController{
     private func createImageButton(image: NSImage, identifier: NSTouchBarItem.Identifier) -> NSButton{
         let newImage = image.resize(destSize: CGSize(width: 24, height: 24))
         return NSButton(image: newImage, target: self, action: #selector(buttonTapped(button:identifier:)))
+    }
+    
+    func refreshTouchBar(){
+        touchBar?.defaultItemIdentifiers = Array(touchBarItems.keys)
     }
 }
 

@@ -8,17 +8,20 @@
 
 import Cocoa
 
-public class PointerLocationObserver{
+class PointerLocationObserver{
     private let itemDropDetectionHeight = CGFloat(40)
     private var timeInterval: TimeInterval
     private var timer: Timer?
     
+    var delegate: PointerLocationObserverDelegate?
+    
     init(timeInterval: TimeInterval = 0.5) {self.timeInterval = timeInterval}
     
-    func start(delegate: @escaping (NSPoint, Bool)->()){
+    func start(){
         timer = Timer(timeInterval: timeInterval, repeats: true, block: {_ in
             let mouseLocation = NSEvent.mouseLocation
-            delegate(mouseLocation, self.inDropDetectionRect(pointer: mouseLocation))
+            let inDropRect = self.inDropDetectionRect(pointer: mouseLocation)
+            self.delegate?.pointerLocationObserver(pointerLocation: mouseLocation, inDropRect: inDropRect)
         })
         RunLoop.main.add(timer!, forMode: .default)
     }
@@ -36,4 +39,8 @@ public class PointerLocationObserver{
         }
         return false
     }
+}
+
+protocol PointerLocationObserverDelegate: class{
+    func pointerLocationObserver(pointerLocation: NSPoint, inDropRect: Bool)
 }

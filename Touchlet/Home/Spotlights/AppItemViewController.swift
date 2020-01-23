@@ -13,9 +13,9 @@ class AppItemViewController: NSViewController{
     @IBOutlet weak var collectionView: NSCollectionView!
     
     private var indexPathsOfItemsBeingDragged: IndexPath?
+    private var pointerLocationObserver = PointerLocationObserver()
     
     private var spotlightResult: SpotlightResult?
-    
     private var spotlightItem: [SpotlightItem] = []{
         didSet{
             collectionView.reloadData()
@@ -37,22 +37,14 @@ class AppItemViewController: NSViewController{
         collectionView.dataSource = self
         
         registerForDragAndDrop()
-
-//        NotificationCenter.default.addObserver(self, selector: #selector(a), name: UserDefaults.didChangeNotification, object: nil)
-        
-        let locationObserver = PointerLocationObserver()
-        locationObserver.start { _, inDropPoint in
-            print(inDropPoint )
-        }
     }
+
     
-    @objc func a(notification: NSNotification){
-    }
-
     func registerForDragAndDrop() {
         collectionView.registerForDraggedTypes([.URL])
         collectionView.setDraggingSourceOperationMask(NSDragOperation.every, forLocal: true)
         collectionView.setDraggingSourceOperationMask(NSDragOperation.every, forLocal: false)
+        pointerLocationObserver.delegate = self
     }
         
     override func viewDidAppear() {
@@ -104,9 +96,23 @@ extension AppItemViewController{
     
     func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexPaths: Set<IndexPath>) {
         indexPathsOfItemsBeingDragged = indexPaths.first
+        pointerLocationObserver.start()
     }
     
     func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, dragOperation operation: NSDragOperation) {
         indexPathsOfItemsBeingDragged = nil
+        pointerLocationObserver.stop()
+    }
+}
+
+extension AppItemViewController: PointerLocationObserverDelegate{
+    func pointerLocationObserver(pointerLocation: NSPoint, inDropRect: Bool) {
+        guard inDropRect else {return}
+        
+        guard let index = self.indexPathsOfItemsBeingDragged else {return}
+        let spotlightItem  = self.spotlightItem[index.item]
+
+        let item = TouchBarItem(identifier: spotlightItem.bundleIdentifier, type: .App)
+        try? TouchBarItemUserDefault.instance.addItem(item)
     }
 }

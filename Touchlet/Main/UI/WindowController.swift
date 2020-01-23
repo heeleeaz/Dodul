@@ -9,11 +9,19 @@
 import Cocoa
 
 class WindowController: NSWindowController{
-    let label = NSTouchBarItem.Identifier("\(Global.groupIdPrefix).label")
-    
     override func windowDidLoad() {
         super.windowDidLoad()
         window?.setFrameAutosaveName("WindowAutosave")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(touchBarItemDidChanged), name: .TouchBarItem, object: nil)
+    }
+    
+    @objc private func touchBarItemDidChanged(notification: NSNotification){
+        refreshTouchBar()
+    }
+    
+    deinit {
+        UserDefaults.touchBarSuite.removeObserver(self, forKeyPath: TouchBarItemUserDefault.Keys.touchBarItemKey)
     }
 }
 

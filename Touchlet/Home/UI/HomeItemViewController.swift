@@ -17,3 +17,4 @@ class HomeItemViewController: NSViewController, NibLoadable{
         }
     }
 }
+

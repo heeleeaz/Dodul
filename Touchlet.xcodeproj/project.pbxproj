@@ -13,7 +13,6 @@
 		9212AE6623D606AC003482FB /* TouchBarItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE6523D606AC003482FB /* TouchBarItemStore.swift */; };
 		9212AE6823D60763003482FB /* TouchBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE6723D60763003482FB /* TouchBarItem.swift */; };
 		9212AE6A23D61579003482FB /* TouchBarItemUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE6323D605A7003482FB /* TouchBarItemUserDefault.swift */; };
-		92135A6223D7181200336567 /* TouchBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92135A6123D7181200336567 /* TouchBarButton.swift */; };
 		92183C0923CA94B800C7667F /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92183C0723CA94B800C7667F /* AddLinkViewController.swift */; };
 		92183C0A23CA94B800C7667F /* AddLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92183C0823CA94B800C7667F /* AddLinkViewController.xib */; };
 		9239C71E23CB927C00990745 /* NSScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239C71D23CB927C00990745 /* NSScrollViewExtension.swift */; };
@@ -91,7 +90,6 @@
 		9212AE6323D605A7003482FB /* TouchBarItemUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItemUserDefault.swift; sourceTree = "<group>"; };
 		9212AE6523D606AC003482FB /* TouchBarItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItemStore.swift; sourceTree = "<group>"; };
 		9212AE6723D60763003482FB /* TouchBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItem.swift; sourceTree = "<group>"; };
-		92135A6123D7181200336567 /* TouchBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarButton.swift; sourceTree = "<group>"; };
 		92183C0723CA94B800C7667F /* AddLinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkViewController.swift; sourceTree = "<group>"; };
 		92183C0823CA94B800C7667F /* AddLinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLinkViewController.xib; sourceTree = "<group>"; };
 		9239C71D23CB927C00990745 /* NSScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSScrollViewExtension.swift; sourceTree = "<group>"; };
@@ -202,21 +200,12 @@
 		9212AE6223D604E6003482FB /* TouchBar */ = {
 			isa = PBXGroup;
 			children = (
-				92135A6323D718B300336567 /* UI */,
 				9212AE6723D60763003482FB /* TouchBarItem.swift */,
 				9212AE6523D606AC003482FB /* TouchBarItemStore.swift */,
 				9212AE5F23D60373003482FB /* TouchBarItemProvider.swift */,
 				9212AE6323D605A7003482FB /* TouchBarItemUserDefault.swift */,
 			);
 			path = TouchBar;
-			sourceTree = "<group>";
-		};
-		92135A6323D718B300336567 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				92135A6123D7181200336567 /* TouchBarButton.swift */,
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		923B986323C5E51F00BC48A7 /* UI */ = {
@@ -677,7 +666,6 @@
 				923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */,
 				9246321D23CB2F6600042EFE /* AppItemViewController.swift in Sources */,
 				925A245023C87F49002BB85F /* PersistentContainer.swift in Sources */,
-				92135A6223D7181200336567 /* TouchBarButton.swift in Sources */,
 				9253BFEA23DA04E9004721BC /* TouchBarPanelNotification.swift in Sources */,
 				925A240723C65EEE002BB85F /* SpotlightRepository.swift in Sources */,
 				92A1B33523C4D8A200D7BEF1 /* WindowController.swift in Sources */,

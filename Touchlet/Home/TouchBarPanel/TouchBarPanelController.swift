@@ -10,10 +10,10 @@ import Cocoa
 
 class TouchBarPanelController: NSViewController {
     @IBOutlet weak var collectionView: NSCollectionView!
-    
-    private var touchBarItemUserDefault = TouchBarItemUserDefault()
-    
-    private lazy var touchBarItems: [TouchBarItem] = {return (try? TouchBarItemUserDefault().findAll()) ?? []}()
+        
+    private lazy var touchBarItems: [TouchBarItem] = {
+        return (try? TouchBarItemUserDefault.instance.findAll()) ?? []
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()

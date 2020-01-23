@@ -47,7 +47,7 @@ extension TouchBarItem{
     }
     
     enum TouchBarItemType: String {
-        case Web="Web", App="App"
+        case Web = "Web", App = "App"
     }
     
     var iconImage: NSImage?{
