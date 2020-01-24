@@ -7,48 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="oIS-Mp-qt4">
-            <objects>
-                <customObject id="1MK-P1-bMP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController id="RSr-Vm-mzx" sceneMemberID="viewController">
-                    <view key="view" id="ag2-L2-Wqf">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKk-ua-mrT">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                                <clipView key="contentView" id="gnF-vX-NJS">
-                                    <rect key="frame" x="1" y="1" width="448" height="298"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <view id="g3m-yW-3S1">
-                                            <rect key="frame" x="0.0" y="0.0" width="433" height="283"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </view>
-                                    </subviews>
-                                </clipView>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="mTe-sX-R5K">
-                                    <rect key="frame" x="1" y="283" width="448" height="16"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="CuM-kA-oLv">
-                                    <rect key="frame" x="433" y="1" width="16" height="298"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="lKk-ua-mrT" secondAttribute="bottom" id="4tb-0q-H8q"/>
-                            <constraint firstAttribute="trailing" secondItem="lKk-ua-mrT" secondAttribute="trailing" id="6tg-EB-azN"/>
-                            <constraint firstItem="lKk-ua-mrT" firstAttribute="leading" secondItem="ag2-L2-Wqf" secondAttribute="leading" id="LW2-q6-krT"/>
-                            <constraint firstItem="lKk-ua-mrT" firstAttribute="top" secondItem="ag2-L2-Wqf" secondAttribute="top" id="RkT-Qf-ELt"/>
-                        </constraints>
-                    </view>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="-1782" y="1406"/>
-        </scene>
         <!--Home Item View Controller-->
         <scene sceneID="YJ8-1E-bY3">
             <objects>
@@ -115,10 +73,10 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                <color key="value" name="HomeContainerBackgroundColor"/>
+                                <color key="value" name="Clear"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" red="0.98103545979999995" green="0.98103545979999995" blue="0.98103545979999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="value" name="Clear"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -159,6 +117,7 @@
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </clipView>
+                                <edgeInsets key="contentInsets" left="8" right="8" top="0.0" bottom="0.0"/>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="pOr-3c-j6K">
                                     <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
@@ -231,7 +190,7 @@
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="TWF-l4-xk1">
                                                 <size key="itemSize" width="50" height="50"/>
                                             </collectionViewFlowLayout>
-                                            <color key="primaryBackgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="0.098039215690000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="primaryBackgroundColor" name="Clear"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="hideVerticalScrollView" value="YES"/>
                                             </userDefinedRuntimeAttributes>
@@ -242,6 +201,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="243" id="0de-tQ-uEN"/>
                                 </constraints>
+                                <edgeInsets key="contentInsets" left="8" right="8" top="0.0" bottom="0.0"/>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="LYa-Xb-nH8">
                                     <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
@@ -272,8 +232,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="HomeContainerBackgroundColor">
-            <color red="0.21294494632541242" green="0.21171405068191296" blue="0.21417584196891193" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="Clear">
+            <color red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

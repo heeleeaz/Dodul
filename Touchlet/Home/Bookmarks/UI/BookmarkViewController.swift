@@ -22,7 +22,7 @@ class BookmarkViewController: NSViewController{
     
     override func viewDidLoad() {
         let flowLayout = NSCollectionViewFlowLayout()
-        flowLayout.itemSize = NSSize(width: 109, height: 107)
+        flowLayout.itemSize = NSSize(width: 120, height: 110)
         flowLayout.minimumLineSpacing = 5
         flowLayout.minimumInteritemSpacing = 5
         collectionView.collectionViewLayout = flowLayout

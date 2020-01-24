@@ -291,34 +291,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </customView>
-                            <containerView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6hE-4N-Jag">
-                                <rect key="frame" x="70" y="0.0" width="1200" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="1200" id="kyh-c9-2Rm"/>
-                                    <constraint firstAttribute="height" constant="45" id="pFa-wc-qrd"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="BorderColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="mPA-9e-2vc" kind="embed" id="4Oq-dt-Ejv"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="150" id="FZE-Pd-SMm"/>
-                            <constraint firstItem="6hE-4N-Jag" firstAttribute="centerX" secondItem="IQN-7z-XBS" secondAttribute="centerX" id="OFA-7n-YMM"/>
                             <constraint firstItem="0qx-2D-8fR" firstAttribute="top" secondItem="vYl-tr-09g" secondAttribute="bottom" constant="20" id="W2q-Or-OBm"/>
                             <constraint firstItem="vYl-tr-09g" firstAttribute="centerX" secondItem="IQN-7z-XBS" secondAttribute="centerX" id="WNg-1F-IGm"/>
-                            <constraint firstAttribute="bottom" secondItem="6hE-4N-Jag" secondAttribute="bottom" id="pgA-t2-cwD"/>
                             <constraint firstItem="0qx-2D-8fR" firstAttribute="centerX" secondItem="IQN-7z-XBS" secondAttribute="centerX" id="q2h-PN-N8d"/>
                         </constraints>
                     </customView>
@@ -336,58 +313,7 @@
                 <controllerPlaceholder storyboardName="HomeItemViewController" id="yYz-Hz-qMh" sceneMemberID="viewController"/>
                 <customObject id="iO9-fM-5na" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-618" y="2116"/>
-        </scene>
-        <!--Touch Bar Panel Controller-->
-        <scene sceneID="dOJ-7F-NQK">
-            <objects>
-                <customObject id="kj3-vx-8x9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController id="mPA-9e-2vc" customClass="TouchBarPanelController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Y5Z-qD-eWb">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="40"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="Q23-fA-ROg">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="40"/>
-                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="tIS-Zp-S3s">
-                                    <rect key="frame" x="0.0" y="0.0" width="450" height="40"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <collectionView id="pP8-jt-B5i">
-                                            <rect key="frame" x="0.0" y="0.0" width="450" height="158"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" scrollDirection="horizontal" id="t7e-5C-ovO">
-                                                <size key="itemSize" width="50" height="50"/>
-                                            </collectionViewFlowLayout>
-                                            <color key="primaryBackgroundColor" red="0.050882448186528539" green="0.050396441546637027" blue="0.050263580684219558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </collectionView>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </clipView>
-                                <edgeInsets key="contentInsets" left="10" right="10" top="0.0" bottom="0.0"/>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.5" horizontal="YES" id="DDX-4S-Xtd">
-                                    <rect key="frame" x="10" y="24" width="430" height="16"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="y1U-Az-fbH">
-                                    <rect key="frame" x="424" y="0.0" width="16" height="40"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="Q23-fA-ROg" firstAttribute="leading" secondItem="Y5Z-qD-eWb" secondAttribute="leading" id="Uvu-de-MtX"/>
-                            <constraint firstAttribute="bottom" secondItem="Q23-fA-ROg" secondAttribute="bottom" id="W8J-SS-c5u"/>
-                            <constraint firstItem="Q23-fA-ROg" firstAttribute="top" secondItem="Y5Z-qD-eWb" secondAttribute="top" id="aO4-cL-ArN"/>
-                            <constraint firstAttribute="trailing" secondItem="Q23-fA-ROg" secondAttribute="trailing" id="wnK-17-RTP"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="collectionView" destination="pP8-jt-B5i" id="lO3-5S-IcX"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="385" y="2145"/>
+            <point key="canvasLocation" x="-40" y="2104"/>
         </scene>
     </scenes>
     <resources>
@@ -396,7 +322,7 @@
             <color red="0.2669999897480011" green="0.2669999897480011" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HomeBackgroundColor">
-            <color red="0.18500000238418579" green="0.18400000035762787" blue="0.18600000441074371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.16005861837503188" green="0.15913342404916464" blue="0.16098381270089912" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
