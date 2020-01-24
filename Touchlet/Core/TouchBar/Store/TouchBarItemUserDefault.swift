@@ -36,9 +36,6 @@ class TouchBarItemUserDefault: TouchBarItemStore {
     func setItems(_ item: [TouchBarItem]) throws {
         let data = try NSKeyedArchiver.archivedData(withRootObject: item, requiringSecureCoding: false)
         userDefaults.set(data, forKey: Keys.touchBarItemKey)
-        
-        //notification seems not to fire, hence, post notification manually for now
-        NotificationCenter.default.post(name: .TouchBarItem, object: item)
     }
     
     func findAll() throws -> [TouchBarItem]{
@@ -49,8 +46,4 @@ class TouchBarItemUserDefault: TouchBarItemStore {
 
 extension UserDefaults {
     static let touchBarSuite = UserDefaults(suiteName: "\(Global.groupIdPrefix).touchBarItem")!
-}
-
-extension NSNotification.Name{
-    static let TouchBarItem = NSNotification.Name(TouchBarItemUserDefault.Keys.touchBarItemKey)
 }

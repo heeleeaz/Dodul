@@ -9,19 +9,31 @@
 import Cocoa
 
 class WindowController: NSWindowController{
+    private let pointerLocationObserver = PointerLocationObserver()
+
     override func windowDidLoad() {
         super.windowDidLoad()
         window?.setFrameAutosaveName("WindowAutosave")
         
-        NotificationCenter.default.addObserver(self, selector: #selector(touchBarItemDidChanged), name: .TouchBarItem, object: nil)
+        pointerLocationObserver.delegate = self
+        registerNotificationObservers()
     }
     
-    @objc private func touchBarItemDidChanged(notification: NSNotification){
-        refreshTouchBar()
+    private func registerNotificationObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(collectionItemDragBegin), name: .dragBegin, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(collectionItemDragEnded), name: .dragEnded, object: nil)
+    }
+    
+    @objc private func collectionItemDragBegin(notification: NSNotification){
+        pointerLocationObserver.start(notification.object)
+    }
+    
+    @objc private func collectionItemDragEnded(notification: NSNotification){
+        pointerLocationObserver.stop()
     }
     
     deinit {
-        UserDefaults.touchBarSuite.removeObserver(self, forKeyPath: TouchBarItemUserDefault.Keys.touchBarItemKey)
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

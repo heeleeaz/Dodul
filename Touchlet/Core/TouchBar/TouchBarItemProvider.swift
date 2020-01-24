@@ -30,21 +30,12 @@ extension WindowController{
     
     @objc private func buttonTapped(button: NSButton, identifier: NSTouchBarItem.Identifier){
     }
-    
-    private func createImageButton(image: NSImage, identifier: String) -> NSButton{
-        let newImage = image.resize(destSize: CGSize(width: 24, height: 24))
-        return NSButton(image: newImage, target: self, action: #selector(buttonTapped(button:identifier:)))
-    }
-    
-    func refreshTouchBar(){
-//        touchBar?.defaultItemIdentifiers = Array(touchBarItems.keys)
-    }
 }
 
 extension WindowController: NSTouchBarDelegate{
-    fileprivate var buttonDefSize: NSSize{return NSSize(width: 72, height: 30)}
-    fileprivate var defSpacing: CGFloat {return CGFloat(8)}
-    
+    private var buttonDefSize: NSSize{return NSSize(width: 72, height: 30)}
+    private var defSpacing: CGFloat {return CGFloat(8)}
+        
     func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         let scrollView = NSScrollView(frame: CGRect(x: 0, y: 0, width: 600, height: 30))
         let documentView = NSView(frame: CGRect.zero)
@@ -75,4 +66,23 @@ extension WindowController: NSTouchBarDelegate{
         
         return customView
     }
+    
+    private func createImageButton(image: NSImage, identifier: String) -> NSButton{
+        let newImage = image.resize(destSize: CGSize(width: 24, height: 24))
+        return NSButton(image: newImage, target: self, action: #selector(buttonTapped(button:identifier:)))
+    }
 }
+
+extension WindowController: PointerLocationObserverDelegate{
+    func pointerLocationObserver(pointerLocation: NSPoint, inDropRect: Bool, object: Any?) {
+        guard inDropRect else {return}
+        
+        print(object)
+//        guard let index = self.indexPathsOfItemsBeingDragged else {return}
+//        let spotlightItem  = self.spotlightItem[index.item]
+//
+//        let item = TouchBarItem(identifier: spotlightItem.bundleIdentifier, type: .App)
+//        try? TouchBarItemUserDefault.instance.addItem(item)
+    }
+}
+

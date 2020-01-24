@@ -17,11 +17,11 @@ class PointerLocationObserver{
     
     init(timeInterval: TimeInterval = 0.5) {self.timeInterval = timeInterval}
     
-    func start(){
+    func start(_ object: Any?){
         timer = Timer(timeInterval: timeInterval, repeats: true, block: {_ in
             let mouseLocation = NSEvent.mouseLocation
             let inDropRect = self.inDropDetectionRect(pointer: mouseLocation)
-            self.delegate?.pointerLocationObserver(pointerLocation: mouseLocation, inDropRect: inDropRect)
+            self.delegate?.pointerLocationObserver(pointerLocation: mouseLocation, inDropRect: inDropRect, object: object)
         })
         RunLoop.main.add(timer!, forMode: .default)
     }
@@ -37,10 +37,16 @@ class PointerLocationObserver{
         if let screenRect = NSScreen.main?.frame{
             return inDropDetectionRect(pointer: pointer, screenFrame: screenRect)
         }
+        
         return false
     }
 }
 
 protocol PointerLocationObserverDelegate: class{
-    func pointerLocationObserver(pointerLocation: NSPoint, inDropRect: Bool)
+    func pointerLocationObserver(pointerLocation: NSPoint, inDropRect: Bool, object: Any?)
+}
+
+extension NSNotification.Name{
+    static let dragBegin = NSNotification.Name(rawValue: "\(Global.groupIdPrefix).dragBegin")
+    static let dragEnded = NSNotification.Name(rawValue: "\(Global.groupIdPrefix).dragEnded")
 }
