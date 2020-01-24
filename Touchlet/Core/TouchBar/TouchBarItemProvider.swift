@@ -11,7 +11,6 @@ import Cocoa
 extension WindowController{
     struct Constants {
         static let customizationIdentifier = NSTouchBar.CustomizationIdentifier("\(Global.groupIdPrefix).TouchBarProvider")
-        
         static let scrollBarIdentifier = NSTouchBarItem.Identifier("\(Global.groupIdPrefix).scrollbar")
     }
     
@@ -43,11 +42,14 @@ extension WindowController{
 }
 
 extension WindowController: NSTouchBarDelegate{
+    fileprivate var buttonDefSize: NSSize{return NSSize(width: 72, height: 30)}
+    fileprivate var defSpacing: CGFloat {return CGFloat(8)}
+    
     func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         let scrollView = NSScrollView(frame: CGRect(x: 0, y: 0, width: 600, height: 30))
         let documentView = NSView(frame: CGRect.zero)
         
-        var size = NSSize(width: 8, height: 30)
+        var size = NSSize(width: defSpacing, height: buttonDefSize.height)
         for touchBarItem in touchBarItems{
             guard let image = touchBarItem.iconImage else {continue}
             
@@ -55,14 +57,14 @@ extension WindowController: NSTouchBarDelegate{
             button.translatesAutoresizingMaskIntoConstraints = false
             documentView.addSubview(button)
 
-            button.widthAnchor.constraint(equalToConstant: 72).isActive = true
-            button.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            button.widthAnchor.constraint(equalToConstant: buttonDefSize.width).isActive = true
+            button.heightAnchor.constraint(equalToConstant: buttonDefSize.height).isActive = true
             button.centerYAnchor.constraint(equalTo: documentView.centerYAnchor).isActive = true
             
             let leading = documentView.subviews.last{$0 != button}?.trailingAnchor ?? documentView.leadingAnchor
-            button.leadingAnchor.constraint(equalTo: leading, constant: 8).isActive = true
+            button.leadingAnchor.constraint(equalTo: leading, constant: defSpacing).isActive = true
             
-            size.width += 8 + button.intrinsicContentSize.width
+            size.width += buttonDefSize.width + defSpacing
         }
         
         documentView.frame = NSRect(x: 0, y: 0, width: size.width, height: size.height)

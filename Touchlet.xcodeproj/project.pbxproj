@@ -197,13 +197,29 @@
 			path = TouchBarPanel;
 			sourceTree = "<group>";
 		};
-		9212AE6223D604E6003482FB /* TouchBar */ = {
+		921239DF23DA795800CA3276 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				9212AE6523D606AC003482FB /* TouchBarItemStore.swift */,
+				9212AE6323D605A7003482FB /* TouchBarItemUserDefault.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		921239E023DA7AAC00CA3276 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				9212AE6723D60763003482FB /* TouchBarItem.swift */,
-				9212AE6523D606AC003482FB /* TouchBarItemStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9212AE6223D604E6003482FB /* TouchBar */ = {
+			isa = PBXGroup;
+			children = (
+				921239E023DA7AAC00CA3276 /* Model */,
+				921239DF23DA795800CA3276 /* Store */,
 				9212AE5F23D60373003482FB /* TouchBarItemProvider.swift */,
-				9212AE6323D605A7003482FB /* TouchBarItemUserDefault.swift */,
 			);
 			path = TouchBar;
 			sourceTree = "<group>";

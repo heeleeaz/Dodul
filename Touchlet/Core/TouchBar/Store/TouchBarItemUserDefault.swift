@@ -48,7 +48,7 @@ class TouchBarItemUserDefault: TouchBarItemStore {
 }
 
 extension UserDefaults {
-    static let touchBarSuite = UserDefaults(suiteName: "\(Global.groupIdPrefix).touchBarItem_")!
+    static let touchBarSuite = UserDefaults(suiteName: "\(Global.groupIdPrefix).touchBarItem")!
 }
 
 extension NSNotification.Name{
