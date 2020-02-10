@@ -33,17 +33,21 @@ extension WindowController{
 }
 
 extension WindowController: NSTouchBarDelegate{
-    private var buttonDefSize: NSSize{return NSSize(width: 72, height: 30)}
+    private var defTouchBarButtonSize: NSSize{return NSSize(width: 72, height: 30)}
     private var defSpacing: CGFloat {return CGFloat(8)}
         
     func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         let scrollView = NSScrollView(frame: CGRect(x: 0, y: 0, width: 600, height: 30))
-        let documentView = NSView(frame: CGRect.zero)
+        let documentView = NSStackView(frame: CGRect.zero)
+        documentView.distribution = .equalSpacing
+        documentView.alignment = .centerX
+        documentView.orientation = .horizontal
+        documentView.spacing = defSpacing
         
-        var size = NSSize(width: defSpacing, height: buttonDefSize.height)
+        var size = NSSize(width: defSpacing, height: defTouchBarButtonSize.height)
         for touchBarItem in touchBarItems{
             if addButton(touchBarItem: touchBarItem, documentView: documentView){
-                size.width += buttonDefSize.width + defSpacing
+                size.width += defTouchBarButtonSize.width + defSpacing
             }
         }
         
@@ -56,35 +60,45 @@ extension WindowController: NSTouchBarDelegate{
         return customView
     }
     
-    private func addButton(touchBarItem: TouchBarItem, documentView: NSView) -> Bool{
+    private func addSubview(_ child: NSView, documentView: NSStackView, position: Int, adjustSize: Bool){
+        if position > -1 && position < documentView.arrangedSubviews.count{
+            documentView.insertArrangedSubview(child, at: position)
+        }else{
+            documentView.addArrangedSubview(child)
+        }
+        
+        if adjustSize{
+            let newWidth = documentView.frame.width + defTouchBarButtonSize.width + defSpacing
+            documentView.frame = NSRect(x: 0, y: 0, width: newWidth, height: documentView.frame.height)
+        }
+    }
+    
+    @discardableResult
+    private func addButton(touchBarItem: TouchBarItem, documentView: NSStackView, position: Int = -1) -> Bool{
+        let adjustSize = skeletaButtonView.superview == nil
+        removeSkeletaView(documentView: documentView, adjustSize: false)
+        
         guard let image = touchBarItem.iconImage else {return false}
         
         let button = createImageButton(image: image, identifier: touchBarItem.identifier)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        documentView.addSubview(button)
-
-        button.widthAnchor.constraint(equalToConstant: buttonDefSize.width).isActive = true
-        button.heightAnchor.constraint(equalToConstant: buttonDefSize.height).isActive = true
-        button.centerYAnchor.constraint(equalTo: documentView.centerYAnchor).isActive = true
+        addSubview(button, documentView: documentView, position: position, adjustSize: adjustSize)
         
-        let leading = documentView.subviews.last{$0 != button}?.trailingAnchor ?? documentView.leadingAnchor
-        button.leadingAnchor.constraint(equalTo: leading, constant: defSpacing).isActive = true
         return true
     }
+       
+    private func addSkeletaView(_ touchBarItem: TouchBarItem, documentView: NSStackView, position: Int = -1){
+        let adjustSize = skeletaButtonView.superview == nil
+        addSubview(skeletaButtonView, documentView: documentView, position: position, adjustSize: adjustSize)
+    }
     
-    private func placeSkeletaButton(position: NSPoint, documentView: NSView) -> Bool{
-        let button = SkeletaTouchButtonView(title: "", target: nil, action: nil)
-        button.identifier = NSUserInterfaceItemIdentifier(rawValue: "SkeletaButton")
-        button.translatesAutoresizingMaskIntoConstraints = false
-        documentView.addSubview(button)
-
-        button.widthAnchor.constraint(equalToConstant: buttonDefSize.width).isActive = true
-        button.heightAnchor.constraint(equalToConstant: buttonDefSize.height).isActive = true
-        button.centerYAnchor.constraint(equalTo: documentView.centerYAnchor).isActive = true
-        
-        let leading = documentView.subviews.last{$0 != button}?.trailingAnchor ?? documentView.leadingAnchor
-        button.leadingAnchor.constraint(equalTo: leading, constant: defSpacing).isActive = true
-        return true
+    private func removeSkeletaView(documentView: NSStackView, adjustSize: Bool){
+        if skeletaButtonView.superview == nil {return}
+    
+        skeletaButtonView.removeFromSuperview()
+        if adjustSize{
+            let newWidth = documentView.frame.width - defTouchBarButtonSize.width + defSpacing
+            documentView.frame = NSRect(x: 0, y: 0, width: newWidth, height: documentView.frame.height)
+        }
     }
     
     private func createImageButton(image: NSImage, identifier: String) -> NSButton{
@@ -104,49 +118,21 @@ extension WindowController: PointerLocationObserverDelegate{
     private var scrollViewInTouchBar: NSScrollView?{
         return (touchBar?.item(forIdentifier: Constants.scrollBarIdentifier) as? NSCustomTouchBarItem)?.view as? NSScrollView
     }
-    
-    func pointerLocationObserver(pointerLocation: NSPoint, inDropRect: Bool, object: Any?) {
-        guard let scrollView = scrollViewInTouchBar, inDropRect else {return}
-        
-        var touchBarItem: TouchBarItem!
-        if let spotlight = object as? SpotlightItem{
-            touchBarItem = TouchBarItem(identifier: spotlight.bundleIdentifier, type: .App)
-        } else if let link = object as? Link {
-            touchBarItem = TouchBarItem(identifier: link.url.absoluteString, type: .Web)
-        }
-        
-        let documentView = scrollView.documentView!
-        
-        let rect = buttonRectInScrollbar(touchBarItem)
-        Logger.log(text: "Pointer: \(pointerLocation.x) IconX In Scroll: \(rect?.origin.x)")
-        
-        print(findItemPositionWithinPoint(point: pointerLocation, fallbackPosition: 0))
-        
-        if touchBarItems.contains(touchBarItem){
+
+    func pointerLocationObserver(pointerLocation: NSPoint, inDropRect: Bool, object: Any?, isTerminated: Bool) {
+        guard let scrollView = scrollViewInTouchBar,
+            let touchBarItem = asTouchBarItem(object: object) else {return}
             
-//            if pointerLocation >= rect?.origin && pointerLocation<=rect
+        let documentView = scrollView.documentView as! NSStackView
+        
+        if !inDropRect{removeSkeletaView(documentView: documentView, adjustSize: true); return}
+    
+        let jumpInPos = findItemPositionWithinPoint(pointerLocation, documentView: documentView)
+        if !isTerminated{
+            addSkeletaView(touchBarItem, documentView: documentView, position: jumpInPos)
+        }else{
+            addButton(touchBarItem: touchBarItem, documentView: documentView, position: jumpInPos)
         }
-        
-//        print(findRelativePosition(mousePosition: pointerLocation))
-        
-//        if placeSkeletaButton(position: pointerLocation, documentView: documentView){
-//            let currentFrame = documentView.frame
-//            let newWidth = currentFrame.width + buttonDefSize.width + defSpacing
-//            documentView.frame = NSRect(x: 0, y: 0, width: newWidth, height: currentFrame.height)
-//        }
-//
-//
-        //demo
-        if pointerLocation.x > 300{
-            if addButton(touchBarItem: touchBarItem!, documentView: scrollView.documentView!){
-                let currentFrame = documentView.frame
-                let newWidth = currentFrame.width + buttonDefSize.width + defSpacing
-                documentView.frame = NSRect(x: 0, y: 0, width: newWidth, height: currentFrame.height)
-            }
-        }
-//
-//
-        
     }
     
     func buttonRectInScrollbar(_ touchBarItem: TouchBarItem) -> CGRect?{
@@ -157,12 +143,24 @@ extension WindowController: PointerLocationObserverDelegate{
         return CGRect(origin: CGPoint(x: newX, y: frame.origin.y), size: frame.size)
     }
     
-    private func findItemPositionWithinPoint(point: NSPoint, fallbackPosition: Int) -> Int{
+    private func findItemPositionWithinPoint(_ point: NSPoint, documentView: NSStackView) -> Int{
         if touchBarRect.contains(point){
             let normalizedX = point.x - touchBarRect.origin.x
-            return Int(normalizedX / (buttonDefSize.width + (defSpacing)))
+            return Int(normalizedX / (defTouchBarButtonSize.width + (defSpacing / 2)))
         }
-        return fallbackPosition
+        return point.x < touchBarRect.origin.x ? 0 : documentView.arrangedSubviews.count
+    }
+    
+    private func asTouchBarItem(object: Any?) -> TouchBarItem?{
+        var touchBarItem: TouchBarItem?
+        
+        if let spotlight = object as? SpotlightItem{
+            touchBarItem = TouchBarItem(identifier: spotlight.bundleIdentifier, type: .App)
+        } else if let link = object as? Link {
+            touchBarItem = TouchBarItem(identifier: link.url.absoluteString, type: .Web)
+        }
+        
+        return touchBarItem
     }
 }
 

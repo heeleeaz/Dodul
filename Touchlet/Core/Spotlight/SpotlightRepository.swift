@@ -49,10 +49,11 @@ class SpotlightRepository{
     
     static func findAppIcon(bundleIdentifier: String) -> NSImage?{
         let workspace = NSWorkspace.shared
-        guard let path = workspace.absolutePathForApplication(withBundleIdentifier: bundleIdentifier) else{
-            return nil
+        if let path = workspace.absolutePathForApplication(withBundleIdentifier: bundleIdentifier){
+            return workspace.icon(forFile: path)
         }
-        return workspace.icon(forFile: path)
+        return nil
+//
     }
 }
 

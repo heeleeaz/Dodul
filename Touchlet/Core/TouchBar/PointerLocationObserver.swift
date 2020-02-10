@@ -12,21 +12,30 @@ class PointerLocationObserver{
     private let itemDropDetectionHeight = CGFloat(40)
     private var timeInterval: TimeInterval
     private var timer: Timer?
+    private var object: Any?
     
     var delegate: PointerLocationObserverDelegate?
-    
+        
     init(timeInterval: TimeInterval = 0.5) {self.timeInterval = timeInterval}
     
     func start(_ object: Any?){
+        self.object = object
         timer = Timer(timeInterval: timeInterval, repeats: true, block: {_ in
-            let mouseLocation = NSEvent.mouseLocation
-            let inDropRect = self.inDropDetectionRect(pointer: mouseLocation)
-            self.delegate?.pointerLocationObserver(pointerLocation: mouseLocation, inDropRect: inDropRect, object: object)
+            self.dispatchDelegation(isTerminated: false)
         })
         RunLoop.main.add(timer!, forMode: .default)
     }
     
-    func stop(){timer?.invalidate()}
+    private func dispatchDelegation(isTerminated: Bool){
+        let mouseLocation = NSEvent.mouseLocation
+        let inDropRect = self.inDropDetectionRect(pointer: mouseLocation)
+        delegate?.pointerLocationObserver(pointerLocation: mouseLocation, inDropRect: inDropRect, object: object, isTerminated: isTerminated)
+    }
+    
+    func stop(){
+        timer?.invalidate()
+        dispatchDelegation(isTerminated: true)
+    }
     
     func inDropDetectionRect(pointer: NSPoint, screenFrame: NSRect) -> Bool{
         let possibleRect = NSRect(x: 0, y: 0, width: screenFrame.width, height: itemDropDetectionHeight)
@@ -43,7 +52,7 @@ class PointerLocationObserver{
 }
 
 protocol PointerLocationObserverDelegate: class{
-    func pointerLocationObserver(pointerLocation: NSPoint, inDropRect: Bool, object: Any?)
+    func pointerLocationObserver(pointerLocation: NSPoint, inDropRect: Bool, object: Any?, isTerminated: Bool)
 }
 
 extension NSNotification.Name{
