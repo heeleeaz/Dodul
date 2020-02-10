@@ -136,13 +136,14 @@ extension WindowController: PointerLocationObserverDelegate{
 //        }
 //
 //
-//        if pointerLocation.x > 1000{
-//            if addButton(touchBarItem: touchBarItem!, documentView: scrollView.documentView!){
-//                let currentFrame = documentView.frame
-//                let newWidth = currentFrame.width + buttonDefSize.width + defSpacing
-//                documentView.frame = NSRect(x: 0, y: 0, width: newWidth, height: currentFrame.height)
-//            }
-//        }
+        //demo
+        if pointerLocation.x > 300{
+            if addButton(touchBarItem: touchBarItem!, documentView: scrollView.documentView!){
+                let currentFrame = documentView.frame
+                let newWidth = currentFrame.width + buttonDefSize.width + defSpacing
+                documentView.frame = NSRect(x: 0, y: 0, width: newWidth, height: currentFrame.height)
+            }
+        }
 //
 //
         
@@ -159,7 +160,7 @@ extension WindowController: PointerLocationObserverDelegate{
     private func findItemPositionWithinPoint(point: NSPoint, fallbackPosition: Int) -> Int{
         if touchBarRect.contains(point){
             let normalizedX = point.x - touchBarRect.origin.x
-            return Int(normalizedX / (buttonDefSize.width + (defSpacing / 2)))
+            return Int(normalizedX / (buttonDefSize.width + (defSpacing)))
         }
         return fallbackPosition
     }
