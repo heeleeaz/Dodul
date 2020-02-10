@@ -38,7 +38,6 @@ class AppItemViewController: NSViewController{
         registerForDragAndDrop()
     }
 
-    
     func registerForDragAndDrop() {
         collectionView.registerForDraggedTypes([.URL])
         collectionView.setDraggingSourceOperationMask(NSDragOperation.every, forLocal: true)
