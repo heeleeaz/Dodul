@@ -11,7 +11,7 @@ import Cocoa
 class WindowController: NSWindowController{
     public let pointerLocationObserver = PointerLocationObserver()
     
-    lazy var skeletaButtonView: SkeletaTouchButtonView = {return SkeletaTouchButtonView()}()
+    lazy var skeletaButtonView: SkeletaTouchBarItemView = {return SkeletaTouchBarItemView()}()
 
     override func windowDidLoad() {
         super.windowDidLoad()

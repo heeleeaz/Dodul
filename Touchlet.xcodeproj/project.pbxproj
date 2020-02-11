@@ -52,7 +52,7 @@
 		92A1B33523C4D8A200D7BEF1 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33423C4D8A200D7BEF1 /* WindowController.swift */; };
 		92A1B33A23C4DC0D00D7BEF1 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33923C4DC0D00D7BEF1 /* Logger.swift */; };
 		92A1B33C23C4DC2400D7BEF1 /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33B23C4DC2400D7BEF1 /* FileLoader.swift */; };
-		92B2A06923F15F9F0088F413 /* SkeletaTouchButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2A06823F15F9F0088F413 /* SkeletaTouchButtonView.swift */; };
+		92B2A06923F15F9F0088F413 /* SkeletaTouchBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2A06823F15F9F0088F413 /* SkeletaTouchBarItemView.swift */; };
 		92FE9B0F23CF56AC00FA6AC6 /* OuterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */; };
 		92FE9B1123CF5AC400FA6AC6 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1023CF5AC400FA6AC6 /* Cache.swift */; };
 		92FE9B1423CF794900FA6AC6 /* NSDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1323CF794900FA6AC6 /* NSDataExtension.swift */; };
@@ -136,7 +136,7 @@
 		92A1B33423C4D8A200D7BEF1 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		92A1B33923C4DC0D00D7BEF1 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		92A1B33B23C4DC2400D7BEF1 /* FileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
-		92B2A06823F15F9F0088F413 /* SkeletaTouchButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletaTouchButtonView.swift; sourceTree = "<group>"; };
+		92B2A06823F15F9F0088F413 /* SkeletaTouchBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletaTouchBarItemView.swift; sourceTree = "<group>"; };
 		92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterScrollView.swift; sourceTree = "<group>"; };
 		92FE9B1023CF5AC400FA6AC6 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		92FE9B1323CF794900FA6AC6 /* NSDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDataExtension.swift; sourceTree = "<group>"; };
@@ -184,6 +184,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		921046B323F2C14A0069D8EC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9212AE5F23D60373003482FB /* TouchItemPlacementController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		921239DF23DA795800CA3276 /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,12 +212,12 @@
 		9212AE6223D604E6003482FB /* TouchBar */ = {
 			isa = PBXGroup;
 			children = (
+				921046B323F2C14A0069D8EC /* UI */,
 				921239E023DA7AAC00CA3276 /* Model */,
 				921239DF23DA795800CA3276 /* Store */,
 				921046B123F2BB110069D8EC /* TouchBarUtil.swift */,
 				9253BFE923DA04E9004721BC /* PointerLocationObserver.swift */,
-				92B2A06823F15F9F0088F413 /* SkeletaTouchButtonView.swift */,
-				9212AE5F23D60373003482FB /* TouchItemPlacementController.swift */,
+				92B2A06823F15F9F0088F413 /* SkeletaTouchBarItemView.swift */,
 			);
 			path = TouchBar;
 			sourceTree = "<group>";
@@ -669,7 +677,7 @@
 				923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */,
 				9246321D23CB2F6600042EFE /* AppItemViewController.swift in Sources */,
 				925A245023C87F49002BB85F /* PersistentContainer.swift in Sources */,
-				92B2A06923F15F9F0088F413 /* SkeletaTouchButtonView.swift in Sources */,
+				92B2A06923F15F9F0088F413 /* SkeletaTouchBarItemView.swift in Sources */,
 				9253BFEA23DA04E9004721BC /* PointerLocationObserver.swift in Sources */,
 				925A240723C65EEE002BB85F /* SpotlightRepository.swift in Sources */,
 				92A1B33523C4D8A200D7BEF1 /* WindowController.swift in Sources */,

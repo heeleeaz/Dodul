@@ -9,14 +9,14 @@
 import Cocoa
 
 class PointerLocationObserver{
-    private let itemDropDetectionHeight = CGFloat(40)
+    private let itemDropDetectionHeight = CGFloat(10)
     private var timeInterval: TimeInterval
     private var timer: Timer?
     private var object: Any?
     
     var delegate: PointerLocationObserverDelegate?
         
-    init(timeInterval: TimeInterval = 0.4) {self.timeInterval = timeInterval}
+    init(timeInterval: TimeInterval = 0.1) {self.timeInterval = timeInterval}
     
     func start(_ object: Any?){
         self.object = object

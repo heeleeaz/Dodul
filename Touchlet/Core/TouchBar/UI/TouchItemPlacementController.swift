@@ -117,6 +117,7 @@ extension WindowController: PointerLocationObserverDelegate{
     private var touchBarRect: CGRect {
         let leadingMargin = CGFloat(120)
         return CGRect(x: 80.0 + leadingMargin, y: 0, width: 685.0, height: 40.0)
+    
     }
     
     private var scrollViewInTouchBar: NSScrollView?{
@@ -124,9 +125,11 @@ extension WindowController: PointerLocationObserverDelegate{
     }
 
     func pointerLocationObserver(pointerLocation: NSPoint, inDropRect: Bool, object: Any?, isTerminated: Bool) {
+        if !inDropRect || isTerminated {NSCursor.unhide()} else {NSCursor.hide()}
+
         guard let scrollView = scrollViewInTouchBar,
             let touchBarItem = asTouchBarItem(object: object) else {return}
-            
+    
         let documentView = scrollView.documentView as! NSStackView
         
         if !inDropRect{removeSkeletaView(documentView: documentView, adjustSize: true); return}
