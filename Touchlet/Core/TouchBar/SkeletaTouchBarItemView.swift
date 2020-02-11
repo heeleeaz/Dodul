@@ -8,10 +8,11 @@
 
 import Cocoa
 
-class SkeletaTouchButtonView: NSButton{
+class SkeletaTouchBarItemView: NSView{
+    static let frame = NSRect(origin: CGPoint.zero, size: TouchBarUtil.Constant.touchItemButtonSize)
+    
     override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-        bezelColor = .black
+        super.init(frame: SkeletaTouchBarItemView.frame)
     }
     
     required init?(coder: NSCoder) {
@@ -22,8 +23,7 @@ class SkeletaTouchButtonView: NSButton{
         super.viewDidMoveToSuperview()
         
         let borderLayer = CAShapeLayer()
-        let d = CGRect(x: 0, y: 0, width: 0, height: 40)
-        borderLayer.path = CGPath(roundedRect: d, cornerWidth: 5, cornerHeight: 5, transform: nil)
+        borderLayer.path = CGPath(roundedRect: SkeletaTouchBarItemView.frame, cornerWidth: 5, cornerHeight: 5, transform: nil)
         borderLayer.strokeColor = NSColor.white.cgColor
         borderLayer.lineDashPattern = [4, 2]
         borderLayer.lineWidth = 1

@@ -33,21 +33,21 @@ extension WindowController{
 }
 
 extension WindowController: NSTouchBarDelegate{
-    private var defTouchBarButtonSize: NSSize{return NSSize(width: 72, height: 30)}
-    private var defSpacing: CGFloat {return CGFloat(8)}
-        
     func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
+        let buttonSize = TouchBarUtil.Constant.touchItemButtonSize
+        let spacing = TouchBarUtil.Constant.touchItemSpacing
+        
         let scrollView = NSScrollView(frame: CGRect(x: 0, y: 0, width: 600, height: 30))
         let documentView = NSStackView(frame: CGRect.zero)
         documentView.distribution = .equalSpacing
         documentView.alignment = .centerX
         documentView.orientation = .horizontal
-        documentView.spacing = defSpacing
+        documentView.spacing = spacing
         
-        var size = NSSize(width: defSpacing, height: defTouchBarButtonSize.height)
+        var size = NSSize(width: spacing, height: buttonSize.height)
         for touchBarItem in touchBarItems{
             if addButton(touchBarItem: touchBarItem, documentView: documentView){
-                size.width += defTouchBarButtonSize.width + defSpacing
+                size.width += buttonSize.width + spacing
             }
         }
         
@@ -68,7 +68,9 @@ extension WindowController: NSTouchBarDelegate{
         }
         
         if adjustSize{
-            let newWidth = documentView.frame.width + defTouchBarButtonSize.width + defSpacing
+            let buttonSize = TouchBarUtil.Constant.touchItemButtonSize
+            let spacing = TouchBarUtil.Constant.touchItemSpacing
+            let newWidth = documentView.frame.width + buttonSize.width + spacing
             documentView.frame = NSRect(x: 0, y: 0, width: newWidth, height: documentView.frame.height)
         }
     }
@@ -96,7 +98,9 @@ extension WindowController: NSTouchBarDelegate{
     
         skeletaButtonView.removeFromSuperview()
         if adjustSize{
-            let newWidth = documentView.frame.width - defTouchBarButtonSize.width + defSpacing
+            let buttonSize = TouchBarUtil.Constant.touchItemButtonSize
+            let spacing = TouchBarUtil.Constant.touchItemSpacing
+            let newWidth = documentView.frame.width - (buttonSize.width + spacing)
             documentView.frame = NSRect(x: 0, y: 0, width: newWidth, height: documentView.frame.height)
         }
     }
@@ -146,7 +150,9 @@ extension WindowController: PointerLocationObserverDelegate{
     private func findItemPositionWithinPoint(_ point: NSPoint, documentView: NSStackView) -> Int{
         if touchBarRect.contains(point){
             let normalizedX = point.x - touchBarRect.origin.x
-            return Int(normalizedX / (defTouchBarButtonSize.width + (defSpacing / 2)))
+            let buttonSize = TouchBarUtil.Constant.touchItemButtonSize
+            let spacing = TouchBarUtil.Constant.touchItemSpacing
+            return Int(normalizedX / (buttonSize.width + (spacing / 2)))
         }
         return point.x < touchBarRect.origin.x ? 0 : documentView.arrangedSubviews.count
     }
@@ -163,4 +169,3 @@ extension WindowController: PointerLocationObserverDelegate{
         return touchBarItem
     }
 }
-

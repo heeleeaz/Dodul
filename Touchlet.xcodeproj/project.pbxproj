@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		83751E29B9CEA1BBE3E0B628 /* Pods_Touchlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB4BCE4A7A57B19483220DC /* Pods_Touchlet.framework */; };
 		92084DA323D7521A00661E60 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92084DA223D7521A00661E60 /* Utility.swift */; };
-		9212AE6023D60373003482FB /* TouchBarItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE5F23D60373003482FB /* TouchBarItemProvider.swift */; };
+		921046B223F2BB110069D8EC /* TouchBarUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921046B123F2BB110069D8EC /* TouchBarUtil.swift */; };
+		9212AE6023D60373003482FB /* TouchItemPlacementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE5F23D60373003482FB /* TouchItemPlacementController.swift */; };
 		9212AE6623D606AC003482FB /* TouchBarItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE6523D606AC003482FB /* TouchBarItemStore.swift */; };
 		9212AE6823D60763003482FB /* TouchBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE6723D60763003482FB /* TouchBarItem.swift */; };
 		9212AE6A23D61579003482FB /* TouchBarItemUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE6323D605A7003482FB /* TouchBarItemUserDefault.swift */; };
@@ -84,7 +85,8 @@
 		25E1A65C9426C5503D4B6DB7 /* Pods-Touchlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Touchlet.release.xcconfig"; path = "Target Support Files/Pods-Touchlet/Pods-Touchlet.release.xcconfig"; sourceTree = "<group>"; };
 		90C094CC103844EACE7A68D7 /* Pods-Touchlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Touchlet.debug.xcconfig"; path = "Target Support Files/Pods-Touchlet/Pods-Touchlet.debug.xcconfig"; sourceTree = "<group>"; };
 		92084DA223D7521A00661E60 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-		9212AE5F23D60373003482FB /* TouchBarItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItemProvider.swift; sourceTree = "<group>"; };
+		921046B123F2BB110069D8EC /* TouchBarUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarUtil.swift; sourceTree = "<group>"; };
+		9212AE5F23D60373003482FB /* TouchItemPlacementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchItemPlacementController.swift; sourceTree = "<group>"; };
 		9212AE6323D605A7003482FB /* TouchBarItemUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItemUserDefault.swift; sourceTree = "<group>"; };
 		9212AE6523D606AC003482FB /* TouchBarItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItemStore.swift; sourceTree = "<group>"; };
 		9212AE6723D60763003482FB /* TouchBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItem.swift; sourceTree = "<group>"; };
@@ -204,9 +206,10 @@
 			children = (
 				921239E023DA7AAC00CA3276 /* Model */,
 				921239DF23DA795800CA3276 /* Store */,
-				9212AE5F23D60373003482FB /* TouchBarItemProvider.swift */,
+				921046B123F2BB110069D8EC /* TouchBarUtil.swift */,
 				9253BFE923DA04E9004721BC /* PointerLocationObserver.swift */,
 				92B2A06823F15F9F0088F413 /* SkeletaTouchButtonView.swift */,
+				9212AE5F23D60373003482FB /* TouchItemPlacementController.swift */,
 			);
 			path = TouchBar;
 			sourceTree = "<group>";
@@ -673,7 +676,8 @@
 				925A241023C68779002BB85F /* SpotlightResult.swift in Sources */,
 				92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */,
 				925A245423C8B2CA002BB85F /* DataController.swift in Sources */,
-				9212AE6023D60373003482FB /* TouchBarItemProvider.swift in Sources */,
+				9212AE6023D60373003482FB /* TouchItemPlacementController.swift in Sources */,
+				921046B223F2BB110069D8EC /* TouchBarUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
