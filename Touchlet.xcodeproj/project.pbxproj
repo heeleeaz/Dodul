@@ -36,6 +36,8 @@
 		925A245B23C8D8B9002BB85F /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245A23C8D8B9002BB85F /* Global.swift */; };
 		925A245E23C8DB80002BB85F /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245D23C8DB80002BB85F /* Link.swift */; };
 		925A246023C8DBFD002BB85F /* NSStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245F23C8DBFD002BB85F /* NSStringExtension.swift */; };
+		926723EE23F2D1F6002D9BAE /* NSCursorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926723ED23F2D1F6002D9BAE /* NSCursorHelper.swift */; };
+		926723F023F3E819002D9BAE /* TouchBarItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926723EF23F3E819002D9BAE /* TouchBarItemButton.swift */; };
 		9283108023CA773200B115D1 /* LinkCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */; };
 		9283108123CA773200B115D1 /* LinkCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9283107F23CA773200B115D1 /* LinkCollectionViewItem.xib */; };
 		9283108423CA78D700B115D1 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283108323CA78D700B115D1 /* BookmarkViewController.swift */; };
@@ -52,7 +54,6 @@
 		92A1B33523C4D8A200D7BEF1 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33423C4D8A200D7BEF1 /* WindowController.swift */; };
 		92A1B33A23C4DC0D00D7BEF1 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33923C4DC0D00D7BEF1 /* Logger.swift */; };
 		92A1B33C23C4DC2400D7BEF1 /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33B23C4DC2400D7BEF1 /* FileLoader.swift */; };
-		92B2A06923F15F9F0088F413 /* SkeletaTouchBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2A06823F15F9F0088F413 /* SkeletaTouchBarItemView.swift */; };
 		92FE9B0F23CF56AC00FA6AC6 /* OuterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */; };
 		92FE9B1123CF5AC400FA6AC6 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1023CF5AC400FA6AC6 /* Cache.swift */; };
 		92FE9B1423CF794900FA6AC6 /* NSDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1323CF794900FA6AC6 /* NSDataExtension.swift */; };
@@ -113,6 +114,8 @@
 		925A245A23C8D8B9002BB85F /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		925A245D23C8DB80002BB85F /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		925A245F23C8DBFD002BB85F /* NSStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSStringExtension.swift; sourceTree = "<group>"; };
+		926723ED23F2D1F6002D9BAE /* NSCursorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCursorHelper.swift; sourceTree = "<group>"; };
+		926723EF23F3E819002D9BAE /* TouchBarItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItemButton.swift; sourceTree = "<group>"; };
 		9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCollectionViewItem.swift; sourceTree = "<group>"; };
 		9283107F23CA773200B115D1 /* LinkCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkCollectionViewItem.xib; sourceTree = "<group>"; };
 		9283108323CA78D700B115D1 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +139,6 @@
 		92A1B33423C4D8A200D7BEF1 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		92A1B33923C4DC0D00D7BEF1 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		92A1B33B23C4DC2400D7BEF1 /* FileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
-		92B2A06823F15F9F0088F413 /* SkeletaTouchBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletaTouchBarItemView.swift; sourceTree = "<group>"; };
 		92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterScrollView.swift; sourceTree = "<group>"; };
 		92FE9B1023CF5AC400FA6AC6 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		92FE9B1323CF794900FA6AC6 /* NSDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDataExtension.swift; sourceTree = "<group>"; };
@@ -216,8 +218,8 @@
 				921239E023DA7AAC00CA3276 /* Model */,
 				921239DF23DA795800CA3276 /* Store */,
 				921046B123F2BB110069D8EC /* TouchBarUtil.swift */,
+				926723EF23F3E819002D9BAE /* TouchBarItemButton.swift */,
 				9253BFE923DA04E9004721BC /* PointerLocationObserver.swift */,
-				92B2A06823F15F9F0088F413 /* SkeletaTouchBarItemView.swift */,
 			);
 			path = TouchBar;
 			sourceTree = "<group>";
@@ -285,6 +287,7 @@
 				92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */,
 				92FE9B1323CF794900FA6AC6 /* NSDataExtension.swift */,
 				92FE9B1523CF79E900FA6AC6 /* NSImageExtension.swift */,
+				926723ED23F2D1F6002D9BAE /* NSCursorHelper.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -671,13 +674,13 @@
 				92FE9B1623CF79E900FA6AC6 /* NSImageExtension.swift in Sources */,
 				9212AE6823D60763003482FB /* TouchBarItem.swift in Sources */,
 				92A1B33023C4C0A000D7BEF1 /* NSColorExtension.swift in Sources */,
+				926723EE23F2D1F6002D9BAE /* NSCursorHelper.swift in Sources */,
 				92FE9B1823CFB4AD00FA6AC6 /* ImageCacheProvider.swift in Sources */,
 				925A246023C8DBFD002BB85F /* NSStringExtension.swift in Sources */,
 				9212AE6623D606AC003482FB /* TouchBarItemStore.swift in Sources */,
 				923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */,
 				9246321D23CB2F6600042EFE /* AppItemViewController.swift in Sources */,
 				925A245023C87F49002BB85F /* PersistentContainer.swift in Sources */,
-				92B2A06923F15F9F0088F413 /* SkeletaTouchBarItemView.swift in Sources */,
 				9253BFEA23DA04E9004721BC /* PointerLocationObserver.swift in Sources */,
 				925A240723C65EEE002BB85F /* SpotlightRepository.swift in Sources */,
 				92A1B33523C4D8A200D7BEF1 /* WindowController.swift in Sources */,
@@ -685,6 +688,7 @@
 				92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */,
 				925A245423C8B2CA002BB85F /* DataController.swift in Sources */,
 				9212AE6023D60373003482FB /* TouchItemPlacementController.swift in Sources */,
+				926723F023F3E819002D9BAE /* TouchBarItemButton.swift in Sources */,
 				921046B223F2BB110069D8EC /* TouchBarUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

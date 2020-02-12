@@ -11,3 +11,9 @@ import Cocoa
 func terminateApp(_ sender: Any){
     NSApplication.shared.terminate(sender)
 }
+
+func synced(_ lock: Any, closure: () -> ()) {
+    objc_sync_enter(lock)
+    closure()
+    objc_sync_exit(lock)
+}

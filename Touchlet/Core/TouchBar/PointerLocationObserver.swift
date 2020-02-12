@@ -12,29 +12,52 @@ class PointerLocationObserver{
     private let itemDropDetectionHeight = CGFloat(10)
     private var timeInterval: TimeInterval
     private var timer: Timer?
-    private var object: Any?
+    private var objectDictionary = [StartCondition : Any]()
     
     var delegate: PointerLocationObserverDelegate?
-        
-    init(timeInterval: TimeInterval = 0.1) {self.timeInterval = timeInterval}
     
-    func start(_ object: Any?){
-        self.object = object
+    var isTriggerEmpty: Bool {return objectDictionary.isEmpty}
+        
+    init(timeInterval: TimeInterval = 0.1) {
+        self.timeInterval = timeInterval
+        
         timer = Timer(timeInterval: timeInterval, repeats: true, block: {_ in
-            self.dispatchDelegation(isTerminated: false)
+            if self.objectDictionary.isEmpty {
+                self.dispatchDelegation()
+            }else{
+                for key in self.objectDictionary.keys{
+                    self.dispatchStartConditionDelegation(startCondition: key, isTerminated: false)
+                }
+            }
         })
         RunLoop.main.add(timer!, forMode: .default)
     }
     
-    private func dispatchDelegation(isTerminated: Bool){
-        let mouseLocation = NSEvent.mouseLocation
-        let inDropRect = self.inDropDetectionRect(pointer: mouseLocation)
-        delegate?.pointerLocationObserver(pointerLocation: mouseLocation, inDropRect: inDropRect, object: object, isTerminated: isTerminated)
+    func invalidate(){
+        timer?.invalidate()
+        objectDictionary.removeAll()
     }
     
-    func stop(){
-        timer?.invalidate()
-        dispatchDelegation(isTerminated: true)
+    func begin(startCondition: StartCondition, object: Any?){
+        objectDictionary[startCondition] = object
+    }
+    
+    func end(startCondition: StartCondition){
+        dispatchStartConditionDelegation(startCondition: startCondition, isTerminated: true)
+        objectDictionary.removeValue(forKey: startCondition)
+    }
+    
+    private func dispatchDelegation(){
+        let mouseLocation = NSEvent.mouseLocation
+        let inDropRect = self.inDropDetectionRect(pointer: mouseLocation)
+        
+        delegate?.pointerLocationObserver(observer: self, pointerLocation: mouseLocation, inDropRect: inDropRect)
+    }
+    
+    private func dispatchStartConditionDelegation(startCondition: StartCondition, isTerminated: Bool){
+        let mouseLocation = NSEvent.mouseLocation
+        let inDropRect = self.inDropDetectionRect(pointer: mouseLocation)
+        delegate?.pointerLocationObserver(observer: self, startCondition: startCondition, pointerLocation: mouseLocation, inDropRect: inDropRect, object: objectDictionary[startCondition], isTerminated: isTerminated)
     }
     
     func inDropDetectionRect(pointer: NSPoint, screenFrame: NSRect) -> Bool{
@@ -49,10 +72,16 @@ class PointerLocationObserver{
         
         return false
     }
+    
+    enum StartCondition {
+        case drag, inRadius
+    }
 }
 
 protocol PointerLocationObserverDelegate: class{
-    func pointerLocationObserver(pointerLocation: NSPoint, inDropRect: Bool, object: Any?, isTerminated: Bool)
+    func pointerLocationObserver(observer: PointerLocationObserver, pointerLocation: NSPoint, inDropRect: Bool)
+    
+    func pointerLocationObserver(observer: PointerLocationObserver, startCondition: PointerLocationObserver.StartCondition, pointerLocation: NSPoint, inDropRect: Bool, object: Any?, isTerminated: Bool)
 }
 
 extension NSNotification.Name{

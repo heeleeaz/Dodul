@@ -9,12 +9,6 @@
 import Cocoa
 
 extension NSColor {
-    public static var touchBarItemColor: NSColor {
-        return NSColor(named: "TouchBarColor") ?? NSColor.clear
-    }
-}
-
-extension NSColor {
     public func combine(withColor other: NSColor, ratio: CGFloat) -> NSColor {
         let otherRatio = 1 - ratio
         let red = (redComponent * ratio) + (other.redComponent * otherRatio)
@@ -46,5 +40,11 @@ extension NSColor {
         var alphaComponent: CGFloat = 0
         getRed(nil, green: nil, blue: nil, alpha: &alphaComponent)
         return alphaComponent
+    }
+}
+
+extension NSColor{
+    public static var touchBarButtonColor: NSColor{
+        return NSColor(named: "TouchBarColor") ?? NSColor.clear
     }
 }

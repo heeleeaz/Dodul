@@ -20,4 +20,12 @@ class MainViewController: NSViewController, NSTouchBarDelegate {
     override func cancelOperation(_ sender: Any?) {
         terminateApp(self)
     }
+    
+    override func mouseDown(with theEvent: NSEvent) {
+        print("left mouse")
+    }
+
+    override func rightMouseDown(with theEvent: NSEvent) {
+        print("right mouse")
+    }
 }
