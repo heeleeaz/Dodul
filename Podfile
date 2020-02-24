@@ -7,6 +7,7 @@ target 'Touchlet' do
   use_frameworks!
   
   pod 'FavIcon', '~> 3.0.0'
+  pod 'HotKey'
 
 #  target 'TouchletTests' do
 #    inherit! :search_paths

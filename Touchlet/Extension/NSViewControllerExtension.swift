@@ -19,3 +19,11 @@ import Cocoa
         removeFromParent()
     }
 }
+
+extension NSViewController{
+    func enterFullScreenMode(options: NSApplication.PresentationOptions = []){
+        let presOptions: NSApplication.PresentationOptions = ([.hideDock,.hideMenuBar])
+        let optionsDictionary = [NSView.FullScreenModeOptionKey.fullScreenModeApplicationPresentationOptions: NSNumber(value: presOptions.union(options).rawValue)]
+        view.enterFullScreenMode(NSScreen.main!, withOptions: optionsDictionary)
+    }
+}

@@ -173,7 +173,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES"/>
                         <windowPositionMask key="initialPositionMask" bottomStrut="YES"/>
                         <rect key="contentRect" x="585" y="150" width="1200" height="400"/>
@@ -291,21 +291,40 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </customView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qtC-7R-rl6">
+                                <rect key="frame" x="559" y="110" width="223" height="20"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="border" alignment="center" title="Press  to display Touchbar anytime" drawsBackground="YES" id="sWK-zI-1tI">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="qtC-7R-rl6" firstAttribute="top" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="20" id="5JW-5v-qZ8"/>
                             <constraint firstAttribute="bottom" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="150" id="FZE-Pd-SMm"/>
+                            <constraint firstItem="qtC-7R-rl6" firstAttribute="centerX" secondItem="IQN-7z-XBS" secondAttribute="centerX" id="ViN-RG-7zO"/>
                             <constraint firstItem="0qx-2D-8fR" firstAttribute="top" secondItem="vYl-tr-09g" secondAttribute="bottom" constant="20" id="W2q-Or-OBm"/>
                             <constraint firstItem="vYl-tr-09g" firstAttribute="centerX" secondItem="IQN-7z-XBS" secondAttribute="centerX" id="WNg-1F-IGm"/>
                             <constraint firstItem="0qx-2D-8fR" firstAttribute="centerX" secondItem="IQN-7z-XBS" secondAttribute="centerX" id="q2h-PN-N8d"/>
                         </constraints>
                     </customView>
                     <connections>
+                        <outlet property="displayInstructionLabel" destination="qtC-7R-rl6" id="MxG-fi-j05"/>
                         <outlet property="doneButton" destination="5UP-Fg-Yfg" id="bew-Rp-R0I"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-40" y="1278"/>
+        </scene>
+        <!--Preferences-->
+        <scene sceneID="OYp-G2-2KO">
+            <objects>
+                <controllerPlaceholder storyboardName="Preferences" id="S7t-Co-NbP" sceneMemberID="viewController"/>
+                <customObject id="hqd-Il-MGq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-131" y="1985"/>
         </scene>
         <!--HomeItemViewController-->
         <scene sceneID="cMD-sp-umU">
@@ -322,7 +341,7 @@
             <color red="0.2669999897480011" green="0.2669999897480011" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HomeBackgroundColor">
-            <color red="0.16005861837503188" green="0.15913342404916464" blue="0.16098381270089912" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.20200000703334808" green="0.20200000703334808" blue="0.20200000703334808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

@@ -40,6 +40,7 @@ class WindowController: NSWindowController{
     
     override func windowDidLoad() {
         super.windowDidLoad()
+        
         window?.setFrameAutosaveName("WindowAutosave")
         
         pointerLocationObserver.delegate = self
@@ -53,7 +54,7 @@ class WindowController: NSWindowController{
     @objc private func collectionItemDragEnded(notification: NSNotification){
         pointerLocationObserver.end(startCondition: .drag)
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self)
         pointerLocationObserver.invalidate()
