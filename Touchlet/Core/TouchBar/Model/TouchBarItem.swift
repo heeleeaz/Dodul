@@ -42,7 +42,7 @@ class TouchBarItem: NSObject, NSCoding{
 
 extension TouchBarItem{
     var touchBarIdentifier: NSTouchBarItem.Identifier  {
-        let touchID = "\(WindowController.Constants.customizationIdentifier).\(identifier!)"
+        let touchID = "\(MainWindowController.Constants.customizationIdentifier).\(identifier!)"
         return NSTouchBarItem.Identifier(touchID)
     }
     

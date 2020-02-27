@@ -15,20 +15,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         didSet {
             guard let hotKey = hotKey else {return}
 
-            hotKey.keyDownHandler = { [weak self] in
-               print("Key")
-            }
+            hotKey.keyDownHandler = { [weak self] in print("Key")}
         }
     }
 
     func applicationWillBecomeActive(_ notification: Notification) {
-        if let screenFrame = NSScreen.main?.frame {
-            let window = NSApplication.shared.windows[0]
-            window.setFrame(screenFrame, display: true)
-            window.setContentSize(screenFrame.size)
-            
-            window.contentViewController?.enterFullScreenMode()
-        }
+        NSApplication.shared.windows[0].contentView?.enterFullScreenMode()
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -36,15 +28,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
         }
         
-        let cache = (try? Cache<String, GlobalKeybindPreferences>.loadFromDisk(withName: HotKeyStore.Constant.KEYCODE_CACHE_KEY)) ?? Cache<String, GlobalKeybindPreferences>()
-        
-        if let key = cache.value(forKey: HotKeyStore.Constant.KEYCODE_CACHE_KEY){
+        if let key = GlobalKeybindPreferencesStore.fetch(){
             hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: key.keyCode, carbonModifiers: key.carbonFlags))
         }else{
             let defKey = GlobalKeybindPreferences.defaultKeyBind
-            cache.insert(defKey, forKey: HotKeyStore.Constant.KEYCODE_CACHE_KEY)
-            try? cache.saveToDisk(withName: HotKeyStore.Constant.KEYCODE_CACHE_KEY)
-                           
+            GlobalKeybindPreferencesStore.save(keyBind: defKey)
+            
             hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: defKey.keyCode, carbonModifiers: defKey.carbonFlags))
         }
     }

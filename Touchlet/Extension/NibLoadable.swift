@@ -14,6 +14,12 @@ protocol NibLoadable {
     static func createFromNib(in bundle: Bundle) -> Self?
 }
 
+protocol StoryboardLoadable {
+    static var storyboardName: String? { get }
+    static var objectIdentifier: String? { get }
+    static func createFromStoryboard(in bundle: Bundle) -> Self?
+}
+
 extension NibLoadable where Self: NSView {
     static var nibName: String? {return String(describing: Self.self)}
     
@@ -45,23 +51,12 @@ extension NibLoadable where Self: NSViewController{
     }
 }
 
-extension NibLoadable where Self: NSViewController{
+extension StoryboardLoadable{
+    static var storyboardName: String? { return String(describing: Self.self)}
+    static var objectIdentifier: String? { return String(describing: Self.self)}
+
     static func createFromStoryboard(in bundle: Bundle = Bundle.main) -> Self? {
-        let storyboard = NSStoryboard(name: NSStoryboard.Name(nibName!), bundle: bundle)
-        return storyboard.instantiateInitialController() as? Self
-    }
-}
-
-
-extension NibLoadable where Self: NSWindowController{
-    static var nibName: String? {return String(describing: Self.self)}
-    
-    static var nib: NSNib? {
-        guard let nibName = nibName else {return nil}
-        return NSNib(nibNamed: NSNib.Name(nibName), bundle: Bundle.main)
-    }
-    
-    static func createFromNib(in bundle: Bundle = Bundle.main) -> Self? {
-        return Self(windowNibName: NSNib.Name(nibName!))
+        let storyboard = NSStoryboard(name: NSStoryboard.Name(storyboardName!), bundle: bundle)
+        return storyboard.instantiateController(withIdentifier: objectIdentifier!) as? Self
     }
 }

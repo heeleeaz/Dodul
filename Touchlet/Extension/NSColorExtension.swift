@@ -44,7 +44,13 @@ extension NSColor {
 }
 
 extension NSColor{
-    static var touchBarButtonColor: NSColor{return NSColor(named: "TouchBarColor") ?? NSColor.clear}
+    static var touchBarButtonColor: NSColor{return NSColor(named: "TouchBarColor")!}
     static var hotKeyAttributeTextForegroundColor = NSColor.white
     static var hotKeyAttributeTextBackgroundColor = NSColor.darkGray
+    
+    static var hotkeyTextColor = NSColor(named: "EditingHotkeyTextColor")!
+    static var hotkeyBackgroundColor = NSColor(named: "HotKeyBackgroundColor")!
+    
+    static var bezelButtonTextColor = NSColor(named: "BezelButtonTextColor")!
+    static var bezelButtonBorderColor = NSColor(named: "BezelButtonBorderColor")!
 }

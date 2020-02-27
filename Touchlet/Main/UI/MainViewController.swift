@@ -7,34 +7,26 @@
 //
 
 import Cocoa
+import LinkPresentation
 
 class MainViewController: NSViewController, NSTouchBarDelegate {
-    @IBOutlet weak var displayInstructionLabel: NSTextField!
     @IBOutlet weak var doneButton: NSButton!
-        
+    @IBOutlet weak var keybindTagView: KeybindTagView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         doneButton.addClickGestureRecognizer{ terminateApp(self) }
-        displayInstructionLabel.addClickGestureRecognizer{
-            
-            
-            if let vc = PreferencesViewController.createFromNib(){
-//                self.present(vc, asPopoverRelativeTo: NSRect.zero, of: self.displayInstructionLabel, preferredEdge: .maxX, behavior: .applicationDefined)
-                self.presentAsModalWindow(vc)
-                vc.becomeFirstResponder()
-                
-//                self.preset
-            }
-            
-            
-        }
-        setupDisplayInstructionText()
+        updateKeybindPresentationView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(windowWillClosedNotification), name: NSWindow.willCloseNotification, object: nil)
     }
     
-    override func cancelOperation(_ sender: Any?) {
-        terminateApp(self)
+    @objc func windowWillClosedNotification(notification: NSNotification){
+        if notification.object is PreferencesWindow{updateKeybindPresentationView()}
     }
+    
+    override func cancelOperation(_ sender: Any?) {terminateApp(self)}
     
     override func mouseDown(with theEvent: NSEvent) {
         print("left mouse")
@@ -44,18 +36,12 @@ class MainViewController: NSViewController, NSTouchBarDelegate {
         print("right mouse")
     }
     
-    private func setupDisplayInstructionText(){
-        guard let cache = (try? Cache<String, GlobalKeybindPreferences>.loadFromDisk(withName: HotKeyStore.Constant.KEYCODE_CACHE_KEY)), let key = cache.value(forKey: HotKeyStore.Constant.KEYCODE_CACHE_KEY) else {return}
-        
-        let hotKey = " \(key.description(" - ")) "
-        let mainString = "Press \(hotKey) to display Touchbar anytime. Tap to edit"
-        let attribute = NSMutableAttributedString(string: mainString)
-        
-        attribute.addAttributes([
-            .foregroundColor: NSColor.hotKeyAttributeTextForegroundColor,
-            .backgroundColor: NSColor.hotKeyAttributeTextBackgroundColor],
-            range: (mainString as NSString).range(of: hotKey))
-        
-        displayInstructionLabel.attributedStringValue = attribute
+    private func updateKeybindPresentationView(){
+        keybindTagView.removeAllTags()
+        if let keybind = GlobalKeybindPreferencesStore.fetch(){
+            for s in keybind.description.split(separator: "-"){
+                keybindTagView.addTagItem(String(s), isEditing: false)
+            }
+        }
     }
 }

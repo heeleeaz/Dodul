@@ -20,10 +20,13 @@ import Cocoa
     }
 }
 
+
 extension NSViewController{
-    func enterFullScreenMode(options: NSApplication.PresentationOptions = []){
-        let presOptions: NSApplication.PresentationOptions = ([.hideDock,.hideMenuBar])
-        let optionsDictionary = [NSView.FullScreenModeOptionKey.fullScreenModeApplicationPresentationOptions: NSNumber(value: presOptions.union(options).rawValue)]
-        view.enterFullScreenMode(NSScreen.main!, withOptions: optionsDictionary)
+    func presentAsTooltop(_ viewController: NSViewController, anchor: NSView){
+        present(viewController,
+                asPopoverRelativeTo: .zero,
+                of: anchor,
+                preferredEdge: NSRectEdge(rawValue: 0)!,
+                behavior: .applicationDefined)
     }
 }

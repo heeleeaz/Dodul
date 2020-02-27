@@ -167,18 +167,16 @@
                     </connections>
                 </application>
             </objects>
-            <point key="canvasLocation" x="-48" y="-97"/>
+            <point key="canvasLocation" x="-40" y="-41"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES"/>
+                <windowController id="B8D-0N-5wS" customClass="MainWindowController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Main Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" customClass="MainWindow" customModule="Touchlet" customModuleProvider="target">
                         <windowPositionMask key="initialPositionMask" bottomStrut="YES"/>
-                        <rect key="contentRect" x="585" y="150" width="1200" height="400"/>
+                        <rect key="contentRect" x="585" y="150" width="500" height="300"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="800" height="400"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -212,7 +210,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" name="BorderColor"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_BackgroundColor">
                                         <color key="value" name="HomeBackgroundColor"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -291,27 +289,65 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </customView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qtC-7R-rl6">
-                                <rect key="frame" x="559" y="110" width="223" height="20"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="border" alignment="center" title="Press  to display Touchbar anytime" drawsBackground="YES" id="sWK-zI-1tI">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Vzv-Gn-xFF">
+                                <rect key="frame" x="507" y="100" width="326" height="30"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ghu-tn-Czj">
+                                        <rect key="frame" x="59" y="7" width="183" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="to launch Touchbar anytime" id="kcj-V6-GWU">
+                                            <font key="font" metaFont="system" size="14"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fUM-7H-43Q">
+                                        <rect key="frame" x="242" y="-2" width="82" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="73T-KG-BvF"/>
+                                            <constraint firstAttribute="width" constant="70" id="DFV-UE-Zsw"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="push" title="Change" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mPG-Cf-cqf">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="changeKeybind:" target="XfG-lQ-9wD" id="UnZ-2c-oXx"/>
+                                            <segue destination="sX3-o1-y6E" kind="modal" id="Mzr-yg-cNe"/>
+                                        </connections>
+                                    </button>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKV-xa-xEB" customClass="KeybindTagView" customModule="Touchlet" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="5" width="45" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="nsg-Sq-aN9"/>
+                                            <constraint firstAttribute="height" constant="20" id="zQS-5Y-qHa"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fUM-7H-43Q" secondAttribute="trailing" constant="8" id="87J-aH-1mT"/>
+                                    <constraint firstItem="OKV-xa-xEB" firstAttribute="leading" secondItem="Vzv-Gn-xFF" secondAttribute="leading" constant="8" id="9VX-79-CkJ"/>
+                                    <constraint firstItem="ghu-tn-Czj" firstAttribute="leading" secondItem="OKV-xa-xEB" secondAttribute="trailing" constant="8" id="D6K-vb-UbM"/>
+                                    <constraint firstAttribute="height" constant="30" id="HOo-Ur-WRY"/>
+                                    <constraint firstItem="fUM-7H-43Q" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="M1s-jK-CAz"/>
+                                    <constraint firstItem="fUM-7H-43Q" firstAttribute="leading" secondItem="ghu-tn-Czj" secondAttribute="trailing" constant="8" id="a9R-Ot-C56"/>
+                                    <constraint firstItem="ghu-tn-Czj" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="tJI-w9-z9P"/>
+                                    <constraint firstItem="OKV-xa-xEB" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="wDA-kM-9KH"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="200" constant="400" id="zIK-6t-b2p"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="qtC-7R-rl6" firstAttribute="top" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="20" id="5JW-5v-qZ8"/>
                             <constraint firstAttribute="bottom" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="150" id="FZE-Pd-SMm"/>
-                            <constraint firstItem="qtC-7R-rl6" firstAttribute="centerX" secondItem="IQN-7z-XBS" secondAttribute="centerX" id="ViN-RG-7zO"/>
+                            <constraint firstItem="Vzv-Gn-xFF" firstAttribute="top" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="20" id="O8X-bL-fMO"/>
+                            <constraint firstItem="Vzv-Gn-xFF" firstAttribute="centerX" secondItem="IQN-7z-XBS" secondAttribute="centerX" id="UNv-uy-8hq"/>
                             <constraint firstItem="0qx-2D-8fR" firstAttribute="top" secondItem="vYl-tr-09g" secondAttribute="bottom" constant="20" id="W2q-Or-OBm"/>
                             <constraint firstItem="vYl-tr-09g" firstAttribute="centerX" secondItem="IQN-7z-XBS" secondAttribute="centerX" id="WNg-1F-IGm"/>
                             <constraint firstItem="0qx-2D-8fR" firstAttribute="centerX" secondItem="IQN-7z-XBS" secondAttribute="centerX" id="q2h-PN-N8d"/>
                         </constraints>
                     </customView>
                     <connections>
-                        <outlet property="displayInstructionLabel" destination="qtC-7R-rl6" id="MxG-fi-j05"/>
                         <outlet property="doneButton" destination="5UP-Fg-Yfg" id="bew-Rp-R0I"/>
+                        <outlet property="keybindTagView" destination="OKV-xa-xEB" id="DS5-TS-dsL"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -319,12 +355,12 @@
             <point key="canvasLocation" x="-40" y="1278"/>
         </scene>
         <!--Preferences-->
-        <scene sceneID="OYp-G2-2KO">
+        <scene sceneID="XxN-p0-mNm">
             <objects>
-                <controllerPlaceholder storyboardName="Preferences" id="S7t-Co-NbP" sceneMemberID="viewController"/>
-                <customObject id="hqd-Il-MGq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <controllerPlaceholder storyboardName="Preferences" id="sX3-o1-y6E" sceneMemberID="viewController"/>
+                <customObject id="g68-6Q-0ql" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-131" y="1985"/>
+            <point key="canvasLocation" x="111" y="2116"/>
         </scene>
         <!--HomeItemViewController-->
         <scene sceneID="cMD-sp-umU">
@@ -332,7 +368,7 @@
                 <controllerPlaceholder storyboardName="HomeItemViewController" id="yYz-Hz-qMh" sceneMemberID="viewController"/>
                 <customObject id="iO9-fM-5na" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-40" y="2104"/>
+            <point key="canvasLocation" x="-186" y="2116"/>
         </scene>
     </scenes>
     <resources>

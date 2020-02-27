@@ -9,7 +9,7 @@
 import Cocoa
 
 extension NSView {
-    @IBInspectable var backgroundColor: NSColor? {
+    @IBInspectable var _BackgroundColor: NSColor? {
         set {
             wantsLayer = true
             layer?.backgroundColor = newValue?.cgColor
@@ -129,8 +129,6 @@ extension NSView{
 
 extension NSView{
     fileprivate func leastOrigin(view: NSView, minY: CGFloat) -> CGFloat{
-        print("\(minY) \(view.identifier)")
-
         if view.subviews.count > 0 {
             for v in view.subviews{
                 let y = v.frame.origin.y + (v.heightConstaint?.constant ?? 0)
@@ -143,4 +141,13 @@ extension NSView{
     }
     
     var leastOrigin: CGFloat{ leastOrigin(view: self, minY: CGFloat(Int.max))}
+}
+
+
+extension NSView{
+    func enterFullScreenMode(options: NSApplication.PresentationOptions = []){
+        let presOptions: NSApplication.PresentationOptions = ([.hideDock,.hideMenuBar])
+        let dictionary = [NSView.FullScreenModeOptionKey.fullScreenModeApplicationPresentationOptions: NSNumber(value: presOptions.union(options).rawValue)]
+        self.enterFullScreenMode(NSScreen.main!, withOptions: dictionary)
+    }
 }

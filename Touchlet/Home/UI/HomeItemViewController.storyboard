@@ -72,7 +72,7 @@
                             <constraint firstItem="lid-W0-tRk" firstAttribute="leading" secondItem="fic-u6-MYu" secondAttribute="leading" id="dSW-Db-nXN"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                            <userDefinedRuntimeAttribute type="color" keyPath="_BackgroundColor">
                                 <color key="value" name="Clear"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">

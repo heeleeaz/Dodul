@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class WindowController: NSWindowController{
+class MainWindowController: NSWindowController{
     private let pointerLocationObserver = PointerLocationObserver()
     private let touchBarItemUserDefault = TouchBarItemUserDefault.instance
     
@@ -40,9 +40,6 @@ class WindowController: NSWindowController{
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        
-        window?.setFrameAutosaveName("WindowAutosave")
-        
         pointerLocationObserver.delegate = self
         registerNotificationObservers()
     }

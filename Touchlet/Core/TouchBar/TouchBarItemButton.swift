@@ -59,17 +59,17 @@ class TouchBarItemButton: NSView  {
     }
     
     private func browseState(){
-        backgroundColor = .black
+        _BackgroundColor = .black
         if currentState != .drag {TouchBarUtil.animateBorder(of: self, bounds: bounds)}
     }
     
     private func dragState(){
-        backgroundColor = .black
+        _BackgroundColor = .black
         if currentState != .browse {TouchBarUtil.animateBorder(of: self, bounds: bounds)}
     }
     
     private func normalState(){
-        backgroundColor = .touchBarButtonColor
+        _BackgroundColor = .touchBarButtonColor
         if currentState != .normal {TouchBarUtil.removeAnimatedBorder(of: self)}
     }
     

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="N8w-KQ-ICN">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="3CH-yC-qHG">
+            <objects>
+                <windowController id="N8w-KQ-ICN" customClass="PreferencesWindowController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="yO7-wV-LmK" customClass="PreferencesWindow" customModule="Touchlet" customModuleProvider="target">
+                        <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="487" y="309" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <connections>
+                            <outlet property="delegate" destination="N8w-KQ-ICN" id="Rma-lw-pD1"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="ejj-Ci-6ws" kind="relationship" relationship="window.shadowedContentViewController" id="5PE-RO-7MB"/>
+                    </connections>
+                </windowController>
+                <customObject id="GOt-Gc-g0O" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-92" y="367"/>
+        </scene>
+        <!--Preferences View Controller-->
+        <scene sceneID="4LX-ir-2qO">
+            <objects>
+                <viewController id="ejj-Ci-6ws" customClass="PreferencesViewController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
+                    <customView key="view" id="dPg-rc-faC">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="205"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v0J-Cg-UX9">
+                                <rect key="frame" x="341" y="20" width="89" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1lA-TN-LFg"/>
+                                    <constraint firstAttribute="width" constant="89" id="nUg-dB-0We"/>
+                                </constraints>
+                                <buttonCell key="cell" type="bevel" title="Save" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="dsi-pR-eCC">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <color key="contentTintColor" name="BezelButtonTextColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="BezelButtonBorderColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kzq-mu-Qxz">
+                                <rect key="frame" x="232" y="20" width="89" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bLs-Wl-vQ6"/>
+                                    <constraint firstAttribute="width" constant="89" id="vUq-uH-h2G"/>
+                                </constraints>
+                                <buttonCell key="cell" type="bevel" title="Cancel" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="rgm-uC-yZ3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <color key="contentTintColor" name="BezelButtonTextColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="BezelButtonBorderColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelClick:" target="ejj-Ci-6ws" id="tYj-B5-5D4"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nbi-Kv-3af">
+                                <rect key="frame" x="73" y="160" width="305" height="25"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Change Touchbar Launcher Shortcut" id="bre-Xu-67N">
+                                    <font key="font" size="18" name="AvenirNext-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RSH-xI-bOl" customClass="KeybindTagView" customModule="Touchlet" customModuleProvider="target">
+                                <rect key="frame" x="200" y="105" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Evc-ql-g7A"/>
+                                    <constraint firstAttribute="width" constant="50" id="Nhe-c2-Wem"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Nbi-Kv-3af" firstAttribute="centerX" secondItem="dPg-rc-faC" secondAttribute="centerX" id="5qE-r6-S4H"/>
+                            <constraint firstItem="v0J-Cg-UX9" firstAttribute="leading" secondItem="kzq-mu-Qxz" secondAttribute="trailing" constant="20" id="7Mz-T0-TT5"/>
+                            <constraint firstItem="Nbi-Kv-3af" firstAttribute="top" secondItem="dPg-rc-faC" secondAttribute="top" constant="20" id="AUI-XE-EFz"/>
+                            <constraint firstItem="RSH-xI-bOl" firstAttribute="top" secondItem="Nbi-Kv-3af" secondAttribute="bottom" constant="25" id="KdN-gw-Epe"/>
+                            <constraint firstAttribute="bottom" secondItem="kzq-mu-Qxz" secondAttribute="bottom" constant="20" id="UTF-MT-PfA"/>
+                            <constraint firstAttribute="trailing" secondItem="v0J-Cg-UX9" secondAttribute="trailing" constant="20" id="n65-7m-2xv"/>
+                            <constraint firstAttribute="bottom" secondItem="v0J-Cg-UX9" secondAttribute="bottom" constant="20" id="nZc-6U-kQG"/>
+                            <constraint firstItem="RSH-xI-bOl" firstAttribute="centerX" secondItem="dPg-rc-faC" secondAttribute="centerX" id="pow-oI-aRY"/>
+                        </constraints>
+                    </customView>
+                    <connections>
+                        <outlet property="cancelButton" destination="kzq-mu-Qxz" id="pD6-ON-Uk2"/>
+                        <outlet property="saveButton" destination="v0J-Cg-UX9" id="gVd-gn-d8Q"/>
+                        <outlet property="stackView" destination="RSH-xI-bOl" id="Yg4-dg-3NJ"/>
+                    </connections>
+                </viewController>
+                <customObject id="8CI-Z9-1C2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-92" y="775.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="BezelButtonBorderColor">
+            <color red="0.37300581412661554" green="0.37084971115478543" blue="0.37516191709844571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="BezelButtonTextColor">
+            <color red="0.96390691069620615" green="0.9583351944494074" blue="0.96947862694300513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-extension WindowController{
+extension MainWindowController{
     struct Constants {
         static let customizationIdentifier = NSTouchBar.CustomizationIdentifier("\(Global.groupIdPrefix).TouchBarProvider")
         static let scrollBarIdentifier = NSTouchBarItem.Identifier("\(Global.groupIdPrefix).scrollbar")
@@ -28,7 +28,7 @@ extension WindowController{
     }
 }
 
-extension WindowController: NSTouchBarDelegate{
+extension MainWindowController: NSTouchBarDelegate{
     func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         let buttonSize = TouchBarUtil.Constant.touchItemButtonSize
         let spacing = TouchBarUtil.Constant.touchItemSpacing
@@ -54,7 +54,7 @@ extension WindowController: NSTouchBarDelegate{
     }
 }
 
-extension WindowController{
+extension MainWindowController{
     private var scrollViewInTouchBar: NSScrollView?{
         return (touchBar?.item(forIdentifier: Constants.scrollBarIdentifier) as? NSCustomTouchBarItem)?.view as? NSScrollView
     }
@@ -179,7 +179,7 @@ extension WindowController{
     }
 }
 
-extension WindowController: PointerLocationObserverDelegate{    
+extension MainWindowController: PointerLocationObserverDelegate{    
     func pointerLocationObserver(observer: PointerLocationObserver, pointerLocation: NSPoint, inDropRect: Bool) {
         if inDropRect {
             NSCursorHelper.instance.hide()
