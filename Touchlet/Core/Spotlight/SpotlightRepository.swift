@@ -19,17 +19,17 @@ class SpotlightRepository{
     
     var callback: ((SpotlightResult) -> ())?
 
-    private var query: NSMetadataQuery? {willSet {if let query = self.query {query.stop()}}}
+    private var _query: NSMetadataQuery? {willSet {if let query = self._query {query.stop()}}}
 
     private init(){}
 
-    func doSpotlightQuery() {
-        query = NSMetadataQuery()
-        query?.searchScopes = ["/Applications"]
+    func query() {
+        _query = NSMetadataQuery()
+        _query?.searchScopes = ["/Applications"]
         let predicate = NSPredicate(format: "kMDItemContentType == 'com.apple.application-bundle'")
         NotificationCenter.default.addObserver(self, selector: #selector(queryDidFinish(_:)), name: NSNotification.Name.NSMetadataQueryDidFinishGathering, object: nil)
-        query?.predicate = predicate
-        query?.start()
+        _query?.predicate = predicate
+        _query?.start()
     }
 
     @objc func queryDidFinish(_ notification: NSNotification) {
@@ -53,7 +53,6 @@ class SpotlightRepository{
             return workspace.icon(forFile: path)
         }
         return nil
-//
     }
 }
 

@@ -9,50 +9,57 @@
 import Cocoa
 
 class AppItemViewController: NSViewController{
+    struct Constant {
+         static let SPOTLIGHT_PAGING_INITIAL = 10
+         static let SPOTLIGHT_PAGING_FORWARD = 15
+     }
+    
     @objc weak var scrollView: NSScrollView!
     @IBOutlet weak var collectionView: NSCollectionView!
     
     private var indexPathsOfItemsBeingDragged: IndexPath?
-    
+    private let spotlightRepository = SpotlightRepository.instance
     private var spotlightResult: SpotlightResult?
+    
     private var spotlightItem: [SpotlightItem] = []{
         didSet{
             collectionView.reloadData()
             compactSize(ofView: view.superview!, collectionView, append: 60)            
-            DispatchQueue.main.async {self.scrollView.fitContent()}
+            DispatchQueue.main.async {
+                self.scrollView.fitContent()
+                
+                //scroll to top in first query
+                if self.spotlightItem.count == Constant.SPOTLIGHT_PAGING_INITIAL{
+                    self.scrollView.scrollToBeginingOfDocument()
+                }
+            }
         }
     }
     
     override func viewDidLoad() {
+       setupCollectionView()
+        
+        spotlightRepository.callback = { result in
+            self.spotlightResult = result
+            self.spotlightItem = self.spotlightResult?.next(forward: Constant.SPOTLIGHT_PAGING_INITIAL) ?? []
+        }
+        spotlightRepository.query()
+    }
+    
+    private func setupCollectionView(){
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.itemSize = NSSize(width: 120, height: 110)
         flowLayout.minimumLineSpacing = 5
         flowLayout.minimumInteritemSpacing = 5
         collectionView.collectionViewLayout = flowLayout
-        
         collectionView.register(AppCollectionViewItem.self, forItemWithIdentifier: AppCollectionViewItem.reuseIdentifier)
         collectionView.register(ButtonCollectionViewItem.self, forItemWithIdentifier: ButtonCollectionViewItem.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        registerForDragAndDrop()
-    }
-
-    func registerForDragAndDrop() {
         collectionView.registerForDraggedTypes([.URL])
         collectionView.setDraggingSourceOperationMask(NSDragOperation.every, forLocal: true)
         collectionView.setDraggingSourceOperationMask(NSDragOperation.every, forLocal: false)
-    }
-        
-    override func viewDidAppear() {
-        super.viewDidAppear()
-        
-        let spotlightRepository = SpotlightRepository.instance
-        spotlightRepository.callback = {
-            self.spotlightResult = $0
-            self.spotlightItem = self.spotlightResult?.next(forward: 10) ?? []
-        }
-        spotlightRepository.doSpotlightQuery()
     }
 }
 
@@ -70,7 +77,7 @@ extension AppItemViewController: NSCollectionViewDataSource, NSCollectionViewDel
             let view = collectionView.makeItem(withIdentifier: reuseIdentifer, for: indexPath)
             guard let collectionViewItem = view as? ButtonCollectionViewItem else {return view}
             collectionViewItem.showAction(action: .seeMore, {
-                self.spotlightItem += self.spotlightResult?.next(forward: 15) ?? []
+                self.spotlightItem += self.spotlightResult?.next(forward: Constant.SPOTLIGHT_PAGING_FORWARD) ?? []
             })
             return collectionViewItem
         }

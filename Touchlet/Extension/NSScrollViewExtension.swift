@@ -18,4 +18,8 @@ extension NSScrollView{
             documentView.setFrameSize(contentRect.size)
         }
     }
+    
+    func scrollToBeginingOfDocument() {
+        if let doc = documentView{doc.scroll(NSPoint(x: 0, y: doc.bounds.size.height))}
+    }
 }
