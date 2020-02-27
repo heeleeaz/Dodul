@@ -105,6 +105,11 @@
                             <constraint firstAttribute="bottom" secondItem="v0J-Cg-UX9" secondAttribute="bottom" constant="20" id="nZc-6U-kQG"/>
                             <constraint firstItem="RSH-xI-bOl" firstAttribute="centerX" secondItem="dPg-rc-faC" secondAttribute="centerX" id="pow-oI-aRY"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </customView>
                     <connections>
                         <outlet property="cancelButton" destination="kzq-mu-Qxz" id="pD6-ON-Uk2"/>
@@ -119,10 +124,10 @@
     </scenes>
     <resources>
         <namedColor name="BezelButtonBorderColor">
-            <color red="0.37300581412661554" green="0.37084971115478543" blue="0.37516191709844571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.37299999594688416" green="0.37099999189376831" blue="0.375" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="BezelButtonTextColor">
-            <color red="0.96390691069620615" green="0.9583351944494074" blue="0.96947862694300513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.96399998664855957" green="0.95800000429153442" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

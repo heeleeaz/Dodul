@@ -94,9 +94,8 @@ extension BookmarkViewController: AddLinkViewControllerDelegate{
 
         if let index = links.firstIndex(of: link){
             bookmarkRepository.updateBookmark(at: index, with: link)
-        }else{bookmarkRepository.save(bookmark: link)
-            
-        }
+        }else{bookmarkRepository.save(bookmark: link)}
+        
         reloadItem()
     }
     

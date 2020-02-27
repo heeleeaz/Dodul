@@ -14,6 +14,7 @@ class AddLinkViewController: NSViewController, NibLoadable {
     @IBOutlet weak var removeButton: NSButton!
     @IBOutlet weak var cancelButton: NSButton!
     @IBOutlet weak var doneButton: NSButton!
+    @IBOutlet weak var invalidURLTextField: NSTextField!
     
     var prefillLink: Link?
     weak var delegate: AddLinkViewControllerDelegate?
@@ -27,7 +28,6 @@ class AddLinkViewController: NSViewController, NibLoadable {
             removeButton.isHidden = false
         }else{removeButton.isHidden = true}
     
-        validateURL(urlInputField.stringValue)
         urlInputField.delegate = self
     }
     
@@ -40,21 +40,32 @@ class AddLinkViewController: NSViewController, NibLoadable {
     }
     
     @IBAction func doneAction(_ sender: Any) {
-        let id = prefillLink?.id ?? UUID().uuidString
-        let url = URL(string: urlInputField.stringValue)!
-        let title = nameInputField.stringValue.isEmpty ? url.absoluteString : nameInputField.stringValue
-        
-        self.delegate?.addLinkViewController(self, saveLink: Link(title: title, url: url, id: id))
+        if urlInputField.stringValue.isValidURL{
+            let id = prefillLink?.id ?? UUID().uuidString
+            let url = URL(string: urlInputField.stringValue)!
+            let title = nameInputField.stringValue.isEmpty ? url.absoluteString : nameInputField.stringValue
+            
+            self.delegate?.addLinkViewController(self, saveLink: Link(title: title, url: url, id: id))
+        }else{
+            invalidURLTextField.isHidden = false
+            doneButton.isEnabled = false
+        }
     }
-    
-    private func validateURL(_ value: String?){doneButton.isEnabled = value?.isValidURL ?? false}
     
     override func cancelOperation(_ sender: Any?) {self.dismiss(nil)}
 }
 
 extension AddLinkViewController: NSTextFieldDelegate{
     func controlTextDidChange(_ obj: Notification) {
-        validateURL(((obj.object as? NSTextField)?.stringValue))
+        if (obj.object as? NSTextField) == nameInputField{
+            doneButton.isEnabled = !urlInputField.stringValue.isEmpty
+            invalidURLTextField.isHidden = true
+        }
+    }
+    
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        if commandSelector == #selector(insertNewline){doneAction(self); return true}
+        return false
     }
 }
 

@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="cancelButton" destination="COr-ZY-QHu" id="qzu-VB-KdH"/>
                 <outlet property="doneButton" destination="z7O-WM-BcQ" id="bsV-A4-uhf"/>
+                <outlet property="invalidURLTextField" destination="xqg-c1-USh" id="eek-X6-4Zg"/>
                 <outlet property="nameInputField" destination="IGa-pS-hXY" id="l3K-DJ-iZ7"/>
                 <outlet property="removeButton" destination="Qz6-lA-tGb" id="Vfe-qp-t1D"/>
                 <outlet property="urlInputField" destination="agV-b4-q4Q" id="ZbC-fY-aSr"/>
@@ -20,11 +21,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="QIB-WQ-gq3">
-            <rect key="frame" x="0.0" y="0.0" width="398" height="245"/>
+            <rect key="frame" x="0.0" y="0.0" width="350" height="259"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QAr-A2-PVr">
-                    <rect key="frame" x="18" y="212" width="105" height="19"/>
+                    <rect key="frame" x="18" y="226" width="105" height="19"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Add Bookmark" id="Rx5-ZG-GNo">
                         <font key="font" metaFont="system" size="15"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -32,7 +33,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IGa-pS-hXY" customClass="EditingTextField" customModule="Touchlet" customModuleProvider="target">
-                    <rect key="frame" x="20" y="138" width="358" height="30"/>
+                    <rect key="frame" x="20" y="152" width="310" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="34o-rT-3QG"/>
                     </constraints>
@@ -43,7 +44,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kZb-H8-yq9">
-                    <rect key="frame" x="18" y="176" width="37" height="15"/>
+                    <rect key="frame" x="18" y="190" width="37" height="15"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Name" id="w2M-DB-euf">
                         <font key="font" metaFont="cellTitle"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -51,7 +52,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agV-b4-q4Q" customClass="EditingTextField" customModule="Touchlet" customModuleProvider="target">
-                    <rect key="frame" x="20" y="69" width="358" height="30"/>
+                    <rect key="frame" x="20" y="83" width="310" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="YoA-zK-Xvp"/>
                     </constraints>
@@ -62,7 +63,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pno-9M-CAb">
-                    <rect key="frame" x="18" y="107" width="28" height="15"/>
+                    <rect key="frame" x="18" y="121" width="28" height="15"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="URL" id="RYv-sH-4eU">
                         <font key="font" metaFont="cellTitle"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -93,7 +94,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z7O-WM-BcQ">
-                    <rect key="frame" x="289" y="14" width="89" height="30"/>
+                    <rect key="frame" x="241" y="14" width="89" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="3nc-5s-DD4"/>
                         <constraint firstAttribute="width" constant="89" id="aGO-m1-07u"/>
@@ -116,7 +117,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="COr-ZY-QHu">
-                    <rect key="frame" x="192" y="14" width="89" height="30"/>
+                    <rect key="frame" x="144" y="14" width="89" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="efK-ez-jCF"/>
                         <constraint firstAttribute="width" constant="89" id="nZW-0a-2NN"/>
@@ -138,13 +139,21 @@
                         <action selector="cancelAction:" target="-2" id="r7K-zC-ihE"/>
                     </connections>
                 </button>
+                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xqg-c1-USh">
+                    <rect key="frame" x="20" y="61" width="141" height="14"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="The URL entered is invalid" id="YZZ-ja-0hw">
+                        <font key="font" metaFont="system" size="11"/>
+                        <color key="textColor" name="InvalidURLTextColor"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="z7O-WM-BcQ" firstAttribute="top" secondItem="agV-b4-q4Q" secondAttribute="bottom" constant="25" id="1BF-Ds-zXh"/>
                 <constraint firstItem="Pno-9M-CAb" firstAttribute="top" secondItem="IGa-pS-hXY" secondAttribute="bottom" constant="16" id="1cC-cE-b5H"/>
                 <constraint firstItem="agV-b4-q4Q" firstAttribute="leading" secondItem="QIB-WQ-gq3" secondAttribute="leading" constant="20" id="8Ca-xx-9Le"/>
                 <constraint firstAttribute="trailing" secondItem="z7O-WM-BcQ" secondAttribute="trailing" constant="20" id="8H7-YR-Kmw"/>
                 <constraint firstItem="Pno-9M-CAb" firstAttribute="leading" secondItem="QIB-WQ-gq3" secondAttribute="leading" constant="20" id="HOe-E1-BdK"/>
+                <constraint firstAttribute="bottom" secondItem="Qz6-lA-tGb" secondAttribute="bottom" constant="14" id="IbZ-jw-uzd"/>
                 <constraint firstItem="agV-b4-q4Q" firstAttribute="top" secondItem="Pno-9M-CAb" secondAttribute="bottom" constant="8" id="MWi-DA-ZnH"/>
                 <constraint firstItem="QAr-A2-PVr" firstAttribute="top" secondItem="QIB-WQ-gq3" secondAttribute="top" constant="14" id="NJ2-SW-qq6"/>
                 <constraint firstItem="QAr-A2-PVr" firstAttribute="leading" secondItem="QIB-WQ-gq3" secondAttribute="leading" constant="20" id="QYl-Vm-Hfe"/>
@@ -152,14 +161,16 @@
                 <constraint firstItem="IGa-pS-hXY" firstAttribute="leading" secondItem="QIB-WQ-gq3" secondAttribute="leading" constant="20" id="Reo-2S-e16"/>
                 <constraint firstItem="kZb-H8-yq9" firstAttribute="leading" secondItem="QIB-WQ-gq3" secondAttribute="leading" constant="20" id="TXg-Lc-aSp"/>
                 <constraint firstItem="IGa-pS-hXY" firstAttribute="top" secondItem="kZb-H8-yq9" secondAttribute="bottom" constant="8" id="V45-f1-N9J"/>
-                <constraint firstItem="Qz6-lA-tGb" firstAttribute="top" secondItem="agV-b4-q4Q" secondAttribute="bottom" constant="25" id="bHz-T1-lWW"/>
+                <constraint firstItem="xqg-c1-USh" firstAttribute="leading" secondItem="QIB-WQ-gq3" secondAttribute="leading" constant="22" id="ZJ3-ii-p9z"/>
                 <constraint firstItem="z7O-WM-BcQ" firstAttribute="leading" secondItem="COr-ZY-QHu" secondAttribute="trailing" constant="8" id="bWf-Uh-5zx"/>
                 <constraint firstAttribute="trailing" secondItem="IGa-pS-hXY" secondAttribute="trailing" constant="20" id="eaW-Id-hrD"/>
+                <constraint firstItem="xqg-c1-USh" firstAttribute="top" secondItem="agV-b4-q4Q" secondAttribute="bottom" constant="8" id="hha-zK-brz"/>
                 <constraint firstItem="kZb-H8-yq9" firstAttribute="top" secondItem="QAr-A2-PVr" secondAttribute="bottom" constant="21" id="kC0-CQ-SJM"/>
-                <constraint firstItem="COr-ZY-QHu" firstAttribute="top" secondItem="agV-b4-q4Q" secondAttribute="bottom" constant="25" id="lmZ-R3-X9i"/>
                 <constraint firstAttribute="trailing" secondItem="agV-b4-q4Q" secondAttribute="trailing" constant="20" id="o0p-Md-mAY"/>
+                <constraint firstAttribute="bottom" secondItem="z7O-WM-BcQ" secondAttribute="bottom" constant="14" id="rZy-Bd-7Xp"/>
+                <constraint firstAttribute="bottom" secondItem="COr-ZY-QHu" secondAttribute="bottom" constant="14" id="s9d-tg-wsa"/>
             </constraints>
-            <point key="canvasLocation" x="113" y="466.5"/>
+            <point key="canvasLocation" x="113" y="473.5"/>
         </customView>
     </objects>
     <resources>
@@ -168,6 +179,9 @@
         </namedColor>
         <namedColor name="BezelButtonTextColor">
             <color red="0.96399998664855957" green="0.95800000429153442" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="InvalidURLTextColor">
+            <color red="0.66456849093264247" green="0.30927658763992222" blue="0.17101710007852652" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
