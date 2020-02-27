@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import FavIcon
 
 class LinkCollectionViewItem: NSCollectionViewItem {
     static let reuseIdentifier = NSUserInterfaceItemIdentifier("LinkCollectionViewItem")
@@ -21,9 +20,10 @@ class LinkCollectionViewItem: NSCollectionViewItem {
     private func updateView(){
         textField?.stringValue = link.displayTitle ?? ""
         
-        FaviconImageProvider.instance.load(url: link.url, completion: { (image, _) in
+        imageView?.image = NSImage(named: "NSBookmarksTemplate")
+        FaviconProvider.instance.load(url: link.url){ (image, error) in
             if let image = image {self.imageView?.image = image}
-        })
+        }
     }
     
     override func viewDidLoad() {

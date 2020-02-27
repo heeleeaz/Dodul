@@ -6,8 +6,9 @@ target 'Touchlet' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   
-  pod 'FavIcon', '~> 3.0.0'
+#  pod 'FavIcon', '~> 3.0.0'
   pod 'HotKey'
+#  pod 'Kanna', '~> 4.0.0'
 
 #  target 'TouchletTests' do
 #    inherit! :search_paths

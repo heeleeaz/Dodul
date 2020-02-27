@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BookmarkRepository{
+public class BookmarkRepository{
     static let imageCacheName = "bookmarks"
 
     private var dataStore: BookmarkStore

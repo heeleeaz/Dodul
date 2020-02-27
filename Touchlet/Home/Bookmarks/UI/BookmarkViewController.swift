@@ -12,9 +12,12 @@ class BookmarkViewController: NSViewController{
     @objc weak var scrollView: NSScrollView!
     @IBOutlet weak var collectionView: NSCollectionView!
     
-    private var bookmarkUserDafault = BookmarkUserDefaults()
+    private var bookmarkRepository = BookmarkRepository()
     private var links: [Link] = []{ didSet{ collectionView.reloadData() } }
     
+    struct Constant {
+        static let BOOKMARK_MAX_COLLECTION_COUNT = 15
+    }
     
     override func viewDidLoad() {
         let flowLayout = NSCollectionViewFlowLayout()
@@ -32,7 +35,7 @@ class BookmarkViewController: NSViewController{
     override func viewDidAppear() {reloadItem()}
     
     private func reloadItem(){
-        links = (try? bookmarkUserDafault.findAll()) ?? []
+        links = bookmarkRepository.bookmarks
         compactSize(ofView: view.superview!, collectionView, append: 60)
         DispatchQueue.main.async {self.scrollView.fitContent()}
     }
@@ -73,19 +76,28 @@ extension BookmarkViewController: NSCollectionViewDataSource, NSCollectionViewDe
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return links.count + (links.count <= 30 ? 1 : 0)
+        return links.count + (links.count <= Constant.BOOKMARK_MAX_COLLECTION_COUNT ? 1 : 0)
     }
 }
 
 extension BookmarkViewController: AddLinkViewControllerDelegate{
     func addLinkViewController(_ controller: AddLinkViewController, deleteLink link: Link?) {
-        if let link = link{try? bookmarkUserDafault.removeBookmark(link)}
-        reloadItem(); self.dismiss(controller)
+        self.dismiss(controller)
+        
+        if let link = link, let index = links.firstIndex(of: link){
+            bookmarkRepository.deleteBookmark(at: index); reloadItem()
+        }
     }
     
     func addLinkViewController(_ controller: AddLinkViewController, saveLink link: Link) {
-        try? bookmarkUserDafault.addBookmark(link); reloadItem()
         self.dismiss(controller)
+
+        if let index = links.firstIndex(of: link){
+            bookmarkRepository.updateBookmark(at: index, with: link)
+        }else{bookmarkRepository.save(bookmark: link)
+            
+        }
+        reloadItem()
     }
     
     func addLinkViewController(_ controller: AddLinkViewController, dismiss byUser: Bool) {

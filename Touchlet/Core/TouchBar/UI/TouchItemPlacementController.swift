@@ -14,7 +14,7 @@ extension MainWindowController{
         static let scrollBarIdentifier = NSTouchBarItem.Identifier("\(Global.groupIdPrefix).scrollbar")
     }
     
-    private var faviconImageProvider: FaviconImageProvider { return FaviconImageProvider.instance }
+    private var faviconImageProvider: FaviconProvider { return FaviconProvider.instance }
         
     override func makeTouchBar() -> NSTouchBar? {
         let touchBar =  NSTouchBar()

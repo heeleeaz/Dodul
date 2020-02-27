@@ -1,20 +1,16 @@
 PODS:
-  - FavIcon (3.0.6)
   - HotKey (0.1.2)
 
 DEPENDENCIES:
-  - FavIcon (~> 3.0.0)
   - HotKey
 
 SPEC REPOS:
   trunk:
-    - FavIcon
     - HotKey
 
 SPEC CHECKSUMS:
-  FavIcon: e07ba9dd3cac1f76b81ccaa08fc2b41baa000b07
   HotKey: ad59450195936c10992438c4210f673de5aee43e
 
-PODFILE CHECKSUM: 867ce27f84059402d0371eb64def8f941dcd665b
+PODFILE CHECKSUM: 93b36a175d31a7e3c90861b4465d184ae3c0feb2
 
 COCOAPODS: 1.8.3

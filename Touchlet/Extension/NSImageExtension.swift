@@ -41,6 +41,8 @@ extension NSImage{
     }
     
     func resize(destSize: CGSize) -> NSImage {
+        if self.size.width == destSize.width || self.size.height == destSize.height {return self}
+        
         let newImage = NSImage(size: destSize)
         newImage.lockFocus()
         draw(in: NSMakeRect(0, 0, destSize.width, destSize.height), from: NSMakeRect(0, 0, size.width, size.height), operation: NSCompositingOperation.sourceOver, fraction: CGFloat(1))

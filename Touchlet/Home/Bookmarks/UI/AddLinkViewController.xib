@@ -31,7 +31,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IGa-pS-hXY" customClass="EditingTextField" customModule="Touchlet" customModuleProvider="target">
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IGa-pS-hXY" customClass="EditingTextField" customModule="Touchlet" customModuleProvider="target">
                     <rect key="frame" x="20" y="138" width="358" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="34o-rT-3QG"/>
@@ -50,7 +50,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="agV-b4-q4Q" customClass="EditingTextField" customModule="Touchlet" customModuleProvider="target">
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agV-b4-q4Q" customClass="EditingTextField" customModule="Touchlet" customModuleProvider="target">
                     <rect key="frame" x="20" y="69" width="358" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="YoA-zK-Xvp"/>

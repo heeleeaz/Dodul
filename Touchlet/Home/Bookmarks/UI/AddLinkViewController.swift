@@ -16,9 +16,8 @@ class AddLinkViewController: NSViewController, NibLoadable {
     @IBOutlet weak var doneButton: NSButton!
     
     var prefillLink: Link?
-    var delegate: AddLinkViewControllerDelegate?
+    weak var delegate: AddLinkViewControllerDelegate?
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,9 +40,11 @@ class AddLinkViewController: NSViewController, NibLoadable {
     }
     
     @IBAction func doneAction(_ sender: Any) {
-        let url = self.urlInputField.stringValue
-        let title = self.nameInputField.stringValue.isEmpty ? url : self.nameInputField.stringValue
-        self.delegate?.addLinkViewController(self, saveLink: Link(title: title, url: URL(string: url)!))
+        let id = prefillLink?.id ?? UUID().uuidString
+        let url = URL(string: urlInputField.stringValue)!
+        let title = nameInputField.stringValue.isEmpty ? url.absoluteString : nameInputField.stringValue
+        
+        self.delegate?.addLinkViewController(self, saveLink: Link(title: title, url: url, id: id))
     }
     
     private func validateURL(_ value: String?){doneButton.isEnabled = value?.isValidURL ?? false}
@@ -57,7 +58,7 @@ extension AddLinkViewController: NSTextFieldDelegate{
     }
 }
 
-protocol AddLinkViewControllerDelegate: class{
+@objc protocol AddLinkViewControllerDelegate{
     func addLinkViewController(_ controller: AddLinkViewController, deleteLink link: Link?)
     func addLinkViewController(_ controller: AddLinkViewController, saveLink link: Link)
     func addLinkViewController(_ controller: AddLinkViewController, dismiss byUser: Bool)

@@ -55,7 +55,7 @@ extension TouchBarItem{
         case .App:
             return SpotlightRepository.findAppIcon(bundleIdentifier: identifier)
         default:
-            return FaviconImageProvider.instance.load(fromCache: URL(string: identifier)!)
+            return FaviconProvider.instance.loadFromCache(url: URL(string: identifier)!)
         }
     }
 }

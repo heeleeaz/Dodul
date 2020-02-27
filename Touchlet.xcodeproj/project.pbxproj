@@ -61,13 +61,21 @@
 		92A1B33523C4D8A200D7BEF1 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33423C4D8A200D7BEF1 /* MainWindowController.swift */; };
 		92A1B33A23C4DC0D00D7BEF1 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33923C4DC0D00D7BEF1 /* Logger.swift */; };
 		92A1B33C23C4DC2400D7BEF1 /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33B23C4DC2400D7BEF1 /* FileLoader.swift */; };
+		92D656BD2407DFFF003882DD /* ContentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D656AF2407DFFF003882DD /* ContentTypes.swift */; };
+		92D656BE2407DFFF003882DD /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D656B02407DFFF003882DD /* Icon.swift */; };
+		92D656BF2407DFFF003882DD /* IconType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D656B12407DFFF003882DD /* IconType.swift */; };
+		92D656C02407DFFF003882DD /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D656B22407DFFF003882DD /* Download.swift */; };
+		92D656C12407DFFF003882DD /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D656B32407DFFF003882DD /* HTML.swift */; };
+		92D656C22407DFFF003882DD /* FavIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D656B42407DFFF003882DD /* FavIcon.swift */; };
+		92D656C32407DFFF003882DD /* XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D656B62407DFFF003882DD /* XML.swift */; };
+		92D656C42407DFFF003882DD /* Detection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D656B72407DFFF003882DD /* Detection.swift */; };
 		92E16C742403CE4000511EE1 /* GlobalKeybindPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16C732403CE4000511EE1 /* GlobalKeybindPreferences.swift */; };
 		92E16C762403D60E00511EE1 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16C752403D60E00511EE1 /* PreferencesViewController.swift */; };
 		92FE9B0F23CF56AC00FA6AC6 /* OuterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */; };
 		92FE9B1123CF5AC400FA6AC6 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1023CF5AC400FA6AC6 /* Cache.swift */; };
 		92FE9B1423CF794900FA6AC6 /* NSDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1323CF794900FA6AC6 /* NSDataExtension.swift */; };
 		92FE9B1623CF79E900FA6AC6 /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1523CF79E900FA6AC6 /* NSImageExtension.swift */; };
-		92FE9B1823CFB4AD00FA6AC6 /* ImageCacheProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1723CFB4AD00FA6AC6 /* ImageCacheProvider.swift */; };
+		92FE9B1823CFB4AD00FA6AC6 /* FaviconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B1723CFB4AD00FA6AC6 /* FaviconProvider.swift */; };
 		92FE9B2023CFDAF600FA6AC6 /* SpotlightWhitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 92FE9B1F23CFDAF600FA6AC6 /* SpotlightWhitelist.json */; };
 		92FE9B2223D0718100FA6AC6 /* HomeCollectionItemsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */; };
 		92FE9B2523D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */; };
@@ -107,6 +115,7 @@
 		9212AE6723D60763003482FB /* TouchBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItem.swift; sourceTree = "<group>"; };
 		921329F32406EB2000D9FE9E /* AddLinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLinkViewController.xib; sourceTree = "<group>"; };
 		921329F52407154200D9FE9E /* EditableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTextField.swift; sourceTree = "<group>"; };
+		92132A062407B21300D9FE9E /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		9239C71D23CB927C00990745 /* NSScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSScrollViewExtension.swift; sourceTree = "<group>"; };
 		923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewItem.swift; sourceTree = "<group>"; };
 		923B986023C5CF8D00BC48A7 /* AppCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppCollectionViewItem.xib; sourceTree = "<group>"; };
@@ -155,13 +164,24 @@
 		92A1B33423C4D8A200D7BEF1 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		92A1B33923C4DC0D00D7BEF1 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		92A1B33B23C4DC2400D7BEF1 /* FileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
+		92D656AF2407DFFF003882DD /* ContentTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTypes.swift; sourceTree = "<group>"; };
+		92D656B02407DFFF003882DD /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		92D656B12407DFFF003882DD /* IconType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconType.swift; sourceTree = "<group>"; };
+		92D656B22407DFFF003882DD /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		92D656B32407DFFF003882DD /* HTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTML.swift; sourceTree = "<group>"; };
+		92D656B42407DFFF003882DD /* FavIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavIcon.swift; sourceTree = "<group>"; };
+		92D656B52407DFFF003882DD /* FavIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavIcon.h; sourceTree = "<group>"; };
+		92D656B62407DFFF003882DD /* XML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XML.swift; sourceTree = "<group>"; };
+		92D656B72407DFFF003882DD /* Detection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detection.swift; sourceTree = "<group>"; };
+		92D656BA2407DFFF003882DD /* libxml2-favicon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "libxml2-favicon.h"; sourceTree = "<group>"; };
+		92D656BB2407DFFF003882DD /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		92E16C732403CE4000511EE1 /* GlobalKeybindPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalKeybindPreferences.swift; sourceTree = "<group>"; };
 		92E16C752403D60E00511EE1 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterScrollView.swift; sourceTree = "<group>"; };
 		92FE9B1023CF5AC400FA6AC6 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		92FE9B1323CF794900FA6AC6 /* NSDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDataExtension.swift; sourceTree = "<group>"; };
 		92FE9B1523CF79E900FA6AC6 /* NSImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
-		92FE9B1723CFB4AD00FA6AC6 /* ImageCacheProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheProvider.swift; sourceTree = "<group>"; };
+		92FE9B1723CFB4AD00FA6AC6 /* FaviconProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconProvider.swift; sourceTree = "<group>"; };
 		92FE9B1F23CFDAF600FA6AC6 /* SpotlightWhitelist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpotlightWhitelist.json; sourceTree = "<group>"; };
 		92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionItemsUtil.swift; sourceTree = "<group>"; };
 		92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewItem.swift; sourceTree = "<group>"; };
@@ -202,6 +222,16 @@
 				25E1A65C9426C5503D4B6DB7 /* Pods-Touchlet.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9209AD9824080EAC0057E21D /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				925A241423C7378B002BB85F /* BookmarkRepository.swift */,
+				925A245623C8D811002BB85F /* BookmarkStore.swift */,
+				925A245823C8D88C002BB85F /* BookmarkUserDefaults.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 		921046B323F2C14A0069D8EC /* UI */ = {
@@ -293,15 +323,6 @@
 			path = Spotlight;
 			sourceTree = "<group>";
 		};
-		925A241323C736E5002BB85F /* Bookmarks */ = {
-			isa = PBXGroup;
-			children = (
-				925A245623C8D811002BB85F /* BookmarkStore.swift */,
-				925A245823C8D88C002BB85F /* BookmarkUserDefaults.swift */,
-			);
-			path = Bookmarks;
-			sourceTree = "<group>";
-		};
 		925A241623C73AD1002BB85F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +345,7 @@
 		925A243623C76205002BB85F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92132A062407B21300D9FE9E /* libxml2.2.tbd */,
 				925A243723C76205002BB85F /* libxml2.tbd */,
 				AAB4BCE4A7A57B19483220DC /* Pods_Touchlet.framework */,
 			);
@@ -343,9 +365,9 @@
 		925A245523C8D7D8002BB85F /* Bookmarks */ = {
 			isa = PBXGroup;
 			children = (
-				92FE9B1723CFB4AD00FA6AC6 /* ImageCacheProvider.swift */,
+				9209AD9824080EAC0057E21D /* Store */,
+				92FE9B1723CFB4AD00FA6AC6 /* FaviconProvider.swift */,
 				9283108223CA773A00B115D1 /* UI */,
-				925A241423C7378B002BB85F /* BookmarkRepository.swift */,
 			);
 			path = Bookmarks;
 			sourceTree = "<group>";
@@ -391,6 +413,7 @@
 		92A1B2E923C4AA2100D7BEF1 = {
 			isa = PBXGroup;
 			children = (
+				92D656B92407DFFF003882DD /* Modules */,
 				92A1B2F423C4AA2100D7BEF1 /* Touchlet */,
 				92A1B30A23C4AA2200D7BEF1 /* TouchletTests */,
 				92A1B31523C4AA2200D7BEF1 /* TouchletUITests */,
@@ -468,7 +491,6 @@
 				9212AE6223D604E6003482FB /* TouchBar */,
 				925A245C23C8DB75002BB85F /* Domain */,
 				925A244E23C87F2F002BB85F /* Storage */,
-				925A241323C736E5002BB85F /* Bookmarks */,
 				925A240A23C685AF002BB85F /* Spotlight */,
 				92A1B33823C4DBF200D7BEF1 /* Utilities */,
 				925A245A23C8D8B9002BB85F /* Global.swift */,
@@ -494,6 +516,32 @@
 				923B986323C5E51F00BC48A7 /* UI */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		92D656AE2407DFFF003882DD /* FavIcon.swiftmodule */ = {
+			isa = PBXGroup;
+			children = (
+				92D656AF2407DFFF003882DD /* ContentTypes.swift */,
+				92D656B02407DFFF003882DD /* Icon.swift */,
+				92D656B12407DFFF003882DD /* IconType.swift */,
+				92D656B22407DFFF003882DD /* Download.swift */,
+				92D656B32407DFFF003882DD /* HTML.swift */,
+				92D656B42407DFFF003882DD /* FavIcon.swift */,
+				92D656B52407DFFF003882DD /* FavIcon.h */,
+				92D656B62407DFFF003882DD /* XML.swift */,
+				92D656B72407DFFF003882DD /* Detection.swift */,
+			);
+			path = FavIcon.swiftmodule;
+			sourceTree = "<group>";
+		};
+		92D656B92407DFFF003882DD /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				92D656AE2407DFFF003882DD /* FavIcon.swiftmodule */,
+				92D656BA2407DFFF003882DD /* libxml2-favicon.h */,
+				92D656BB2407DFFF003882DD /* module.modulemap */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		92D98A7B240439740072F68F /* Preferences */ = {
@@ -707,12 +755,18 @@
 			files = (
 				92A1B2FB23C4AA2100D7BEF1 /* Touchlet.xcdatamodeld in Sources */,
 				923B986123C5CF8D00BC48A7 /* AppCollectionViewItem.swift in Sources */,
+				92D656C02407DFFF003882DD /* Download.swift in Sources */,
 				92FE9B1423CF794900FA6AC6 /* NSDataExtension.swift in Sources */,
 				92FE9B2523D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift in Sources */,
 				92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */,
+				92D656BD2407DFFF003882DD /* ContentTypes.swift in Sources */,
+				92D656C42407DFFF003882DD /* Detection.swift in Sources */,
+				92D656C22407DFFF003882DD /* FavIcon.swift in Sources */,
 				92E16C762403D60E00511EE1 /* PreferencesViewController.swift in Sources */,
+				92D656C32407DFFF003882DD /* XML.swift in Sources */,
 				92FE9B1123CF5AC400FA6AC6 /* Cache.swift in Sources */,
 				9239C71E23CB927C00990745 /* NSScrollViewExtension.swift in Sources */,
+				92D656BE2407DFFF003882DD /* Icon.swift in Sources */,
 				92015D05240515000003A773 /* MainWindow.swift in Sources */,
 				92A1B33123C4C0A000D7BEF1 /* NSViewExtension.swift in Sources */,
 				923B987323C6107000BC48A7 /* NSViewControllerExtension.swift in Sources */,
@@ -728,8 +782,10 @@
 				9246322223CB399100042EFE /* NSCollectionViewItem.swift in Sources */,
 				92A1B33C23C4DC2400D7BEF1 /* FileLoader.swift in Sources */,
 				925A245923C8D88C002BB85F /* BookmarkUserDefaults.swift in Sources */,
+				92D656BF2407DFFF003882DD /* IconType.swift in Sources */,
 				92E16C742403CE4000511EE1 /* GlobalKeybindPreferences.swift in Sources */,
 				9283108023CA773200B115D1 /* LinkCollectionViewItem.swift in Sources */,
+				92D656C12407DFFF003882DD /* HTML.swift in Sources */,
 				925A245E23C8DB80002BB85F /* Link.swift in Sources */,
 				925A245B23C8D8B9002BB85F /* Global.swift in Sources */,
 				925A241223C69487002BB85F /* SpotlightItem.swift in Sources */,
@@ -740,7 +796,7 @@
 				9212AE6823D60763003482FB /* TouchBarItem.swift in Sources */,
 				92A1B33023C4C0A000D7BEF1 /* NSColorExtension.swift in Sources */,
 				926723EE23F2D1F6002D9BAE /* NSCursorHelper.swift in Sources */,
-				92FE9B1823CFB4AD00FA6AC6 /* ImageCacheProvider.swift in Sources */,
+				92FE9B1823CFB4AD00FA6AC6 /* FaviconProvider.swift in Sources */,
 				925A246023C8DBFD002BB85F /* NSStringExtension.swift in Sources */,
 				9212AE6623D606AC003482FB /* TouchBarItemStore.swift in Sources */,
 				923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */,
@@ -855,6 +911,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "Modules/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -910,6 +967,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "Modules/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -928,6 +986,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HotKey/HotKey.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kanna/Kanna.framework/Headers\"",
+				);
 				INFOPLIST_FILE = Touchlet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -936,6 +999,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.Touchlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(SDKROOT)/usr/include/libxml2 $(SRCROOT)/Kanna/Modules";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -949,6 +1013,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HotKey/HotKey.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kanna/Kanna.framework/Headers\"",
+				);
 				INFOPLIST_FILE = Touchlet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -957,6 +1026,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.Touchlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(SRCROOT)/Kanna/Modules $(SDKROOT)/usr/include/libxml2\n$(SDKROOT)/usr/include/libxml2";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

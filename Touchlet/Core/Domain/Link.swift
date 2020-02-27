@@ -10,10 +10,12 @@ import Foundation
 
 public class Link: NSObject, NSCoding {
     private struct NSCodingKeys {
+        static let id = "id"
         static let title = "title"
         static let url = "url"
     }
 
+    public let id: String
     public let title: String?
     public let url: URL
     
@@ -22,30 +24,27 @@ public class Link: NSObject, NSCoding {
         return (title?.isEmpty ?? true) ? host : title
     }
 
-    public required init(title: String?, url: URL) {
+    public required init(title: String?, url: URL, id: String = UUID().uuidString) {
+        self.id = id
         self.title = title
         self.url = url
     }
 
     public convenience required init?(coder decoder: NSCoder) {
-        guard let url = decoder.decodeObject(forKey: NSCodingKeys.url) as? URL else { return nil }
+        guard let url = decoder.decodeObject(forKey: NSCodingKeys.url) as? URL, let id = decoder.decodeObject(forKey: NSCodingKeys.id) as? String else { return nil }
         let title = decoder.decodeObject(forKey: NSCodingKeys.title) as? String
-        self.init(title: title, url: url)
+        
+        self.init(title: title, url: url, id: id)
     }
 
     public func encode(with coder: NSCoder) {
         coder.encode(title, forKey: NSCodingKeys.title)
         coder.encode(url, forKey: NSCodingKeys.url)
+        coder.encode(id, forKey: NSCodingKeys.id)
     }
 
     public override func isEqual(_ other: Any?) -> Bool {
-        guard let other = other as? Link else { return false }
-        return title == other.title && url == other.url
-    }
-
-    public func merge(with other: Link) -> Link {
-        if url != other.url {return self}
-        let mergeTitle = (title == nil || title!.isEmpty) ? other.title : title
-        return Link(title: mergeTitle, url: url)
+        if let other = other as? Link{return id.elementsEqual(other.id)}
+        else{return false}
     }
 }

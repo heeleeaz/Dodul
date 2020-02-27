@@ -10,25 +10,21 @@ import Foundation
 
 class BookmarkUserDefaults: BookmarkStore {
     public struct Constants {
-        public static let groupName = "\(Global.groupIdPrefix).bookmarks_"
+        static let groupName = "\(Global.groupIdPrefix).bookmarks_0_"
+        static let bookmarkKey = "bookmark"
     }
-
-    private struct Keys {
-        static let bookmarkKey = "com.heeleeaz.bookmarks.bookmarkKey"
-    }
-
     private let userDefaults: UserDefaults
 
     init(userDefaults: UserDefaults = UserDefaults(suiteName: Constants.groupName)!) {
         self.userDefaults = userDefaults
     }
     
-    func removeBookmark(_ bookmark: Link) throws {
-        var newBookmarks = try findAll()
-        newBookmarks.removeAll(where: {$0 == bookmark})
-        try setBookmarks(newBookmarks)
-    }
-    
+//    func removeBookmark(_ bookmark: Link) throws {
+//        var newBookmarks = try findAll()
+//        newBookmarks.removeAll(where: {$0 == bookmark})
+//        try setBookmarks(newBookmarks)
+//    }
+//
     func addBookmark(_ bookmark: Link) throws {
         var newBookmarks = try findAll()
         newBookmarks.append(bookmark)
@@ -37,11 +33,11 @@ class BookmarkUserDefaults: BookmarkStore {
     
     func setBookmarks(_ bookmark: [Link]) throws {
         let data = try NSKeyedArchiver.archivedData(withRootObject: bookmark, requiringSecureCoding: false)
-        return userDefaults.set(data, forKey: Keys.bookmarkKey)
+        return userDefaults.set(data, forKey: Constants.bookmarkKey)
     }
     
     func findAll() throws -> [Link]{
-        guard let data = userDefaults.data(forKey: Keys.bookmarkKey) else {return []}
+        guard let data = userDefaults.data(forKey: Constants.bookmarkKey) else {return []}
         return try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [Link]
     }
 }
