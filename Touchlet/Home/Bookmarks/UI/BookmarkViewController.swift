@@ -8,16 +8,11 @@
 
 import Cocoa
 
-class BookmarkViewController: NSViewController{
+class BookmarkViewController: HomeSupportCollectionViewController{
     @objc weak var scrollView: NSScrollView!
-    @IBOutlet weak var collectionView: NSCollectionView!
-    
+        
     private var bookmarkRepository = BookmarkRepository()
     private var links: [Link] = []{ didSet{ collectionView.reloadData() } }
-    
-    struct Constant {
-        static let BOOKMARK_MAX_COLLECTION_COUNT = 15
-    }
     
     override func viewDidLoad() {
         let flowLayout = NSCollectionViewFlowLayout()
@@ -46,9 +41,11 @@ class BookmarkViewController: NSViewController{
         addLinkController!.delegate = self
         self.presentAsTooltop(addLinkController!, anchor: anchor)
     }
+    
+    override func itemAtPosition(at index: Int) -> String? {return self.links[index].id}
 }
 
-extension BookmarkViewController: NSCollectionViewDataSource, NSCollectionViewDelegate{
+extension BookmarkViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
         if(indexPath.item < links.count){
@@ -101,5 +98,11 @@ extension BookmarkViewController: AddLinkViewControllerDelegate{
     
     func addLinkViewController(_ controller: AddLinkViewController, dismiss byUser: Bool) {
         self.dismiss(controller)
+    }
+}
+
+extension BookmarkViewController{
+    struct Constant {
+        static let BOOKMARK_MAX_COLLECTION_COUNT = 15
     }
 }

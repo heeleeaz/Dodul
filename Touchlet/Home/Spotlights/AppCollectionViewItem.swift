@@ -19,14 +19,6 @@ class AppCollectionViewItem: NSCollectionViewItem {
     }
     
     override var draggingImageComponents: [NSDraggingImageComponent]{
-        let background = NSDraggingImageComponent(key: .icon)
-        background.contents = NSImage(named: "TouchBarButtonImageBackground")
-        background.frame = NSRect(x: 0, y: (view.frame.height/2), width: 90, height: 40)
-        
-        let icon = NSDraggingImageComponent(key: .icon)
-        icon.contents = imageView?.image
-        icon.frame = NSRect(x: 29, y: (view.frame.height/2)+4, width: 32, height: 32)
-        
-        return [background, icon]
+        return collectionItemDraggingImageComponent(collectionItemView: self.view, iconImage: self.imageView?.image)
     }
 }

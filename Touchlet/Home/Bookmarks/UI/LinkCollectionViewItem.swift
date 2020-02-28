@@ -30,6 +30,10 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         super.viewDidLoad()
         (self.view as! LinkCollectionView).moreButton.addClickGestureRecognizer{self.moreClicked?()}
     }
+    
+    override var draggingImageComponents: [NSDraggingImageComponent]{
+        return collectionItemDraggingImageComponent(collectionItemView: self.view, iconImage: self.imageView?.image)
+    }
 }
 
 class LinkCollectionView: NSView{

@@ -8,11 +8,9 @@
 
 import Cocoa
 
-class AppItemViewController: NSViewController{
+class AppItemViewController: HomeSupportCollectionViewController{
     @objc weak var scrollView: NSScrollView!
-    @IBOutlet weak var collectionView: NSCollectionView!
     
-    private var indexPathsOfItemsBeingDragged: IndexPath?
     private let spotlightRepository = SpotlightRepository.instance
     private var spotlightResult: SpotlightResult?
     
@@ -32,6 +30,7 @@ class AppItemViewController: NSViewController{
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         setupCollectionView()
         
         spotlightRepository.callback = { result in
@@ -51,13 +50,12 @@ class AppItemViewController: NSViewController{
         collectionView.register(ButtonCollectionViewItem.self, forItemWithIdentifier: ButtonCollectionViewItem.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        collectionView.registerForDraggedTypes([.string])
-        collectionView.setDraggingSourceOperationMask(NSDragOperation.every, forLocal: true)
     }
+    
+    override func itemAtPosition(at index: Int) -> String? {return spotlightItem[index].bundleIdentifier}
 }
 
-extension AppItemViewController: NSCollectionViewDataSource, NSCollectionViewDelegate{
+extension AppItemViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         if(indexPath.item < spotlightItem.count){
             let reuseIdentifer = AppCollectionViewItem.reuseIdentifier
@@ -79,29 +77,6 @@ extension AppItemViewController: NSCollectionViewDataSource, NSCollectionViewDel
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return spotlightItem.count + ((spotlightResult?.hasNext ?? false) ? 1 : 0)
-    }
-}
-
-
-extension AppItemViewController{
-    func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
-        return true
-    }
-    
-    func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt index: Int) -> NSPasteboardWriting? {
-        return spotlightItem[index].bundleIdentifier as NSPasteboardWriting?
-    }
-    
-    func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexPaths: Set<IndexPath>) {
-        indexPathsOfItemsBeingDragged = indexPaths.first
-        
-        NotificationCenter.default.post(name: .dragBegin, object: spotlightItem[indexPaths.first!.item])
-    }
-    
-    func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, dragOperation operation: NSDragOperation) {
-        if let index = indexPathsOfItemsBeingDragged?.item{
-            NotificationCenter.default.post(name: .dragEnded, object: spotlightItem[index])
-        }
     }
 }
 

@@ -9,7 +9,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AppCollectionViewItem" customModule="Touchlet" customModuleProvider="target">
             <connections>
-                <outlet property="iconContainerView" destination="sSR-pk-0Lm" id="FjU-ja-ORi"/>
                 <outlet property="imageView" destination="g6c-qq-5VK" id="EYp-eq-JaI"/>
                 <outlet property="textField" destination="ESx-o7-qX9" id="17X-eF-IfU"/>
                 <outlet property="view" destination="9fl-sc-SJa" id="QZa-XJ-xF6"/>
