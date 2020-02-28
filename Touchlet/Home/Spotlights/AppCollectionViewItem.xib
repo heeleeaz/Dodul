@@ -9,6 +9,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AppCollectionViewItem" customModule="Touchlet" customModuleProvider="target">
             <connections>
+                <outlet property="iconContainerView" destination="sSR-pk-0Lm" id="FjU-ja-ORi"/>
                 <outlet property="imageView" destination="g6c-qq-5VK" id="EYp-eq-JaI"/>
                 <outlet property="textField" destination="ESx-o7-qX9" id="17X-eF-IfU"/>
                 <outlet property="view" destination="9fl-sc-SJa" id="QZa-XJ-xF6"/>
@@ -51,10 +52,7 @@
                             <real key="value" value="7"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" name="TouchBarBorderColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="1"/>
+                            <color key="value" name="Clear"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customView>
@@ -82,8 +80,8 @@
     </objects>
     <resources>
         <image name="NSApplicationIcon" width="32" height="32"/>
-        <namedColor name="TouchBarBorderColor">
-            <color red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Clear">
+            <color red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TouchBarColor">
             <color red="0.2669999897480011" green="0.2669999897480011" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
