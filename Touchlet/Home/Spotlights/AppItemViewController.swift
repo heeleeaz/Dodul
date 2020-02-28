@@ -9,11 +9,6 @@
 import Cocoa
 
 class AppItemViewController: NSViewController{
-    struct Constant {
-         static let SPOTLIGHT_PAGING_INITIAL = 10
-         static let SPOTLIGHT_PAGING_FORWARD = 15
-     }
-    
     @objc weak var scrollView: NSScrollView!
     @IBOutlet weak var collectionView: NSCollectionView!
     
@@ -37,7 +32,7 @@ class AppItemViewController: NSViewController{
     }
     
     override func viewDidLoad() {
-       setupCollectionView()
+        setupCollectionView()
         
         spotlightRepository.callback = { result in
             self.spotlightResult = result
@@ -57,9 +52,8 @@ class AppItemViewController: NSViewController{
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.registerForDraggedTypes([.URL])
+        collectionView.registerForDraggedTypes([.string])
         collectionView.setDraggingSourceOperationMask(NSDragOperation.every, forLocal: true)
-        collectionView.setDraggingSourceOperationMask(NSDragOperation.every, forLocal: false)
     }
 }
 
@@ -111,3 +105,9 @@ extension AppItemViewController{
     }
 }
 
+extension AppItemViewController{
+    struct Constant {
+         static let SPOTLIGHT_PAGING_INITIAL = 10
+         static let SPOTLIGHT_PAGING_FORWARD = 15
+     }
+}

@@ -286,8 +286,8 @@
 				92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */,
 				92FE9B2423D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib */,
 				923B986C23C600C000BC48A7 /* HomeItemViewController.swift */,
-				9246321F23CB32C200042EFE /* HomeItemViewController.storyboard */,
 				92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */,
+				9246321F23CB32C200042EFE /* HomeItemViewController.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -326,14 +326,12 @@
 		925A241623C73AD1002BB85F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				92A1B32F23C4C0A000D7BEF1 /* NibLoadable.swift */,
 				92A1B32D23C4C0A000D7BEF1 /* NSColorExtension.swift */,
 				92A1B32E23C4C0A000D7BEF1 /* NSViewExtension.swift */,
 				923B987223C6107000BC48A7 /* NSViewControllerExtension.swift */,
 				925A245F23C8DBFD002BB85F /* NSStringExtension.swift */,
 				9246322123CB399100042EFE /* NSCollectionViewItem.swift */,
 				9239C71D23CB927C00990745 /* NSScrollViewExtension.swift */,
-				92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */,
 				92FE9B1323CF794900FA6AC6 /* NSDataExtension.swift */,
 				92FE9B1523CF79E900FA6AC6 /* NSImageExtension.swift */,
 				926723ED23F2D1F6002D9BAE /* NSCursorHelper.swift */,
@@ -470,6 +468,8 @@
 		92A1B33323C4C0AC00D7BEF1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				92A1B32F23C4C0A000D7BEF1 /* NibLoadable.swift */,
+				92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */,
 				921329F52407154200D9FE9E /* EditableTextField.swift */,
 			);
 			path = View;
