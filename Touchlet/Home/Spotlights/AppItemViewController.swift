@@ -52,7 +52,9 @@ class AppItemViewController: HomeSupportCollectionViewController{
         collectionView.dataSource = self
     }
     
-    override func itemAtPosition(at index: Int) -> String? {return spotlightItem[index].bundleIdentifier}
+    override func itemAtPosition(at index: Int) -> TouchBarItem? {
+        return TouchBarItem(identifier: spotlightItem[index].bundleIdentifier, type: .App)
+    }
 }
 
 extension AppItemViewController: NSCollectionViewDataSource{

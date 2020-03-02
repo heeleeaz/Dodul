@@ -42,30 +42,26 @@ class BookmarkViewController: HomeSupportCollectionViewController{
         self.presentAsTooltop(addLinkController!, anchor: anchor)
     }
     
-    override func itemAtPosition(at index: Int) -> String? {return self.links[index].id}
+    override func itemAtPosition(at index: Int) -> TouchBarItem? {
+        return TouchBarItem(identifier: links[index].url.absoluteString, type: .Web)
+    }
 }
 
 extension BookmarkViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        
         if(indexPath.item < links.count){
             let view = collectionView.makeItem(withIdentifier: LinkCollectionViewItem.reuseIdentifier, for: indexPath)
             guard let collectionViewItem = view as? LinkCollectionViewItem else {return view}
             let link = links[indexPath.item]
             
             collectionViewItem.link = link
-            collectionViewItem.moreClicked = {
-                self.showAddBookmarkController(link, anchor: collectionViewItem.view)
-            }
+            collectionViewItem.moreClicked = {self.showAddBookmarkController(link, anchor: collectionViewItem.view)}
             
             return collectionViewItem
         }else{
-            let view = collectionView.makeItem(
-                withIdentifier: ButtonCollectionViewItem.reuseIdentifier, for: indexPath)
+            let view = collectionView.makeItem(withIdentifier: ButtonCollectionViewItem.reuseIdentifier, for: indexPath)
             guard let collectionViewItem = view as? ButtonCollectionViewItem else {return view}
-            collectionViewItem.showAction(action: .plusIcon, {
-                self.showAddBookmarkController(nil, anchor: collectionViewItem.button)
-            })
+            collectionViewItem.showAction(action: .plusIcon, {self.showAddBookmarkController(nil, anchor: collectionViewItem.button)})
 
             return view
         }
@@ -88,9 +84,8 @@ extension BookmarkViewController: AddLinkViewControllerDelegate{
     func addLinkViewController(_ controller: AddLinkViewController, saveLink link: Link) {
         self.dismiss(controller)
 
-        if let index = links.firstIndex(of: link){
-            bookmarkRepository.updateBookmark(at: index, with: link)
-        }else{bookmarkRepository.save(bookmark: link)}
+        if let index = links.firstIndex(of: link){bookmarkRepository.updateBookmark(at: index, with: link)}
+        else{bookmarkRepository.save(bookmark: link)}
         
         reloadItem()
     }

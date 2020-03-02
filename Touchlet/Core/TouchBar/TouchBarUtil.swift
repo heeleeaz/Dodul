@@ -12,7 +12,7 @@ public class TouchBarUtil {
     struct Constant {
         static var touchItemButtonSize = NSSize(width: 72, height: 30)
         static var touchItemSpacing = CGFloat(8)
-        static var touchBarRect = CGRect(x: 80.0 + CGFloat(120), y: 0, width: 685.0, height: 40.0)
+        static var touchBarRect = CGRect(x: 178, y: 0, width: 685, height: 40.0)
     }
     
     static func findCAShapeLayer(in view: NSView) -> CAShapeLayer?{

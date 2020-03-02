@@ -11,15 +11,18 @@ import Cocoa
 class TouchBarItem: NSObject, NSCoding{
     var identifier: String!
     var type: TouchBarItemType!
+    
+    var itemState: State = .adding
 
     private struct NSCodingKeys {
         static let type = "type"
         static let identifier = "identifier"
     }
     
-    init(identifier: String, type: TouchBarItemType) {
+    init(identifier: String, type: TouchBarItemType, state: State = .stored) {
         self.identifier = identifier
         self.type = type
+        self.itemState = state
     }
     
     public override func isEqual(_ other: Any?) -> Bool {
@@ -36,18 +39,22 @@ class TouchBarItem: NSObject, NSCoding{
         guard let identifier = coder.decodeObject(forKey: NSCodingKeys.identifier) as? String else{return nil}
         let type = TouchBarItemType(rawValue: coder.decodeObject(forKey: NSCodingKeys.type) as! String)
         
-        self.init(identifier: identifier, type: type!)
+        self.init(identifier: identifier, type: type!, state: .stored)
     }
 }
 
 extension TouchBarItem{
     var touchBarIdentifier: NSTouchBarItem.Identifier  {
-        let touchID = "\(TouchBarController.Constants.customizationIdentifier).\(identifier!)"
+        let touchID = "\(TouchBarEditorController.Constants.customizationIdentifier).\(identifier!)"
         return NSTouchBarItem.Identifier(touchID)
     }
     
     enum TouchBarItemType: String {
         case Web = "Web", App = "App"
+    }
+    
+    enum State{
+        case stored, dropped, adding
     }
     
     var iconImage: NSImage?{

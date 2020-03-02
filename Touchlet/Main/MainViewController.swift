@@ -9,7 +9,7 @@
 import Cocoa
 import LinkPresentation
 
-class MainViewController: TouchBarController2 {
+class MainViewController: TouchBarEditorController {
     @IBOutlet weak var doneButton: NSButton!
     @IBOutlet weak var keybindTagView: KeybindTagView!
             
@@ -27,14 +27,6 @@ class MainViewController: TouchBarController2 {
     }
 
     override func cancelOperation(_ sender: Any?) {terminateApp(self)}
-//
-//    override func mouseDown(with theEvent: NSEvent) {
-//        print("left mouse")
-//    }
-//
-//    override func rightMouseDown(with theEvent: NSEvent) {
-//        print("right mouse")
-//    }
     
     private func updateKeybindPresentationView(){
         keybindTagView.removeAllTags()
@@ -44,19 +36,6 @@ class MainViewController: TouchBarController2 {
             }
         }
     }
-    
-//    override func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar) {
-//        collectionView.frame = NSRect(origin: CGPoint(x: 0, y: 100), size: collectionView.frame.size)
-//        collectionView.needsDisplay = true
-//        collectionView.needsLayout = true
-//        print(collectionView.frame)
-////        touchBarContainer.addSubview(collectionView)
-////        collectionView.translatesAutoresizingMaskIntoConstraints = false
-////        NSLayoutConstraint.activate([collectionView.leadingAnchor.constraint(equalTo: touchBarContainer.leadingAnchor),
-////                                     collectionView.topAnchor.constraint(equalTo: touchBarContainer.topAnchor),
-////                                     collectionView.trailingAnchor.constraint(equalTo: touchBarContainer.trailingAnchor),
-////                                     collectionView.bottomAnchor.constraint(equalTo: touchBarContainer.bottomAnchor)])
-//    }
 }
 
 class MainWindow: NSWindow{

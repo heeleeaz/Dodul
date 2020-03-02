@@ -13,6 +13,23 @@ class TouchBarCollectionViewItem: NSCollectionViewItem{
     
     var image: NSImage? {didSet{iconImageView.image = image}}
     
+    private var currentState: State = .normal
+    var state: State{
+        set{
+            switch newValue {
+            case .browse:
+                if currentState != .browse {browseState()}
+            case .drag:
+                if currentState != .drag {dragState()}
+            default:
+                if currentState != .normal {normalState()}
+            }
+            currentState = newValue
+        }
+        
+        get{return currentState}
+    }
+    
     private lazy var iconImageView: NSImageView = {return NSImageView()}()
         
     override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
@@ -36,4 +53,22 @@ class TouchBarCollectionViewItem: NSCollectionViewItem{
                                      iconImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
                                      iconImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
     }
+    
+    
+    private func browseState(){
+        (view as! NSButton)._BackgroundColor = .black
+        if currentState != .drag {TouchBarUtil.animateBorder(of: view, bounds: view.bounds)}
+    }
+       
+    private func dragState(){
+        (view as! NSButton)._BackgroundColor = .black
+        if currentState != .browse {TouchBarUtil.animateBorder(of: view, bounds: view.bounds)}
+    }
+       
+    private func normalState(){
+        (view as! NSButton)._BackgroundColor = .touchBarButtonColor
+        if currentState != .normal {TouchBarUtil.removeAnimatedBorder(of: view)}
+    }
+    
+    enum State{case normal, browse, drag}
 }
