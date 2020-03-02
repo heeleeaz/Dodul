@@ -1,0 +1,365 @@
+//
+//  TouchBarController2.swift
+//  Touchlet
+//
+//  Created by Elias on 28/02/2020.
+//  Copyright © 2020 Elias Igbalajobi. All rights reserved.
+//
+
+import Cocoa
+
+class TouchBarController2: NSViewController{
+    struct Constants {
+        static let customizationIdentifier = NSTouchBar.CustomizationIdentifier("\(Global.groupIdPrefix).TouchBarProvider")
+        static let scrollBarIdentifier = NSTouchBarItem.Identifier("\(Global.groupIdPrefix).scrollbar")
+    }
+        
+    private lazy var collectionView: NSCollectionView = {
+        let collectionView = NSCollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 30))
+        let flowLayout = NSCollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = TouchBarUtil.Constant.touchItemButtonSize
+        flowLayout.minimumLineSpacing = TouchBarUtil.Constant.touchItemSpacing
+        flowLayout.minimumInteritemSpacing = TouchBarUtil.Constant.touchItemSpacing
+        collectionView.collectionViewLayout = flowLayout
+        
+        return collectionView
+    }()
+    
+    private var faviconImageProvider: FaviconProvider { return FaviconProvider.instance }
+    
+    private let pointerLocationObserver = PointerLocationObserver()
+    private let touchBarItemUserDefault = TouchBarItemUserDefault.instance
+    
+    lazy var placeDemoView: TouchBarItemButton = {return TouchBarItemButton(image: nil)}()
+    lazy var documentView: NSStackView = {return NSStackView(frame: NSRect.zero)}()
+    
+    open var animatedButtonBorderSet: Set<Int> = Set()
+    
+    final lazy var touchBarItems: [TouchBarItem] = {return (try? TouchBarItemUserDefault.instance.findAll()) ?? []}()
+    
+    private var volatileTouchBarItems = [TouchBarItem]()
+
+    func volatileItemContains(_ item: TouchBarItem) -> Bool{return volatileTouchBarItems.contains(item)}
+    
+    func findInVolatileItem(_ index: Int) -> TouchBarItem?{
+        return (index>=0 && index < volatileTouchBarItems.count) ? volatileTouchBarItems[index] : nil
+    }
+    
+    func appendVolatileList(_ item: TouchBarItem){ volatileTouchBarItems.append(item)}
+
+    func removeVolatileList(_ item: TouchBarItem){volatileTouchBarItems.removeAll { $0 == item}}
+    
+    private func registerNotificationObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(collectionItemDragBegin), name: .dragBegin, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(collectionItemDragEnded), name: .dragEnded, object: nil)
+    }
+    
+    @objc private func collectionItemDragBegin(notification: NSNotification){
+           pointerLocationObserver.begin(startCondition: .drag, object: notification.object)
+       }
+       
+       @objc private func collectionItemDragEnded(notification: NSNotification){
+           pointerLocationObserver.end(startCondition: .drag)
+       }
+
+       deinit {
+           NotificationCenter.default.removeObserver(self)
+           pointerLocationObserver.invalidate()
+       }
+        
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//        pointerLocationObserver.delegate = self
+        registerNotificationObservers()
+    }
+    
+    override func makeTouchBar() -> NSTouchBar? {
+        let touchBar =  NSTouchBar()
+        touchBar.delegate = self
+        touchBar.customizationIdentifier = Constants.customizationIdentifier
+        touchBar.defaultItemIdentifiers = [Constants.scrollBarIdentifier]
+    
+        return touchBar
+    }
+    
+    private func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar){
+        let rect = NSRect(x: 0, y: 0, width: view.frame.width, height: 3)
+        view.addTrackingArea(NSTrackingArea(rect: rect, options: [.mouseEnteredAndExited, .enabledDuringMouseDrag, .activeAlways], owner: self, userInfo: nil))
+    }
+    
+    override func mouseEntered(with event: NSEvent) {
+        NSCursorHelper.instance.hide()
+        
+//        print(event.locationInWindow)
+        
+//        collectionView.frame = NSRect(x: 0, y: 0, width: view.frame.width, height: 30)
+//        print(collectionView.frame)
+//        let collectionFrame = collectionView.frame.size
+        
+//        if event.locationInWindow.x
+//        TouchBarUtil.Constant.touchBarRect.intersection(CGRect)
+//        if TouchBarUtil.Constant.touchBarRect.contains(event.locationInWindow){
+//            let normalizedX = point.x - TouchBarUtil.Constant.touchBarRect.origin.x
+//            let buttonSize = TouchBarUtil.Constant.touchItemButtonSize
+//            let spacing = TouchBarUtil.Constant.touchItemSpacing
+//            return Int(normalizedX / (buttonSize.width + (spacing / 2)))
+//        }
+//        return point.x < TouchBarUtil.Constant.touchBarRect.origin.x ? 0 : documentView.arrangedSubviews.count
+        
+//        print("\(collectionView.frameForItem(at: 0)) \(event.locationInWindow)" )
+        
+//        print(collectionView.indexPathForItem(at: event.locationInWindow))
+        
+        
+        print(collectionItemInPoint(event.locationInWindow))
+        
+//        let point = NSPoint(x: 0, y: event.absoluteY)
+        
+        
+        for i in 0..<6{
+            print(collectionView.frameForItem(at: i))
+        }
+//        print("\(point) \(collectionView.indexPathForItem(at: point))")
+    }
+    
+    override func mouseExited(with event: NSEvent) {
+        NSCursorHelper.instance.show()
+    }
+    
+    private func collectionItemInPoint(_ point: NSPoint) -> Int{
+        let rect = CGRect(origin: CGPoint(x: 178, y: 0), size: collectionView.frame.size)
+        if rect.contains(point){
+            return collectionView.indexPathForItem(at: NSPoint(x: point.x - rect.origin.x, y: 0))?.item ?? collectionView.numberOfItems(inSection: 0) - 1
+        }else{
+            return point.x < rect.origin.x ? 0 : collectionView.numberOfItems(inSection: 0) - 1
+        }
+    }
+}
+
+class Source: NSObject, NSDraggingSource{
+    func draggingSession(_ session: NSDraggingSession, sourceOperationMaskFor context: NSDraggingContext) -> NSDragOperation {
+        return .copy
+    }
+}
+
+extension TouchBarController2: NSTouchBarDelegate{
+    func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
+        collectionView.register(TouchBarCollectionViewItem.self, forItemWithIdentifier: TouchBarCollectionViewItem.reuseIdentifier)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        let customView = NSCustomTouchBarItem(identifier: identifier)
+        customView.view = collectionView
+        
+        touchBarCollectionViewWillAppear(collectionView: collectionView, touchBar: touchBar)
+        return customView
+    }
+}
+
+extension TouchBarController2: NSCollectionViewDataSource{
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        return touchBarItems.count
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        let view = collectionView.makeItem(withIdentifier: TouchBarCollectionViewItem.reuseIdentifier, for: indexPath)
+        
+        guard let collectionViewItem = view as? TouchBarCollectionViewItem else {return view}
+        collectionViewItem.image = touchBarItems[indexPath.item].iconImage
+
+        return collectionViewItem
+    }
+}
+
+extension TouchBarController2: NSCollectionViewDelegate{
+    func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
+        return true
+    }
+      
+    func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt index: Int) -> NSPasteboardWriting? {
+        return "itemAtPosition(at: index)" as NSPasteboardWriting?
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
+           return .copy
+       }
+
+       func collectionView(_ collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, indexPath: IndexPath, dropOperation: NSCollectionView.DropOperation) -> Bool {
+           print("accept drop")
+           return true
+       }
+}
+
+
+extension TouchBarController2{
+    private var scrollViewInTouchBar: NSScrollView?{
+        return (touchBar?.item(forIdentifier: Constants.scrollBarIdentifier) as? NSCustomTouchBarItem)?.view as? NSScrollView
+    }
+    
+    private func addSubview(_ child: NSView, position: Int, adjustSize: Bool){
+        if position > -1 && position < documentView.arrangedSubviews.count{
+            documentView.insertArrangedSubview(child, at: position)
+        }else{
+            documentView.addArrangedSubview(child)
+        }
+        
+        if adjustSize{resizeDocumentView(adjustOperation: "+")}
+    }
+    
+    private func removeSubview(_ child: NSView, adjustSize: Bool){
+        if child.superview == nil {return}
+    
+        child.removeFromSuperview()
+        if adjustSize{resizeDocumentView(adjustOperation: "-")}
+    }
+    
+    @discardableResult
+    private func addButton(touchBarItem: TouchBarItem, position: Int = -1) -> Bool{
+        let adjustSize = placeDemoView.superview == nil
+        removeSubview(placeDemoView, adjustSize: false)
+        
+        guard let image = touchBarItem.iconImage else {return false}
+        
+        let button = createImageButton(image: image, identifier: touchBarItem.identifier)
+        addSubview(button, position: position, adjustSize: adjustSize)
+        
+        appendVolatileList(touchBarItem) // add the item to volatile item list
+        
+        return true
+    }
+       
+    private func addSkeleta(_ touchBarItem: TouchBarItem, position: Int = -1, browseOnly: Bool){
+        if volatileItemContains(touchBarItem){
+            guard let result = findTouchBarButton(touchBarItem.identifier) else {return}
+            
+            if(browseOnly){
+                result.1.state = .browse
+                updateButtonPosition(current: result.0, new: position)
+                normalizeNeighbourState(position: position)
+                animatedButtonBorderSet.insert(result.0)
+            }else{
+                result.1.state = .normal
+            }
+                
+        }else{
+            if browseOnly{
+                placeDemoView.state = .browse
+                placeDemoView.imageView.image = touchBarItem.iconImage
+                addSubview(placeDemoView, position: position, adjustSize: placeDemoView.superview == nil)
+            }else{
+                addButton(touchBarItem: touchBarItem, position: position)
+            }
+        }
+    }
+    
+    private func updateButtonPosition(current: Int, new: Int){
+        if (new < 0 || new >= documentView.arrangedSubviews.count) {return}
+        documentView.insertArrangedSubview(documentView.arrangedSubviews[current], at: new)
+    }
+    
+    private func normalizeNeighbourState(position: Int){
+        if position < 0 || position >= documentView.subviews.count {return}
+        
+        for element in animatedButtonBorderSet{
+            if element != position {
+                (documentView.subviews[element] as? TouchBarItemButton)?.state = .normal
+                animatedButtonBorderSet.remove(element)
+            }
+        }
+    }
+    
+    private func normalizeNeighbourStateWithSelf(){
+        for element in animatedButtonBorderSet{
+            (documentView.subviews[element] as? TouchBarItemButton)?.state = .normal
+            animatedButtonBorderSet.remove(element)
+        }
+    }
+    
+    private func createImageButton(image: NSImage, identifier: String) -> NSView{
+        let newImage = image.resize(destSize: CGSize(width: 24, height: 24))
+        let button =  TouchBarItemButton(image: newImage)
+        button.identifier = NSUserInterfaceItemIdentifier(rawValue: identifier)
+        return button
+    }
+    
+    private func resizeDocumentView(adjustOperation: Character){
+        let buttonSize = TouchBarUtil.Constant.touchItemButtonSize
+        let adjustmentValue = TouchBarUtil.Constant.touchItemSpacing + buttonSize.width
+        let newWidth = documentView.frame.width + (adjustOperation == "+" ? (adjustmentValue) : -(adjustmentValue))
+        documentView.frame = NSRect(x: 0, y: 0, width: newWidth, height: documentView.frame.height)
+    }
+    
+    private func buttonRectInScrollbar(_ touchBarItem: TouchBarItem) -> CGRect?{
+        guard let frame = (scrollViewInTouchBar?.documentView?.subviews.first{
+            $0.identifier?.rawValue == touchBarItem.identifier})?.frame else {return nil}
+        
+        let newX = frame.origin.x + TouchBarUtil.Constant.touchBarRect.origin.x
+        return CGRect(origin: CGPoint(x: newX, y: frame.origin.y), size: frame.size)
+    }
+    
+    private func findItemPositionWithinPoint(_ point: NSPoint) -> Int{
+        if TouchBarUtil.Constant.touchBarRect.contains(point){
+            let normalizedX = point.x - TouchBarUtil.Constant.touchBarRect.origin.x
+            let buttonSize = TouchBarUtil.Constant.touchItemButtonSize
+            let spacing = TouchBarUtil.Constant.touchItemSpacing
+            return Int(normalizedX / (buttonSize.width + (spacing / 2)))
+        }
+        return point.x < TouchBarUtil.Constant.touchBarRect.origin.x ? 0 : documentView.arrangedSubviews.count
+    }
+    
+    private func findTouchBarButton(_ identifier: String) -> (Int, TouchBarItemButton)?{
+        if let index =  (documentView.arrangedSubviews.firstIndex{$0.identifier?.rawValue == identifier}){
+            return (index, documentView.arrangedSubviews[index] as! TouchBarItemButton)
+        }else {
+            return nil
+        }
+    }
+    
+    override func mouseDragged(with event: NSEvent) {
+        super.mouseDragged(with: event)
+    }
+}
+
+extension TouchBarController2: PointerLocationObserverDelegate{
+    func pointerLocationObserver(observer: PointerLocationObserver, pointerLocation: NSPoint, inDropRect: Bool) {
+        if inDropRect {
+            NSCursorHelper.instance.hide()
+        }else{
+            NSCursorHelper.instance.show();
+            normalizeNeighbourStateWithSelf()
+            return
+        }
+
+        let jumpInPos = findItemPositionWithinPoint(pointerLocation)
+        guard let touchBarItem = findInVolatileItem(jumpInPos) else {return}
+
+        addSkeleta(touchBarItem, position: jumpInPos, browseOnly: true)
+    }
+    
+    func pointerLocationObserver(observer: PointerLocationObserver, startCondition: PointerLocationObserver.StartCondition, pointerLocation: NSPoint, inDropRect: Bool, object: Any?, isTerminated: Bool) {
+        if inDropRect && !isTerminated{NSCursorHelper.instance.hide()}
+        else {NSCursorHelper.instance.show()}
+
+        guard let touchBarItem = asTouchBarItem(object: object) else {return}
+            
+        if !inDropRect{removeSubview(placeDemoView, adjustSize: true); return}
+    
+        let jumpInPos = findItemPositionWithinPoint(pointerLocation)
+        addSkeleta(touchBarItem, position: jumpInPos, browseOnly: !isTerminated)
+    }
+    
+    private func asTouchBarItem(object: Any?) -> TouchBarItem?{
+        var touchBarItem: TouchBarItem?
+        
+        if let spotlight = object as? SpotlightItem{
+            touchBarItem = TouchBarItem(identifier: spotlight.bundleIdentifier, type: .App)
+        } else if let link = object as? Link {
+            touchBarItem = TouchBarItem(identifier: link.url.absoluteString, type: .Web)
+        }
+        
+        return touchBarItem
+    }
+}

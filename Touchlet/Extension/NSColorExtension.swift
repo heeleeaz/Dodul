@@ -44,7 +44,7 @@ extension NSColor {
 }
 
 extension NSColor{
-    static var touchBarButtonColor: NSColor{return NSColor(named: "TouchBarColor")!}
+    static var touchBarButtonColor: NSColor{return NSColor(named: "TouchBarButtonBackgroundColor")!}
     static var hotKeyAttributeTextForegroundColor = NSColor.white
     static var hotKeyAttributeTextBackgroundColor = NSColor.darkGray
     

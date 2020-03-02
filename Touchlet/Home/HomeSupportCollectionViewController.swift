@@ -17,7 +17,7 @@ class HomeSupportCollectionViewController: NSViewController, NSCollectionViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         collectionView.registerForDraggedTypes([.string])
         collectionView.setDraggingSourceOperationMask(NSDragOperation.every, forLocal: true)
     }
@@ -43,4 +43,25 @@ extension HomeSupportCollectionViewController{
             NotificationCenter.default.post(name: .dragEnded, object: itemAtPosition(at: index))
         }
     }
+    
+    func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
+        return .copy
+    }
+
+    func collectionView(_ collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, indexPath: IndexPath, dropOperation: NSCollectionView.DropOperation) -> Bool {
+        print("accept drop")
+        return true
+    }
+    
+//    func collectionView(_ collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, index: Int, dropOperation: NSCollectionView.DropOperation) -> Bool {
+//        <#code#>
+//    }
+//
+//    func collectionView(_ collectionView: NSCollectionView, draggingImageForItemsAt indexPaths: Set<IndexPath>, with event: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage {
+//        <#code#>
+//    }
+//
+//    func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndex proposedDropIndex: UnsafeMutablePointer<Int>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
+//        <#code#>
+//    }
 }

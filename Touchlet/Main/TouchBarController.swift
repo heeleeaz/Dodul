@@ -1,21 +1,70 @@
 //
-//  MainTouchBarProvider.swift
+//  TouchBarController.swift
 //  Touchlet
 //
-//  Created by Elias on 20/01/2020.
+//  Created by Elias on 28/02/2020.
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
 import Cocoa
 
-extension MainWindowController{
+class TouchBarController: NSViewController{
+    
     struct Constants {
         static let customizationIdentifier = NSTouchBar.CustomizationIdentifier("\(Global.groupIdPrefix).TouchBarProvider")
         static let scrollBarIdentifier = NSTouchBarItem.Identifier("\(Global.groupIdPrefix).scrollbar")
     }
     
     private var faviconImageProvider: FaviconProvider { return FaviconProvider.instance }
+    
+    private let pointerLocationObserver = PointerLocationObserver()
+    private let touchBarItemUserDefault = TouchBarItemUserDefault.instance
+    
+    lazy var placeDemoView: TouchBarItemButton = {return TouchBarItemButton(image: nil)}()
+    lazy var documentView: NSStackView = {return NSStackView(frame: NSRect.zero)}()
+    
+    open var animatedButtonBorderSet: Set<Int> = Set()
+    
+    final lazy var touchBarItems: [TouchBarItem] = {return (try? TouchBarItemUserDefault.instance.findAll()) ?? []}()
+    
+    private var volatileTouchBarItems = [TouchBarItem]()
+
+    func volatileItemContains(_ item: TouchBarItem) -> Bool{return volatileTouchBarItems.contains(item)}
+    
+    func findInVolatileItem(_ index: Int) -> TouchBarItem?{
+        return (index>=0 && index < volatileTouchBarItems.count) ? volatileTouchBarItems[index] : nil
+    }
+    
+    func appendVolatileList(_ item: TouchBarItem){ volatileTouchBarItems.append(item)}
+
+    func removeVolatileList(_ item: TouchBarItem){volatileTouchBarItems.removeAll { $0 == item}}
+    
+    private func registerNotificationObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(collectionItemDragBegin), name: .dragBegin, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(collectionItemDragEnded), name: .dragEnded, object: nil)
+    }
+    
+    @objc private func collectionItemDragBegin(notification: NSNotification){
+           pointerLocationObserver.begin(startCondition: .drag, object: notification.object)
+       }
+       
+       @objc private func collectionItemDragEnded(notification: NSNotification){
+           pointerLocationObserver.end(startCondition: .drag)
+       }
+
+       deinit {
+           NotificationCenter.default.removeObserver(self)
+           pointerLocationObserver.invalidate()
+       }
         
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        pointerLocationObserver.delegate = self
+        registerNotificationObservers()
+    }
+    
     override func makeTouchBar() -> NSTouchBar? {
         let touchBar =  NSTouchBar()
         touchBar.delegate = self
@@ -24,11 +73,11 @@ extension MainWindowController{
         return touchBar
     }
     
-    @objc private func buttonTapped(button: NSButton, identifier: NSTouchBarItem.Identifier){
-    }
+    @objc private func buttonTapped(button: NSButton, identifier: NSTouchBarItem.Identifier){}
+    
 }
 
-extension MainWindowController: NSTouchBarDelegate{
+extension TouchBarController: NSTouchBarDelegate{
     func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         let buttonSize = TouchBarUtil.Constant.touchItemButtonSize
         let spacing = TouchBarUtil.Constant.touchItemSpacing
@@ -54,7 +103,8 @@ extension MainWindowController: NSTouchBarDelegate{
     }
 }
 
-extension MainWindowController{
+
+extension TouchBarController{
     private var scrollViewInTouchBar: NSScrollView?{
         return (touchBar?.item(forIdentifier: Constants.scrollBarIdentifier) as? NSCustomTouchBarItem)?.view as? NSScrollView
     }
@@ -179,7 +229,7 @@ extension MainWindowController{
     }
 }
 
-extension MainWindowController: PointerLocationObserverDelegate{    
+extension TouchBarController: PointerLocationObserverDelegate{
     func pointerLocationObserver(observer: PointerLocationObserver, pointerLocation: NSPoint, inDropRect: Bool) {
         if inDropRect {
             NSCursorHelper.instance.hide()

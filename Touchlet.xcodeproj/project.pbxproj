@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		83751E29B9CEA1BBE3E0B628 /* Pods_Touchlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB4BCE4A7A57B19483220DC /* Pods_Touchlet.framework */; };
 		92015D0324050B5F0003A773 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92015D0224050B5F0003A773 /* Preferences.storyboard */; };
-		92015D05240515000003A773 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92015D04240515000003A773 /* MainWindow.swift */; };
 		92015D072405307B0003A773 /* NSWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92015D062405307B0003A773 /* NSWindowExtension.swift */; };
 		92015D0B2406B1310003A773 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92015D0A2406B1310003A773 /* PreferencesWindow.swift */; };
+		9205E2F82409692900A56FA5 /* TouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205E2F72409692900A56FA5 /* TouchBarController.swift */; };
+		9205E2FA24096C4200A56FA5 /* TouchBarController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205E2F924096C4200A56FA5 /* TouchBarController2.swift */; };
+		9205E2FE2409700000A56FA5 /* TouchBarCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205E2FD2409700000A56FA5 /* TouchBarCollectionViewItem.swift */; };
+		9205E3022409814300A56FA5 /* TouchBarCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9205E3012409814300A56FA5 /* TouchBarCollectionViewItem.xib */; };
 		92084DA323D7521A00661E60 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92084DA223D7521A00661E60 /* Utility.swift */; };
 		921046B223F2BB110069D8EC /* TouchBarUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921046B123F2BB110069D8EC /* TouchBarUtil.swift */; };
 		92113E8E240428A500721341 /* GlobalKeybindPreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92113E8D240428A500721341 /* GlobalKeybindPreferencesStore.swift */; };
-		9212AE6023D60373003482FB /* TouchItemPlacementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE5F23D60373003482FB /* TouchItemPlacementController.swift */; };
 		9212AE6623D606AC003482FB /* TouchBarItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE6523D606AC003482FB /* TouchBarItemStore.swift */; };
 		9212AE6823D60763003482FB /* TouchBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE6723D60763003482FB /* TouchBarItem.swift */; };
 		9212AE6A23D61579003482FB /* TouchBarItemUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212AE6323D605A7003482FB /* TouchBarItemUserDefault.swift */; };
@@ -59,7 +61,6 @@
 		92A1B33023C4C0A000D7BEF1 /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B32D23C4C0A000D7BEF1 /* NSColorExtension.swift */; };
 		92A1B33123C4C0A000D7BEF1 /* NSViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B32E23C4C0A000D7BEF1 /* NSViewExtension.swift */; };
 		92A1B33223C4C0A000D7BEF1 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B32F23C4C0A000D7BEF1 /* NibLoadable.swift */; };
-		92A1B33523C4D8A200D7BEF1 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33423C4D8A200D7BEF1 /* MainWindowController.swift */; };
 		92A1B33A23C4DC0D00D7BEF1 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33923C4DC0D00D7BEF1 /* Logger.swift */; };
 		92A1B33C23C4DC2400D7BEF1 /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B33B23C4DC2400D7BEF1 /* FileLoader.swift */; };
 		92D656BD2407DFFF003882DD /* ContentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D656AF2407DFFF003882DD /* ContentTypes.swift */; };
@@ -104,13 +105,15 @@
 		25E1A65C9426C5503D4B6DB7 /* Pods-Touchlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Touchlet.release.xcconfig"; path = "Target Support Files/Pods-Touchlet/Pods-Touchlet.release.xcconfig"; sourceTree = "<group>"; };
 		90C094CC103844EACE7A68D7 /* Pods-Touchlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Touchlet.debug.xcconfig"; path = "Target Support Files/Pods-Touchlet/Pods-Touchlet.debug.xcconfig"; sourceTree = "<group>"; };
 		92015D0224050B5F0003A773 /* Preferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
-		92015D04240515000003A773 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		92015D062405307B0003A773 /* NSWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowExtension.swift; sourceTree = "<group>"; };
 		92015D0A2406B1310003A773 /* PreferencesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
+		9205E2F72409692900A56FA5 /* TouchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarController.swift; sourceTree = "<group>"; };
+		9205E2F924096C4200A56FA5 /* TouchBarController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarController2.swift; sourceTree = "<group>"; };
+		9205E2FD2409700000A56FA5 /* TouchBarCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarCollectionViewItem.swift; sourceTree = "<group>"; };
+		9205E3012409814300A56FA5 /* TouchBarCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TouchBarCollectionViewItem.xib; sourceTree = "<group>"; };
 		92084DA223D7521A00661E60 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		921046B123F2BB110069D8EC /* TouchBarUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarUtil.swift; sourceTree = "<group>"; };
 		92113E8D240428A500721341 /* GlobalKeybindPreferencesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalKeybindPreferencesStore.swift; sourceTree = "<group>"; };
-		9212AE5F23D60373003482FB /* TouchItemPlacementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchItemPlacementController.swift; sourceTree = "<group>"; };
 		9212AE6323D605A7003482FB /* TouchBarItemUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItemUserDefault.swift; sourceTree = "<group>"; };
 		9212AE6523D606AC003482FB /* TouchBarItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItemStore.swift; sourceTree = "<group>"; };
 		9212AE6723D60763003482FB /* TouchBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarItem.swift; sourceTree = "<group>"; };
@@ -163,7 +166,6 @@
 		92A1B32D23C4C0A000D7BEF1 /* NSColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
 		92A1B32E23C4C0A000D7BEF1 /* NSViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSViewExtension.swift; sourceTree = "<group>"; };
 		92A1B32F23C4C0A000D7BEF1 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
-		92A1B33423C4D8A200D7BEF1 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		92A1B33923C4DC0D00D7BEF1 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		92A1B33B23C4DC2400D7BEF1 /* FileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
 		92D656AF2407DFFF003882DD /* ContentTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTypes.swift; sourceTree = "<group>"; };
@@ -226,6 +228,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9205E2FC24096FE700A56FA5 /* TouchBar */ = {
+			isa = PBXGroup;
+			children = (
+				9205E3012409814300A56FA5 /* TouchBarCollectionViewItem.xib */,
+				9205E2FD2409700000A56FA5 /* TouchBarCollectionViewItem.swift */,
+			);
+			path = TouchBar;
+			sourceTree = "<group>";
+		};
 		9209AD9824080EAC0057E21D /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,14 +245,6 @@
 				925A245823C8D88C002BB85F /* BookmarkUserDefaults.swift */,
 			);
 			path = Store;
-			sourceTree = "<group>";
-		};
-		921046B323F2C14A0069D8EC /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				9212AE5F23D60373003482FB /* TouchItemPlacementController.swift */,
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		92113E8C2404289400721341 /* Store */ = {
@@ -272,7 +275,6 @@
 		9212AE6223D604E6003482FB /* TouchBar */ = {
 			isa = PBXGroup;
 			children = (
-				921046B323F2C14A0069D8EC /* UI */,
 				921239E023DA7AAC00CA3276 /* Model */,
 				921239DF23DA795800CA3276 /* Store */,
 				921046B123F2BB110069D8EC /* TouchBarUtil.swift */,
@@ -282,37 +284,16 @@
 			path = TouchBar;
 			sourceTree = "<group>";
 		};
-		923B986323C5E51F00BC48A7 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */,
-				92FE9B2423D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib */,
-				923B986C23C600C000BC48A7 /* HomeItemViewController.swift */,
-				92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */,
-				9246321F23CB32C200042EFE /* HomeItemViewController.storyboard */,
-				92A0C8C92409173F000C5011 /* HomeSupportCollectionViewController.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		923B987023C602E300BC48A7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				92D98A7B240439740072F68F /* Preferences */,
-				923B987123C6037C00BC48A7 /* UI */,
+				9205E2FC24096FE700A56FA5 /* TouchBar */,
+				92A1B2FE23C4AA2200D7BEF1 /* Main.storyboard */,
+				92A1B2F723C4AA2100D7BEF1 /* MainViewController.swift */,
+				9205E2F72409692900A56FA5 /* TouchBarController.swift */,
+				9205E2F924096C4200A56FA5 /* TouchBarController2.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		923B987123C6037C00BC48A7 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				92A1B2FE23C4AA2200D7BEF1 /* Main.storyboard */,
-				92015D04240515000003A773 /* MainWindow.swift */,
-				92A1B2F723C4AA2100D7BEF1 /* MainViewController.swift */,
-				92A1B33423C4D8A200D7BEF1 /* MainWindowController.swift */,
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		925A240A23C685AF002BB85F /* Spotlight */ = {
@@ -438,6 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				92A1B33623C4DBBF00D7BEF1 /* Application */,
+				92D98A7B240439740072F68F /* Preferences */,
 				923B987023C602E300BC48A7 /* Main */,
 				92A1B33D23C4E7EB00D7BEF1 /* Home */,
 				92A1B33723C4DBEB00D7BEF1 /* Core */,
@@ -516,7 +498,12 @@
 			children = (
 				9283108723CA7CBF00B115D1 /* Spotlights */,
 				925A245523C8D7D8002BB85F /* Bookmarks */,
-				923B986323C5E51F00BC48A7 /* UI */,
+				92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */,
+				92FE9B2423D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib */,
+				923B986C23C600C000BC48A7 /* HomeItemViewController.swift */,
+				92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */,
+				9246321F23CB32C200042EFE /* HomeItemViewController.storyboard */,
+				92A0C8C92409173F000C5011 /* HomeSupportCollectionViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -688,6 +675,7 @@
 				921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */,
 				92FE9B2623D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib in Resources */,
 				9246322023CB32C200042EFE /* HomeItemViewController.storyboard in Resources */,
+				9205E3022409814300A56FA5 /* TouchBarCollectionViewItem.xib in Resources */,
 				92A1B30023C4AA2200D7BEF1 /* Main.storyboard in Resources */,
 				9283108123CA773200B115D1 /* LinkCollectionViewItem.xib in Resources */,
 			);
@@ -770,7 +758,6 @@
 				92FE9B1123CF5AC400FA6AC6 /* Cache.swift in Sources */,
 				9239C71E23CB927C00990745 /* NSScrollViewExtension.swift in Sources */,
 				92D656BE2407DFFF003882DD /* Icon.swift in Sources */,
-				92015D05240515000003A773 /* MainWindow.swift in Sources */,
 				92A1B33123C4C0A000D7BEF1 /* NSViewExtension.swift in Sources */,
 				923B987323C6107000BC48A7 /* NSViewControllerExtension.swift in Sources */,
 				921329F62407154200D9FE9E /* EditableTextField.swift in Sources */,
@@ -780,6 +767,7 @@
 				925A245723C8D811002BB85F /* BookmarkStore.swift in Sources */,
 				925A241523C7378B002BB85F /* BookmarkRepository.swift in Sources */,
 				92A1B2F823C4AA2100D7BEF1 /* MainViewController.swift in Sources */,
+				9205E2FA24096C4200A56FA5 /* TouchBarController2.swift in Sources */,
 				9212AE6A23D61579003482FB /* TouchBarItemUserDefault.swift in Sources */,
 				92FE9B0F23CF56AC00FA6AC6 /* OuterScrollView.swift in Sources */,
 				9246322223CB399100042EFE /* NSCollectionViewItem.swift in Sources */,
@@ -804,17 +792,17 @@
 				92A0C8CA2409173F000C5011 /* HomeSupportCollectionViewController.swift in Sources */,
 				9212AE6623D606AC003482FB /* TouchBarItemStore.swift in Sources */,
 				923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */,
+				9205E2FE2409700000A56FA5 /* TouchBarCollectionViewItem.swift in Sources */,
 				9246321D23CB2F6600042EFE /* AppItemViewController.swift in Sources */,
 				925A245023C87F49002BB85F /* PersistentContainer.swift in Sources */,
 				925F8C112406C0E3008CC1DE /* KeybindTagView.swift in Sources */,
+				9205E2F82409692900A56FA5 /* TouchBarController.swift in Sources */,
 				9253BFEA23DA04E9004721BC /* PointerLocationObserver.swift in Sources */,
 				925A240723C65EEE002BB85F /* SpotlightRepository.swift in Sources */,
-				92A1B33523C4D8A200D7BEF1 /* MainWindowController.swift in Sources */,
 				925A241023C68779002BB85F /* SpotlightResult.swift in Sources */,
 				92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */,
 				925A245423C8B2CA002BB85F /* DataController.swift in Sources */,
 				92015D072405307B0003A773 /* NSWindowExtension.swift in Sources */,
-				9212AE6023D60373003482FB /* TouchItemPlacementController.swift in Sources */,
 				926723F023F3E819002D9BAE /* TouchBarItemButton.swift in Sources */,
 				92015D0B2406B1310003A773 /* PreferencesWindow.swift in Sources */,
 				921046B223F2BB110069D8EC /* TouchBarUtil.swift in Sources */,

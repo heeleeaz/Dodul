@@ -49,8 +49,7 @@ extension BookmarkViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
         if(indexPath.item < links.count){
-            let view = collectionView.makeItem(
-                withIdentifier: LinkCollectionViewItem.reuseIdentifier, for: indexPath)
+            let view = collectionView.makeItem(withIdentifier: LinkCollectionViewItem.reuseIdentifier, for: indexPath)
             guard let collectionViewItem = view as? LinkCollectionViewItem else {return view}
             let link = links[indexPath.item]
             
