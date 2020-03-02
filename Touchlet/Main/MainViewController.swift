@@ -10,13 +10,11 @@ import Cocoa
 import LinkPresentation
 
 class MainViewController: TouchBarEditorController {
-    @IBOutlet weak var doneButton: NSButton!
     @IBOutlet weak var keybindTagView: KeybindTagView!
             
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        doneButton.addClickGestureRecognizer{ terminateApp(self) }
+        
         updateKeybindPresentationView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(windowWillClosedNotification), name: NSWindow.willCloseNotification, object: nil)
@@ -35,6 +33,11 @@ class MainViewController: TouchBarEditorController {
                 keybindTagView.addTagItem(String(s), isEditing: false)
             }
         }
+    }
+    
+    @IBAction func doneAction(_ sender: Any) {
+        commitTouchBarEditing()
+        terminateApp(self)
     }
 }
 

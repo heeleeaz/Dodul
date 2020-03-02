@@ -57,6 +57,15 @@ class TouchBarEditorController: NSViewController{
             }
         }
     }
+    
+    @discardableResult func commitTouchBarEditing() -> Bool{
+        do{
+            try TouchBarItemUserDefault.instance.setItems(touchBarItems)
+            return true
+        }catch{
+            return false
+        }
+    }
 }
 
 extension TouchBarEditorController: CollectionItemDragObserverDelegate{
