@@ -14,6 +14,14 @@ public let isDebugBuild = true
 public let isDebugBuild = false
 #endif
 
-struct Global {
-    public static let groupIdPrefix: String = "Touchlet"
+public struct Global {
+    public static let groupIdPrefix: String = {
+        let bundle = Bundle(identifier: "com.heeleeaz.touchlet.core")
+        let groupIdPrefixKey = "TouchletGroupIdentifierPrefix"
+        guard let groupIdPrefix = bundle?.object(forInfoDictionaryKey: groupIdPrefixKey) as? String else {
+            fatalError("Info.plist must contain a \"\(groupIdPrefixKey)\" entry with a string value")
+        }
+        
+        return groupIdPrefix
+    }()
 }

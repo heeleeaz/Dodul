@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Core
 
 class AddLinkViewController: NSViewController, NibLoadable {
     @IBOutlet weak var nameInputField: NSTextField!

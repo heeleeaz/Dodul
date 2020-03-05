@@ -33,7 +33,5 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>TouchletGroupIdentifierPrefix</key>
-	<string>com.heeleeaz.Touchlet</string>
 </dict>
 </plist>

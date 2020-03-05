@@ -6,4 +6,9 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Foundation
+import Cocoa
+
+struct DarkTheme {
+    static var hotkeyTextColor = NSColor(named: "EditingHotkeyTextColor")!
+    static var hotkeyBackgroundColor = NSColor(named: "HotKeyBackgroundColor")!
+}

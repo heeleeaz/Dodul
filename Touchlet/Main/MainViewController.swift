@@ -7,9 +7,26 @@
 //
 
 import Cocoa
-import LinkPresentation
+import Core
 
-class MainViewController: TouchBarEditorController {
+class MainWindow: NSWindow{
+    override var contentView: NSView?{
+        didSet{
+            if let frame = NSScreen.main?.frame{
+                setFrame(frame, display: true)
+                setContentSize(frame.size)
+            }
+        }
+    }
+}
+
+class MainWindowViewController: NSWindowController{
+//    override func makeTouchBar() -> NSTouchBar? {
+//        return contentViewController?.makeTouchBar()
+//    }
+}
+
+class MainViewController: EditableTouchBarController {
     @IBOutlet weak var keybindTagView: KeybindTagView!
             
     override func viewDidLoad() {
@@ -23,8 +40,6 @@ class MainViewController: TouchBarEditorController {
     @objc func windowWillClosedNotification(notification: NSNotification){
         if notification.object is PreferencesWindow{updateKeybindPresentationView()}
     }
-
-    override func cancelOperation(_ sender: Any?) {terminateApp(self)}
     
     private func updateKeybindPresentationView(){
         keybindTagView.removeAllTags()
@@ -39,17 +54,6 @@ class MainViewController: TouchBarEditorController {
         commitTouchBarEditing()
         terminateApp(self)
     }
+    
+    override func cancelOperation(_ sender: Any?) {terminateApp(self)}
 }
-
-class MainWindow: NSWindow{
-    override var contentView: NSView?{
-        didSet{
-            if let frame = NSScreen.main?.frame{
-                setFrame(frame, display: true)
-                setContentSize(frame.size)
-            }
-        }
-    }
-}
-
-class MainWindowController: NSWindowController{}

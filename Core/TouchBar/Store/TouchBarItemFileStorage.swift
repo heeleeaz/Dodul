@@ -9,22 +9,32 @@
 import Foundation
 
 public class TouchBarItemFileStorage: TouchBarItemStore{
-    private var cache: Cache<String, TouchBarItem>
+    static let instance = TouchBarItemFileStorage()
+
+    private var cache: Cache<String, Data>
     
     init() {
-        cache = Cache(dateProvider: {return Date()}, entryLifetime: .infinity, maximumEntryCount: 1000)
+        cache = (try? Cache.loadFromDisk(withName: Keys.main)) ?? Cache()
     }
+    
     func setItems(_ item: [TouchBarItem]) throws {
-        
+        let data = try NSKeyedArchiver.archivedData(withRootObject: item, requiringSecureCoding: false)
+        cache.insert(data, forKey: Keys.main)
+        try cache.saveToDisk(withName: Keys.main)
     }
     
     func findAll() throws -> [TouchBarItem] {
-        <#code#>
+        guard let data = cache.value(forKey: Keys.main) else {return []}
+        return try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [TouchBarItem]
     }
     
     func addItem(_ item: TouchBarItem) throws {
-        <#code#>
+        var newItems = try findAll()
+        newItems.append(item)
+        try setItems(newItems)
     }
     
-    
+    struct Keys {
+        static let main = "\(Global.groupIdPrefix).touchBarItemKeys_"
+    }
 }

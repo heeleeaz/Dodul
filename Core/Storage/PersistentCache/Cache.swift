@@ -8,16 +8,16 @@
 
 import Foundation
 
-final class Cache<Key: Hashable, Value> {
+public final class Cache<Key: Hashable, Value> {
     private let wrapped = NSCache<WrappedKey, Entry>()
     private let dateProvider: () -> Date
     private let entryLifetime: TimeInterval
     private let keyTracker = KeyTracker()
     
-    init(
+    public init(
         dateProvider: @escaping () -> Date = Date.init,
-        entryLifetime: TimeInterval = 604800 /*7days*/,
-        maximumEntryCount: Int = 50) {
+        entryLifetime: TimeInterval = TimeInterval(Int.max) /*68yrs*/,
+        maximumEntryCount: Int = 100000) {
         
         self.dateProvider = dateProvider
         self.entryLifetime = entryLifetime
@@ -25,22 +25,22 @@ final class Cache<Key: Hashable, Value> {
         self.wrapped.delegate = keyTracker
     }
     
-    func insert(_ value: Value, forKey key: Key) {
+    public func insert(_ value: Value, forKey key: Key) {
         let date = dateProvider().addingTimeInterval(entryLifetime)
         let entry = Entry(key: key, value: value, expirationDate: date)
         wrapped.setObject(entry, forKey: WrappedKey(key))
         keyTracker.keys.insert(key)
     }
     
-    func insert(_ entry: Entry) {
+    public func insert(_ entry: Entry) {
         insert(entry.value, forKey: entry.key)
     }
 
-    func value(forKey key: Key) -> Value? {
+    public func value(forKey key: Key) -> Value? {
         return entry(forKey: key)?.value
     }
     
-    func entry(forKey key: Key) -> Entry? {
+    public func entry(forKey key: Key) -> Entry? {
         guard let entry = wrapped.object(forKey: WrappedKey(key)) else {return nil}
 
         guard dateProvider() < entry.expirationDate else {
@@ -51,11 +51,11 @@ final class Cache<Key: Hashable, Value> {
         return entry
     }
 
-    func removeValue(forKey key: Key) {
+    public func removeValue(forKey key: Key) {
         wrapped.removeObject(forKey: WrappedKey(key))
     }
     
-    subscript(key: Key) -> Value? {
+    public subscript(key: Key) -> Value? {
         get { return value(forKey: key) }
         set {
             guard let value = newValue else {
@@ -84,7 +84,7 @@ extension Cache{
         }
     }
     
-    final class Entry {
+    public final class Entry {
         let key: Key
         let value: Value
         let expirationDate: Date
@@ -108,7 +108,7 @@ extension Cache{
 }
 
 extension Cache: Codable where Key: Codable, Value: Codable {
-    convenience init(from decoder: Decoder) throws {
+    convenience public init(from decoder: Decoder) throws {
         self.init()
 
         let container = try decoder.singleValueContainer()
@@ -116,14 +116,14 @@ extension Cache: Codable where Key: Codable, Value: Codable {
         entries.forEach(insert)
     }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encode(keyTracker.keys.compactMap(entry))
     }
 }
 
 extension Cache where Key: Codable, Value: Codable {
-    func saveToDisk(withName name: String, using fileManager: FileManager = .default) throws {
+    public func saveToDisk(withName name: String, using fileManager: FileManager = .default) throws {
         let folderURLs = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)
 
         let fileURL = folderURLs[0].appendingPathComponent(name + ".cache")
@@ -131,9 +131,10 @@ extension Cache where Key: Codable, Value: Codable {
         try data.write(to: fileURL)
     }
     
-    static func loadFromDisk(withName name: String, using fileManager: FileManager = .default) throws -> Cache {
+    public static func loadFromDisk(withName name: String, using fileManager: FileManager = .default) throws -> Cache {
         let folderURLs = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)
-        
+        print(folderURLs)
+
         let fileURL = folderURLs[0].appendingPathComponent(name + ".cache")
         let data = try Data(contentsOf: fileURL)
 

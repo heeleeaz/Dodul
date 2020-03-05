@@ -8,6 +8,7 @@
 
 import Cocoa
 import HotKey
+import Core
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -15,7 +16,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         didSet {
             guard let hotKey = hotKey else {return}
 
-            hotKey.keyDownHandler = { [weak self] in print("Key")}
+            hotKey.keyDownHandler = { [weak self] in
+                NSApplication.shared.activate(ignoringOtherApps: true)
+
+                print("Touchlet HotKey")
+                NSWorkspace.shared.launchApplication("TouchletLauncher")
+            }
+
         }
     }
 
@@ -33,12 +40,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }else{
             let defKey = GlobalKeybindPreferences.defaultKeyBind
             GlobalKeybindPreferencesStore.save(keyBind: defKey)
-            
+
             hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: defKey.keyCode, carbonModifiers: defKey.carbonFlags))
         }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+    }
+    
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        return .terminateNow
     }
 }

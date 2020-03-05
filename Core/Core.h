@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 //! Project version number for Core.
 FOUNDATION_EXPORT double CoreVersionNumber;

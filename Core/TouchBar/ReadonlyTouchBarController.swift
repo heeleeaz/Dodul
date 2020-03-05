@@ -10,7 +10,7 @@ import Cocoa
 
 open class ReadonlyTouchBarController: NSViewController{
     var isEnableItemClick = true
-    
+        
     var touchBarItems: [TouchBarItem] = (try? TouchBarItemUserDefault.instance.findAll()) ?? []
 
     lazy var collectionView: NSCollectionView = {
@@ -68,7 +68,7 @@ extension ReadonlyTouchBarController: NSCollectionViewDataSource{
         let view = collectionView.makeItem(withIdentifier: TouchBarCollectionViewItem.reuseIdentifier, for: indexPath)
         
         guard let collectionViewItem = view as? TouchBarCollectionViewItem else {return view}
-        collectionViewItem.image = touchBarItems[indexPath.item].iconImage
+        collectionViewItem.image = itemImage(touchBarItems[indexPath.item])
         
         collectionViewItem.onTap = {
             if self.isEnableItemClick{
@@ -77,6 +77,15 @@ extension ReadonlyTouchBarController: NSCollectionViewDataSource{
         }
 
         return collectionViewItem
+    }
+    
+    private func itemImage(_ touchBarItem: TouchBarItem) -> NSImage?{
+        switch touchBarItem.type {
+        case .App:
+            return SpotlightRepository.findAppIcon(bundleIdentifier: touchBarItem.identifier)
+        default:
+            return FaviconProvider.instance.loadFromCache(url: URL(string: touchBarItem.identifier)!)
+        }
     }
 }
 

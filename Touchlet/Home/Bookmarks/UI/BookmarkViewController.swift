@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Core
 
 class BookmarkViewController: HomeSupportCollectionViewController{
     @objc weak var scrollView: NSScrollView!

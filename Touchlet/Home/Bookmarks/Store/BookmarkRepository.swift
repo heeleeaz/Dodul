@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Core
 
 public class BookmarkRepository{
     static let imageCacheName = "bookmarks"
