@@ -124,22 +124,27 @@ extension Cache: Codable where Key: Codable, Value: Codable {
 
 extension Cache where Key: Codable, Value: Codable {
     public func saveToDisk(withName name: String, using fileManager: FileManager = .default) throws {
-        let folderURLs = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)
-
-        let fileURL = folderURLs[0].appendingPathComponent(name + ".cache")
-        let data = try JSONEncoder().encode(self)
-        try data.write(to: fileURL)
+        if let folderURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: Global.groupIdPrefix){
+            let fileURL = folderURL.appendingPathComponent(name + ".cache")
+            let data = try JSONEncoder().encode(self)
+            try data.write(to: fileURL)
+        }
+        throw NSError(domain: Bundle.main.bundleIdentifier!, code: 0, userInfo: nil)
     }
     
     public static func loadFromDisk(withName name: String, using fileManager: FileManager = .default) throws -> Cache {
-        let folderURLs = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)
-        print(folderURLs)
-
-        let fileURL = folderURLs[0].appendingPathComponent(name + ".cache")
-        let data = try Data(contentsOf: fileURL)
-
-        return try JSONDecoder().decode(Cache.self, from: data)
+        if let folderURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: Global.groupIdPrefix){
+            let fileURL = folderURL.appendingPathComponent(name + ".cache")
+            let data = try Data(contentsOf: fileURL)
+            
+            return try JSONDecoder().decode(Cache.self, from: data)
+        }
+        throw NSError(domain: Bundle.main.bundleIdentifier!, code: 0, userInfo: nil)
     }
 }
 
 extension Cache.Entry: Codable where Key: Codable, Value: Codable {}
+
+extension FileManager{
+//    static let appGroup = FileManager(authorization: NSWorkspace.Authorization)
+}

@@ -20,7 +20,7 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2020 Elias Igbalajobi. All rights reserved.</string>
-	<key>TouchletGroupIdentifierPrefix</key>
+	<key>TouchletGroupIdentifier</key>
 	<string>group.com.heeleeaz.touchlet</string>
 </dict>
 </plist>
