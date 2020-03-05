@@ -32,17 +32,20 @@ open class ReadonlyTouchBarController: NSViewController{
         return touchBar
     }
     
-    func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar){
+    func touchBarCollectionItemClicked(item: TouchBarItem){
+        Logger.log(text: "Launching \(String(describing: item.identifier))")
+        
+        switch item.type {
+        case .Web:
+            NSWorkspace.shared.open(URL(fileURLWithPath: item.identifier))
+        case .App:
+            NSWorkspace.shared.launchApplication(withBundleIdentifier: item.identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
+        default:
+            Logger.log(text: "unrecognised touch item type \(String(describing: item.type))")
+        }
     }
     
-    func touchBarCollectionItemClicked(item: TouchBarItem){
-        switch item.type {
-        case .App:
-            print("App")
-            
-        default:
-            print("Web Link")
-        }
+    func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar){
     }
 }
 

@@ -19,17 +19,17 @@ public class SpotlightRepository{
     
     public var callback: ((SpotlightResult) -> ())?
 
-    private var _query: NSMetadataQuery? {willSet {if let query = self._query {query.stop()}}}
+    private var metaQuery: NSMetadataQuery? {willSet {if let query = self.metaQuery {query.stop()}}}
 
     private init(){}
 
     public func query() {
-        _query = NSMetadataQuery()
-        _query?.searchScopes = ["/Applications"]
+        metaQuery = NSMetadataQuery()
+        metaQuery?.searchScopes = ["/Applications"]
         let predicate = NSPredicate(format: "kMDItemContentType == 'com.apple.application-bundle'")
         NotificationCenter.default.addObserver(self, selector: #selector(queryDidFinish(_:)), name: NSNotification.Name.NSMetadataQueryDidFinishGathering, object: nil)
-        _query?.predicate = predicate
-        _query?.start()
+        metaQuery?.predicate = predicate
+        metaQuery?.start()
     }
 
     @objc func queryDidFinish(_ notification: NSNotification) {
