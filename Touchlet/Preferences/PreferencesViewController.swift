@@ -9,6 +9,7 @@
 import Cocoa
 import HotKey
 import Carbon
+import Core
 
 class PreferencesViewController: NSViewController, NibLoadable {
     @IBOutlet weak var stackView: KeybindTagView!
