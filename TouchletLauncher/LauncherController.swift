@@ -10,12 +10,12 @@ import Cocoa
 import Core
 
 class LauncherWindow: NSPanel {
-    
-    override var canBecomeKey: Bool{return true}
-    
-    override var canBecomeMain: Bool{return true}
-    
-    override var acceptsFirstResponder: Bool{return true}
+    override var contentView: NSView?{
+        didSet{
+            setFrame(.zero, display: true)
+            setContentSize(frame.size)
+        }
+    }
 }
 
 class LauncherWindowController: NSWindowController {
@@ -25,19 +25,4 @@ class LauncherWindowController: NSWindowController {
 }
 
 class LauncherController: ReadonlyTouchBarController{
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func keyDown(with event: NSEvent) {
-        super.keyDown(with: event)
-        
-        print("keyDown")
-    }
-    
-    override func mouseDown(with event: NSEvent) {
-        super.mouseDown(with: event)
-        
-        print("mouseDown")
-    }
 }

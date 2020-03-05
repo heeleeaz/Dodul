@@ -12,19 +12,7 @@ import Core
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    public var hotKey: HotKey? {
-        didSet {
-            guard let hotKey = hotKey else {return}
-
-            hotKey.keyDownHandler = { [weak self] in
-                NSApplication.shared.activate(ignoringOtherApps: true)
-
-                print("Touchlet HotKey")
-                NSWorkspace.shared.launchApplication("TouchletLauncher")
-            }
-
-        }
-    }
+    public var hotKey: HotKey?
 
     func applicationWillBecomeActive(_ notification: Notification) {
         NSApplication.shared.windows[0].contentView?.enterFullScreenMode()

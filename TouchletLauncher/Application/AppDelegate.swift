@@ -14,9 +14,9 @@ import Core
 class AppDelegate: NSObject, NSApplicationDelegate {
     public var hotKey: HotKey? {
         didSet {
-            hotKey?.keyDownHandler = { [weak self] in
-                print("AAAAAAAAAAA")
-//                NSApplication.shared.activate(ignoringOtherApps: true)
+            hotKey?.keyDownHandler = {
+                NSApplication.shared.activate(ignoringOtherApps: true)
+                Logger.log(text: "Touchlet launcher active by HotKey")
             }
         }
     }
@@ -26,14 +26,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
         }
         
-//        if let key = GlobalKeybindPreferencesStore.fetch(){
-//            hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: key.keyCode, carbonModifiers: key.carbonFlags))
-//        }else{
-//            let defKey = GlobalKeybindPreferences.defaultKeyBind
-//            GlobalKeybindPreferencesStore.save(keyBind: defKey)
-//            
-//            hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: defKey.keyCode, carbonModifiers: defKey.carbonFlags))
-//        }
+        if let key = GlobalKeybindPreferencesStore.fetch(){
+            hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: key.keyCode, carbonModifiers: key.carbonFlags))
+        }else{
+            let defKey = GlobalKeybindPreferences.defaultKeyBind
+            GlobalKeybindPreferencesStore.save(keyBind: defKey)
+            
+            hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: defKey.keyCode, carbonModifiers: defKey.carbonFlags))
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
