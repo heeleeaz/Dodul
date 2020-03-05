@@ -9,13 +9,12 @@
 import Cocoa
 
 public class SpotlightResult{
-    var position = 0
-    var items: [SpotlightItem] = []
+    public var position = 0
+    public var items: [SpotlightItem] = []
     
     init(items: [SpotlightItem]) {
-        self.items = items
-            .filter{!SpotlightRepository.whitelist.contains($0.displayName ?? "")}
-            .sorted {$0.lastUsed > $1.lastUsed && $0.useCount > $1.useCount}
+        self.items = items.filter{!SpotlightRepository.whitelist.contains($0.displayName ?? "")}
+        sortByRecentUsage()
     }
 
     public var hasNext: Bool{ return position < items.count}
@@ -27,4 +26,19 @@ public class SpotlightResult{
     }
     
     public var count: Int { return items.count }
+    
+    public func sortAlphabetically(){
+        self.items = items.sorted {$0.displayName?.lowercased() ?? "" < $1.displayName?.lowercased() ?? ""}
+    }
+    
+    public func sortByRecentUsage(){
+        self.items = items.sorted {$0.lastUsed > $1.lastUsed && $0.useCount > $1.useCount}
+    }
+    
+    public func reset() -> Int{
+        defer{
+            position = 0
+        }
+        return position
+    }
 }

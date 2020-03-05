@@ -20,11 +20,7 @@ class MainWindow: NSWindow{
     }
 }
 
-class MainWindowViewController: NSWindowController{
-//    override func makeTouchBar() -> NSTouchBar? {
-//        return contentViewController?.makeTouchBar()
-//    }
-}
+class MainWindowViewController: NSWindowController{}
 
 class MainViewController: EditableTouchBarController {
     @IBOutlet weak var keybindTagView: KeybindTagView!

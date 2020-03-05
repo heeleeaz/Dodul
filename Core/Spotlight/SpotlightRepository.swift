@@ -9,18 +9,20 @@
 import Cocoa
 
 public class SpotlightRepository{
-    public static var whitelist: [String] = {
+    public static var instance = SpotlightRepository()
+    
+    public var result: SpotlightResult?
+
+    static var whitelist: [String] = {
         guard let path = Bundle.main.path(forResource: "SpotlightWhitelist", ofType: "json"),
             let data = try? Data(contentsOf: URL.init(fileURLWithPath: path)) else {return []}
         return (try? JSONDecoder().decode([String].self, from: data)) ?? []
     }()
-    
-    public static var instance = SpotlightRepository()
-    
-    public var callback: ((SpotlightResult) -> ())?
+        
+    public weak var delegate: SpotlightRepositoryDelegate?
 
     private var metaQuery: NSMetadataQuery? {willSet {if let query = self.metaQuery {query.stop()}}}
-
+    
     private init(){}
 
     public func query() {
@@ -43,8 +45,9 @@ public class SpotlightRepository{
             let useCount = item.value(forAttribute: "kMDItemUseCount") as? Int ?? 0
             items.append(SpotlightItem(bundleIdentifier: identifer, displayName: displayName, lastUsed: lastUsed, useCount: useCount))            
         }
-        callback?(SpotlightResult(items: items))
-//        print((query.results[0] as? NSMetadataItem)?.attributes)
+        
+        result = SpotlightResult(items: items)
+        delegate?.spotlightRepository(spotlightRepository: self, result: result!)
     }
     
     public static func findAppIcon(bundleIdentifier: String) -> NSImage?{
@@ -56,3 +59,6 @@ public class SpotlightRepository{
     }
 }
 
+public protocol SpotlightRepositoryDelegate: class{
+    func spotlightRepository(spotlightRepository: SpotlightRepository, result: SpotlightResult)
+}
