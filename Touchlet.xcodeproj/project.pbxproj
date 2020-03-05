@@ -103,7 +103,6 @@
 		92FE9B0F23CF56AC00FA6AC6 /* OuterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */; };
 		92FE9B2223D0718100FA6AC6 /* HomeCollectionItemsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */; };
 		92FE9B2523D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */; };
-		92FE9B2623D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92FE9B2423D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib */; };
 		997F6325D2ADFB3BB5094687 /* Pods_TouchletLauncher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE5E929780F50A3654027A5 /* Pods_TouchletLauncher.framework */; };
 /* End PBXBuildFile section */
 
@@ -242,7 +241,6 @@
 		92FE9B1F23CFDAF600FA6AC6 /* SpotlightWhitelist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpotlightWhitelist.json; sourceTree = "<group>"; };
 		92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionItemsUtil.swift; sourceTree = "<group>"; };
 		92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewItem.swift; sourceTree = "<group>"; };
-		92FE9B2423D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCollectionViewItem.xib; sourceTree = "<group>"; };
 		AAB4BCE4A7A57B19483220DC /* Pods_Touchlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Touchlet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73D673B8911D73B7B4BCCFE /* Pods-Core.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.release.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.release.xcconfig"; sourceTree = "<group>"; };
 		BF73EB4621E8F380784C3E55 /* Pods_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -574,7 +572,6 @@
 			children = (
 				92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */,
 				92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */,
-				92FE9B2423D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib */,
 				923B986C23C600C000BC48A7 /* HomeItemViewController.swift */,
 				92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */,
 				9246321F23CB32C200042EFE /* HomeItemViewController.storyboard */,
@@ -774,7 +771,6 @@
 				923B986223C5CF8D00BC48A7 /* AppCollectionViewItem.xib in Resources */,
 				92015D0324050B5F0003A773 /* Preferences.storyboard in Resources */,
 				921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */,
-				92FE9B2623D0ACBC00FA6AC6 /* ButtonCollectionViewItem.xib in Resources */,
 				9246322023CB32C200042EFE /* HomeItemViewController.storyboard in Resources */,
 				92A1B30023C4AA2200D7BEF1 /* Main.storyboard in Resources */,
 				9283108123CA773200B115D1 /* LinkCollectionViewItem.xib in Resources */,

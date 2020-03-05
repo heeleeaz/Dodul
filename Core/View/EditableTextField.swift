@@ -8,11 +8,11 @@
 
 import Cocoa
 
-class EditingTextField: NSTextField {
+@IBDesignable public class EditingTextField: NSTextField {
     private let commandKey = NSEvent.ModifierFlags.command.rawValue
     private let commandShiftKey = NSEvent.ModifierFlags.command.rawValue | NSEvent.ModifierFlags.shift.rawValue
     
-    override func performKeyEquivalent(with event: NSEvent) -> Bool {
+    override public func performKeyEquivalent(with event: NSEvent) -> Bool {
         if event.type == NSEvent.EventType.keyDown {
             if (event.modifierFlags.rawValue &
                 NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue) == commandKey {
@@ -41,8 +41,8 @@ class EditingTextField: NSTextField {
     }
 }
 
-class VerticallyCenteredTextFieldCell: NSTextFieldCell {
-    override func drawingRect(forBounds theRect: NSRect) -> NSRect {
+@IBDesignable public class VerticallyCenteredTextFieldCell: NSTextFieldCell {
+    override public func drawingRect(forBounds theRect: NSRect) -> NSRect {
         let newRect = NSRect(x: 0, y: (theRect.size.height - 22) / 2, width: theRect.size.width, height: 22)
         return super.drawingRect(forBounds: newRect)
     }
