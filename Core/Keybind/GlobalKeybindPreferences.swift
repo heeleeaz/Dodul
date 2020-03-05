@@ -25,19 +25,19 @@ public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
     public func description(_ seperator: String = "") -> String{
         var stringBuilder = ""
         if self.control {
-            stringBuilder += "Control\(seperator)"
+            stringBuilder += "⌃\(seperator)"
         }
         if self.option {
-            stringBuilder += "Option\(seperator)"
+            stringBuilder += "⌥\(seperator)"
         }
         if self.command {
-            stringBuilder += "Command\(seperator)"
+            stringBuilder += "⌘\(seperator)"
         }
         if self.shift {
-            stringBuilder += "Shift\(seperator)"
+            stringBuilder += "⇧\(seperator)"
         }
         if self.capsLock {
-            stringBuilder += "Capslock\(seperator)"
+            stringBuilder += "⇪\(seperator)"
         }
         if let characters = self.characters {
             stringBuilder += "\(characters.uppercased())\(seperator)"

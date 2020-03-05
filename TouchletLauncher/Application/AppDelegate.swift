@@ -16,9 +16,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         didSet {
             hotKey?.keyDownHandler = {
                 Logger.log(text: "launching TouchletLauncher from HotKey context")
-                let window = NSApplication.shared.windows[0]
-                window.makeKeyAndOrderFront(nil)
-                window.orderFrontRegardless()
+                if let window = NSApplication.shared.windows.first{
+                    window.makeKeyAndOrderFront(nil)
+                    window.orderFrontRegardless()
+                }
             }
         }
     }
@@ -32,8 +33,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: key.keyCode, carbonModifiers: key.carbonFlags))
         }else{
             let defKey = GlobalKeybindPreferences.defaultKeyBind
-            GlobalKeybindPreferencesStore.save(keyBind: defKey)
             
+            GlobalKeybindPreferencesStore.save(keyBind: defKey)
             hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: defKey.keyCode, carbonModifiers: defKey.carbonFlags))
         }
     }
