@@ -15,8 +15,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     public var hotKey: HotKey? {
         didSet {
             hotKey?.keyDownHandler = {
-                NSApplication.shared.activate(ignoringOtherApps: true)
-                Logger.log(text: "Touchlet launcher active by HotKey")
+                Logger.log(text: "launching TouchletLauncher from HotKey context")
+                let window = NSApplication.shared.windows[0]
+                window.makeKeyAndOrderFront(nil)
+                window.orderFrontRegardless()
             }
         }
     }
