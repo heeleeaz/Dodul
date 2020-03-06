@@ -7,11 +7,9 @@
 //
 
 import Cocoa
+import Core
 
-struct DarkTheme {
+class DarkTheme: Theme {
     static var hotkeyTextColor = NSColor(named: "EditingHotkeyTextColor")!
     static var hotkeyBackgroundColor = NSColor(named: "HotKeyBackgroundColor")!
-    
-    static var selectedTintColor = NSColor(red: 0.384, green: 0.632, blue: 1, alpha: 1)
-    static var unselectedTintColor = NSColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
 }

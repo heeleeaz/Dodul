@@ -34,20 +34,6 @@
 		92ACE7E4240F01F0009994EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92ACE7E3240F01F0009994EB /* Assets.xcassets */; };
 		92ACE7E7240F01F0009994EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92ACE7E5240F01F0009994EB /* Main.storyboard */; };
 		92ACE7ED240F0249009994EB /* LauncherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B20D62240EBE9F005B9F8E /* LauncherController.swift */; };
-		92ACE7F8240F1043009994EB /* AppItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246321C23CB2F6600042EFE /* AppItemViewController.swift */; };
-		92ACE7F9240F1046009994EB /* AppCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */; };
-		92ACE7FA240F104A009994EB /* BookmarkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A241423C7378B002BB85F /* BookmarkRepository.swift */; };
-		92ACE7FB240F104E009994EB /* BookmarkUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245823C8D88C002BB85F /* BookmarkUserDefaults.swift */; };
-		92ACE7FC240F1054009994EB /* BookmarkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245623C8D811002BB85F /* BookmarkStore.swift */; };
-		92ACE7FD240F105A009994EB /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92861C922406DD34001B8EFD /* AddLinkViewController.swift */; };
-		92ACE7FE240F105E009994EB /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283108323CA78D700B115D1 /* BookmarkViewController.swift */; };
-		92ACE7FF240F1063009994EB /* LinkCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */; };
-		92ACE800240F106B009994EB /* ButtonCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */; };
-		92ACE801240F106B009994EB /* HomeItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B986C23C600C000BC48A7 /* HomeItemViewController.swift */; };
-		92ACE802240F106B009994EB /* HomeCollectionItemsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */; };
-		92ACE803240F106B009994EB /* HomeSupportCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A0C8C92409173F000C5011 /* HomeSupportCollectionViewController.swift */; };
-		92ACE80D240F108A009994EB /* OuterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */; };
-		92ACE82A240F10A8009994EB /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245D23C8DB80002BB85F /* Link.swift */; };
 		92ACE89D240FAE4C009994EB /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 92ACE89B240FAE4C009994EB /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92ACE8AA240FAFC0009994EB /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245A23C8D8B9002BB85F /* global.swift */; };
 		92ACE8AF240FB19C009994EB /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B32F23C4C0A000D7BEF1 /* NibLoadable.swift */; };
@@ -97,6 +83,7 @@
 		92ACE8E4240FB7EA009994EB /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACE899240FAE4C009994EB /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		92ACE8EB240FC175009994EB /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE8EA240FC175009994EB /* DarkTheme.swift */; };
 		92ACE8F12410D6D2009994EB /* TouchBarItemFileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE8F02410D6D2009994EB /* TouchBarItemFileStorage.swift */; };
+		92ACE8F8241244B3009994EB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE8F7241244B3009994EB /* Theme.swift */; };
 		92E16C762403D60E00511EE1 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16C752403D60E00511EE1 /* PreferencesViewController.swift */; };
 		92FE9B0F23CF56AC00FA6AC6 /* OuterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */; };
 		92FE9B2223D0718100FA6AC6 /* HomeCollectionItemsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */; };
@@ -225,6 +212,7 @@
 		92ACE89C240FAE4C009994EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92ACE8EA240FC175009994EB /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		92ACE8F02410D6D2009994EB /* TouchBarItemFileStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarItemFileStorage.swift; sourceTree = "<group>"; };
+		92ACE8F7241244B3009994EB /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		92B20D62240EBE9F005B9F8E /* LauncherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherController.swift; sourceTree = "<group>"; };
 		92B20D64240ECB1C005B9F8E /* ReadonlyTouchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadonlyTouchBarController.swift; sourceTree = "<group>"; };
 		92E16C732403CE4000511EE1 /* GlobalKeybindPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalKeybindPreferences.swift; sourceTree = "<group>"; };
@@ -346,13 +334,6 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		925A240A23C685AF002BB85F /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
 		925A241623C73AD1002BB85F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,7 +397,6 @@
 			isa = PBXGroup;
 			children = (
 				92ACE8AC240FB0CC009994EB /* UI */,
-				925A240A23C685AF002BB85F /* Repository */,
 			);
 			path = Spotlights;
 			sourceTree = "<group>";
@@ -537,6 +517,7 @@
 		92ACE89A240FAE4C009994EB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				92ACE8FC24124680009994EB /* Theme */,
 				92ACE8D3240FB479009994EB /* Favicon */,
 				92ACE8CE240FB454009994EB /* Spotlight */,
 				925A241623C73AD1002BB85F /* Extension */,
@@ -599,6 +580,14 @@
 				92ACE8EA240FC175009994EB /* DarkTheme.swift */,
 			);
 			path = Themes;
+			sourceTree = "<group>";
+		};
+		92ACE8FC24124680009994EB /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				92ACE8F7241244B3009994EB /* Theme.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		92D656B92407DFFF003882DD /* Modules */ = {
@@ -924,21 +913,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92ACE7FA240F104A009994EB /* BookmarkRepository.swift in Sources */,
-				92ACE7FF240F1063009994EB /* LinkCollectionViewItem.swift in Sources */,
-				92ACE80D240F108A009994EB /* OuterScrollView.swift in Sources */,
-				92ACE7F8240F1043009994EB /* AppItemViewController.swift in Sources */,
-				92ACE7FB240F104E009994EB /* BookmarkUserDefaults.swift in Sources */,
-				92ACE7FD240F105A009994EB /* AddLinkViewController.swift in Sources */,
-				92ACE801240F106B009994EB /* HomeItemViewController.swift in Sources */,
-				92ACE802240F106B009994EB /* HomeCollectionItemsUtil.swift in Sources */,
-				92ACE82A240F10A8009994EB /* Link.swift in Sources */,
 				92ACE7E0240F01F0009994EB /* AppDelegate.swift in Sources */,
-				92ACE800240F106B009994EB /* ButtonCollectionViewItem.swift in Sources */,
-				92ACE7FE240F105E009994EB /* BookmarkViewController.swift in Sources */,
-				92ACE803240F106B009994EB /* HomeSupportCollectionViewController.swift in Sources */,
-				92ACE7FC240F1054009994EB /* BookmarkStore.swift in Sources */,
-				92ACE7F9240F1046009994EB /* AppCollectionViewItem.swift in Sources */,
 				92ACE7ED240F0249009994EB /* LauncherController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -978,6 +953,7 @@
 				92ACE8BC240FB1C2009994EB /* TouchBarItemUserDefault.swift in Sources */,
 				92ACE8B1240FB1A8009994EB /* Logger.swift in Sources */,
 				92ACE8BB240FB1C2009994EB /* TouchBarItemStore.swift in Sources */,
+				92ACE8F8241244B3009994EB /* Theme.swift in Sources */,
 				92ACE8B2240FB1A8009994EB /* FileLoader.swift in Sources */,
 				92ACE8CD240FB450009994EB /* SpotlightItem.swift in Sources */,
 				92ACE8C1240FB2CC009994EB /* NSViewExtension.swift in Sources */,
