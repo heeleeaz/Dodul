@@ -20,7 +20,8 @@ class MainWindow: NSWindow{
     }
 }
 
-class MainWindowViewController: NSWindowController{}
+class MainWindowViewController: NSWindowController{
+}
 
 class MainViewController: EditableTouchBarController {
     @IBOutlet weak var keybindTagView: KeybindTagView!

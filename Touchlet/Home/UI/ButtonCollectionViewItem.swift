@@ -21,16 +21,13 @@ class ButtonCollectionViewItem: NSCollectionViewItem {
     
     override func loadView() {
         super.view = NSView()
-        setupView()
-    }
-    
-    private func setupView(){
+        
         let container = NSView()
         container._BackgroundColor = NSColor(named: "TouchBarButtonBackgroundColor")
         container.cornerRadius = 20
         container.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(container)
-        NSLayoutConstraint.activate([container.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+        NSLayoutConstraint.activate([container.topAnchor.constraint(equalTo: view.topAnchor),
                                      container.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      container.widthAnchor.constraint(equalToConstant: 70),
                                      container.heightAnchor.constraint(equalToConstant: 40)])
@@ -41,7 +38,6 @@ class ButtonCollectionViewItem: NSCollectionViewItem {
                                      button.centerXAnchor.constraint(equalTo: container.centerXAnchor),
                                      button.widthAnchor.constraint(greaterThanOrEqualToConstant: 24),
                                      button.heightAnchor.constraint(equalToConstant: 24)])
-        
     }
     
     func showAction(action: Action, _ didTap: (()->())?){

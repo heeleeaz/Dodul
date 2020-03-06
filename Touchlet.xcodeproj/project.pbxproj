@@ -23,7 +23,6 @@
 		925A245E23C8DB80002BB85F /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245D23C8DB80002BB85F /* Link.swift */; };
 		925F8C112406C0E3008CC1DE /* KeybindTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925F8C102406C0E3008CC1DE /* KeybindTagView.swift */; };
 		9283108023CA773200B115D1 /* LinkCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */; };
-		9283108123CA773200B115D1 /* LinkCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9283107F23CA773200B115D1 /* LinkCollectionViewItem.xib */; };
 		9283108423CA78D700B115D1 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283108323CA78D700B115D1 /* BookmarkViewController.swift */; };
 		92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92861C922406DD34001B8EFD /* AddLinkViewController.swift */; };
 		92A0C8CA2409173F000C5011 /* HomeSupportCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A0C8C92409173F000C5011 /* HomeSupportCollectionViewController.swift */; };
@@ -190,7 +189,6 @@
 		925F8C102406C0E3008CC1DE /* KeybindTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindTagView.swift; sourceTree = "<group>"; };
 		926723ED23F2D1F6002D9BAE /* NSCursorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCursorHelper.swift; sourceTree = "<group>"; };
 		9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCollectionViewItem.swift; sourceTree = "<group>"; };
-		9283107F23CA773200B115D1 /* LinkCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkCollectionViewItem.xib; sourceTree = "<group>"; };
 		9283108323CA78D700B115D1 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		92861C922406DD34001B8EFD /* AddLinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLinkViewController.swift; sourceTree = "<group>"; };
 		92A0C8C92409173F000C5011 /* HomeSupportCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSupportCollectionViewController.swift; sourceTree = "<group>"; };
@@ -411,7 +409,6 @@
 				921329F32406EB2000D9FE9E /* AddLinkViewController.xib */,
 				92861C922406DD34001B8EFD /* AddLinkViewController.swift */,
 				9283108323CA78D700B115D1 /* BookmarkViewController.swift */,
-				9283107F23CA773200B115D1 /* LinkCollectionViewItem.xib */,
 				9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */,
 			);
 			path = UI;
@@ -773,7 +770,6 @@
 				921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */,
 				9246322023CB32C200042EFE /* HomeItemViewController.storyboard in Resources */,
 				92A1B30023C4AA2200D7BEF1 /* Main.storyboard in Resources */,
-				9283108123CA773200B115D1 /* LinkCollectionViewItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
