@@ -13,7 +13,6 @@
 		92015D0B2406B1310003A773 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92015D0A2406B1310003A773 /* PreferencesWindow.swift */; };
 		921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921329F32406EB2000D9FE9E /* AddLinkViewController.xib */; };
 		923B986123C5CF8D00BC48A7 /* AppCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */; };
-		923B986223C5CF8D00BC48A7 /* AppCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923B986023C5CF8D00BC48A7 /* AppCollectionViewItem.xib */; };
 		923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B986C23C600C000BC48A7 /* HomeItemViewController.swift */; };
 		9246321D23CB2F6600042EFE /* AppItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246321C23CB2F6600042EFE /* AppItemViewController.swift */; };
 		9246322023CB32C200042EFE /* HomeItemViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9246321F23CB32C200042EFE /* HomeItemViewController.storyboard */; };
@@ -167,7 +166,6 @@
 		92132A062407B21300D9FE9E /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		9239C71D23CB927C00990745 /* NSScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSScrollViewExtension.swift; sourceTree = "<group>"; };
 		923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewItem.swift; sourceTree = "<group>"; };
-		923B986023C5CF8D00BC48A7 /* AppCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppCollectionViewItem.xib; sourceTree = "<group>"; };
 		923B986C23C600C000BC48A7 /* HomeItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemViewController.swift; sourceTree = "<group>"; };
 		923B987223C6107000BC48A7 /* NSViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewControllerExtension.swift; sourceTree = "<group>"; };
 		9246321C23CB2F6600042EFE /* AppItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppItemViewController.swift; sourceTree = "<group>"; };
@@ -559,7 +557,6 @@
 			children = (
 				9246321C23CB2F6600042EFE /* AppItemViewController.swift */,
 				923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */,
-				923B986023C5CF8D00BC48A7 /* AppCollectionViewItem.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -765,7 +762,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				92A1B2FD23C4AA2200D7BEF1 /* Assets.xcassets in Resources */,
-				923B986223C5CF8D00BC48A7 /* AppCollectionViewItem.xib in Resources */,
 				92015D0324050B5F0003A773 /* Preferences.storyboard in Resources */,
 				921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */,
 				9246322023CB32C200042EFE /* HomeItemViewController.storyboard in Resources */,

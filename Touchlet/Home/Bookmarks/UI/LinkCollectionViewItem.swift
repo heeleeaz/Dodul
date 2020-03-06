@@ -1,5 +1,5 @@
 //
-//  AddBookmarkCollectionViewItem.swift
+//  LinkCollectionViewItem.swift
 //  Touchlet
 //
 //  Created by Elias on 11/01/2020.
@@ -11,9 +11,7 @@ import Core
 
 class LinkCollectionViewItem: NSCollectionViewItem {
     static let reuseIdentifier = NSUserInterfaceItemIdentifier("LinkCollectionViewItem")
-    
-    private let cache = Cache<String, Data>()
-    
+        
     var link: Link!{didSet{if isViewLoaded { updateView() }}}
     
     var moreClicked: (() -> Void)?
