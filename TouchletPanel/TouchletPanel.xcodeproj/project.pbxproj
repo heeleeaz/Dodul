@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		921927B52412A9980008CCC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 921927B32412A9980008CCC8 /* Assets.xcassets */; };
 		921927B62412A9980008CCC8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 921927B42412A9980008CCC8 /* Info.plist */; };
+		929E8B0F241687B60093F694 /* LaunchHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9208238924166F0000217940 /* LaunchHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		92ACE9B5241295F6009994EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE9B4241295F6009994EB /* AppDelegate.swift */; };
 		92ACE9B7241295F6009994EB /* PanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE9B6241295F6009994EB /* PanelController.swift */; };
 		92ACE9BC241295F6009994EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92ACE9BA241295F6009994EB /* Main.storyboard */; };
@@ -18,16 +19,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		92070FEF24164C82006FA336 /* PBXContainerItemProxy */ = {
+		9208238824166F0000217940 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 92070FEB24164C81006FA336 /* LaunchHelper.xcodeproj */;
+			containerPortal = 9208238424166EFF00217940 /* LaunchHelper.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 92070FD824164C81006FA336;
+			remoteGlobalIDString = 9208237124166EFE00217940;
 			remoteInfo = LaunchHelper;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		929E8B0D241687950093F694 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				929E8B0F241687B60093F694 /* LaunchHelper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92ACEAD62412A554009994EB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -43,7 +54,7 @@
 
 /* Begin PBXFileReference section */
 		080AA266C691507AD3EC65EB /* libPods-TouchletPanel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TouchletPanel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		92070FEB24164C81006FA336 /* LaunchHelper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LaunchHelper.xcodeproj; path = LaunchHelper/LaunchHelper.xcodeproj; sourceTree = "<group>"; };
+		9208238424166EFF00217940 /* LaunchHelper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LaunchHelper.xcodeproj; path = LaunchHelper/LaunchHelper.xcodeproj; sourceTree = "<group>"; };
 		921927B22412A9980008CCC8 /* TouchletPanel.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TouchletPanel.entitlements; sourceTree = "<group>"; };
 		921927B32412A9980008CCC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		921927B42412A9980008CCC8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,10 +99,10 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
-		92070FEC24164C81006FA336 /* Products */ = {
+		9208238524166EFF00217940 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				92070FF024164C82006FA336 /* LaunchHelper.app */,
+				9208238924166F0000217940 /* LaunchHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,7 +110,7 @@
 		92ACE9A8241295F6009994EB = {
 			isa = PBXGroup;
 			children = (
-				92070FEB24164C81006FA336 /* LaunchHelper.xcodeproj */,
+				9208238424166EFF00217940 /* LaunchHelper.xcodeproj */,
 				92ACE9B3241295F6009994EB /* TouchletPanel */,
 				92ACE9B2241295F6009994EB /* Products */,
 				4C2BBBE781342222D5919B00 /* Pods */,
@@ -140,6 +151,7 @@
 				92ACE9AE241295F6009994EB /* Frameworks */,
 				92ACE9AF241295F6009994EB /* Resources */,
 				92ACEAD62412A554009994EB /* Embed Frameworks */,
+				929E8B0D241687950093F694 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -178,8 +190,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 92070FEC24164C81006FA336 /* Products */;
-					ProjectRef = 92070FEB24164C81006FA336 /* LaunchHelper.xcodeproj */;
+					ProductGroup = 9208238524166EFF00217940 /* Products */;
+					ProjectRef = 9208238424166EFF00217940 /* LaunchHelper.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -190,11 +202,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		92070FF024164C82006FA336 /* LaunchHelper.app */ = {
+		9208238924166F0000217940 /* LaunchHelper.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = LaunchHelper.app;
-			remoteRef = 92070FEF24164C82006FA336 /* PBXContainerItemProxy */;
+			remoteRef = 9208238824166F0000217940 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -393,7 +405,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.panel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.TouchletPanel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -418,7 +430,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.panel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.TouchletPanel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

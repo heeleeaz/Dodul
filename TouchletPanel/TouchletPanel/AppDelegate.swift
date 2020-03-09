@@ -9,6 +9,7 @@
 import Cocoa
 import HotKey
 import TouchletCore
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -25,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        Logger.log(text: "TouchletPanel launched")
+        SMLoginItemSetEnabled("com.heeleeaz.touchlet.LaunchHelper" as CFString, true)
         
         if #available(OSX 10.12.2, *) {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
@@ -46,16 +47,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             DistributedNotificationCenter.default().postNotificationName(Constants.KILLAPP, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
         }
     }
-    
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
 }
 
 extension AppDelegate{
     struct Constants {
-        static let helperAppBundleIdentifier = "com.heeleeaz.touchlet.panel.LaunchHelper"
+        static let helperAppBundleIdentifier = "com.heeleeaz.touchlet.PanelLaunchHelper"
         static let KILLAPP = NSNotification.Name("KILLAPP")
     }
 }

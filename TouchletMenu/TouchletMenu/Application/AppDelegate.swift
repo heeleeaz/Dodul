@@ -9,7 +9,6 @@
 import Cocoa
 import HotKey
 import TouchletCore
-import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -23,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if #available(OSX 10.12.2, *) {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
         }
-        
+                
         if let key = GlobalKeybindPreferencesStore.fetch(){
             hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: key.keyCode, carbonModifiers: key.carbonFlags))
         }else{

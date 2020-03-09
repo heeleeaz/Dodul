@@ -40,6 +40,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		928257DF241696B300ED22BF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 1;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92ACE8E7240FB7EA009994EB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -301,6 +310,7 @@
 				92A1B2EF23C4AA2100D7BEF1 /* Frameworks */,
 				92A1B2F023C4AA2100D7BEF1 /* Resources */,
 				92ACE8E7240FB7EA009994EB /* Embed Frameworks */,
+				928257DF241696B300ED22BF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -567,7 +577,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.menu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.TouchletMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "$(inherited) $(SDKROOT)/usr/include/libxml2 $(SRCROOT)/Kanna/Modules";
 				SWIFT_VERSION = 5.0;
@@ -594,7 +604,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.menu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.TouchletMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "$(inherited) $(SRCROOT)/Kanna/Modules $(SDKROOT)/usr/include/libxml2\n$(SDKROOT)/usr/include/libxml2";
 				SWIFT_VERSION = 5.0;

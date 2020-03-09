@@ -10,7 +10,7 @@ import Foundation
 import ServiceManagement
 
 public struct LaunchAtLoginHelper {
-    private static let id = "com.heeleeaz.touchlet.panel.LaunchHelper"
+    private static let id = "com.heeleeaz.touchlet.LaunchHelper"
 
     public static var isEnabled: Bool {
         get {
@@ -23,7 +23,7 @@ public struct LaunchAtLoginHelper {
             return job?["OnDemand"] as? Bool ?? false
         }
         set {
-            SMLoginItemSetEnabled(id as CFString, newValue)
+            SMLoginItemSetEnabled(id as CFString, true)
         }
     }
 }
