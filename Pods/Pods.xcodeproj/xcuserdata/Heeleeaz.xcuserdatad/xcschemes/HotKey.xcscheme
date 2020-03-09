@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DB4D977E4336D9F2E9E510A33CD1DB6D"
-               BuildableName = "HotKey.framework"
+               BuildableName = "libHotKey.a"
                BlueprintName = "HotKey"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

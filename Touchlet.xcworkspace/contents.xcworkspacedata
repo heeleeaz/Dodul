@@ -2,7 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Touchlet.xcodeproj">
+      location = "group:TouchletCore/TouchletCore.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:TouchletPanel/TouchletPanel.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:TouchletMenu/TouchletMenu.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
