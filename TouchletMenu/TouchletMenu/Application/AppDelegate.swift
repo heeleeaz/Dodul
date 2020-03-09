@@ -12,8 +12,6 @@ import TouchletCore
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    public var hotKey: HotKey?
-
     func applicationWillBecomeActive(_ notification: Notification) {
         NSApplication.shared.windows[0].contentView?.enterFullScreenMode()
     }
@@ -22,17 +20,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if #available(OSX 10.12.2, *) {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
         }
-                
-        if let key = GlobalKeybindPreferencesStore.fetch(){
-            hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: key.keyCode, carbonModifiers: key.carbonFlags))
-        }else{
-            let defKey = GlobalKeybindPreferences.defaultKeyBind
-            GlobalKeybindPreferencesStore.save(keyBind: defKey)
-
-            hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: defKey.keyCode, carbonModifiers: defKey.carbonFlags))
+    
+        if GlobalKeybindPreferencesStore.fetch() == nil{
+            GlobalKeybindPreferencesStore.save(keyBind: GlobalKeybindPreferences.defaultKeyBind)
         }
-        
-        LaunchAtLoginHelper.isEnabled = true
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

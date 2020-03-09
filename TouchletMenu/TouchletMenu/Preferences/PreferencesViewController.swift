@@ -41,9 +41,6 @@ class PreferencesViewController: NSViewController, NibLoadable {
             
         saveButton.addClickGestureRecognizer{
             GlobalKeybindPreferencesStore.save(keyBind: newGlobalKeybind) // save it
-            
-            let ad = NSApplication.shared.delegate as! AppDelegate
-            ad.hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: UInt32(event.keyCode), carbonModifiers: event.modifierFlags.carbonFlags))
             self.view.window?.close()
         }
     }

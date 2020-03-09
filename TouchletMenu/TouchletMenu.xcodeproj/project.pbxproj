@@ -29,7 +29,6 @@
 		92A1B30023C4AA2200D7BEF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92A1B2FE23C4AA2200D7BEF1 /* Main.storyboard */; };
 		92ACE8EB240FC175009994EB /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE8EA240FC175009994EB /* DarkTheme.swift */; };
 		92ACE91B241283B0009994EB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92A1B30123C4AA2200D7BEF1 /* Info.plist */; };
-		92ACE91F241288BE009994EB /* LaunchAtLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE91E241288BE009994EB /* LaunchAtLoginHelper.swift */; };
 		92ACEAD82412A564009994EB /* TouchletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACEAD72412A564009994EB /* TouchletCore.framework */; };
 		92ACEAD92412A564009994EB /* TouchletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACEAD72412A564009994EB /* TouchletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		92E16C762403D60E00511EE1 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16C752403D60E00511EE1 /* PreferencesViewController.swift */; };
@@ -86,7 +85,6 @@
 		92A1B30123C4AA2200D7BEF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92A1B30223C4AA2200D7BEF1 /* Touchlet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Touchlet.entitlements; sourceTree = "<group>"; };
 		92ACE8EA240FC175009994EB /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
-		92ACE91E241288BE009994EB /* LaunchAtLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginHelper.swift; sourceTree = "<group>"; };
 		92ACEAD72412A564009994EB /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B49A8424169C8800E6AF35 /* TouchletPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = TouchletPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E16C752403D60E00511EE1 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */,
-				92ACE91E241288BE009994EB /* LaunchAtLoginHelper.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -409,7 +406,6 @@
 				92A0C8CA2409173F000C5011 /* HomeSupportCollectionViewController.swift in Sources */,
 				923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */,
 				9246321D23CB2F6600042EFE /* AppItemViewController.swift in Sources */,
-				92ACE91F241288BE009994EB /* LaunchAtLoginHelper.swift in Sources */,
 				925F8C112406C0E3008CC1DE /* KeybindTagView.swift in Sources */,
 				92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */,
 				92015D0B2406B1310003A773 /* PreferencesWindow.swift in Sources */,
