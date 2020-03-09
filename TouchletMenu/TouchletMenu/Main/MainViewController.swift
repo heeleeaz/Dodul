@@ -50,7 +50,9 @@ class MainViewController: EditableTouchBarController {
     @IBAction func doneAction(_ sender: Any) {
         commitTouchBarEditing()
         
-        DistributedNotificationCenter.default().postNotificationName(Constants.refreshTouchItemNotification, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
+        DistributedNotificationCenter.default().postNotificationName(.touchItemReload, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
+        
+        DistributedNotificationCenter.default().postNotificationName(.hotKeySetup, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
         terminateApp(self)
     }
     
@@ -58,11 +60,5 @@ class MainViewController: EditableTouchBarController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-    }
-}
-
-extension MainViewController{
-    struct Constants {
-        static let refreshTouchItemNotification = Notification.Name("refreshTouchItem")
     }
 }

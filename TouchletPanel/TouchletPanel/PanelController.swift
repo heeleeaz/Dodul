@@ -28,7 +28,7 @@ class PanelViewController: ReadonlyTouchBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(refreshTouchItems), name: Constants.refreshTouchItemNotification, object: Constants.menuAppBundleIdentifier)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(refreshTouchItems), name: .touchItemReload, object: menuAppBundleIdentifier)
     }
     
     @objc func refreshTouchItems(){
@@ -37,13 +37,6 @@ class PanelViewController: ReadonlyTouchBarController{
     
     deinit {
         DistributedNotificationCenter.default().removeObserver(self)
-    }
-}
-
-extension PanelViewController{
-    struct Constants {
-        static let refreshTouchItemNotification = Notification.Name("refreshTouchItem")
-        static let menuAppBundleIdentifier = "com.heeleeaz.touchlet.TouchletMenu"
     }
 }
 

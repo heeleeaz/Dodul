@@ -32,19 +32,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
         }
         
-        if let key = GlobalKeybindPreferencesStore.fetch(){
-            hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: key.keyCode, carbonModifiers: key.carbonFlags))
-        }else{
-            let defKey = GlobalKeybindPreferences.defaultKeyBind
-            
-            GlobalKeybindPreferencesStore.save(keyBind: defKey)
-            hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: defKey.keyCode, carbonModifiers: defKey.carbonFlags))
-        }
+        setupHotKey()
         
         let startedAtLogin = NSWorkspace.shared.runningApplications.contains{$0.bundleIdentifier == Constants.helperAppBundleIdentifier}
         if startedAtLogin{
             //terminate helper app
             DistributedNotificationCenter.default().postNotificationName(Constants.KILLAPP, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
+        }
+        
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(setupHotKey), name: .hotKeySetup, object: menuAppBundleIdentifier)
+    }
+    
+    @objc private func setupHotKey(){
+        if let key = GlobalKeybindPreferencesStore.fetch(){
+            hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: key.keyCode, carbonModifiers: key.carbonFlags))
+        }else{
+            let defKey = GlobalKeybindPreferences.defaultKeyBind
+            GlobalKeybindPreferencesStore.save(keyBind: defKey)
+            hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: defKey.keyCode, carbonModifiers: defKey.carbonFlags))
         }
     }
 }
