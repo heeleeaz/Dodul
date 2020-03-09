@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var hotKey: HotKey? {
         didSet {
             hotKey?.keyDownHandler = {
-                Logger.log(text: "launching TouchletLauncher from HotKey context")
+                Logger.log(text: "showing TouchletPanel from HotKey context")
                 if let window = NSApplication.shared.windows.first{
                     window.makeKeyAndOrderFront(nil)
                     window.orderFrontRegardless()
@@ -25,6 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        Logger.log(text: "TouchletPanel launched")
+        
         if #available(OSX 10.12.2, *) {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
         }
@@ -38,13 +40,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: defKey.keyCode, carbonModifiers: defKey.carbonFlags))
         }
         
-        
-        // check if the Main application is running
-//        let startedAtLogin = NSWorkspace.shared.runningApplications.contains{$0.bundleIdentifier == mainAppIdentifier}
-//        if startedAtLogin {
-//            // true, main app was launched at login, terminate helper app
-//            DistributedNotificationCenter.default().postNotificationName(Constants.KILLME, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
-//        }
+        let startedAtLogin = NSWorkspace.shared.runningApplications.contains{$0.bundleIdentifier == Constants.helperAppBundleIdentifier}
+        if startedAtLogin{
+            //terminate helper app
+            DistributedNotificationCenter.default().postNotificationName(Constants.KILLAPP, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
+        }
     }
     
 
@@ -53,3 +53,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
+extension AppDelegate{
+    struct Constants {
+        static let helperAppBundleIdentifier = "com.heeleeaz.touchlet.panel.LaunchHelper"
+        static let KILLAPP = NSNotification.Name("KILLAPP")
+    }
+}

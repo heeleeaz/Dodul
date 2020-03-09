@@ -17,6 +17,16 @@
 		B700122477EAF8080FD79020 /* libPods-TouchletPanel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 080AA266C691507AD3EC65EB /* libPods-TouchletPanel.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		92070FEF24164C82006FA336 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92070FEB24164C81006FA336 /* LaunchHelper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 92070FD824164C81006FA336;
+			remoteInfo = LaunchHelper;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		92ACEAD62412A554009994EB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -33,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		080AA266C691507AD3EC65EB /* libPods-TouchletPanel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TouchletPanel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92070FEB24164C81006FA336 /* LaunchHelper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LaunchHelper.xcodeproj; path = LaunchHelper/LaunchHelper.xcodeproj; sourceTree = "<group>"; };
 		921927B22412A9980008CCC8 /* TouchletPanel.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TouchletPanel.entitlements; sourceTree = "<group>"; };
 		921927B32412A9980008CCC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		921927B42412A9980008CCC8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,9 +88,18 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		92070FEC24164C81006FA336 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92070FF024164C82006FA336 /* LaunchHelper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		92ACE9A8241295F6009994EB = {
 			isa = PBXGroup;
 			children = (
+				92070FEB24164C81006FA336 /* LaunchHelper.xcodeproj */,
 				92ACE9B3241295F6009994EB /* TouchletPanel */,
 				92ACE9B2241295F6009994EB /* Products */,
 				4C2BBBE781342222D5919B00 /* Pods */,
@@ -156,12 +176,28 @@
 			mainGroup = 92ACE9A8241295F6009994EB;
 			productRefGroup = 92ACE9B2241295F6009994EB /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 92070FEC24164C81006FA336 /* Products */;
+					ProjectRef = 92070FEB24164C81006FA336 /* LaunchHelper.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				92ACE9B0241295F6009994EB /* TouchletPanel */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		92070FF024164C82006FA336 /* LaunchHelper.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = LaunchHelper.app;
+			remoteRef = 92070FEF24164C82006FA336 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		92ACE9AF241295F6009994EB /* Resources */ = {

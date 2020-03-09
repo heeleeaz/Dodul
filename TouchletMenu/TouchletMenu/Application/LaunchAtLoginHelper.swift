@@ -9,8 +9,8 @@
 import Foundation
 import ServiceManagement
 
-public struct LaunchAtLogin {
-    private static let id = "\(Bundle.main.bundleIdentifier!)-LaunchAtLoginHelper"
+public struct LaunchAtLoginHelper {
+    private static let id = "com.heeleeaz.touchlet.panel.LaunchHelper"
 
     public static var isEnabled: Bool {
         get {

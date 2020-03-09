@@ -32,6 +32,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: defKey.keyCode, carbonModifiers: defKey.carbonFlags))
         }
+        
+        LaunchAtLoginHelper.isEnabled = true
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
