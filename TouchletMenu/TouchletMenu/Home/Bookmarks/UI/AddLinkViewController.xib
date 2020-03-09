@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="AddLinkViewController" customModule="Touchlet" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="AddLinkViewController" customModule="TouchletMenu" customModuleProvider="target">
             <connections>
                 <outlet property="cancelButton" destination="COr-ZY-QHu" id="qzu-VB-KdH"/>
                 <outlet property="doneButton" destination="z7O-WM-BcQ" id="bsV-A4-uhf"/>
@@ -32,12 +32,12 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IGa-pS-hXY" customClass="EditingTextField" customModule="Core">
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IGa-pS-hXY" customClass="EditingTextField" customModule="TouchletCore">
                     <rect key="frame" x="20" y="152" width="310" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="34o-rT-3QG"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="xrh-ZR-Vhz" customClass="VerticallyCenteredTextFieldCell" customModule="Core">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="xrh-ZR-Vhz" customClass="VerticallyCenteredTextFieldCell" customModule="TouchletCore">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -51,12 +51,12 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agV-b4-q4Q" customClass="EditingTextField" customModule="Core">
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agV-b4-q4Q" customClass="EditingTextField" customModule="TouchletCore">
                     <rect key="frame" x="20" y="83" width="310" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="YoA-zK-Xvp"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="iXW-6G-juX" customClass="VerticallyCenteredTextFieldCell" customModule="Core">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="iXW-6G-juX" customClass="VerticallyCenteredTextFieldCell" customModule="TouchletCore">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

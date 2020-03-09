@@ -10,10 +10,9 @@
         <!--Window Controller-->
         <scene sceneID="3CH-yC-qHG">
             <objects>
-                <windowController id="N8w-KQ-ICN" customClass="PreferencesWindowController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="yO7-wV-LmK" customClass="PreferencesWindow" customModule="Touchlet" customModuleProvider="target">
-                        <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" bottomStrut="YES"/>
+                <windowController id="N8w-KQ-ICN" customClass="PreferencesWindowController" customModule="TouchletMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Touchbar Shortcut" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="yO7-wV-LmK" customClass="PreferencesWindow" customModule="TouchletMenu" customModuleProvider="target">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
                         <rect key="contentRect" x="487" y="309" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                         <connections>
@@ -31,7 +30,7 @@
         <!--Preferences View Controller-->
         <scene sceneID="4LX-ir-2qO">
             <objects>
-                <viewController id="ejj-Ci-6ws" customClass="PreferencesViewController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ejj-Ci-6ws" customClass="PreferencesViewController" customModule="TouchletMenu" customModuleProvider="target" sceneMemberID="viewController">
                     <customView key="view" id="dPg-rc-faC">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="205"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -87,7 +86,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RSH-xI-bOl" customClass="KeybindTagView" customModule="Touchlet" customModuleProvider="target">
+                            <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RSH-xI-bOl" customClass="KeybindTagView" customModule="TouchletMenu" customModuleProvider="target">
                                 <rect key="frame" x="200" y="105" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Evc-ql-g7A"/>

@@ -13,5 +13,5 @@ public class PreferencesWindow: NSWindow{
     
     override public var canBecomeKey: Bool{return true}
     
-    public override var hasTitleBar: Bool{return false}
+    public override var hasTitleBar: Bool{return true}
 }

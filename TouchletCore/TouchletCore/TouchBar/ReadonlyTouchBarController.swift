@@ -47,6 +47,11 @@ open class ReadonlyTouchBarController: NSViewController{
     
     func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar){
     }
+    
+    public func refreshTouchBarItems(){
+        self.touchBarItems = (try? TouchBarItemUserDefault.instance.findAll()) ?? []
+        collectionView.reloadData()
+    }
 }
 
 extension ReadonlyTouchBarController: NSTouchBarDelegate{

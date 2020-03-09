@@ -40,15 +40,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		928257DF241696B300ED22BF /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 1;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		92ACE8E7240FB7EA009994EB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -97,6 +88,7 @@
 		92ACE8EA240FC175009994EB /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		92ACE91E241288BE009994EB /* LaunchAtLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginHelper.swift; sourceTree = "<group>"; };
 		92ACEAD72412A564009994EB /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92B49A8424169C8800E6AF35 /* TouchletPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = TouchletPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E16C752403D60E00511EE1 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterScrollView.swift; sourceTree = "<group>"; };
 		92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionItemsUtil.swift; sourceTree = "<group>"; };
@@ -159,6 +151,7 @@
 		925A243623C76205002BB85F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92B49A8424169C8800E6AF35 /* TouchletPanel.app */,
 				92ACEAD72412A564009994EB /* TouchletCore.framework */,
 				92132A062407B21300D9FE9E /* libxml2.2.tbd */,
 				925A243723C76205002BB85F /* libxml2.tbd */,
@@ -310,7 +303,6 @@
 				92A1B2EF23C4AA2100D7BEF1 /* Frameworks */,
 				92A1B2F023C4AA2100D7BEF1 /* Resources */,
 				92ACE8E7240FB7EA009994EB /* Embed Frameworks */,
-				928257DF241696B300ED22BF /* CopyFiles */,
 			);
 			buildRules = (
 			);
