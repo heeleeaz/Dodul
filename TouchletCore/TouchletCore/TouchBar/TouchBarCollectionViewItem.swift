@@ -11,7 +11,7 @@ import Cocoa
 class TouchBarCollectionViewItem: NSCollectionViewItem{
     static let reuseIdentifier = NSUserInterfaceItemIdentifier("TouchBarCollectionViewItem")
     
-    var image: NSImage? {didSet{iconImageView.image = image}}
+    var image: NSImage? {didSet{(view as! NSButton).image = image}}
     
     var onTap: (() -> Void)?
     
@@ -31,58 +31,64 @@ class TouchBarCollectionViewItem: NSCollectionViewItem{
         
         get{return currentState}
     }
-    
-    private lazy var iconImageView: NSImageView = NSImageView()
-    
-    override func loadView() {
-        let button = NSButton(title: "", target: self, action: #selector(buttonTapped))
-        button.setButtonType(.momentaryPushIn)
-        button.bezelStyle = .roundRect
-        button.isBordered = false
-        button._BackgroundColor = .touchBarButtonColor
         
-        self.view = button
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()        
-    }
-    
-    private func setupView(){
-        view.addSubview(iconImageView)
-        iconImageView.imageScaling = .scaleProportionallyDown
-        iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([iconImageView.widthAnchor.constraint(equalToConstant: 24),
-                                     iconImageView.heightAnchor.constraint(equalToConstant: 24),
-                                     iconImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                                     iconImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
+    override func loadView() {
+        self.view = FlatButton(title: "", target: self, action: #selector(buttonTapped))
+        normalState()
     }
     
     @objc func buttonTapped(){
         self.onTap?()
     }
     
-    
     private func browseState(){
         view.alphaValue = 1
-        view._BackgroundColor = .touchBarButtonHighlightColor
+        (view as! FlatButton).setBackgroundColor(.browseStateColor)
     }
        
     private func normalState(){
         view.alphaValue = 1
-        view._BackgroundColor = .touchBarButtonColor
+        (view as! FlatButton).setBackgroundColor(.normalStateColor)
     }
     
     private func hiddenState(){
         view.alphaValue = 0.4
-        iconImageView.image = image?.greyscale
+        (view as! FlatButton).image = image?.greyscale
     }
 
     enum State{case normal, browse, hidden}
 }
 
+fileprivate class FlatButton: NSButton{
+    func setBackgroundColor(_ backgroundColor: NSColor?) {
+        isBordered = false
+        
+        let cell = (super.cell as! FlatButtonCell)
+        cell._backgroundColor = backgroundColor
+        cell.hightlightColor = backgroundColor?.highlight(withLevel: 0.2)
+    }
+    
+    override class var cellClass: AnyClass?{get{return FlatButtonCell.self} set{}}
+        
+    class FlatButtonCell: NSButtonCell {
+        @nonobjc var hightlightColor: NSColor?
+        var _backgroundColor: NSColor?{didSet{backgroundColor = _backgroundColor}}
+        
+        override func imageRect(forBounds rect: NSRect) -> NSRect {
+            let w = CGFloat(24)
+            let h = CGFloat(24)
+            let x = (rect.width / 2) - (w / 2)
+            let y = (rect.height / 2) - (h / 2)
+            return NSRect(x: x, y: y, width: w, height: h)
+        }
+        
+        override func highlight(_ flag: Bool, withFrame cellFrame: NSRect, in controlView: NSView) {
+            backgroundColor = flag ? hightlightColor : _backgroundColor
+        }
+    }
+}
+
 extension NSColor{
-    static var touchBarButtonColor = NSColor(red: 0.24, green: 0.24, blue: 0.24, alpha: 1)
-    static var touchBarButtonHighlightColor = NSColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
+    fileprivate static var normalStateColor = NSColor(red: 0.24, green: 0.24, blue: 0.24, alpha: 1)
+    fileprivate static var browseStateColor = NSColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
 }
