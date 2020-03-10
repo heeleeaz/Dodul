@@ -37,15 +37,12 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
     //TODO: improve highlight performance, ignore looping through all element
     private func highlightItem(at index: Int){
         for element in 0..<collectionView.numberOfItems(inSection: 0){
-            (collectionView.item(at: element) as! TouchBarCollectionViewItem).state = .normal
+            (collectionView.item(at: element) as? TouchBarCollectionViewItem)?.state = .normal
         }
         
-        if index != -1{(collectionView.item(at: index) as! TouchBarCollectionViewItem).state = .browse}
-    }
-    
-    override func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar){
-        let rect = NSRect(x: 0, y: 0, width: view.frame.width, height: 3)
-        view.addTrackingArea(NSTrackingArea(rect: rect, options: [.mouseEnteredAndExited, .enabledDuringMouseDrag, .activeAlways], owner: self, userInfo: nil))
+        if index != -1{
+            (collectionView.item(at: index) as? TouchBarCollectionViewItem)?.state = .browse
+        }
     }
     
     @discardableResult public func commitTouchBarEditing() -> Bool{
@@ -55,6 +52,11 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
         }catch{
             return false
         }
+    }
+    
+    override func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar){
+        let rect = NSRect(x: 0, y: 0, width: view.frame.width, height: 3)
+        view.addTrackingArea(NSTrackingArea(rect: rect, options: [.mouseEnteredAndExited, .enabledDuringMouseDrag, .mouseMoved, .activeAlways], owner: self, userInfo: nil))
     }
 }
 
@@ -96,19 +98,22 @@ extension EditableTouchBarController: CollectionItemDragObserverDelegate{
 }
 
 extension EditableTouchBarController {
-        
     override public func mouseEntered(with event: NSEvent) {
         NSCursorHelper.instance.hide()
         
-//        if let item = collectionItemInPoint(event.locationInWindow){
-//            highlightItem(at: item)
-//        }
+        if let item = collectionItemInPoint(event.locationInWindow){highlightItem(at: item)}
     }
         
     override public func mouseExited(with event: NSEvent) {
         NSCursorHelper.instance.show()
         
         highlightItem(at: -1)
+    }
+    
+    open override func mouseMoved(with event: NSEvent) {
+        super.mouseMoved(with: event)
+        
+        if let item = collectionItemInPoint(event.locationInWindow){highlightItem(at: item)}
     }
     
     override public func mouseDown(with event: NSEvent) {

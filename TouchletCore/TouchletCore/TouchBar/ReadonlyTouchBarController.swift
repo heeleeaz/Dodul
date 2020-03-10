@@ -21,6 +21,8 @@ open class ReadonlyTouchBarController: NSViewController{
         flowLayout.minimumLineSpacing = Constants.touchItemSpacing
         collectionView.collectionViewLayout = flowLayout
         
+        collectionView.register(TouchBarCollectionViewItem.self, forItemWithIdentifier: TouchBarCollectionViewItem.reuseIdentifier)
+        collectionView.dataSource = self
         return collectionView
     }()
     
@@ -56,9 +58,6 @@ open class ReadonlyTouchBarController: NSViewController{
 
 extension ReadonlyTouchBarController: NSTouchBarDelegate{
     public func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
-        collectionView.register(TouchBarCollectionViewItem.self, forItemWithIdentifier: TouchBarCollectionViewItem.reuseIdentifier)
-        collectionView.dataSource = self
-        
         let customView = NSCustomTouchBarItem(identifier: identifier)
         customView.view = collectionView
         
