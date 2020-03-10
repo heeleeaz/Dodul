@@ -34,6 +34,7 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
         }
     }
     
+    //TODO: improve highlight performance, ignore looping through all element
     private func highlightItem(at index: Int){
         for element in 0..<collectionView.numberOfItems(inSection: 0){
             (collectionView.item(at: element) as! TouchBarCollectionViewItem).state = .normal
@@ -79,6 +80,9 @@ extension EditableTouchBarController: CollectionItemDragObserverDelegate{
             //and pointer escape touchbar rect, remove the item from touchbar
             touchBarItems.removeAll{$0 == touchBarItem && $0.itemState == .adding}
             collectionView.reloadData()
+            
+            //since we are already outside of touchbar drop detection rect. we can hide all hightlight
+            highlightItem(at: -1)
         }
     }
     

@@ -9,7 +9,7 @@
 import Cocoa
 import TouchletCore
 
-class HomeSupportCollectionViewController: NSViewController, NSCollectionViewDelegate{
+class HomeSupportCollectionViewController: NSViewController{
     @IBOutlet weak var collectionView: NSCollectionView!
 
     var indexPathsOfItemsBeingDragged: IndexPath?
@@ -24,7 +24,7 @@ class HomeSupportCollectionViewController: NSViewController, NSCollectionViewDel
     }
 }
 
-extension HomeSupportCollectionViewController{
+extension HomeSupportCollectionViewController: NSCollectionViewDelegate{
     func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
         return true
     }
