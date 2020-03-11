@@ -158,7 +158,6 @@ extension EditableTouchBarController {
 extension EditableTouchBarController{
     private func swapItem(at: Int, to: Int){
         touchBarItems.swapAt(at, to) //swap position
-        
         (collectionView.animator() as NSCollectionView).moveItem(at: IndexPath(item: at, section: 0), to: IndexPath(item: to, section: 0))
     }
     
