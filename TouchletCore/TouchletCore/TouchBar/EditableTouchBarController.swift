@@ -11,7 +11,7 @@ import Cocoa
 open class EditableTouchBarController: ReadonlyTouchBarController{
     private var rawDraggingIndex: Int?
     
-    private lazy var mouseDetectionPoint = NSRect(x: 0, y: 0, width: view.frame.width, height: 3)
+    private lazy var mouseDetectionPoint = NSRect(x: 0, y: 0, width: view.frame.width, height: 1)
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -128,10 +128,15 @@ extension EditableTouchBarController {
             collectionView.reloadData()
             rawDraggingIndex = index
             
-            highlightItem(at: existingIndex)
+            highlightItem(at: index)
         }else{
-            //dragging existing item state & outside of touchbar rect, then change state to hidden
+            //dragging existing item outside of touchbar rect, then change state to hidden
             (collectionView.item(at: existingIndex) as! TouchBarCollectionViewItem).state = .hidden
+        }
+        
+        if let image = (collectionView.item(at: existingIndex) as? TouchBarCollectionViewItem)?.image,
+            let dragImage = DraggingTouchItemDrawing.instance.draw(image){
+            NSCursor(image: dragImage, hotSpot: .zero).set()
         }
     }
     
@@ -140,6 +145,8 @@ extension EditableTouchBarController {
             touchBarItems.remove(at: index)
             collectionView.reloadData()
         }
+        
+        NSCursor.arrow.set()
         
         rawDraggingIndex = nil
     }

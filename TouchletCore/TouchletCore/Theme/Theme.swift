@@ -11,4 +11,5 @@ import Cocoa
 open class Theme{
     public static var selectedTintColor = NSColor(red: 0.384, green: 0.632, blue: 1, alpha: 1)
     public static var unselectedTintColor = NSColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
+    public static var touchBarButtonBackgroundColor = NSColor(red: 0.24, green: 0.24, blue: 0.24, alpha: 1)
 }

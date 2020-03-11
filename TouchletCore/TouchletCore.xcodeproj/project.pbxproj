@@ -52,6 +52,7 @@
 		92EE41C92412BB9700987DDE /* XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE41BE2412BB9700987DDE /* XML.swift */; };
 		92EE41CA2412BB9700987DDE /* Detection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE41BF2412BB9700987DDE /* Detection.swift */; };
 		92EE41CB2412BB9700987DDE /* libxml2-favicon.h in Headers */ = {isa = PBXBuildFile; fileRef = 92EE41C02412BB9700987DDE /* libxml2-favicon.h */; };
+		92F21CF22418ED8800F378D1 /* DraggingTouchItemDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F21CF12418ED8800F378D1 /* DraggingTouchItemDrawing.swift */; };
 		A23EC520F19CE83E5D6AE28B /* libPods-TouchletCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C3777A2CA501A6338AD975 /* libPods-TouchletCore.a */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		92EE41BF2412BB9700987DDE /* Detection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detection.swift; sourceTree = "<group>"; };
 		92EE41C02412BB9700987DDE /* libxml2-favicon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "libxml2-favicon.h"; sourceTree = "<group>"; };
 		92EE41C12412BB9700987DDE /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		92F21CF12418ED8800F378D1 /* DraggingTouchItemDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggingTouchItemDrawing.swift; sourceTree = "<group>"; };
 		A0F0571DFFFB602B37BB6402 /* Pods-TouchletCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchletCore.release.xcconfig"; path = "Target Support Files/Pods-TouchletCore/Pods-TouchletCore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,6 +250,7 @@
 				92ACEA7D2412A21F009994EB /* ReadonlyTouchBarController.swift */,
 				92ACEA7F2412A21F009994EB /* Model */,
 				92ACEA832412A21F009994EB /* Store */,
+				92F21CF12418ED8800F378D1 /* DraggingTouchItemDrawing.swift */,
 			);
 			path = TouchBar;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				92EE41C52412BB9700987DDE /* Download.swift in Sources */,
 				92EE41C32412BB9700987DDE /* Icon.swift in Sources */,
 				92ACEAEB2412A683009994EB /* SpotlightResult.swift in Sources */,
+				92F21CF22418ED8800F378D1 /* DraggingTouchItemDrawing.swift in Sources */,
 				92ACEAFB2412A6B6009994EB /* Utility.swift in Sources */,
 				92ACEAF62412A6B0009994EB /* TouchBarItemStore.swift in Sources */,
 				92EE41C62412BB9700987DDE /* HTML.swift in Sources */,

@@ -89,6 +89,6 @@ fileprivate class FlatButton: NSButton{
 }
 
 extension NSColor{
-    fileprivate static var normalStateColor = NSColor(red: 0.24, green: 0.24, blue: 0.24, alpha: 1)
-    fileprivate static var browseStateColor = NSColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
+    fileprivate static var normalStateColor = Theme.touchBarButtonBackgroundColor
+    fileprivate static var browseStateColor = Theme.touchBarButtonBackgroundColor.highlight(withLevel: 0.4)
 }
