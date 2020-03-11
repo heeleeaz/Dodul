@@ -12,6 +12,7 @@ class TouchBarCollectionViewItem: NSCollectionViewItem{
     static let reuseIdentifier = NSUserInterfaceItemIdentifier("TouchBarCollectionViewItem")
     
     var image: NSImage? {didSet{(view as! NSButton).image = image}}
+    var grayscale: NSImage? = nil
     
     var onTap: (() -> Void)?
     
@@ -42,18 +43,29 @@ class TouchBarCollectionViewItem: NSCollectionViewItem{
     }
     
     private func browseState(){
-        view.alphaValue = 1
-        (view as! FlatButton).setBackgroundColor(.browseStateColor)
+        let button = view as! FlatButton
+        button.alphaValue = 1
+        button.setBackgroundColor(.browseStateColor)
+        button.image = image
     }
        
     private func normalState(){
-        view.alphaValue = 1
-        (view as! FlatButton).setBackgroundColor(.normalStateColor)
+        let button = view as! FlatButton
+        
+        button.alphaValue = 1
+        button.setBackgroundColor(.normalStateColor)
+        button.image = image
     }
     
     private func hiddenState(){
-        view.alphaValue = 0.4
-        (view as! FlatButton).image = image?.greyscale
+        let button = view as! FlatButton
+        button.alphaValue = 0.4
+        
+        if grayscale == nil{
+            grayscale = image?.greyscale
+        }
+        
+        button.image = grayscale
     }
 
     enum State{case normal, browse, hidden}
