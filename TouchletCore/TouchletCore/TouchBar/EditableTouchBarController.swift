@@ -45,6 +45,12 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
         }
     }
     
+    private func getMaxAllowedItemInCollection() -> Int?{
+        guard let barWidth = collectionView.superview?.frame.size.width, let itemWidth = collectionView.collectionViewLayout?.collectionViewContentSize.width else{return nil}
+            
+        return Int(floor(barWidth / itemWidth))
+    }
+    
     @discardableResult public func commitTouchBarEditing() -> Bool{
         do{
             try TouchBarItemUserDefault.instance.setItems(touchBarItems)
