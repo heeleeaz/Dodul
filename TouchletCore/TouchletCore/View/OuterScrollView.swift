@@ -8,11 +8,11 @@
 
 import Cocoa
 
-@IBDesignable class OuterScrollView: NSScrollView, NSGestureRecognizerDelegate{
+@IBDesignable open class OuterScrollView: NSScrollView, NSGestureRecognizerDelegate{
     private var currentScrollMatches: Bool = false
     private var scrollDirection: ScrollDirection = ScrollDirection.vertical
 
-    override func scrollWheel(with event: NSEvent){
+    override open func scrollWheel(with event: NSEvent){
         if event.phase == .mayBegin {
             super.scrollWheel(with: event)
             nextResponder?.scrollWheel(with: event)
@@ -39,5 +39,5 @@ import Cocoa
         }
     }
     
-    enum ScrollDirection { case vertical, horizontal }
+    private enum ScrollDirection { case vertical, horizontal }
 }

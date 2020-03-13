@@ -88,7 +88,7 @@
 		92ACEAD72412A564009994EB /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B49A8424169C8800E6AF35 /* TouchletPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = TouchletPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E16C752403D60E00511EE1 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
-		92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterScrollView.swift; sourceTree = "<group>"; };
+		92FE9B0E23CF56AC00FA6AC6 /* OuterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OuterScrollView.swift; path = ../../../../TouchletCore/TouchletCore/View/OuterScrollView.swift; sourceTree = "<group>"; };
 		92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionItemsUtil.swift; sourceTree = "<group>"; };
 		92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewItem.swift; sourceTree = "<group>"; };
 		B72E19481489507B4114A98F /* libPods-Core.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Core.a"; sourceTree = BUILT_PRODUCTS_DIR; };
