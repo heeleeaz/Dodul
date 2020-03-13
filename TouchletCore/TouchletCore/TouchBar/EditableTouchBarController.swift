@@ -21,14 +21,26 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
     
     private func collectionItemInPoint(_ point: NSPoint) -> Int?{
         let rect = CGRect(x: 178, y: 0, width: collectionView.frame.width, height: 20)
-        
+               
         if rect.contains(point){
             let point =  NSPoint(x: point.x - rect.origin.x, y: 0)
-            return collectionView.indexPathForItem(at: point)?.item
+        
+            if let index = collectionView.indexPathForItem(at: point)?.item{
+                return index
+            }else{
+                let fallback = collectionView.numberOfItems(inSection: 0)
+                return fallback == 0 ? 0 : (fallback - 1)
+            }
         }
         
+        //still under the baseline height
         if point.y <= rect.height{
-            return point.x > rect.maxX ? collectionView.numberOfItems(inSection: 0) - 1 : 0
+            if point.x > rect.maxX{
+                let index = collectionView.numberOfItems(inSection: 0)
+                return index == 0 ? 0 : index - 1
+            }else{
+                return 0
+            }
         }else{
             return nil
         }

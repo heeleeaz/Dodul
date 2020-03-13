@@ -20,6 +20,8 @@ extension NSScrollView{
     }
     
     public func scrollToBeginingOfDocument() {
-        if let doc = documentView{doc.scroll(NSPoint(x: 0, y: doc.bounds.size.height))}
+        if let documentView = documentView{
+            documentView.animator().scroll(NSPoint(x: 0, y: documentView.bounds.size.height))
+        }
     }
 }
