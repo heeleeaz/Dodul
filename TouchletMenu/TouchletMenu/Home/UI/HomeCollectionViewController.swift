@@ -9,12 +9,14 @@
 import Cocoa
 import TouchletCore
 
-class HomeSupportCollectionViewController: NSViewController{
+class HomeCollectionViewController: NSViewController{
     @IBOutlet weak var collectionView: NSCollectionView!
 
     var indexPathsOfItemsBeingDragged: IndexPath?
     
     func itemAtPosition(at index: Int) -> TouchBarItem? {return nil}
+    
+    public weak var delegate: HomeItemViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +24,11 @@ class HomeSupportCollectionViewController: NSViewController{
         collectionView.registerForDraggedTypes([.string])
         collectionView.setDraggingSourceOperationMask(NSDragOperation.every, forLocal: true)
     }
+    
+    var height: CGFloat? {return nil}
 }
 
-extension HomeSupportCollectionViewController: NSCollectionViewDelegate{
+extension HomeCollectionViewController: NSCollectionViewDelegate{
     func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
         return true
     }
@@ -44,4 +48,8 @@ extension HomeSupportCollectionViewController: NSCollectionViewDelegate{
             CollectionItemDragObserver.instance.endDrag(object: itemAtPosition(at: index))
         }
     }
+}
+
+@objc protocol HomeItemViewControllerDelegate {
+    func homeItemViewController(collectionItemChanged controller: HomeCollectionViewController)
 }

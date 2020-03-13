@@ -9,12 +9,17 @@
 import Cocoa
 import TouchletCore
 
-class BookmarkViewController: HomeSupportCollectionViewController{
-    @objc weak var scrollView: NSScrollView!
-        
+class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
+    static var storyboardName: String?{return "HomeItemViewController"}
+            
     private var bookmarkRepository = BookmarkRepository()
-    private var links: [Link] = []{ didSet{ collectionView.reloadData() } }
-    
+    private var links: [Link] = []{
+        didSet{
+            collectionView.reloadData()
+            delegate?.homeItemViewController(collectionItemChanged: self)
+        }
+    }
+        
     override func viewDidLoad() {
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.itemSize = NSSize(width: 120, height: 110)
@@ -32,8 +37,6 @@ class BookmarkViewController: HomeSupportCollectionViewController{
     
     private func reloadItem(){
         links = bookmarkRepository.bookmarks
-        compactSize(ofView: view.superview!, collectionView, append: 60)
-        DispatchQueue.main.async {self.scrollView.fitContent()}
     }
     
     private func showAddBookmarkController(_ link: Link?, anchor: NSView){
@@ -100,4 +103,8 @@ extension BookmarkViewController{
     struct Constant {
         static let BOOKMARK_MAX_COLLECTION_COUNT = 15
     }
+}
+
+@objc protocol BookmarkViewControllerDelegate {
+    func bookmarkViewController(dataReloaded links: [Link])
 }

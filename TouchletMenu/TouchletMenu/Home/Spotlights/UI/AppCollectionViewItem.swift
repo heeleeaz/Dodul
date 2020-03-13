@@ -16,7 +16,6 @@ class AppCollectionViewItem: NSCollectionViewItem {
     
     private lazy var cimageView: NSImageView = {
         let imageView = NSImageView()
-        imageView.image = NSImage(named: "NSApplicationIcon")
         imageView.imageScaling = .scaleProportionallyDown
         
         return imageView
@@ -70,7 +69,7 @@ class AppCollectionViewItem: NSCollectionViewItem {
     
     private func updateView(){
         ctextField.stringValue = spotlight.displayName ?? ""
-        cimageView.image = SpotlightRepository.findAppIcon(bundleIdentifier: spotlight.bundleIdentifier)
+        cimageView.image = SpotlightRepository.findAppIcon(bundleIdentifier: spotlight.bundleIdentifier) ?? NSImage(named: "NSApplicationIcon")
     }
     
     override var draggingImageComponents: [NSDraggingImageComponent]{

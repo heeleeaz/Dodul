@@ -9,8 +9,9 @@
 import Cocoa
 import TouchletCore
 
-class AppItemViewController: HomeSupportCollectionViewController{
-    @objc weak var scrollView: NSScrollView!
+class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
+    static var storyboardName: String?{ return "HomeItemViewController"}
+    
     @IBOutlet weak var sortButton: NSButton!{
         didSet{
             sortButton.image?.isTemplate = true
@@ -21,19 +22,16 @@ class AppItemViewController: HomeSupportCollectionViewController{
     private let spotlightRepository = SpotlightRepository.instance
     
     private var listIsSorted = false
-    
-    private var spotlightItem: [SpotlightItem] = []{
+        
+    private var spotlightItem: [SpotlightItem] = Array(repeating: SpotlightItem.dummy, count: Constants.SPOTLIGHT_PAGING_INITIAL){
         didSet{
             collectionView.reloadData()
-            compactSize(ofView: view.superview!, collectionView, append: 60)
-            
-            DispatchQueue.main.async {
-                self.scrollView.fitContent()
-                           
-                //scroll to top in first query
-                if self.spotlightItem.count == Constant.SPOTLIGHT_PAGING_INITIAL{self.scrollView.scrollToBeginingOfDocument()}
-            }
+            delegate?.homeItemViewController(collectionItemChanged: self)
         }
+    }
+    
+    override var height: CGFloat?{
+        return (collectionView.contentSize?.height ?? 0) + 60
     }
     
     override func viewDidLoad() {
@@ -97,7 +95,7 @@ extension AppItemViewController: NSCollectionViewDataSource{
             let view = collectionView.makeItem(withIdentifier: reuseIdentifer, for: indexPath)
             guard let collectionViewItem = view as? ButtonCollectionViewItem else {return view}
             collectionViewItem.showAction(action: .seeMore, {
-                self.spotlightItem += self.spotlightRepository.result?.next(forward: Constant.SPOTLIGHT_PAGING_FORWARD) ?? []
+                self.spotlightItem += self.spotlightRepository.result?.next(forward: Constants.SPOTLIGHT_PAGING_FORWARD) ?? []
             })
             return collectionViewItem
         }
@@ -110,12 +108,12 @@ extension AppItemViewController: NSCollectionViewDataSource{
 
 extension AppItemViewController: SpotlightRepositoryDelegate{
     func spotlightRepository(spotlightRepository: SpotlightRepository, result: SpotlightResult) {
-        spotlightItem = spotlightRepository.result?.next(forward: Constant.SPOTLIGHT_PAGING_INITIAL) ?? []
+        spotlightItem = spotlightRepository.result?.next(forward: Constants.SPOTLIGHT_PAGING_INITIAL) ?? []
     }
 }
 
 extension AppItemViewController{
-    struct Constant {
+    struct Constants {
          static let SPOTLIGHT_PAGING_INITIAL = 10, SPOTLIGHT_PAGING_FORWARD = 15
      }
 }

@@ -9,17 +9,6 @@
 import Cocoa
 import TouchletCore
 
-func compactSize(ofView view: NSView, _ collectionView: NSCollectionView, append: Int = -1){
-    DispatchQueue.main.async {
-        let contentHeight = collectionView.contentSize?.height ?? 0
-        let diff = append == -1 ? abs(contentHeight - view.frame.size.height) : 60
-        let newViewHight = contentHeight + diff
-        
-        view.heightConstaint?.constant = newViewHight
-        view.setFrameSize(NSSize(width: view.frame.width, height: newViewHight))
-    }
-}
-
 func collectionItemDraggingImageComponent(collectionItemView: NSView, iconImage: NSImage?) -> [NSDraggingImageComponent]{
     let background = NSDraggingImageComponent(key: .icon)
     background.contents = NSImage(named: "TouchBarButtonImageBackground")

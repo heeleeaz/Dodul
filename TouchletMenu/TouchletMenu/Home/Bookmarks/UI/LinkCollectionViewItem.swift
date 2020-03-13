@@ -18,7 +18,6 @@ class LinkCollectionViewItem: NSCollectionViewItem {
     
     private lazy var cimageView: NSImageView = {
         let imageView = NSImageView()
-        imageView.image = NSImage(named: "NSBookmarksTemplate")
         imageView.imageScaling = .scaleProportionallyDown
         
         return imageView

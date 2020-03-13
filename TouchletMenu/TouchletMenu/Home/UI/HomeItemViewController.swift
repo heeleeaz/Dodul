@@ -9,13 +9,41 @@
 import Cocoa
 import TouchletCore
 
-class HomeItemViewController: NSViewController, NibLoadable{
-    @IBOutlet weak var scrollView: NSScrollView!
+class HomeItemViewController: NSViewController, NibLoadable, HomeItemViewControllerDelegate{
+    func appItemViewController(itemUpdated: [SpotlightItem], viewHeight: Int) {
+        tableView.noteHeightOfRows(withIndexesChanged: [])
+    }
     
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if let controller = segue.destinationController as? NSViewController{
-            controller.setValue(scrollView, forKey: #keyPath(scrollView))
-        }
+    @IBOutlet weak var tableView: NSTableView!
+    
+    private lazy var items = [AppItemViewController.createFromStoryboard()!, BookmarkViewController.createFromStoryboard()!]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        items.forEach{$0.delegate = self}
+    }
+    
+    func homeItemViewController(collectionItemChanged controller: HomeCollectionViewController) {
+        tableView.noteHeightOfRows(withIndexesChanged: [0, 1])
     }
 }
 
+extension HomeItemViewController: NSTableViewDataSource, NSTableViewDelegate{
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return items.count
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        return items[row].view
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        let item = items[row]
+        return item.isViewLoaded ? (item.height ?? 150) : 150
+        
+    }
+}

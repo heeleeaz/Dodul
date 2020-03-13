@@ -14,7 +14,7 @@ public protocol NibLoadable {
     static func createFromNib(in bundle: Bundle) -> Self?
 }
 
-protocol StoryboardLoadable {
+public protocol StoryboardLoadable {
     static var storyboardName: String? { get }
     static var objectIdentifier: String? { get }
     static func createFromStoryboard(in bundle: Bundle) -> Self?
@@ -53,7 +53,7 @@ extension NibLoadable where Self: NSViewController{
 
 extension StoryboardLoadable{
     public static var storyboardName: String? { return String(describing: Self.self)}
-    static var objectIdentifier: String? { return String(describing: Self.self)}
+    public static var objectIdentifier: String? { return String(describing: Self.self)}
 
     public static func createFromStoryboard(in bundle: Bundle = Bundle.main) -> Self? {
         let storyboard = NSStoryboard(name: NSStoryboard.Name(storyboardName!), bundle: bundle)
