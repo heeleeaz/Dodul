@@ -13,6 +13,8 @@ public struct SpotlightItem{
     public let displayName: String?
     public var lastUsed: Date!
     public var useCount: Int!
-    
+}
+
+extension SpotlightItem{
     public static let dummy = SpotlightItem(bundleIdentifier: "", displayName: "", lastUsed: .init(), useCount: 0)
 }

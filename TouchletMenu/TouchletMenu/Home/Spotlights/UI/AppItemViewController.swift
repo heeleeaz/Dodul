@@ -26,6 +26,10 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
     private var spotlightItem: [SpotlightItem] = Array(repeating: SpotlightItem.dummy, count: Constants.SPOTLIGHT_PAGING_INITIAL){
         didSet{
             collectionView.reloadData()
+            
+            let lastItem = max(spotlightItem.count - 1, 0)
+            collectionView.enclosingScrollView?.scrollToVisible(collectionView.frameForItem(at: lastItem))
+            
             delegate?.homeItemViewController(collectionItemChanged: self)
         }
     }
