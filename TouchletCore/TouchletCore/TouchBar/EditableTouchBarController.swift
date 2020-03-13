@@ -28,16 +28,15 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
             if let index = collectionView.indexPathForItem(at: point)?.item{
                 return index
             }else{
-                let fallback = collectionView.numberOfItems(inSection: 0)
-                return fallback == 0 ? 0 : (fallback - 1)
+                //fallback
+                return max(collectionView.numberOfItems(inSection: 0) - 1, 0)
             }
         }
         
         //still under the baseline height
         if point.y <= rect.height{
             if point.x > rect.maxX{
-                let index = collectionView.numberOfItems(inSection: 0)
-                return index == 0 ? 0 : index - 1
+                return max(collectionView.numberOfItems(inSection: 0) - 1, 0)
             }else{
                 return 0
             }
@@ -80,6 +79,8 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
 extension EditableTouchBarController: CollectionItemDragObserverDelegate{
     func collectionItemDragObserver(observer: CollectionItemDragObserver, dragging pointerLocation: NSPoint, object: Any?) {
         guard let touchBarItem = object as? TouchBarItem else {return}
+        
+        print(getMaxAllowedItemInCollection())
         
         if mouseDetectionPoint.contains(pointerLocation){
             guard let index = collectionItemInPoint(pointerLocation) else {return}

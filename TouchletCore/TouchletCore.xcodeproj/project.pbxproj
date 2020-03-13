@@ -54,6 +54,7 @@
 		92EE41CB2412BB9700987DDE /* libxml2-favicon.h in Headers */ = {isa = PBXBuildFile; fileRef = 92EE41C02412BB9700987DDE /* libxml2-favicon.h */; };
 		92F21CF22418ED8800F378D1 /* DraggingTouchItemDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F21CF12418ED8800F378D1 /* DraggingTouchItemDrawing.swift */; };
 		92F21CF6241B9EF200F378D1 /* OuterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F21CF5241B9EF200F378D1 /* OuterScrollView.swift */; };
+		92F21CFA241BCACE00F378D1 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F21CF9241BCACE00F378D1 /* Toast.swift */; };
 		A23EC520F19CE83E5D6AE28B /* libPods-TouchletCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C3777A2CA501A6338AD975 /* libPods-TouchletCore.a */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		92EE41C12412BB9700987DDE /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		92F21CF12418ED8800F378D1 /* DraggingTouchItemDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggingTouchItemDrawing.swift; sourceTree = "<group>"; };
 		92F21CF5241B9EF200F378D1 /* OuterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterScrollView.swift; sourceTree = "<group>"; };
+		92F21CF9241BCACE00F378D1 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		A0F0571DFFFB602B37BB6402 /* Pods-TouchletCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchletCore.release.xcconfig"; path = "Target Support Files/Pods-TouchletCore/Pods-TouchletCore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +190,7 @@
 				92F21CF5241B9EF200F378D1 /* OuterScrollView.swift */,
 				92ACEA682412A21F009994EB /* EditableTextField.swift */,
 				92ACEA692412A21F009994EB /* NibLoadable.swift */,
+				92F21CF9241BCACE00F378D1 /* Toast.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				92ACEADA2412A670009994EB /* NSDataExtension.swift in Sources */,
 				92EE41C22412BB9700987DDE /* ContentTypes.swift in Sources */,
 				92ACEADB2412A670009994EB /* NSViewControllerExtension.swift in Sources */,
+				92F21CFA241BCACE00F378D1 /* Toast.swift in Sources */,
 				92EE41CA2412BB9700987DDE /* Detection.swift in Sources */,
 				92ACEAE12412A670009994EB /* NSWindowExtension.swift in Sources */,
 				92ACEAEC2412A683009994EB /* SpotlightRepository.swift in Sources */,
