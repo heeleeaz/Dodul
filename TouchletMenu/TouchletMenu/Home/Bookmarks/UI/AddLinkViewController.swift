@@ -43,8 +43,13 @@ class AddLinkViewController: NSViewController, NibLoadable {
     @IBAction func doneAction(_ sender: Any) {
         if urlInputField.stringValue.isValidURL{
             let id = prefillLink?.id ?? UUID().uuidString
-            let url = URL(string: urlInputField.stringValue)!
-            let title = nameInputField.stringValue.isEmpty ? url.absoluteString : nameInputField.stringValue
+        
+            var url = URL(string: urlInputField.stringValue)!
+            if url.scheme?.count ?? 0 == 0{
+                url = URL(string: "http://\(urlInputField.stringValue)")!
+            }
+            
+            let title = nameInputField.stringValue.isEmpty ? urlInputField.stringValue : nameInputField.stringValue
             
             self.delegate?.addLinkViewController(self, saveLink: Link(title: title, url: url, id: id))
         }else{
