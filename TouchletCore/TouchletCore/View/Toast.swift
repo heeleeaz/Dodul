@@ -9,8 +9,9 @@
 import Foundation
 import Cocoa
 
-enum Position {
+public enum Position {
     case center
+    case bottom
 }
 
 public protocol Style {
@@ -23,6 +24,7 @@ public protocol Style {
     var foregroundColor: NSColor {get}
     var fadeInOutDuration: CGFloat {get}
     var fadeInOutDelay: CGFloat {get}
+    var position: Position {get}
 }
 
 extension Style {
@@ -42,6 +44,8 @@ extension Style {
 
     public var fadeInOutDuration: CGFloat {return 1.0}
     public var fadeInOutDelay: CGFloat {return 1.0}
+    
+    public var position: Position {return .bottom}
 }
 
 public struct DefaultStyle: Style {
@@ -87,9 +91,16 @@ class ToastView: NSView {
         // outside Container
         let container = CALayer()
         container.frame = rectWithMargin
-        container.position = CGRect.center(of: superview!)
         container.backgroundColor = style.backgroundColor.cgColor
         container.cornerRadius = style.cornerRadius
+        
+        switch style.position {
+        case .bottom:
+            container.position = CGRect.botttom(of: superview!)
+        default:
+            container.position = CGRect.center(of: superview!)
+        }
+        
         layer!.addSublayer(container)
         
         // inside TextLayer
@@ -119,6 +130,11 @@ fileprivate extension CGRect {
     static func center(of layer: CALayer) -> CGPoint {
         let parentSize = layer.frame.size
         return CGPoint(x: parentSize.width / 2, y: parentSize.height / 2)
+    }
+    
+    static func botttom(of layer: NSView) -> CGPoint {
+        let parentSize = layer.frame.size
+        return CGPoint(x: parentSize.width / 2, y: 60)
     }
     
     static func center(of parent: NSView) -> CGPoint {

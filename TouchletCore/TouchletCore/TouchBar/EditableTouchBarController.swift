@@ -13,6 +13,15 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
     
     private lazy var mouseDetectionPoint = NSRect(x: 0, y: 0, width: view.frame.width, height: 1)
     
+    private lazy var collectionItemMax: Int = {
+        if let barWidth = collectionView.superview?.frame.size.width{
+            return Int(floor(barWidth / 72))
+        }
+        else{
+            return 9 //default to 9
+        }
+    }()
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         isEnableItemClick = false
@@ -56,12 +65,6 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
         }
     }
     
-    private func getMaxAllowedItemInCollection() -> Int?{
-        guard let barWidth = collectionView.superview?.frame.size.width, let itemWidth = collectionView.collectionViewLayout?.collectionViewContentSize.width else{return nil}
-            
-        return Int(floor(barWidth / itemWidth))
-    }
-    
     @discardableResult public func commitTouchBarEditing() -> Bool{
         do{
             try TouchBarItemUserDefault.instance.setItems(touchBarItems)
@@ -79,9 +82,7 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
 extension EditableTouchBarController: CollectionItemDragObserverDelegate{
     func collectionItemDragObserver(observer: CollectionItemDragObserver, dragging pointerLocation: NSPoint, object: Any?) {
         guard let touchBarItem = object as? TouchBarItem else {return}
-        
-        print(getMaxAllowedItemInCollection())
-        
+                
         if mouseDetectionPoint.contains(pointerLocation){
             guard let index = collectionItemInPoint(pointerLocation) else {return}
             if let existingIndex = touchBarItems.firstIndex(of: touchBarItem){
@@ -181,6 +182,11 @@ extension EditableTouchBarController{
     }
     
     private func insertItem(touchBarItem: TouchBarItem, at index: Int){
+        if touchBarItems.count >= collectionItemMax{
+            view.makeToast("Sorry, only \(collectionItemMax) items can be added at the moment." as NSString)
+            return
+        }
+        
         touchBarItems.insert(touchBarItem, at: index)
         (collectionView.animator() as NSCollectionView).insertItems(at: [IndexPath(item: index, section: 0)])
     }
@@ -198,7 +204,7 @@ extension EditableTouchBarController{
         static let collectionIdentifier = NSTouchBarItem.Identifier("\(Global.groupIdPrefix).collectionView")
         static let customizationIdentifier = NSTouchBar.CustomizationIdentifier("\(Global.groupIdPrefix).TouchBarProvider")
         
-        static var touchItemButtonSize = NSSize(width: 72, height: 30)
-        static var touchItemSpacing = CGFloat(1)
+        static let touchItemButtonSize = NSSize(width: 72, height: 30)
+        static let touchItemSpacing = CGFloat(1)
     }
 }
