@@ -49,7 +49,7 @@ class AddLinkViewController: NSViewController, NibLoadable {
                 url = URL(string: "http://\(urlInputField.stringValue)")!
             }
             
-            let title = nameInputField.stringValue.isEmpty ? urlInputField.stringValue : nameInputField.stringValue
+            let title = nameInputField.stringValue.isEmpty ? url.absoluteString : nameInputField.stringValue
             
             self.delegate?.addLinkViewController(self, saveLink: Link(title: title, url: url, id: id))
         }else{
