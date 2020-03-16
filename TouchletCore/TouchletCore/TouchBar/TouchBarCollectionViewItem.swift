@@ -35,6 +35,7 @@ class TouchBarCollectionViewItem: NSCollectionViewItem{
         
     override func loadView() {
         self.view = FlatButton(title: "", target: self, action: #selector(buttonTapped))
+        self.view.allowedTouchTypes = .direct
         normalState()
     }
     

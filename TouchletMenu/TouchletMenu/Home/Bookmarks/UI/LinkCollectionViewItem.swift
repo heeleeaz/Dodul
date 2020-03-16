@@ -86,7 +86,7 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         NSLayoutConstraint.activate([ctextField.topAnchor.constraint(equalTo: touchRect.bottomAnchor, constant: 5),
                                      ctextField.leadingAnchor.constraint(equalTo: touchRect.leadingAnchor),
                                      ctextField.trailingAnchor.constraint(equalTo: touchRect.trailingAnchor),
-                                     ctextField.heightAnchor.constraint(equalToConstant: 16)])
+                                     ctextField.heightAnchor.constraint(equalToConstant: 25)])
         
         moreButton.isHidden = true
         moreButton.addClickGestureRecognizer{self.moreClicked?()}

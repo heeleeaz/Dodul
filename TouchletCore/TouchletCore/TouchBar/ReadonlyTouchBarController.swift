@@ -29,8 +29,10 @@ open class ReadonlyTouchBarController: NSViewController{
     override open func makeTouchBar() -> NSTouchBar? {
         let touchBar =  NSTouchBar()
         touchBar.delegate = self
+        
         touchBar.customizationIdentifier = Constants.customizationIdentifier
-        touchBar.defaultItemIdentifiers = [Constants.collectionIdentifier]
+        touchBar.customizationAllowedItemIdentifiers = [Constants.collectionIdentifier, Constants.emptyListViewIdentifier]
+        touchBar.defaultItemIdentifiers = [Constants.collectionIdentifier, Constants.emptyListViewIdentifier]
         return touchBar
     }
     
@@ -58,11 +60,17 @@ open class ReadonlyTouchBarController: NSViewController{
 
 extension ReadonlyTouchBarController: NSTouchBarDelegate{
     public func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
-        let customView = NSCustomTouchBarItem(identifier: identifier)
-        customView.view = collectionView
-        
-        touchBarCollectionViewWillAppear(collectionView: collectionView, touchBar: touchBar)
-        return customView
+        if identifier == Constants.collectionIdentifier{
+            let customView = NSCustomTouchBarItem(identifier: identifier)
+            customView.view = collectionView
+            
+            touchBarCollectionViewWillAppear(collectionView: collectionView, touchBar: touchBar)
+            return nil
+        }else {
+            let customView = NSCustomTouchBarItem(identifier: identifier)
+            customView.view = EmptyTouchBarItemInfoView()
+            return customView
+        }
     }
 }
 
@@ -98,8 +106,10 @@ extension ReadonlyTouchBarController: NSCollectionViewDataSource{
 
 extension ReadonlyTouchBarController{
     struct Constants {
-        static let collectionIdentifier = NSTouchBarItem.Identifier("\(Global.groupIdPrefix).collectionView")
-        static let customizationIdentifier = NSTouchBar.CustomizationIdentifier("\(Global.groupIdPrefix).TouchBarProvider")
+        static let customizationIdentifier = NSTouchBar.CustomizationIdentifier("\(Bundle.main.bundleIdentifier!).collectionView")
+        static let collectionIdentifier = NSTouchBarItem.Identifier("\(Bundle.main.bundleIdentifier!).collectionView")
+        static let emptyListViewIdentifier = NSTouchBarItem.Identifier("\(Bundle.main.bundleIdentifier!).emptyListView")
+        
         
         static var touchItemButtonSize = NSSize(width: 72, height: 30)
         static var touchItemSpacing = CGFloat(1)

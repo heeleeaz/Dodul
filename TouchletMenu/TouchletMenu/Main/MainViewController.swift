@@ -61,4 +61,11 @@ class MainViewController: EditableTouchBarController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+    
+    override func keyDown(with event: NSEvent) {
+        //default escape button
+        if event.keyCode == 53{
+            super.keyDown(with: event)
+        }
+    }
 }
