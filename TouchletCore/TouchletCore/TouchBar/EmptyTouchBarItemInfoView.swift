@@ -19,10 +19,24 @@ class EmptyTouchBarItemInfoView: NSView {
         postInit()
     }
     
+    private lazy var indicatorImage: NSImageView = {
+        let imageView = NSImageView()
+        imageView.image = NSImage(named: "DragIcon180")
+        return imageView
+    }()
+    
+    private lazy var floatAnimation: CABasicAnimation = {
+        let floatAnimation = CABasicAnimation(keyPath: "position")
+              floatAnimation.fromValue = [0, 3]
+              floatAnimation.toValue = [0, 0]
+              floatAnimation.repeatCount = .greatestFiniteMagnitude
+              floatAnimation.duration = 0.3
+              floatAnimation.autoreverses = true
+        return floatAnimation
+    }()
+    
     private func postInit(){
-        let indicatorImage = NSImageView()
         addSubview(indicatorImage)
-        indicatorImage.image = NSImage(named: "DragIcon180")!
         indicatorImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([indicatorImage.leadingAnchor.constraint(equalTo: leadingAnchor),
                                      indicatorImage.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -41,14 +55,15 @@ class EmptyTouchBarItemInfoView: NSView {
                                      text.heightAnchor.constraint(equalToConstant: 16),
                                      text.widthAnchor.constraint(greaterThanOrEqualToConstant: 140)])
         
-        let floatAnimation = CABasicAnimation(keyPath: "position")
-        floatAnimation.fromValue = [0, 3]
-        floatAnimation.toValue = [0, 0]
-        floatAnimation.repeatCount = .greatestFiniteMagnitude
-        floatAnimation.duration = 0.3
-        floatAnimation.autoreverses = true
+      indicatorImage.wantsLayer = true
+      indicatorImage.layer?.add(floatAnimation, forKey: "positionAnimation")
+    }
+    
+    override func viewDidMoveToSuperview() {
+        super.viewDidMoveToSuperview()
         
-        indicatorImage.wantsLayer = true
-        indicatorImage.layer?.add(floatAnimation, forKey: "positionAnimation")
+        if indicatorImage.layer?.animation(forKey: "positionAnimation") == nil{
+            indicatorImage.layer?.add(floatAnimation, forKey: "positionAnimation")
+        }
     }
 }

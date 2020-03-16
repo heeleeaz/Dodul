@@ -11,7 +11,15 @@ import Cocoa
 open class ReadonlyTouchBarController: NSViewController{
     var isEnableItemClick = true
         
-    var touchBarItems: [TouchBarItem] = (try? TouchBarItemUserDefault.instance.findAll()) ?? []
+    var touchBarItems: [TouchBarItem] = []{
+        didSet{
+            if touchBarItems.isEmpty{
+                touchBar?.defaultItemIdentifiers.insert(Constants.emptyListViewIdentifier, at: 0)
+            }else{
+                touchBar?.defaultItemIdentifiers.removeAll{$0 == Constants.emptyListViewIdentifier}
+            }
+        }
+    }
 
     lazy var collectionView: NSCollectionView = {
         let collectionView = NSCollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 30))
@@ -32,7 +40,8 @@ open class ReadonlyTouchBarController: NSViewController{
         
         touchBar.customizationIdentifier = Constants.customizationIdentifier
         touchBar.customizationAllowedItemIdentifiers = [Constants.collectionIdentifier, Constants.emptyListViewIdentifier]
-        touchBar.defaultItemIdentifiers = [Constants.collectionIdentifier, Constants.emptyListViewIdentifier]
+        touchBar.defaultItemIdentifiers = [Constants.collectionIdentifier]
+        
         return touchBar
     }
     
@@ -56,21 +65,27 @@ open class ReadonlyTouchBarController: NSViewController{
         self.touchBarItems = (try? TouchBarItemUserDefault.instance.findAll()) ?? []
         collectionView.reloadData()
     }
+    
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        refreshTouchBarItems()
+    }
 }
 
 extension ReadonlyTouchBarController: NSTouchBarDelegate{
     public func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
-        if identifier == Constants.collectionIdentifier{
-            let customView = NSCustomTouchBarItem(identifier: identifier)
-            customView.view = collectionView
-            
-            touchBarCollectionViewWillAppear(collectionView: collectionView, touchBar: touchBar)
-            return nil
-        }else {
-            let customView = NSCustomTouchBarItem(identifier: identifier)
+        let customView = NSCustomTouchBarItem(identifier: identifier)
+        
+        switch identifier {
+        case Constants.emptyListViewIdentifier:
             customView.view = EmptyTouchBarItemInfoView()
-            return customView
+        default:
+            customView.view = collectionView
+            touchBarCollectionViewWillAppear(collectionView: collectionView, touchBar: touchBar)
         }
+        
+        return customView
     }
 }
 
@@ -109,7 +124,6 @@ extension ReadonlyTouchBarController{
         static let customizationIdentifier = NSTouchBar.CustomizationIdentifier("\(Bundle.main.bundleIdentifier!).collectionView")
         static let collectionIdentifier = NSTouchBarItem.Identifier("\(Bundle.main.bundleIdentifier!).collectionView")
         static let emptyListViewIdentifier = NSTouchBarItem.Identifier("\(Bundle.main.bundleIdentifier!).emptyListView")
-        
         
         static var touchItemButtonSize = NSSize(width: 72, height: 30)
         static var touchItemSpacing = CGFloat(1)
