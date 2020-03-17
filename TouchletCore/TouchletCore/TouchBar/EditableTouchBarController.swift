@@ -11,7 +11,8 @@ import Cocoa
 open class EditableTouchBarController: ReadonlyTouchBarController{
     private var rawDraggingIndex: Int?
     
-    private lazy var mouseDetectionPoint = NSRect(x: 0, y: 0, width: view.frame.width, height: 1)
+    //serves for item removal and insertion accepted point rect
+    private lazy var acceptChangesRect = NSRect(x: 0, y: 0, width: view.frame.width, height: 3)
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ extension EditableTouchBarController: CollectionItemDragObserverDelegate{
     func collectionItemDragObserver(observer: CollectionItemDragObserver, dragging pointerLocation: NSPoint, object: Any?) {
         guard let touchBarItem = object as? TouchBarItem else {return}
                 
-        if mouseDetectionPoint.contains(pointerLocation){
+        if acceptChangesRect.contains(pointerLocation){
             guard let index = itemInPoint(pointerLocation) else {return}
             if let existingIndex = touchBarItems.firstIndex(of: touchBarItem){
                 //item already in touchbar, and being dragged arround, hence do position swap operation
@@ -86,9 +87,7 @@ extension EditableTouchBarController {
         if let item = itemInPoint(event.locationInWindow){highlightItem(at: item)}
     }
     
-    override public func mouseDown(with event: NSEvent) {
-        rawDraggingIndex = itemInPoint(event.locationInWindow)
-    }
+    override public func mouseDown(with event: NSEvent) {rawDraggingIndex = itemInPoint(event.locationInWindow)}
 
     override public func mouseDragged(with event: NSEvent) {
         guard let existingIndex = rawDraggingIndex else {return}
@@ -110,15 +109,16 @@ extension EditableTouchBarController {
     }
     
     override public func mouseUp(with event: NSEvent) {
-        if !mouseDetectionPoint.contains(event.locationInWindow), let index = rawDraggingIndex{removeItem(at: [index])}
+        if !acceptChangesRect.contains(event.locationInWindow), let index = rawDraggingIndex{removeItem(at: [index])}
         
         NSCursor.arrow.set()
         rawDraggingIndex = nil
     }
     
     private func setupTrackingAreas(){
-        let rect = NSRect(x: 0, y: 0, width: view.frame.width, height: 3)
-        view.addTrackingArea(NSTrackingArea(rect: rect, options: [.mouseEnteredAndExited, .enabledDuringMouseDrag, .mouseMoved, .activeAlways], owner: self, userInfo: nil))
+        view.addTrackingArea(NSTrackingArea(rect: NSRect(x: 0, y: 0, width: view.frame.width, height: 1),
+                                            options: [.mouseEnteredAndExited, .enabledDuringMouseDrag, .mouseMoved, .activeAlways],
+                                            owner: self, userInfo: nil))
     }
 }
 
@@ -147,26 +147,19 @@ extension EditableTouchBarController{
     }
     
     private func itemInPoint(_ point: NSPoint) -> Int?{
-        let rect = CGRect(x: 178, y: 0, width: collectionView.frame.width, height: 20)
+        let touchBarRect = CGRect(x: 178, y: 0, width: collectionView.frame.width, height: 20)
                
-        if rect.contains(point){
-            let point =  NSPoint(x: point.x - rect.origin.x, y: 0)
+        if touchBarRect.contains(point){
+            let normalized =  NSPoint(x: point.x - touchBarRect.origin.x, y: 0)
         
-            if let index = collectionView.indexPathForItem(at: point)?.item{
-                return index
-            }else{
-                //fallback
-                return max(collectionView.numberOfItems(inSection: 0) - 1, 0)
-            }
+            let itemWidth = (collectionView.collectionViewLayout as! NSCollectionViewFlowLayout).itemSize.width
+            return min(Int(floor(normalized.x / itemWidth)), max(collectionView.numberOfItems(inSection: 0) - 1, 0))
         }
         
         //still under the baseline height
-        if point.y <= rect.height{
-            if point.x > rect.maxX{
-                return max(collectionView.numberOfItems(inSection: 0) - 1, 0)
-            }else{
-                return 0
-            }
+        if point.y <= touchBarRect.height{
+            if point.x > touchBarRect.maxX{return max(collectionView.numberOfItems(inSection: 0) - 1, 0)}
+            else{return 0}
         }else{
             return nil
         }
