@@ -9,18 +9,22 @@
 import Cocoa
 
 open class ReadonlyTouchBarController: NSViewController{
-    private var visibleItemIdentifier: NSTouchBarItem.Identifier = Constants.collectionIdentifier
+    private var activeIdentifier: NSTouchBarItem.Identifier = Constants.touchBarCollection
 
     var isEnableItemClick = true
         
     var touchBarItems: [TouchBarItem] = []{
         didSet{
             if touchBarItems.isEmpty{
-                visibleItemIdentifier = Constants.emptyViewIdentifier
-//                touchBar?.defaultItemIdentifiers.insert(Constants.emptyViewIdentifier, at: 0)
-            }else{
-                visibleItemIdentifier = Constants.collectionIdentifier
-//                touchBar?.defaultItemIdentifiers.removeAll{$0 == Constants.emptyViewIdentifier}
+                if activeIdentifier != Constants.noItemView {
+                    activeIdentifier = Constants.noItemView
+                    touchBar = nil
+                }
+            }else {
+                if activeIdentifier != Constants.touchBarCollection{
+                    activeIdentifier = Constants.touchBarCollection
+                    touchBar = nil
+                }
             }
         }
     }
@@ -42,15 +46,15 @@ open class ReadonlyTouchBarController: NSViewController{
         let touchBar =  NSTouchBar()
         touchBar.delegate = self
         
-        touchBar.customizationIdentifier = Constants.customizationIdentifier
-        touchBar.customizationAllowedItemIdentifiers = [visibleItemIdentifier]
-        touchBar.defaultItemIdentifiers = [visibleItemIdentifier]
+        touchBar.customizationIdentifier = Constants.customization
+        touchBar.customizationAllowedItemIdentifiers = [activeIdentifier]
+        touchBar.defaultItemIdentifiers = [activeIdentifier]
         
         return touchBar
     }
     
     func touchBarCollectionItemClicked(item: TouchBarItem){
-        Logger.log(text: "Launching \(String(describing: item.identifier))")
+        Logger.log(text: "launching \(String(describing: item.identifier))")
         
         switch item.type {
         case .Web:
@@ -62,15 +66,14 @@ open class ReadonlyTouchBarController: NSViewController{
         }
     }
     
-    public func refreshTouchBarItems(){
-        self.touchBarItems = (try? TouchBarItemUserDefault.instance.findAll()) ?? []
-        collectionView.reloadData()
+    public func reloadItems(){
+        touchBarItems = (try? TouchBarItemUserDefault.instance.findAll()) ?? []; collectionView.reloadData()
     }
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshTouchBarItems()
+        reloadItems()
     }
     
     func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar){
@@ -82,8 +85,8 @@ extension ReadonlyTouchBarController: NSTouchBarDelegate{
         let customView = NSCustomTouchBarItem(identifier: identifier)
         
         switch identifier {
-        case Constants.emptyViewIdentifier:
-            customView.view = isEnableItemClick ? EmptyTouchBarItemInitView() : EmptyTouchBarItemInitView()
+        case Constants.noItemView:
+            customView.view = isEnableItemClick ? EmptyTouchBarItemInitView() : EmptyTouchBarItemInfoView()
         default:
             customView.view = collectionView
             touchBarCollectionViewWillAppear(collectionView: collectionView, touchBar: touchBar)
@@ -125,8 +128,8 @@ extension ReadonlyTouchBarController: NSCollectionViewDataSource{
 
 extension ReadonlyTouchBarController{
     struct Constants {
-        static let customizationIdentifier = NSTouchBar.CustomizationIdentifier("com.heeleeaz.touchlet.customizationIdentifier")
-        static let collectionIdentifier = NSTouchBarItem.Identifier("com.heeleeaz.touchlet.collectionIdentifier")
-        static let emptyViewIdentifier = NSTouchBarItem.Identifier("com.heeleeaz.touchlet.emptyListView")
+        static let customization = "com.heeleeaz.touchlet.TouchletMenu.customization"
+        static let touchBarCollection = NSTouchBarItem.Identifier("com.heeleeaz.touchlet.TouchletMenu.touchBarCollection")
+        static let noItemView = NSTouchBarItem.Identifier("com.heeleeaz.touchlet.TouchletMenu.noItemView")
     }
 }

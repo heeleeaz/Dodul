@@ -32,7 +32,7 @@ class PanelViewController: ReadonlyTouchBarController{
     }
     
     @objc func refreshTouchItems(){
-        super.refreshTouchBarItems()
+        super.reloadItems()
     }
     
     deinit {

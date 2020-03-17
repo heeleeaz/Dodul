@@ -10,12 +10,11 @@ import Cocoa
 
 class TouchBarCollectionViewItem: NSCollectionViewItem{
     static let reuseIdentifier = NSUserInterfaceItemIdentifier("TouchBarCollectionViewItem")
-    
+            
     var image: NSImage? {didSet{(view as! NSButton).image = image}}
-    var grayscale: NSImage? = nil
-    
     var onTap: (() -> Void)?
-    
+
+    private lazy var button = TouchBarCollectionButton(title: "", target: self, action: #selector(buttonTapped))
     private var currentState: State = .normal
     var state: State{
         set{
@@ -34,8 +33,7 @@ class TouchBarCollectionViewItem: NSCollectionViewItem{
     }
         
     override func loadView() {
-        self.view = FlatButton(title: "", target: self, action: #selector(buttonTapped))
-        self.view.allowedTouchTypes = .direct
+        self.view = button
         normalState()
     }
     
@@ -44,35 +42,24 @@ class TouchBarCollectionViewItem: NSCollectionViewItem{
     }
     
     private func browseState(){
-        let button = view as! FlatButton
-        button.alphaValue = 1
-        button.setBackgroundColor(.browseStateColor)
+        button.setBackgroundColor(NSColor.browseStateColor)
         button.image = image
     }
        
     private func normalState(){
-        let button = view as! FlatButton
-        
-        button.alphaValue = 1
-        button.setBackgroundColor(.normalStateColor)
+        button.setBackgroundColor(NSColor.normalStateColor)
         button.image = image
     }
     
     private func hiddenState(){
-        let button = view as! FlatButton
-        button.alphaValue = 0.4
-        
-        if grayscale == nil{
-            grayscale = image?.greyscale
-        }
-        
-        button.image = grayscale
+        button.setBackgroundColor(NSColor.hiddenStateColor)
+        button.image = image?.greyscale
     }
 
     enum State{case normal, browse, hidden}
 }
 
-fileprivate class FlatButton: NSButton{
+fileprivate class TouchBarCollectionButton: NSButton{
     func setBackgroundColor(_ backgroundColor: NSColor?) {
         isBordered = false
         
@@ -104,4 +91,5 @@ fileprivate class FlatButton: NSButton{
 extension NSColor{
     fileprivate static var normalStateColor = Theme.touchBarButtonBackgroundColor
     fileprivate static var browseStateColor = Theme.touchBarButtonBackgroundColor.highlight(withLevel: 0.4)
+    fileprivate static var hiddenStateColor = Theme.touchBarButtonBackgroundColor.withAlphaComponent(0.4)
 }

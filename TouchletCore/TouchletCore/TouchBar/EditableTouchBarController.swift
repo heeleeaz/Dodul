@@ -190,13 +190,3 @@ extension EditableTouchBarController{
         (collectionView.item(at: index) as? TouchBarCollectionViewItem)?.state = state
     }
 }
-
-extension EditableTouchBarController{
-    struct Constants {
-        static let collectionIdentifier = NSTouchBarItem.Identifier("\(Global.groupIdPrefix).collectionView")
-        static let customizationIdentifier = NSTouchBar.CustomizationIdentifier("\(Global.groupIdPrefix).TouchBarProvider")
-        
-        static let touchItemButtonSize = NSSize(width: 72, height: 30)
-        static let touchItemSpacing = CGFloat(1)
-    }
-}
