@@ -9,13 +9,10 @@
 import AppKit
 
 class EmptyTouchBarItemInfoView: NSView {
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        postInit()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
         postInit()
     }
     
@@ -27,11 +24,11 @@ class EmptyTouchBarItemInfoView: NSView {
     
     private lazy var floatAnimation: CABasicAnimation = {
         let floatAnimation = CABasicAnimation(keyPath: "position")
-              floatAnimation.fromValue = [0, 3]
-              floatAnimation.toValue = [0, 0]
-              floatAnimation.repeatCount = .greatestFiniteMagnitude
-              floatAnimation.duration = 0.3
-              floatAnimation.autoreverses = true
+        floatAnimation.fromValue = [0, 3]
+        floatAnimation.toValue = [0, 0]
+        floatAnimation.repeatCount = .greatestFiniteMagnitude
+        floatAnimation.duration = 0.3
+        floatAnimation.autoreverses = true
         return floatAnimation
     }()
     
@@ -68,22 +65,19 @@ class EmptyTouchBarItemInfoView: NSView {
     }
 }
 
-
 class EmptyTouchBarItemInitView: NSView {
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         postInit()
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        postInit()
-    }
     private func postInit(){
         let text = NSText()
         text.textColor = .white
         text.font = NSFont.systemFont(ofSize: 14)
-        text.string = "Add new shortcut"
+        text.string = "Add new shortcuts"
         addSubview(text)
     
         text.translatesAutoresizingMaskIntoConstraints = false
@@ -100,11 +94,11 @@ class EmptyTouchBarItemInitView: NSView {
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([button.leadingAnchor.constraint(equalTo: text.trailingAnchor, constant: 5),
                                      button.centerYAnchor.constraint(equalTo: centerYAnchor),
-                                     button.heightAnchor.constraint(equalToConstant: 16),
-                                     button.widthAnchor.constraint(equalToConstant: 60)])
+                                     button.heightAnchor.constraint(equalToConstant: 30),
+                                     button.widthAnchor.constraint(lessThanOrEqualToConstant: 80)])
     }
     
     @objc private func addButtonClicked(){
-        print("clicked")
+        NSWorkspace.shared.launchApplication(withBundleIdentifier: menuAppBundleIdentifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
     }
 }

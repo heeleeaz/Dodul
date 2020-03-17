@@ -9,22 +9,16 @@
 import Cocoa
 
 open class ReadonlyTouchBarController: NSViewController{
-    private var activeIdentifier: NSTouchBarItem.Identifier = Constants.touchBarCollection
-
     var isEnableItemClick = true
+
+    private var activeIdentifier: NSTouchBarItem.Identifier = Constants.touchBarCollection{didSet{touchBar = nil}}
         
     var touchBarItems: [TouchBarItem] = []{
         didSet{
             if touchBarItems.isEmpty{
-                if activeIdentifier != Constants.noItemView {
-                    activeIdentifier = Constants.noItemView
-                    touchBar = nil
-                }
+                if activeIdentifier != Constants.noItemView {activeIdentifier = Constants.noItemView}
             }else {
-                if activeIdentifier != Constants.touchBarCollection{
-                    activeIdentifier = Constants.touchBarCollection
-                    touchBar = nil
-                }
+                if activeIdentifier != Constants.touchBarCollection{activeIdentifier = Constants.touchBarCollection}
             }
         }
     }
@@ -53,6 +47,17 @@ open class ReadonlyTouchBarController: NSViewController{
         return touchBar
     }
     
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        reloadItems()
+    }
+    
+    func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar){
+    }
+}
+
+extension ReadonlyTouchBarController{
     func touchBarCollectionItemClicked(item: TouchBarItem){
         Logger.log(text: "launching \(String(describing: item.identifier))")
         
@@ -68,15 +73,6 @@ open class ReadonlyTouchBarController: NSViewController{
     
     public func reloadItems(){
         touchBarItems = (try? TouchBarItemUserDefault.instance.findAll()) ?? []; collectionView.reloadData()
-    }
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        reloadItems()
-    }
-    
-    func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar){
     }
 }
 

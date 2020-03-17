@@ -16,6 +16,7 @@ class TouchBarCollectionViewItem: NSCollectionViewItem{
 
     private lazy var button = TouchBarCollectionButton(title: "", target: self, action: #selector(buttonTapped))
     private var currentState: State = .normal
+    
     var state: State{
         set{
             switch newValue {
@@ -60,17 +61,22 @@ class TouchBarCollectionViewItem: NSCollectionViewItem{
 }
 
 fileprivate class TouchBarCollectionButton: NSButton{
-    func setBackgroundColor(_ backgroundColor: NSColor?) {
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
         isBordered = false
-        
-        let cell = (super.cell as! FlatButtonCell)
+    }
+    
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    
+    func setBackgroundColor(_ backgroundColor: NSColor?) {
+        let cell = (super.cell as! ButtonCell)
         cell._backgroundColor = backgroundColor
         cell.hightlightColor = backgroundColor?.highlight(withLevel: 0.2)
     }
     
-    override class var cellClass: AnyClass?{get{return FlatButtonCell.self} set{}}
+    override class var cellClass: AnyClass?{get{return ButtonCell.self} set{}}
         
-    class FlatButtonCell: NSButtonCell {
+    class ButtonCell: NSButtonCell {
         @nonobjc var hightlightColor: NSColor?
         var _backgroundColor: NSColor?{didSet{backgroundColor = _backgroundColor}}
         
