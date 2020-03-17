@@ -9,14 +9,18 @@
 import Cocoa
 
 open class ReadonlyTouchBarController: NSViewController{
+    private var visibleItemIdentifier: NSTouchBarItem.Identifier = Constants.collectionIdentifier
+
     var isEnableItemClick = true
         
     var touchBarItems: [TouchBarItem] = []{
         didSet{
             if touchBarItems.isEmpty{
-                touchBar?.defaultItemIdentifiers.insert(Constants.emptyListViewIdentifier, at: 0)
+                visibleItemIdentifier = Constants.emptyViewIdentifier
+//                touchBar?.defaultItemIdentifiers.insert(Constants.emptyViewIdentifier, at: 0)
             }else{
-                touchBar?.defaultItemIdentifiers.removeAll{$0 == Constants.emptyListViewIdentifier}
+                visibleItemIdentifier = Constants.collectionIdentifier
+//                touchBar?.defaultItemIdentifiers.removeAll{$0 == Constants.emptyViewIdentifier}
             }
         }
     }
@@ -25,8 +29,8 @@ open class ReadonlyTouchBarController: NSViewController{
         let collectionView = NSCollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 30))
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = Constants.touchItemButtonSize
-        flowLayout.minimumLineSpacing = Constants.touchItemSpacing
+        flowLayout.itemSize = NSSize(width: 72, height: 30)
+        flowLayout.minimumLineSpacing = 1.0
         collectionView.collectionViewLayout = flowLayout
         
         collectionView.register(TouchBarCollectionViewItem.self, forItemWithIdentifier: TouchBarCollectionViewItem.reuseIdentifier)
@@ -39,8 +43,8 @@ open class ReadonlyTouchBarController: NSViewController{
         touchBar.delegate = self
         
         touchBar.customizationIdentifier = Constants.customizationIdentifier
-        touchBar.customizationAllowedItemIdentifiers = [Constants.collectionIdentifier, Constants.emptyListViewIdentifier]
-        touchBar.defaultItemIdentifiers = [Constants.collectionIdentifier]
+        touchBar.customizationAllowedItemIdentifiers = [visibleItemIdentifier]
+        touchBar.defaultItemIdentifiers = [visibleItemIdentifier]
         
         return touchBar
     }
@@ -58,9 +62,6 @@ open class ReadonlyTouchBarController: NSViewController{
         }
     }
     
-    func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar){
-    }
-    
     public func refreshTouchBarItems(){
         self.touchBarItems = (try? TouchBarItemUserDefault.instance.findAll()) ?? []
         collectionView.reloadData()
@@ -71,6 +72,9 @@ open class ReadonlyTouchBarController: NSViewController{
         
         refreshTouchBarItems()
     }
+    
+    func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar){
+    }
 }
 
 extension ReadonlyTouchBarController: NSTouchBarDelegate{
@@ -78,8 +82,8 @@ extension ReadonlyTouchBarController: NSTouchBarDelegate{
         let customView = NSCustomTouchBarItem(identifier: identifier)
         
         switch identifier {
-        case Constants.emptyListViewIdentifier:
-            customView.view = EmptyTouchBarItemInfoView()
+        case Constants.emptyViewIdentifier:
+            customView.view = isEnableItemClick ? EmptyTouchBarItemInitView() : EmptyTouchBarItemInitView()
         default:
             customView.view = collectionView
             touchBarCollectionViewWillAppear(collectionView: collectionView, touchBar: touchBar)
@@ -121,11 +125,8 @@ extension ReadonlyTouchBarController: NSCollectionViewDataSource{
 
 extension ReadonlyTouchBarController{
     struct Constants {
-        static let customizationIdentifier = NSTouchBar.CustomizationIdentifier("\(Bundle.main.bundleIdentifier!).collectionView")
-        static let collectionIdentifier = NSTouchBarItem.Identifier("\(Bundle.main.bundleIdentifier!).collectionView")
-        static let emptyListViewIdentifier = NSTouchBarItem.Identifier("\(Bundle.main.bundleIdentifier!).emptyListView")
-        
-        static var touchItemButtonSize = NSSize(width: 72, height: 30)
-        static var touchItemSpacing = CGFloat(1)
+        static let customizationIdentifier = NSTouchBar.CustomizationIdentifier("com.heeleeaz.touchlet.customizationIdentifier")
+        static let collectionIdentifier = NSTouchBarItem.Identifier("com.heeleeaz.touchlet.collectionIdentifier")
+        static let emptyViewIdentifier = NSTouchBarItem.Identifier("com.heeleeaz.touchlet.emptyListView")
     }
 }
