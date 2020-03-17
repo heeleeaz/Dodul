@@ -52,9 +52,6 @@ open class ReadonlyTouchBarController: NSViewController{
         
         reloadItems()
     }
-    
-    func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar){
-    }
 }
 
 extension ReadonlyTouchBarController{
@@ -85,7 +82,6 @@ extension ReadonlyTouchBarController: NSTouchBarDelegate{
             customView.view = isEnableItemClick ? EmptyTouchBarItemInitView() : EmptyTouchBarItemInfoView()
         default:
             customView.view = collectionView
-            touchBarCollectionViewWillAppear(collectionView: collectionView, touchBar: touchBar)
         }
         
         return customView

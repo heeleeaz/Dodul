@@ -17,6 +17,8 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
         super.viewDidLoad()
         isEnableItemClick = false
         CollectionItemDragObserver.instance.delegate = self
+        
+        setupTrackingAreas()
     }
     
     @discardableResult public func commitTouchBarEditing() -> Bool{
@@ -26,10 +28,6 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
         }catch{
             return false
         }
-    }
-    
-    override func touchBarCollectionViewWillAppear(collectionView: NSCollectionView, touchBar: NSTouchBar){
-        setupTrackingAreas()
     }
 }
 
