@@ -9,20 +9,20 @@
 import AppKit
 
 class CollectionViewTouchBarItem: NSCustomTouchBarItem{
-    var isClickable = true
+    var isItemClickable = true
 
     var items: [TouchBarItem] = []{didSet{delegate?.collectionViewTouchBarItem(didSetItem: self)}}
     
     weak var delegate: CollectionViewTouchBarItemDelegate?
     
-    lazy var collectionView =  NSCollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 30))
+    lazy var collectionView = NSCollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 30))
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     
     init(identifier: NSTouchBarItem.Identifier, isClickable: Bool) {
         super.init(identifier: identifier)
         
-        self.isClickable = isClickable
+        self.isItemClickable = isClickable
         
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
@@ -32,8 +32,10 @@ class CollectionViewTouchBarItem: NSCustomTouchBarItem{
                
         collectionView.register(TouchBarCollectionViewItem.self, forItemWithIdentifier: TouchBarCollectionViewItem.reuseIdentifier)
         collectionView.dataSource = self
-               
-        view = collectionView
+    
+        let scrollView = NSScrollView()
+        scrollView.documentView = collectionView
+        view = scrollView
     }
     
     func reloadItems(){collectionView.reloadData()}
@@ -109,7 +111,7 @@ extension CollectionViewTouchBarItem: NSCollectionViewDataSource{
         collectionViewItem.image = itemImage(items[indexPath.item])
         
         collectionViewItem.onTap = {
-            if self.isClickable{
+            if self.isItemClickable{
                 self.delegate?.collectionViewTouchBarItem(collectionViewTouchBarItem: self, onTap: self.items[indexPath.item])
             }
         }
@@ -131,5 +133,4 @@ protocol CollectionViewTouchBarItemDelegate: class {
     func collectionViewTouchBarItem(collectionViewTouchBarItem: CollectionViewTouchBarItem, onTap item: TouchBarItem)
     
     func collectionViewTouchBarItem(didSetItem collectionViewTouchBarItem: CollectionViewTouchBarItem)
-    
 }

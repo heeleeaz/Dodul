@@ -197,155 +197,179 @@
                         <rect key="frame" x="0.0" y="0.0" width="1340" height="1318"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="0qx-2D-8fR">
-                                <rect key="frame" x="70" y="150" width="1200" height="400"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="1200" id="gVK-VU-odc"/>
-                                    <constraint firstAttribute="height" constant="400" id="tMC-po-4R2"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="BorderColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="_BackgroundColor">
-                                        <color key="value" name="HomeBackgroundColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="yYz-Hz-qMh" kind="embed" id="T3C-qL-MwK"/>
-                                </connections>
-                            </containerView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="vYl-tr-09g">
-                                <rect key="frame" x="425" y="570" width="491" height="73"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="dMK-MW-RVV">
+                                <rect key="frame" x="50" y="120" width="1240" height="583"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QSP-ZO-iia">
-                                        <rect key="frame" x="71" y="27" width="167" height="19"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Drag Item to Touchbar" id="M4t-wn-p7O">
-                                            <font key="font" metaFont="system" size="16"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JbY-kZ-0nc">
-                                        <rect key="frame" x="25" y="23" width="28" height="28"/>
+                                    <containerView translatesAutoresizingMaskIntoConstraints="NO" id="0qx-2D-8fR">
+                                        <rect key="frame" x="20" y="70" width="1200" height="400"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="7CO-da-N3Q"/>
-                                            <constraint firstAttribute="width" constant="28" id="w6G-3p-ZQk"/>
+                                            <constraint firstAttribute="width" constant="1200" id="gVK-VU-odc"/>
+                                            <constraint firstAttribute="height" constant="400" id="tMC-po-4R2"/>
                                         </constraints>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DragIcon" id="6pe-dk-thV"/>
-                                    </imageView>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5UP-Fg-Yfg">
-                                        <rect key="frame" x="411" y="22" width="60" height="30"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="BorderColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_BackgroundColor">
+                                                <color key="value" name="HomeBackgroundColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="yYz-Hz-qMh" kind="embed" id="T3C-qL-MwK"/>
+                                        </connections>
+                                    </containerView>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="vYl-tr-09g">
+                                        <rect key="frame" x="375" y="490" width="491" height="73"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QSP-ZO-iia">
+                                                <rect key="frame" x="71" y="27" width="167" height="19"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Drag Item to Touchbar" id="M4t-wn-p7O">
+                                                    <font key="font" metaFont="system" size="16"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JbY-kZ-0nc">
+                                                <rect key="frame" x="25" y="23" width="28" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="7CO-da-N3Q"/>
+                                                    <constraint firstAttribute="width" constant="28" id="w6G-3p-ZQk"/>
+                                                </constraints>
+                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DragIcon" id="6pe-dk-thV"/>
+                                            </imageView>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5UP-Fg-Yfg">
+                                                <rect key="frame" x="411" y="22" width="60" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="nx3-TT-o2N"/>
+                                                    <constraint firstAttribute="width" constant="60" id="vPf-vo-PHK"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="bevel" title="Done" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="JB4-X8-nn7">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system" size="16"/>
+                                                </buttonCell>
+                                                <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="doneAction:" target="XfG-lQ-9wD" id="f4e-FI-W1W"/>
+                                                </connections>
+                                            </button>
+                                            <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="aKZ-5J-VKk">
+                                                <rect key="frame" x="388" y="20" width="5" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="33" id="PKy-CE-uYA"/>
+                                                    <constraint firstAttribute="width" constant="1" id="qnc-Gh-Mm8"/>
+                                                </constraints>
+                                            </box>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="nx3-TT-o2N"/>
-                                            <constraint firstAttribute="width" constant="60" id="vPf-vo-PHK"/>
+                                            <constraint firstAttribute="height" constant="73" id="2Mc-XJ-foL"/>
+                                            <constraint firstItem="JbY-kZ-0nc" firstAttribute="leading" secondItem="vYl-tr-09g" secondAttribute="leading" constant="25" id="57z-dQ-UeR"/>
+                                            <constraint firstAttribute="width" constant="491" id="5h1-pf-YNe"/>
+                                            <constraint firstItem="QSP-ZO-iia" firstAttribute="leading" secondItem="JbY-kZ-0nc" secondAttribute="trailing" constant="20" id="8mf-AD-0Cg"/>
+                                            <constraint firstItem="QSP-ZO-iia" firstAttribute="centerY" secondItem="vYl-tr-09g" secondAttribute="centerY" id="God-fx-Sc0"/>
+                                            <constraint firstItem="JbY-kZ-0nc" firstAttribute="centerY" secondItem="vYl-tr-09g" secondAttribute="centerY" id="WYf-Jw-v2U"/>
+                                            <constraint firstItem="aKZ-5J-VKk" firstAttribute="centerY" secondItem="vYl-tr-09g" secondAttribute="centerY" id="ceW-1N-Fp6"/>
+                                            <constraint firstItem="5UP-Fg-Yfg" firstAttribute="centerY" secondItem="vYl-tr-09g" secondAttribute="centerY" id="hTs-d3-kqX"/>
+                                            <constraint firstItem="5UP-Fg-Yfg" firstAttribute="leading" secondItem="aKZ-5J-VKk" secondAttribute="trailing" constant="20" id="is6-QI-FTg"/>
+                                            <constraint firstAttribute="trailing" secondItem="5UP-Fg-Yfg" secondAttribute="trailing" constant="20" id="nK1-Yu-eZZ"/>
                                         </constraints>
-                                        <buttonCell key="cell" type="bevel" title="Done" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="JB4-X8-nn7">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system" size="16"/>
-                                        </buttonCell>
-                                        <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="BorderColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="doneAction:" target="XfG-lQ-9wD" id="f4e-FI-W1W"/>
-                                        </connections>
-                                    </button>
-                                    <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="aKZ-5J-VKk">
-                                        <rect key="frame" x="388" y="20" width="5" height="33"/>
+                                    </customView>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Vzv-Gn-xFF">
+                                        <rect key="frame" x="457" y="20" width="326" height="30"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ghu-tn-Czj">
+                                                <rect key="frame" x="59" y="7" width="183" height="17"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="to launch Touchbar anytime" id="kcj-V6-GWU">
+                                                    <font key="font" metaFont="system" size="14"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fUM-7H-43Q">
+                                                <rect key="frame" x="242" y="-2" width="82" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="73T-KG-BvF"/>
+                                                    <constraint firstAttribute="width" constant="70" id="DFV-UE-Zsw"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="push" title="Change" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mPG-Cf-cqf">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="changeKeybind:" target="XfG-lQ-9wD" id="UnZ-2c-oXx"/>
+                                                    <segue destination="sX3-o1-y6E" kind="show" id="Mzr-yg-cNe"/>
+                                                </connections>
+                                            </button>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKV-xa-xEB" customClass="KeybindTagView" customModule="TouchletMenu" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="5" width="45" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="45" id="nsg-Sq-aN9"/>
+                                                    <constraint firstAttribute="height" constant="20" id="zQS-5Y-qHa"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="33" id="PKy-CE-uYA"/>
-                                            <constraint firstAttribute="width" constant="1" id="qnc-Gh-Mm8"/>
+                                            <constraint firstAttribute="trailing" secondItem="fUM-7H-43Q" secondAttribute="trailing" constant="8" id="87J-aH-1mT"/>
+                                            <constraint firstItem="OKV-xa-xEB" firstAttribute="leading" secondItem="Vzv-Gn-xFF" secondAttribute="leading" constant="8" id="9VX-79-CkJ"/>
+                                            <constraint firstItem="ghu-tn-Czj" firstAttribute="leading" secondItem="OKV-xa-xEB" secondAttribute="trailing" constant="8" id="D6K-vb-UbM"/>
+                                            <constraint firstAttribute="height" constant="30" id="HOo-Ur-WRY"/>
+                                            <constraint firstItem="fUM-7H-43Q" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="M1s-jK-CAz"/>
+                                            <constraint firstItem="fUM-7H-43Q" firstAttribute="leading" secondItem="ghu-tn-Czj" secondAttribute="trailing" constant="8" id="a9R-Ot-C56"/>
+                                            <constraint firstItem="ghu-tn-Czj" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="tJI-w9-z9P"/>
+                                            <constraint firstItem="OKV-xa-xEB" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="wDA-kM-9KH"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="200" constant="400" id="zIK-6t-b2p"/>
                                         </constraints>
-                                    </box>
+                                    </customView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="73" id="2Mc-XJ-foL"/>
-                                    <constraint firstItem="JbY-kZ-0nc" firstAttribute="leading" secondItem="vYl-tr-09g" secondAttribute="leading" constant="25" id="57z-dQ-UeR"/>
-                                    <constraint firstAttribute="width" constant="491" id="5h1-pf-YNe"/>
-                                    <constraint firstItem="QSP-ZO-iia" firstAttribute="leading" secondItem="JbY-kZ-0nc" secondAttribute="trailing" constant="20" id="8mf-AD-0Cg"/>
-                                    <constraint firstItem="QSP-ZO-iia" firstAttribute="centerY" secondItem="vYl-tr-09g" secondAttribute="centerY" id="God-fx-Sc0"/>
-                                    <constraint firstItem="JbY-kZ-0nc" firstAttribute="centerY" secondItem="vYl-tr-09g" secondAttribute="centerY" id="WYf-Jw-v2U"/>
-                                    <constraint firstItem="aKZ-5J-VKk" firstAttribute="centerY" secondItem="vYl-tr-09g" secondAttribute="centerY" id="ceW-1N-Fp6"/>
-                                    <constraint firstItem="5UP-Fg-Yfg" firstAttribute="centerY" secondItem="vYl-tr-09g" secondAttribute="centerY" id="hTs-d3-kqX"/>
-                                    <constraint firstItem="5UP-Fg-Yfg" firstAttribute="leading" secondItem="aKZ-5J-VKk" secondAttribute="trailing" constant="20" id="is6-QI-FTg"/>
-                                    <constraint firstAttribute="trailing" secondItem="5UP-Fg-Yfg" secondAttribute="trailing" constant="20" id="nK1-Yu-eZZ"/>
+                                    <constraint firstItem="0qx-2D-8fR" firstAttribute="top" secondItem="vYl-tr-09g" secondAttribute="bottom" constant="20" id="5SD-eM-rAZ"/>
+                                    <constraint firstItem="0qx-2D-8fR" firstAttribute="centerX" secondItem="dMK-MW-RVV" secondAttribute="centerX" id="BUu-Ea-Uod"/>
+                                    <constraint firstAttribute="bottom" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="70" id="HTs-QI-hEE"/>
+                                    <constraint firstItem="Vzv-Gn-xFF" firstAttribute="top" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="20" id="KDM-MK-5Xh"/>
+                                    <constraint firstItem="Vzv-Gn-xFF" firstAttribute="centerX" secondItem="dMK-MW-RVV" secondAttribute="centerX" id="NiS-yK-heH"/>
+                                    <constraint firstItem="vYl-tr-09g" firstAttribute="centerX" secondItem="dMK-MW-RVV" secondAttribute="centerX" id="O1L-SK-6Tv"/>
+                                    <constraint firstAttribute="height" constant="583" id="vO6-nX-yKI"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="BorderColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Vzv-Gn-xFF">
-                                <rect key="frame" x="507" y="100" width="326" height="30"/>
-                                <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ghu-tn-Czj">
-                                        <rect key="frame" x="59" y="7" width="183" height="17"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="to launch Touchbar anytime" id="kcj-V6-GWU">
-                                            <font key="font" metaFont="system" size="14"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fUM-7H-43Q">
-                                        <rect key="frame" x="242" y="-2" width="82" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="73T-KG-BvF"/>
-                                            <constraint firstAttribute="width" constant="70" id="DFV-UE-Zsw"/>
-                                        </constraints>
-                                        <buttonCell key="cell" type="push" title="Change" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mPG-Cf-cqf">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="changeKeybind:" target="XfG-lQ-9wD" id="UnZ-2c-oXx"/>
-                                            <segue destination="sX3-o1-y6E" kind="show" id="Mzr-yg-cNe"/>
-                                        </connections>
-                                    </button>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKV-xa-xEB" customClass="KeybindTagView" customModule="TouchletMenu" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="5" width="45" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="nsg-Sq-aN9"/>
-                                            <constraint firstAttribute="height" constant="20" id="zQS-5Y-qHa"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xbb-nn-fkf">
+                                <rect key="frame" x="1262" y="1261" width="36" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="fUM-7H-43Q" secondAttribute="trailing" constant="8" id="87J-aH-1mT"/>
-                                    <constraint firstItem="OKV-xa-xEB" firstAttribute="leading" secondItem="Vzv-Gn-xFF" secondAttribute="leading" constant="8" id="9VX-79-CkJ"/>
-                                    <constraint firstItem="ghu-tn-Czj" firstAttribute="leading" secondItem="OKV-xa-xEB" secondAttribute="trailing" constant="8" id="D6K-vb-UbM"/>
-                                    <constraint firstAttribute="height" constant="30" id="HOo-Ur-WRY"/>
-                                    <constraint firstItem="fUM-7H-43Q" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="M1s-jK-CAz"/>
-                                    <constraint firstItem="fUM-7H-43Q" firstAttribute="leading" secondItem="ghu-tn-Czj" secondAttribute="trailing" constant="8" id="a9R-Ot-C56"/>
-                                    <constraint firstItem="ghu-tn-Czj" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="tJI-w9-z9P"/>
-                                    <constraint firstItem="OKV-xa-xEB" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="wDA-kM-9KH"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="200" constant="400" id="zIK-6t-b2p"/>
+                                    <constraint firstAttribute="height" constant="28" id="46d-eQ-bbD"/>
+                                    <constraint firstAttribute="width" constant="36" id="Dl5-We-u2T"/>
                                 </constraints>
-                            </customView>
+                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="InformationIcon" imagePosition="only" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyUpOrDown" inset="2" id="zVZ-FF-tyb">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="150" id="FZE-Pd-SMm"/>
-                            <constraint firstItem="Vzv-Gn-xFF" firstAttribute="top" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="20" id="O8X-bL-fMO"/>
-                            <constraint firstItem="Vzv-Gn-xFF" firstAttribute="centerX" secondItem="IQN-7z-XBS" secondAttribute="centerX" id="UNv-uy-8hq"/>
-                            <constraint firstItem="0qx-2D-8fR" firstAttribute="top" secondItem="vYl-tr-09g" secondAttribute="bottom" constant="20" id="W2q-Or-OBm"/>
-                            <constraint firstItem="vYl-tr-09g" firstAttribute="centerX" secondItem="IQN-7z-XBS" secondAttribute="centerX" id="WNg-1F-IGm"/>
-                            <constraint firstItem="0qx-2D-8fR" firstAttribute="centerX" secondItem="IQN-7z-XBS" secondAttribute="centerX" id="q2h-PN-N8d"/>
+                            <constraint firstAttribute="bottom" secondItem="dMK-MW-RVV" secondAttribute="bottom" constant="120" id="5YI-5Z-Bx2"/>
+                            <constraint firstItem="xbb-nn-fkf" firstAttribute="top" secondItem="IQN-7z-XBS" secondAttribute="top" constant="28" id="6XV-MR-5k7"/>
+                            <constraint firstItem="dMK-MW-RVV" firstAttribute="leading" secondItem="IQN-7z-XBS" secondAttribute="leading" constant="50" id="GcW-mb-8TY"/>
+                            <constraint firstAttribute="trailing" secondItem="xbb-nn-fkf" secondAttribute="trailing" constant="42" id="Z2x-DO-wQF"/>
+                            <constraint firstAttribute="trailing" secondItem="dMK-MW-RVV" secondAttribute="trailing" constant="50" id="swI-0z-9if"/>
                         </constraints>
                     </customView>
                     <connections>
@@ -375,6 +399,7 @@
     </scenes>
     <resources>
         <image name="DragIcon" width="171" height="171"/>
+        <image name="InformationIcon" width="64" height="64"/>
         <namedColor name="BorderColor">
             <color red="0.2669999897480011" green="0.2669999897480011" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

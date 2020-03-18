@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import TouchletCore
 
 class ButtonCollectionViewItem: NSCollectionViewItem {
     static let reuseIdentifier = NSUserInterfaceItemIdentifier("TextCollectionViewItem")
@@ -15,7 +16,6 @@ class ButtonCollectionViewItem: NSCollectionViewItem {
         let button = NSButton()
         button.isBordered = false
         button.imageScaling = .scaleProportionallyDown
-        button.font = NSFont.systemFont(ofSize: 13)
         return button
     }()
     
@@ -23,33 +23,52 @@ class ButtonCollectionViewItem: NSCollectionViewItem {
         super.view = NSView()
         
         let container = NSView()
-        container._BackgroundColor = NSColor(named: "TouchBarButtonBackgroundColor")
+        container._BackgroundColor = Theme.touchBarButtonBackgroundColor
         container.cornerRadius = 20
-        container.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(container)
+
+        container.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([container.topAnchor.constraint(equalTo: view.topAnchor),
                                      container.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      container.widthAnchor.constraint(equalToConstant: 70),
                                      container.heightAnchor.constraint(equalToConstant: 40)])
         
-        button.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([button.centerYAnchor.constraint(equalTo: container.centerYAnchor),
                                      button.centerXAnchor.constraint(equalTo: container.centerXAnchor),
                                      button.widthAnchor.constraint(greaterThanOrEqualToConstant: 24),
                                      button.heightAnchor.constraint(equalToConstant: 24)])
     }
     
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        view.subviews[0].addTrackingArea(NSTrackingArea(rect: view.subviews[0].bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil))
+    }
+    
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        if let trackingAreas = view.subviews[0].trackingAreas.first {view.subviews[0].removeTrackingArea(trackingAreas)}
+    }
+    
+    override func mouseEntered(with event: NSEvent) {
+        view.subviews[0]._BackgroundColor = Theme.touchBarButtonBackgroundColor.highlight(withLevel: 0.1)
+    }
+    
+    override func mouseExited(with event: NSEvent) {
+        view.subviews[0]._BackgroundColor = Theme.touchBarButtonBackgroundColor
+    }
+    
     func showAction(action: Action, _ didTap: (()->())?){
         switch action {
-        case .plusIcon: button.image = NSImage(named: "PlusIcon")
-        default: button.title = "See more"
+        case .plusIcon: button.image = NSImage(named: "AddIcon")
+        case .seeMoreIcon: button.image = NSImage(named: "MoreIcon")
         }
         
         view.subviews[0].addClickGestureRecognizer { didTap?() }
     }
     
     enum Action {
-        case seeMore, plusIcon
+        case seeMoreIcon, plusIcon
     }
 }

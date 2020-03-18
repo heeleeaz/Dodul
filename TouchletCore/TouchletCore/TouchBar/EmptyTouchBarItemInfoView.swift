@@ -104,7 +104,6 @@ class EditButtonTouchBarItem: NSCustomTouchBarItem {
         view.translatesAutoresizingMaskIntoConstraints = true
         NSLayoutConstraint.activate([view.widthAnchor.constraint(equalToConstant: 46),
                                      view.heightAnchor.constraint(equalToConstant: 30)])
-        
     }
     
     @objc private func buttonTapped(){

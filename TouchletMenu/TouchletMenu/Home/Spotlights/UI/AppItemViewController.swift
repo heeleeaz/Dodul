@@ -97,7 +97,7 @@ extension AppItemViewController: NSCollectionViewDataSource{
             let reuseIdentifer = ButtonCollectionViewItem.reuseIdentifier
             let view = collectionView.makeItem(withIdentifier: reuseIdentifer, for: indexPath)
             guard let collectionViewItem = view as? ButtonCollectionViewItem else {return view}
-            collectionViewItem.showAction(action: .seeMore, {
+            collectionViewItem.showAction(action: .seeMoreIcon, {
                 self.spotlightItem += self.spotlightRepository.result?.next(forward: Constants.SPOTLIGHT_PAGING_FORWARD) ?? []
             })
             return collectionViewItem
