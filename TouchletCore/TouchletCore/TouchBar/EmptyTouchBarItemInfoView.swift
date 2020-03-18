@@ -89,3 +89,25 @@ class ReadonlyEmptyCollectionTouchBarItem: NSCustomTouchBarItem {
         NSWorkspace.shared.launchApplication(withBundleIdentifier: menuAppBundleIdentifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
     }
 }
+
+class EditButtonTouchBarItem: NSCustomTouchBarItem {
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override init(identifier: NSTouchBarItem.Identifier) {
+        super.init(identifier: identifier)
+    
+        let button = NSButton(image: NSImage(named: "EditIcon")!, target: self, action: #selector(buttonTapped))
+        
+        view = button
+        view.translatesAutoresizingMaskIntoConstraints = true
+        NSLayoutConstraint.activate([view.widthAnchor.constraint(equalToConstant: 30),
+                                     view.heightAnchor.constraint(equalToConstant: 30)])
+        
+    }
+    
+    @objc private func buttonTapped(){
+        NSWorkspace.shared.launchApplication(withBundleIdentifier: menuAppBundleIdentifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
+    }
+}

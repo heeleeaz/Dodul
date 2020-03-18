@@ -11,20 +11,23 @@ import AppKit
 open class ReadonlyTouchBarController: NSViewController{
     var isItemClickable = true
 
-    private var activeIdentifier: NSTouchBarItem.Identifier = Constants.touchBarCollection{didSet{touchBar = nil}}
+    private var activeIdentifier: NSTouchBarItem.Identifier = Constants.collectionIdentifier{didSet{touchBar = nil}}
     
     lazy var collectionViewTouchBarItem: CollectionViewTouchBarItem = {
-        let item = CollectionViewTouchBarItem(identifier: Constants.touchBarCollection, isClickable: isItemClickable)
-        item.delegate = self; return item
+        let item = CollectionViewTouchBarItem(identifier: Constants.collectionIdentifier, isClickable: isItemClickable)
+        item.delegate = self
+        return item
     }()
+    var emptyCollectionTouchbarItem: NSTouchBarItem {ReadonlyEmptyCollectionTouchBarItem(identifier: Constants.emptyCollectionIdentifier)}
+    var editButtonTouchBarItem: NSTouchBarItem? {EditButtonTouchBarItem(identifier: Constants.editIdentifier)}
     
     override open func makeTouchBar() -> NSTouchBar? {
         let touchBar =  NSTouchBar()
         touchBar.delegate = self
         
         touchBar.customizationIdentifier = Constants.customization
-        touchBar.customizationAllowedItemIdentifiers = [activeIdentifier]
-        touchBar.defaultItemIdentifiers = [activeIdentifier]
+        touchBar.customizationAllowedItemIdentifiers = [activeIdentifier, Constants.editIdentifier]
+        touchBar.defaultItemIdentifiers = [activeIdentifier, Constants.editIdentifier]
         
         return touchBar
     }
@@ -43,10 +46,14 @@ open class ReadonlyTouchBarController: NSViewController{
 extension ReadonlyTouchBarController: NSTouchBarDelegate{
     public func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         switch identifier {
-        case Constants.noItemView:
-            return isItemClickable ? ReadonlyEmptyCollectionTouchBarItem(identifier: identifier) : EditableEmptyCollectionTouchBarItem(identifier: identifier)
-        default:
+        case Constants.emptyCollectionIdentifier:
+            return emptyCollectionTouchbarItem
+        case Constants.editIdentifier:
+            return editButtonTouchBarItem
+        case Constants.collectionIdentifier:
             return collectionViewTouchBarItem
+        default:
+            return nil
         }
     }
 }
@@ -67,9 +74,9 @@ extension ReadonlyTouchBarController: CollectionViewTouchBarItemDelegate{
     
     func collectionViewTouchBarItem(didSetItem collectionViewTouchBarItem: CollectionViewTouchBarItem) {
         if collectionViewTouchBarItem.items.isEmpty{
-            if activeIdentifier != Constants.noItemView {activeIdentifier = Constants.noItemView}
+            if activeIdentifier != Constants.emptyCollectionIdentifier {activeIdentifier = Constants.emptyCollectionIdentifier}
         }else {
-            if activeIdentifier != Constants.touchBarCollection{activeIdentifier = Constants.touchBarCollection}
+            if activeIdentifier != Constants.collectionIdentifier{activeIdentifier = Constants.collectionIdentifier}
         }
     }
 }
@@ -77,7 +84,8 @@ extension ReadonlyTouchBarController: CollectionViewTouchBarItemDelegate{
 extension ReadonlyTouchBarController{
     struct Constants {
         static let customization = "com.heeleeaz.touchlet.TouchletMenu.customization"
-        static let touchBarCollection = NSTouchBarItem.Identifier("com.heeleeaz.touchlet.TouchletMenu.touchBarCollection")
-        static let noItemView = NSTouchBarItem.Identifier("com.heeleeaz.touchlet.TouchletMenu.noItemView")
+        static let collectionIdentifier = NSTouchBarItem.Identifier("com.heeleeaz.touchlet.TouchletMenu.collection")
+        static let emptyCollectionIdentifier = NSTouchBarItem.Identifier("com.heeleeaz.touchlet.TouchletMenu.emptyCollection")
+        static let editIdentifier = NSTouchBarItem.Identifier("com.heeleeaz.touchlet.TouchletMenu.edit")
     }
 }

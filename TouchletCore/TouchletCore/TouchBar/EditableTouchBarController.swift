@@ -30,6 +30,10 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
             return false
         }
     }
+    
+    override var emptyCollectionTouchbarItem: NSTouchBarItem{EditableEmptyCollectionTouchBarItem(identifier: Constants.emptyCollectionIdentifier)}
+    
+    override var editButtonTouchBarItem: NSTouchBarItem?{nil}
 }
 
 extension EditableTouchBarController: CollectionItemDragObserverDelegate{
