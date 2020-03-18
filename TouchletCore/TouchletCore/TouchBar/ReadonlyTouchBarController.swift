@@ -6,34 +6,16 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 open class ReadonlyTouchBarController: NSViewController{
-    var isEnableItemClick = true
+    var isItemClickable = true
 
     private var activeIdentifier: NSTouchBarItem.Identifier = Constants.touchBarCollection{didSet{touchBar = nil}}
-        
-    var touchBarItems: [TouchBarItem] = []{
-        didSet{
-            if touchBarItems.isEmpty{
-                if activeIdentifier != Constants.noItemView {activeIdentifier = Constants.noItemView}
-            }else {
-                if activeIdentifier != Constants.touchBarCollection{activeIdentifier = Constants.touchBarCollection}
-            }
-        }
-    }
-
-    lazy var collectionView: NSCollectionView = {
-        let collectionView = NSCollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 30))
-        let flowLayout = NSCollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = NSSize(width: 72, height: 30)
-        flowLayout.minimumLineSpacing = 1.0
-        collectionView.collectionViewLayout = flowLayout
-        
-        collectionView.register(TouchBarCollectionViewItem.self, forItemWithIdentifier: TouchBarCollectionViewItem.reuseIdentifier)
-        collectionView.dataSource = self
-        return collectionView
+    
+    lazy var collectionViewTouchBarItem: CollectionViewTouchBarItem = {
+        let item = CollectionViewTouchBarItem(identifier: Constants.touchBarCollection, isClickable: isItemClickable)
+        item.delegate = self; return item
     }()
     
     override open func makeTouchBar() -> NSTouchBar? {
@@ -49,15 +31,30 @@ open class ReadonlyTouchBarController: NSViewController{
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
         reloadItems()
+    }
+    
+    public func reloadItems(){
+        collectionViewTouchBarItem.items = (try? TouchBarItemUserDefault.instance.findAll()) ?? []
+        collectionViewTouchBarItem.reloadItems()
     }
 }
 
-extension ReadonlyTouchBarController{
-    func touchBarCollectionItemClicked(item: TouchBarItem){
+extension ReadonlyTouchBarController: NSTouchBarDelegate{
+    public func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
+        switch identifier {
+        case Constants.noItemView:
+            return isItemClickable ? ReadonlyEmptyCollectionTouchBarItem(identifier: identifier) : EditableEmptyCollectionTouchBarItem(identifier: identifier)
+        default:
+            return collectionViewTouchBarItem
+        }
+    }
+}
+
+extension ReadonlyTouchBarController: CollectionViewTouchBarItemDelegate{
+    func collectionViewTouchBarItem(collectionViewTouchBarItem: CollectionViewTouchBarItem, onTap item: TouchBarItem) {
         Logger.log(text: "launching \(String(describing: item.identifier))")
-        
+            
         switch item.type {
         case .Web:
             NSWorkspace.shared.open(URL(fileURLWithPath: item.identifier))
@@ -68,52 +65,11 @@ extension ReadonlyTouchBarController{
         }
     }
     
-    public func reloadItems(){
-        touchBarItems = (try? TouchBarItemUserDefault.instance.findAll()) ?? []; collectionView.reloadData()
-    }
-}
-
-extension ReadonlyTouchBarController: NSTouchBarDelegate{
-    public func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
-        let customView = NSCustomTouchBarItem(identifier: identifier)
-        
-        switch identifier {
-        case Constants.noItemView:
-            customView.view = isEnableItemClick ? EmptyTouchBarItemInitView() : EmptyTouchBarItemInfoView()
-        default:
-            customView.view = collectionView
-        }
-        
-        return customView
-    }
-}
-
-extension ReadonlyTouchBarController: NSCollectionViewDataSource{
-    public func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return touchBarItems.count
-    }
-    
-    public func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let view = collectionView.makeItem(withIdentifier: TouchBarCollectionViewItem.reuseIdentifier, for: indexPath)
-        
-        guard let collectionViewItem = view as? TouchBarCollectionViewItem else {return view}
-        collectionViewItem.image = itemImage(touchBarItems[indexPath.item])
-        
-        collectionViewItem.onTap = {
-            if self.isEnableItemClick{
-                self.touchBarCollectionItemClicked(item: self.touchBarItems[indexPath.item])
-            }
-        }
-
-        return collectionViewItem
-    }
-    
-    private func itemImage(_ touchBarItem: TouchBarItem) -> NSImage?{
-        switch touchBarItem.type {
-        case .App:
-            return SpotlightRepository.findAppIcon(bundleIdentifier: touchBarItem.identifier)
-        default:
-            return FaviconProvider.instance.loadFromCache(url: URL(string: touchBarItem.identifier)!)
+    func collectionViewTouchBarItem(didSetItem collectionViewTouchBarItem: CollectionViewTouchBarItem) {
+        if collectionViewTouchBarItem.items.isEmpty{
+            if activeIdentifier != Constants.noItemView {activeIdentifier = Constants.noItemView}
+        }else {
+            if activeIdentifier != Constants.touchBarCollection{activeIdentifier = Constants.touchBarCollection}
         }
     }
 }

@@ -34,9 +34,7 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
         }
     }
     
-    override var height: CGFloat?{
-        return (collectionView.contentSize?.height ?? 0) + 60
-    }
+    override var height: CGFloat?{return (collectionView.contentSize?.height ?? 0) + 60}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +72,7 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
         flowLayout.minimumLineSpacing = 5
         flowLayout.minimumInteritemSpacing = 5
         collectionView.collectionViewLayout = flowLayout
+        
         collectionView.register(AppCollectionViewItem.self, forItemWithIdentifier: AppCollectionViewItem.reuseIdentifier)
         collectionView.register(ButtonCollectionViewItem.self, forItemWithIdentifier: ButtonCollectionViewItem.reuseIdentifier)
         collectionView.delegate = self
@@ -118,6 +117,6 @@ extension AppItemViewController: SpotlightRepositoryDelegate{
 
 extension AppItemViewController{
     struct Constants {
-         static let SPOTLIGHT_PAGING_INITIAL = 10, SPOTLIGHT_PAGING_FORWARD = 15
+         static let SPOTLIGHT_PAGING_INITIAL = 10, SPOTLIGHT_PAGING_FORWARD = 30
      }
 }

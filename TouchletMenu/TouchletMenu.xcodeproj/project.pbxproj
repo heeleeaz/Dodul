@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		92015D0324050B5F0003A773 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92015D0224050B5F0003A773 /* Preferences.storyboard */; };
 		92015D0B2406B1310003A773 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92015D0A2406B1310003A773 /* PreferencesWindow.swift */; };
+		920BA4792421908900256CF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 920BA4782421908900256CF1 /* GoogleService-Info.plist */; };
 		921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921329F32406EB2000D9FE9E /* AddLinkViewController.xib */; };
 		923B986123C5CF8D00BC48A7 /* AppCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */; };
 		923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B986C23C600C000BC48A7 /* HomeItemViewController.swift */; };
@@ -61,6 +62,7 @@
 		90C094CC103844EACE7A68D7 /* Pods-Touchlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Touchlet.debug.xcconfig"; path = "Target Support Files/Pods-Touchlet/Pods-Touchlet.debug.xcconfig"; sourceTree = "<group>"; };
 		92015D0224050B5F0003A773 /* Preferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
 		92015D0A2406B1310003A773 /* PreferencesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
+		920BA4782421908900256CF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		921329F32406EB2000D9FE9E /* AddLinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLinkViewController.xib; sourceTree = "<group>"; };
 		92132A062407B21300D9FE9E /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewItem.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		92ACE91C2412874F009994EB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				920BA4782421908900256CF1 /* GoogleService-Info.plist */,
 				92A1B2FC23C4AA2200D7BEF1 /* Assets.xcassets */,
 				92A1B30123C4AA2200D7BEF1 /* Info.plist */,
 				92A1B30223C4AA2200D7BEF1 /* Touchlet.entitlements */,
@@ -354,6 +357,7 @@
 				921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */,
 				9246322023CB32C200042EFE /* HomeItemViewController.storyboard in Resources */,
 				92A1B30023C4AA2200D7BEF1 /* Main.storyboard in Resources */,
+				920BA4792421908900256CF1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

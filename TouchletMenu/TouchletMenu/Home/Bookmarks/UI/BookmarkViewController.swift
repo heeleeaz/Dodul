@@ -6,7 +6,7 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 import TouchletCore
 
 class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
@@ -49,6 +49,8 @@ class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
     override func itemAtPosition(at index: Int) -> TouchBarItem? {
         return TouchBarItem(identifier: links[index].url.absoluteString, type: .Web)
     }
+    
+    override var height: CGFloat?{ return (collectionView.contentSize?.height ?? 0) + 60 }
 }
 
 extension BookmarkViewController: NSCollectionViewDataSource{
@@ -71,9 +73,7 @@ extension BookmarkViewController: NSCollectionViewDataSource{
         }
     }
     
-    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return links.count + (links.count <= Constant.BOOKMARK_MAX_COLLECTION_COUNT ? 1 : 0)
-    }
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {links.count + 1}
 }
 
 extension BookmarkViewController: AddLinkViewControllerDelegate{
@@ -96,12 +96,6 @@ extension BookmarkViewController: AddLinkViewControllerDelegate{
     
     func addLinkViewController(_ controller: AddLinkViewController, dismiss byUser: Bool) {
         self.dismiss(controller)
-    }
-}
-
-extension BookmarkViewController{
-    struct Constant {
-        static let BOOKMARK_MAX_COLLECTION_COUNT = 15
     }
 }
 

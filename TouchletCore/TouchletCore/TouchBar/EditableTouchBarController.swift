@@ -6,7 +6,7 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 open class EditableTouchBarController: ReadonlyTouchBarController{
     private var rawDraggingIndex: Int?
@@ -16,7 +16,7 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        isEnableItemClick = false
+        isItemClickable = false
         CollectionItemDragObserver.instance.delegate = self
         
         setupTrackingAreas()
@@ -24,7 +24,7 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
     
     @discardableResult public func commitTouchBarEditing() -> Bool{
         do{
-            try TouchBarItemUserDefault.instance.setItems(touchBarItems)
+            try TouchBarItemUserDefault.instance.setItems(collectionViewTouchBarItem.items)
             return true
         }catch{
             return false
@@ -37,25 +37,25 @@ extension EditableTouchBarController: CollectionItemDragObserverDelegate{
         guard let touchBarItem = object as? TouchBarItem else {return}
                 
         if acceptChangesRect.contains(pointerLocation){
-            guard let index = itemInPoint(pointerLocation) else {return}
-            if let existingIndex = touchBarItems.firstIndex(of: touchBarItem){
+            guard let index = collectionViewTouchBarItem.itemInPoint(pointerLocation) else {return}
+            if let existingIndex = collectionViewTouchBarItem.items.firstIndex(of: touchBarItem){
                 //item already in touchbar, and being dragged arround, hence do position swap operation
-                swapItem(at: existingIndex, to: index)
+                collectionViewTouchBarItem.swapItem(at: existingIndex, to: index)
             }else{
                 //item does not exists in touch bar, hence, add to touchbar
                 touchBarItem.itemState = .adding
-                insertItem(touchBarItem: touchBarItem, at: index)
+                collectionViewTouchBarItem.insertItem(touchBarItem: touchBarItem, at: index)
             }
-            highlightItem(at: index) // highlight item either in dragging or insertion state
+            collectionViewTouchBarItem.highlightItem(at: index) // highlight item either in dragging or insertion state
         }else{
             //if adding operation is in progress(item added to touchbar temporarily)
             //and pointer escape touchbar rect, remove the item from touchbar
-            if let index = touchBarItems.firstIndex(where: {$0 == touchBarItem && $0.itemState == .adding}){
-                removeItem(at: [index])
+            if let index = collectionViewTouchBarItem.items.firstIndex(where: {$0 == touchBarItem && $0.itemState == .adding}){
+                collectionViewTouchBarItem.removeItem(at: [index])
             }
             
             //since we are already outside of touchbar drop detection rect. we can hide all hightlight
-            highlightItem(at: -1)
+            collectionViewTouchBarItem.highlightItem(at: -1)
         }
     }
     
@@ -64,7 +64,7 @@ extension EditableTouchBarController: CollectionItemDragObserverDelegate{
         
         //if mouse is released and item is being dragged around touchbar rect, change the state to dropped,
         //so it will not be removed from touchbar item
-        if touchBarItems.contains(touchBarItem){ touchBarItem.itemState = .dropped}
+        if collectionViewTouchBarItem.items.contains(touchBarItem){ touchBarItem.itemState = .dropped}
     }
 }
 
@@ -72,44 +72,50 @@ extension EditableTouchBarController {
     override public func mouseEntered(with event: NSEvent) {
         NSCursorHelper.instance.hide()
         
-        if let item = itemInPoint(event.locationInWindow){highlightItem(at: item)}
+        if let item = collectionViewTouchBarItem.itemInPoint(event.locationInWindow){
+            collectionViewTouchBarItem.highlightItem(at: item)
+        }
     }
         
     override public func mouseExited(with event: NSEvent) {
-        NSCursorHelper.instance.show()
-        
-        highlightItem(at: -1)
+        NSCursorHelper.instance.show(); collectionViewTouchBarItem.highlightItem(at: -1)
     }
     
     open override func mouseMoved(with event: NSEvent) {
         super.mouseMoved(with: event)
         
-        if let item = itemInPoint(event.locationInWindow){highlightItem(at: item)}
+        if let item = collectionViewTouchBarItem.itemInPoint(event.locationInWindow){
+            collectionViewTouchBarItem.highlightItem(at: item)
+        }
     }
     
-    override public func mouseDown(with event: NSEvent) {rawDraggingIndex = itemInPoint(event.locationInWindow)}
+    override public func mouseDown(with event: NSEvent) {
+        rawDraggingIndex = collectionViewTouchBarItem.itemInPoint(event.locationInWindow)
+    }
 
     override public func mouseDragged(with event: NSEvent) {
         guard let existingIndex = rawDraggingIndex else {return}
         
-        if let index = itemInPoint(event.locationInWindow){
-            swapItem(at: existingIndex, to: index)
+        if let index = collectionViewTouchBarItem.itemInPoint(event.locationInWindow){
+            collectionViewTouchBarItem.swapItem(at: existingIndex, to: index)
             
             rawDraggingIndex = index
-            highlightItem(at: index)
+            collectionViewTouchBarItem.highlightItem(at: index)
         }else{
             //dragging existing item outside of touchbar rect, then change state to hidden
-            if event.locationInWindow.y >= 30{setItemState(at: existingIndex, state: .hidden)}
+            if event.locationInWindow.y >= 30{collectionViewTouchBarItem.setItemState(at: existingIndex, state: .hidden)}
         }
         
-        if let image = (collectionView.item(at: existingIndex) as? TouchBarCollectionViewItem)?.image,
+        if let image = collectionViewTouchBarItem.findItem(at: existingIndex)?.image,
             let dragImage = DraggingTouchItemDrawing.instance.draw(image){
             NSCursor(image: dragImage, hotSpot: .zero).set()
         }
     }
     
     override public func mouseUp(with event: NSEvent) {
-        if !acceptChangesRect.contains(event.locationInWindow), let index = rawDraggingIndex{removeItem(at: [index])}
+        if !acceptChangesRect.contains(event.locationInWindow), let index = rawDraggingIndex{
+            collectionViewTouchBarItem.removeItem(at: [index])
+        }
         
         NSCursor.arrow.set()
         rawDraggingIndex = nil
@@ -119,65 +125,5 @@ extension EditableTouchBarController {
         view.addTrackingArea(NSTrackingArea(rect: NSRect(x: 0, y: 0, width: view.frame.width, height: 1),
                                             options: [.mouseEnteredAndExited, .enabledDuringMouseDrag, .mouseMoved, .activeAlways],
                                             owner: self, userInfo: nil))
-    }
-}
-
-extension EditableTouchBarController{
-    private func swapItem(at: Int, to: Int){
-        touchBarItems.swapAt(at, to) //swap position
-        (collectionView.animator() as NSCollectionView).moveItem(at: IndexPath(item: at, section: 0), to: IndexPath(item: to, section: 0))
-    }
-    
-    private func insertItem(touchBarItem: TouchBarItem, at index: Int){
-        let maxItem = maxAllowedItem()
-        if touchBarItems.count >= maxItem{
-            view.makeToast("Sorry, only \(maxItem) items can be added at the moment." as NSString)
-            return
-        }
-        
-        touchBarItems.insert(touchBarItem, at: index)
-        (collectionView.animator() as NSCollectionView).insertItems(at: [IndexPath(item: index, section: 0)])
-    }
-    
-    private func removeItem(at indexSet: [Int]){
-        indexSet.forEach{
-            touchBarItems.remove(at: $0)
-            (collectionView.animator() as NSCollectionView).deleteItems(at: [IndexPath(item: $0, section: 0)])
-        }
-    }
-    
-    private func itemInPoint(_ point: NSPoint) -> Int?{
-        let touchBarRect = CGRect(x: 178, y: 0, width: collectionView.frame.width, height: 20)
-               
-        if touchBarRect.contains(point){
-            let normalized =  NSPoint(x: point.x - touchBarRect.origin.x, y: 0)
-        
-            let itemWidth = (collectionView.collectionViewLayout as! NSCollectionViewFlowLayout).itemSize.width
-            return min(Int(floor(normalized.x / itemWidth)), max(collectionView.numberOfItems(inSection: 0) - 1, 0))
-        }
-        
-        //still under the baseline height
-        if point.y <= touchBarRect.height{
-            if point.x > touchBarRect.maxX{return max(collectionView.numberOfItems(inSection: 0) - 1, 0)}
-            else{return 0}
-        }else{
-            return nil
-        }
-    }
-    
-    //TODO: improve highlight performance, ignore looping through all element
-    private func highlightItem(at index: Int){
-        for element in 0..<collectionView.numberOfItems(inSection: 0){setItemState(at: element, state: .normal)}
-        
-        if index != -1{setItemState(at: index, state: .browse)}
-    }
-    
-    private func maxAllowedItem() -> Int{
-        guard let width = collectionView.superview?.frame.width else {return 9}
-        return Int(floor(width / 72))
-    }
-    
-    private func setItemState(at index: Int, state: TouchBarCollectionViewItem.State){
-        (collectionView.item(at: index) as? TouchBarCollectionViewItem)?.state = state
     }
 }
