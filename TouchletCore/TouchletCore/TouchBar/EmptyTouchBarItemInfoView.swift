@@ -98,11 +98,11 @@ class EditButtonTouchBarItem: NSCustomTouchBarItem {
     override init(identifier: NSTouchBarItem.Identifier) {
         super.init(identifier: identifier)
     
-        let button = NSButton(image: NSImage(named: "EditIcon")!, target: self, action: #selector(buttonTapped))
+        let button = Button(image: NSImage(named: "EditIcon")!, target: self, action: #selector(buttonTapped))
         
         view = button
         view.translatesAutoresizingMaskIntoConstraints = true
-        NSLayoutConstraint.activate([view.widthAnchor.constraint(equalToConstant: 30),
+        NSLayoutConstraint.activate([view.widthAnchor.constraint(equalToConstant: 46),
                                      view.heightAnchor.constraint(equalToConstant: 30)])
         
     }
@@ -110,4 +110,19 @@ class EditButtonTouchBarItem: NSCustomTouchBarItem {
     @objc private func buttonTapped(){
         NSWorkspace.shared.launchApplication(withBundleIdentifier: menuAppBundleIdentifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
     }
+    
+    private class Button: NSButton{
+        override class var cellClass: AnyClass?{get{return ButtonCell.self} set{}}
+            
+        class ButtonCell: NSButtonCell {
+            override func imageRect(forBounds rect: NSRect) -> NSRect {
+                let w = CGFloat(14)
+                let h = CGFloat(14)
+                let x = (rect.width / 2) - (w / 2)
+                let y = (rect.height / 2) - (h / 2)
+                return NSRect(x: x, y: y, width: w, height: h)
+            }
+        }
+    }
+
 }
