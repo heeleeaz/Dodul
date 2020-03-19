@@ -6,7 +6,7 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
     public let function : Bool
@@ -53,7 +53,7 @@ public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
     
     public var hasModifierFlag: Bool {function || control || command || shift || option}
     
-    public static var acceptedModifiersDescription: String {"use combination of either ⌃, ⌥, ⌘, ⇧ and (A-Z or 0-9), e.g ⌘ 1"}
+    public static var acceptedModifiersDescription: String {"Use ⌃, ⌥, ⌘, or ⇧ with any other key, e.g ⌘E"}
 }
 
 extension GlobalKeybindPreferences{

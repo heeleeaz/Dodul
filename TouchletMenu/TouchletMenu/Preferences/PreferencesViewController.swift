@@ -23,8 +23,6 @@ class PreferencesViewController: NSViewController, NibLoadable {
         
         tipLabelTextView.stringValue = GlobalKeybindPreferences.acceptedModifiersDescription
         cancelButton.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(cancelClick)))
-        
-        print(view.acceptsFirstResponder)
     }
 
     @discardableResult fileprivate func updateGlobalShortcut(_ event : NSEvent) -> Bool {

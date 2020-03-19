@@ -12,7 +12,7 @@
                 <outlet property="cancelButton" destination="rsp-Co-ZZh" id="48g-OD-bpb"/>
                 <outlet property="saveButton" destination="iTx-QZ-Idq" id="QMe-cF-MZG"/>
                 <outlet property="stackView" destination="6IF-on-P5g" id="FJQ-X8-fON"/>
-                <outlet property="tipLabelTextView" destination="UHY-fd-ye9" id="0yO-3w-GV4"/>
+                <outlet property="tipLabelTextView" destination="rYw-zD-Pa1" id="sRe-4N-KCB"/>
                 <outlet property="view" destination="oeQ-h8-PAO" id="SOr-m5-PKM"/>
             </connections>
         </customObject>
@@ -77,24 +77,27 @@
                         <constraint firstAttribute="height" constant="30" id="VCC-sQ-O39"/>
                     </constraints>
                 </stackView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UHY-fd-ye9">
-                    <rect key="frame" x="28" y="65" width="35" height="15"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="4DP-Ux-FlN">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rYw-zD-Pa1">
+                    <rect key="frame" x="208" y="67" width="35" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="24G-mG-NHY"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" drawsBackground="YES" id="NjU-hF-T0n">
                         <font key="font" metaFont="system" size="12"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="HomeBackgroundColor"/>
                     </textFieldCell>
                 </textField>
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="iTx-QZ-Idq" secondAttribute="trailing" constant="20" id="ADf-t2-mf1"/>
+                <constraint firstItem="rYw-zD-Pa1" firstAttribute="centerX" secondItem="oeQ-h8-PAO" secondAttribute="centerX" id="LJM-TZ-nSB"/>
                 <constraint firstAttribute="bottom" secondItem="iTx-QZ-Idq" secondAttribute="bottom" constant="20" id="MMd-Ef-u3G"/>
-                <constraint firstItem="iTx-QZ-Idq" firstAttribute="top" secondItem="UHY-fd-ye9" secondAttribute="bottom" constant="15" id="Rgp-Lq-qFV"/>
                 <constraint firstAttribute="bottom" secondItem="rsp-Co-ZZh" secondAttribute="bottom" constant="20" id="Z6V-7o-7xa"/>
-                <constraint firstItem="UHY-fd-ye9" firstAttribute="leading" secondItem="oeQ-h8-PAO" secondAttribute="leading" constant="30" id="Zks-Z1-jfD"/>
                 <constraint firstItem="6IF-on-P5g" firstAttribute="top" secondItem="XsL-vN-8Ib" secondAttribute="bottom" constant="25" id="dYp-Kt-3B2"/>
                 <constraint firstItem="6IF-on-P5g" firstAttribute="centerX" secondItem="oeQ-h8-PAO" secondAttribute="centerX" id="kZE-QT-GHM"/>
                 <constraint firstItem="XsL-vN-8Ib" firstAttribute="centerX" secondItem="oeQ-h8-PAO" secondAttribute="centerX" id="na8-yF-i0I"/>
+                <constraint firstItem="rsp-Co-ZZh" firstAttribute="top" secondItem="rYw-zD-Pa1" secondAttribute="bottom" constant="17" id="pEd-Pv-G3N"/>
                 <constraint firstItem="iTx-QZ-Idq" firstAttribute="leading" secondItem="rsp-Co-ZZh" secondAttribute="trailing" constant="20" id="s0g-Hu-rmD"/>
                 <constraint firstItem="XsL-vN-8Ib" firstAttribute="top" secondItem="oeQ-h8-PAO" secondAttribute="top" constant="20" id="xdI-9U-OgU"/>
             </constraints>
@@ -103,7 +106,7 @@
                     <real key="value" value="10"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="139" y="-156"/>
+            <point key="canvasLocation" x="139" y="-156.5"/>
         </customView>
     </objects>
     <resources>
@@ -112,6 +115,9 @@
         </namedColor>
         <namedColor name="BezelButtonTextColor">
             <color red="0.96399998664855957" green="0.95800000429153442" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="HomeBackgroundColor">
+            <color red="0.20200000703334808" green="0.20200000703334808" blue="0.20200000703334808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
