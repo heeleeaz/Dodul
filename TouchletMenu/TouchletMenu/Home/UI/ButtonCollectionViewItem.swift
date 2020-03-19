@@ -23,7 +23,7 @@ class ButtonCollectionViewItem: NSCollectionViewItem {
         super.view = NSView()
         
         let container = NSView()
-        container._BackgroundColor = Theme.touchBarButtonBackgroundColor
+        container._backgroundColor = Theme.touchBarButtonBackgroundColor
         container.cornerRadius = 20
         view.addSubview(container)
 
@@ -52,11 +52,11 @@ class ButtonCollectionViewItem: NSCollectionViewItem {
     }
     
     override func mouseEntered(with event: NSEvent) {
-        view.subviews[0]._BackgroundColor = Theme.touchBarButtonBackgroundColor.highlight(withLevel: 0.1)
+        view.subviews[0]._backgroundColor = Theme.touchBarButtonBackgroundColor.highlight(withLevel: 0.1)
     }
     
     override func mouseExited(with event: NSEvent) {
-        view.subviews[0]._BackgroundColor = Theme.touchBarButtonBackgroundColor
+        view.subviews[0]._backgroundColor = Theme.touchBarButtonBackgroundColor
     }
     
     func showAction(action: Action, _ didTap: (()->())?){

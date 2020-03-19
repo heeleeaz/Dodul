@@ -41,7 +41,7 @@ class AppCollectionViewItem: NSCollectionViewItem {
         
         let touchRect = NSView()
         touchRect.cornerRadius = 7
-        touchRect._BackgroundColor = NSColor(named: "TouchBarButtonBackgroundColor")
+        touchRect._backgroundColor = NSColor(named: "TouchBarButtonBackgroundColor")
         view.addSubview(touchRect)
         touchRect.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([touchRect.topAnchor.constraint(equalTo: view.topAnchor),

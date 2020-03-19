@@ -213,7 +213,7 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" name="BorderColor"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="_BackgroundColor">
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_backgroundColor">
                                                 <color key="value" name="HomeBackgroundColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -353,15 +353,23 @@
                                 </constraints>
                             </customView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xbb-nn-fkf">
-                                <rect key="frame" x="1262" y="1261" width="36" height="29"/>
+                                <rect key="frame" x="1262" y="1261" width="36" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="46d-eQ-bbD"/>
                                     <constraint firstAttribute="width" constant="36" id="Dl5-We-u2T"/>
                                 </constraints>
-                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="InformationIcon" imagePosition="only" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyUpOrDown" inset="2" id="zVZ-FF-tyb">
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="InformationIcon" imagePosition="only" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyUpOrDown" inset="2" id="zVZ-FF-tyb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="cellTitle"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_backgroundColor">
+                                        <color key="value" red="1" green="0.49143407410000001" blue="0.39896009449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
                         <constraints>

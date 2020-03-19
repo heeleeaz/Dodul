@@ -70,7 +70,7 @@ class KeybindTagViewItem: NSButton{
     }
     
     private func updateView(){
-        self._BackgroundColor = DarkTheme.hotkeyBackgroundColor
+        self._backgroundColor = DarkTheme.hotkeyBackgroundColor
     }
     
     override func hitTest(_ point: NSPoint) -> NSView? {return nil}

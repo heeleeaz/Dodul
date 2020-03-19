@@ -9,7 +9,7 @@
 import Cocoa
 
 extension NSView {
-    @IBInspectable public var _BackgroundColor: NSColor? {
+    @IBInspectable public var _backgroundColor: NSColor? {
         set {
             wantsLayer = true
             layer?.backgroundColor = newValue?.cgColor

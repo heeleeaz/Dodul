@@ -50,7 +50,7 @@ class LinkCollectionViewItem: NSCollectionViewItem {
     private lazy var touchRect: NSView = {
         let view = NSView()
         view.cornerRadius = 7
-        view._BackgroundColor = NSColor(named: "TouchBarButtonBackgroundColor")
+        view._backgroundColor = NSColor(named: "TouchBarButtonBackgroundColor")
         
         return view
     }()
