@@ -6,8 +6,9 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 import TouchletCore
+import Carbon
 
 class MainWindow: NSWindow{
     override var contentView: NSView?{
@@ -20,9 +21,6 @@ class MainWindow: NSWindow{
     }
 }
 
-class MainWindowViewController: NSWindowController{
-}
-
 class MainViewController: EditableTouchBarController {
     @IBOutlet weak var keybindTagView: KeybindTagView!
             
@@ -31,11 +29,13 @@ class MainViewController: EditableTouchBarController {
         
         updateKeybindPresentationView()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(windowWillClosedNotification), name: NSWindow.willCloseNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(windowWillClosedNotification), name: NSWindow.willCloseNotification, object: nil)        
     }
     
     @objc func windowWillClosedNotification(notification: NSNotification){
-        if notification.object is PreferencesWindow{updateKeybindPresentationView()}
+        if notification.object is PreferencesWindow{
+            updateKeybindPresentationView()
+        }
     }
     
     private func updateKeybindPresentationView(){
@@ -58,14 +58,16 @@ class MainViewController: EditableTouchBarController {
     
     override func cancelOperation(_ sender: Any?) {terminateApp(self)}
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     override func keyDown(with event: NSEvent) {
         //default escape button
-        if event.keyCode == 53{
-            super.keyDown(with: event)
-        }
+        if event.keyCode == kVK_Escape{super.keyDown(with: event)}
+    }
+    
+    @IBAction func launcherKeyChangeButtonTapped(_ sender: Any) {
+        PreferencesViewController.presentAsWindowKeyAndOrderFront(nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

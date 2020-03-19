@@ -14,7 +14,6 @@ public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
     public let command : Bool
     public let shift : Bool
     public let option : Bool
-    public let capsLock : Bool
     public let carbonFlags : UInt32
     public let characters : String?
     public let keyCode : UInt32
@@ -35,30 +34,30 @@ public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
         if self.shift {
             stringBuilder += "⇧\(seperator)"
         }
-        if self.capsLock {
-            stringBuilder += "⇪\(seperator)"
-        }
         if let characters = self.characters {
             stringBuilder += "\(characters.uppercased())\(seperator)"
         }
         return "\(stringBuilder.dropLast(seperator.count))"
     }
     
-    public init(function: Bool, control: Bool, command: Bool, shift: Bool, option: Bool, capsLock: Bool, carbonFlags: UInt32, characters: String?, keyCode: UInt32) {
+    public init(function: Bool, control: Bool, command: Bool, shift: Bool, option: Bool, carbonFlags: UInt32, characters: String?, keyCode: UInt32) {
         self.function = function
         self.control = control
         self.command = command
         self.shift = shift
         self.option = option
-        self.capsLock = capsLock
         self.carbonFlags = carbonFlags
         self.characters = characters
         self.keyCode = keyCode
     }
+    
+    public var hasModifierFlag: Bool {function || control || command || shift || option}
+    
+    public static var acceptedModifiersDescription: String {"use combination of either ⌃, ⌥, ⌘, ⇧ and (A-Z or 0-9), e.g ⌘ 1"}
 }
 
 extension GlobalKeybindPreferences{
     public static var defaultKeyBind: GlobalKeybindPreferences{
-        return GlobalKeybindPreferences(function: true, control: true, command: false, shift: false, option: false, capsLock: false, carbonFlags: 4096, characters: "1", keyCode: 18)
+        return GlobalKeybindPreferences(function: true, control: true, command: false, shift: false, option: false, carbonFlags: 4096, characters: "1", keyCode: 18)
     }
 }

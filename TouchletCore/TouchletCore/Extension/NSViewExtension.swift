@@ -8,6 +8,12 @@
 
 import Cocoa
 
+extension NSView{
+    //making view acceptFirstResponder by default,
+    //this will enable NSViewController receive responder event dispatched to responder chain
+    open override var acceptsFirstResponder: Bool{return true}
+}
+
 extension NSView {
     @IBInspectable public var _backgroundColor: NSColor? {
         set {
@@ -19,17 +25,6 @@ extension NSView {
                 return nil
             }
         }
-    }
-    
-    public var parentViewController: NSViewController? {
-        var parentResponder: NSResponder? = self
-        while parentResponder != nil {
-            parentResponder = parentResponder!.nextResponder
-            if parentResponder is NSViewController {
-                return parentResponder as? NSViewController
-            }
-        }
-        return nil
     }
 }
 
@@ -149,5 +144,11 @@ extension NSView{
         let presOptions: NSApplication.PresentationOptions = ([.hideDock,.hideMenuBar])
         let dictionary = [NSView.FullScreenModeOptionKey.fullScreenModeApplicationPresentationOptions: NSNumber(value: presOptions.union(options).rawValue)]
         self.enterFullScreenMode(NSScreen.main!, withOptions: dictionary)
+    }
+}
+
+extension NSPoint{
+    public static func center(a: NSSize, b: NSSize) -> NSPoint{
+        return NSPoint(x: a.width/2 - b.width/2, y: a.height/2 - b.height/2)
     }
 }

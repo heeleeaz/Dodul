@@ -8,7 +8,9 @@
 
 import Foundation
 
-class RoundedRectButton: NSButton{
+@IBDesignable public class RoundedRectButton: NSButton{
+    @IBInspectable var hightlightColor: NSColor?
+    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         postInit()
@@ -18,21 +20,20 @@ class RoundedRectButton: NSButton{
         super.init(coder: coder)
         postInit()
     }
-    
-    override func awakeFromNib() {
-        postInit()
-    }
-    
+        
     private func postInit(){
         cornerRadius = max(frame.width, frame.height) / 2
-        addTrackingArea(NSTrackingArea(rect: bounds, options: [.activeAlways, .mouseEnteredAndExited], owner: self, userInfo: nil))        
+        addTrackingArea(NSTrackingArea(rect: bounds, options: [.activeAlways, .mouseEnteredAndExited], owner: self, userInfo: nil))
+        
+        imageScaling = .scaleProportionallyDown
+        imagePosition = .imageOnly
     }
     
-    override func mouseEntered(with event: NSEvent) {
-        
+    override public func mouseEntered(with event: NSEvent) {
+        _backgroundColor = hightlightColor
     }
     
-    override func mouseExited(with event: NSEvent) {
-        
+    override public func mouseExited(with event: NSEvent) {
+        _backgroundColor = .clear
     }
 }

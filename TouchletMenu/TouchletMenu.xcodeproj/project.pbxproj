@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		92015D0324050B5F0003A773 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92015D0224050B5F0003A773 /* Preferences.storyboard */; };
-		92015D0B2406B1310003A773 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92015D0A2406B1310003A773 /* PreferencesWindow.swift */; };
 		921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921329F32406EB2000D9FE9E /* AddLinkViewController.xib */; };
 		923B986123C5CF8D00BC48A7 /* AppCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */; };
 		923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B986C23C600C000BC48A7 /* HomeItemViewController.swift */; };
@@ -32,6 +30,7 @@
 		92ACEAD82412A564009994EB /* TouchletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACEAD72412A564009994EB /* TouchletCore.framework */; };
 		92ACEAD92412A564009994EB /* TouchletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACEAD72412A564009994EB /* TouchletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		92E16C762403D60E00511EE1 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16C752403D60E00511EE1 /* PreferencesViewController.swift */; };
+		92EE13562423A323001513A8 /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EE13552423A323001513A8 /* PreferencesViewController.xib */; };
 		92FE9B2223D0718100FA6AC6 /* HomeCollectionItemsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */; };
 		92FE9B2523D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */; };
 		EC7029672429010EF3346662 /* libPods-TouchletMenu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F89230C0431EAE8B7888EAEC /* libPods-TouchletMenu.a */; };
@@ -58,8 +57,6 @@
 		3CE5E929780F50A3654027A5 /* Pods_TouchletLauncher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouchletLauncher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53F51ECE91C07ACEAF5F03A2 /* Pods-TouchletMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchletMenu.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-TouchletMenu/Pods-TouchletMenu.release.xcconfig"; sourceTree = "<group>"; };
 		90C094CC103844EACE7A68D7 /* Pods-Touchlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Touchlet.debug.xcconfig"; path = "Target Support Files/Pods-Touchlet/Pods-Touchlet.debug.xcconfig"; sourceTree = "<group>"; };
-		92015D0224050B5F0003A773 /* Preferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
-		92015D0A2406B1310003A773 /* PreferencesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
 		921329F32406EB2000D9FE9E /* AddLinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLinkViewController.xib; sourceTree = "<group>"; };
 		92132A062407B21300D9FE9E /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewItem.swift; sourceTree = "<group>"; };
@@ -87,6 +84,7 @@
 		92ACEAD72412A564009994EB /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B49A8424169C8800E6AF35 /* TouchletPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = TouchletPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E16C752403D60E00511EE1 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		92EE13552423A323001513A8 /* PreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesViewController.xib; sourceTree = "<group>"; };
 		92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionItemsUtil.swift; sourceTree = "<group>"; };
 		92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewItem.swift; sourceTree = "<group>"; };
 		B72E19481489507B4114A98F /* libPods-Core.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Core.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -277,10 +275,9 @@
 		92D98A7B240439740072F68F /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				92015D0224050B5F0003A773 /* Preferences.storyboard */,
 				925F8C102406C0E3008CC1DE /* KeybindTagView.swift */,
-				92015D0A2406B1310003A773 /* PreferencesWindow.swift */,
 				92E16C752403D60E00511EE1 /* PreferencesViewController.swift */,
+				92EE13552423A323001513A8 /* PreferencesViewController.xib */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -346,8 +343,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				92A1B2FD23C4AA2200D7BEF1 /* Assets.xcassets in Resources */,
-				92015D0324050B5F0003A773 /* Preferences.storyboard in Resources */,
 				92ACE91B241283B0009994EB /* Info.plist in Resources */,
+				92EE13562423A323001513A8 /* PreferencesViewController.xib in Resources */,
 				921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */,
 				9246322023CB32C200042EFE /* HomeItemViewController.storyboard in Resources */,
 				92A1B30023C4AA2200D7BEF1 /* Main.storyboard in Resources */,
@@ -404,7 +401,6 @@
 				9246321D23CB2F6600042EFE /* AppItemViewController.swift in Sources */,
 				925F8C112406C0E3008CC1DE /* KeybindTagView.swift in Sources */,
 				92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */,
-				92015D0B2406B1310003A773 /* PreferencesWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

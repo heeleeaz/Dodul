@@ -18,12 +18,6 @@ class PanelWindow: NSPanel{
     }
 }
 
-class PanelWindowController: NSWindowController{
-    override func makeTouchBar() -> NSTouchBar?{
-        return contentViewController?.makeTouchBar()
-    }
-}
-
 class PanelViewController: ReadonlyTouchBarController{
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -15,34 +15,41 @@ class PreferencesViewController: NSViewController, NibLoadable {
     @IBOutlet weak var stackView: KeybindTagView!
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var cancelButton: NSButton!
+    @IBOutlet weak var tipLabelTextView: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         respondNonEditingKeybindPreferenceWithUI()
+        
+        tipLabelTextView.stringValue = GlobalKeybindPreferences.acceptedModifiersDescription
+        cancelButton.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(cancelClick)))
+        
+        print(view.acceptsFirstResponder)
     }
 
-    fileprivate func updateGlobalShortcut(_ event : NSEvent) {
-        guard let characters = event.charactersIgnoringModifiers else {return}
-        var modifierFlags = event.modifierFlags
-        
-        if modifierFlags.carbonFlags == 0{modifierFlags = NSEvent.ModifierFlags.command}
+    @discardableResult fileprivate func updateGlobalShortcut(_ event : NSEvent) -> Bool {
+        guard let characters = event.charactersIgnoringModifiers else {return false}
     
         let newGlobalKeybind = GlobalKeybindPreferences(
-            function: modifierFlags.contains(.function),
-            control: modifierFlags.contains(.control),
-            command: modifierFlags.contains(.command),
-            shift: modifierFlags.contains(.shift),
-            option: modifierFlags.contains(.option),
-            capsLock: modifierFlags.contains(.capsLock),
-            carbonFlags: modifierFlags.carbonFlags,
+            function: event.modifierFlags.contains(.function),
+            control: event.modifierFlags.contains(.control),
+            command: event.modifierFlags.contains(.command),
+            shift: event.modifierFlags.contains(.shift),
+            option: event.modifierFlags.contains(.option),
+            carbonFlags: event.modifierFlags.carbonFlags,
             characters: characters, keyCode: UInt32(event.keyCode)
         )
-        respondEditingKeybindPreferenceWithUI(keybind: newGlobalKeybind)
-            
-        saveButton.addClickGestureRecognizer{
-            GlobalKeybindPreferencesStore.save(keyBind: newGlobalKeybind) // save it
-            self.view.window?.close()
+        
+        if newGlobalKeybind.hasModifierFlag{
+            respondEditingKeybindPreferenceWithUI(keybind: newGlobalKeybind)
+            saveButton.addClickGestureRecognizer{
+                GlobalKeybindPreferencesStore.save(keyBind: newGlobalKeybind)
+                self.view.window?.close()
+            }
+            return true
         }
+        
+        return false
     }
     
     private func respondNonEditingKeybindPreferenceWithUI(){
@@ -62,33 +69,54 @@ class PreferencesViewController: NSViewController, NibLoadable {
         updateKeybindPresentationView(keybind, editing: true)
     }
     
-    @IBAction func cancelClick(_ sender: NSButton) {
-        if sender.title.elementsEqual("Reset"){respondNonEditingKeybindPreferenceWithUI()}
-        else{self.view.window?.close()}
-    }
-    
     private func updateKeybindPresentationView(_ keybind : GlobalKeybindPreferences, editing: Bool){
         stackView.removeAllTags()
         for s in keybind.description.split(separator: "-"){
             stackView.addTagItem(String(s), isEditing: editing)
         }
     }
-}
-
-class PreferencesWindowController: NSWindowController{
-    override func windowDidLoad() {
-        super.windowDidLoad()
-        window?.makeFirstResponder(self)
-    }
-
+    
     override func keyDown(with event: NSEvent) {
-        super.keyDown(with: event)
-        if let controller = self.contentViewController as? PreferencesViewController {
-            controller.updateGlobalShortcut(event)
+        print(event)
+        if event.keyCode == kVK_Escape{
+            interpretKeyEvents([event])
+        }else{
+            self.updateGlobalShortcut(event)
         }
-        
-        self.interpretKeyEvents([event])
     }
     
-    override func cancelOperation(_ sender: Any?) {self.close()}
+    override func cancelOperation(_ sender: Any?) {view.window?.close()}
+    
+    @objc private func cancelClick() {
+        if cancelButton.title.elementsEqual("Reset"){respondNonEditingKeybindPreferenceWithUI()}
+        else{self.view.window?.close()}
+    }
+}
+
+extension PreferencesViewController{
+    public static func presentAsWindowKeyAndOrderFront(_ sender: Any?){
+        if let controller = PreferencesViewController.createFromNib(){
+            let window = PreferencesWindow(contentViewController: controller)
+            
+            if let screenSize = NSScreen.main?.frame.size{
+                window.setFrameOrigin(NSPoint.center(a: screenSize, b: window.frame.size))
+            }
+            
+            window.makeKeyAndOrderFront(sender)
+        }
+    }
+}
+
+public class PreferencesWindow: NSWindow{
+    public override var backgroundColor: NSColor!{set{}get{Theme.touchBarButtonBackgroundColor}}
+    
+    public override func standardWindowButton(_ b: NSWindow.ButtonType) -> NSButton? {
+        let button = super.standardWindowButton(b)
+        button?.isHidden = true
+        return button
+    }
+    
+    public override var titleVisibility: NSWindow.TitleVisibility{get{return .hidden} set{}}
+    
+    public override var titlebarAppearsTransparent: Bool{get{return true} set{}}
 }

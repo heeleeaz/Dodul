@@ -172,7 +172,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" customClass="MainWindowViewController" customModule="TouchletMenu" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" customClass="MainWindow" customModule="TouchletMenu" customModuleProvider="target">
                         <windowPositionMask key="initialPositionMask" bottomStrut="YES"/>
                         <rect key="contentRect" x="585" y="150" width="500" height="300"/>
@@ -317,8 +317,7 @@
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="changeKeybind:" target="XfG-lQ-9wD" id="UnZ-2c-oXx"/>
-                                                    <segue destination="sX3-o1-y6E" kind="show" id="Mzr-yg-cNe"/>
+                                                    <action selector="launcherKeyChangeButtonTapped:" target="XfG-lQ-9wD" id="9lb-gO-X8F"/>
                                                 </connections>
                                             </button>
                                             <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKV-xa-xEB" customClass="KeybindTagView" customModule="TouchletMenu" customModuleProvider="target">
@@ -352,31 +351,28 @@
                                     <constraint firstAttribute="height" constant="583" id="vO6-nX-yKI"/>
                                 </constraints>
                             </customView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xbb-nn-fkf">
-                                <rect key="frame" x="1262" y="1261" width="36" height="30"/>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="xbb-nn-fkf" customClass="RoundedRectButton" customModule="TouchletCore">
+                                <rect key="frame" x="1264" y="1253" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="46d-eQ-bbD"/>
+                                    <constraint firstAttribute="height" constant="35" id="46d-eQ-bbD"/>
                                     <constraint firstAttribute="width" constant="36" id="Dl5-We-u2T"/>
                                 </constraints>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="InformationIcon" imagePosition="only" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyUpOrDown" inset="2" id="zVZ-FF-tyb">
+                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="InformationIcon" imagePosition="only" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyUpOrDown" inset="2" id="zVZ-FF-tyb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="_backgroundColor">
-                                        <color key="value" red="1" green="0.49143407410000001" blue="0.39896009449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="hightlightColor">
+                                        <color key="value" name="TouchBarButtonBackgroundColor"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="dMK-MW-RVV" secondAttribute="bottom" constant="120" id="5YI-5Z-Bx2"/>
-                            <constraint firstItem="xbb-nn-fkf" firstAttribute="top" secondItem="IQN-7z-XBS" secondAttribute="top" constant="28" id="6XV-MR-5k7"/>
+                            <constraint firstItem="xbb-nn-fkf" firstAttribute="top" secondItem="IQN-7z-XBS" secondAttribute="top" constant="27" id="6XV-MR-5k7"/>
                             <constraint firstItem="dMK-MW-RVV" firstAttribute="leading" secondItem="IQN-7z-XBS" secondAttribute="leading" constant="50" id="GcW-mb-8TY"/>
-                            <constraint firstAttribute="trailing" secondItem="xbb-nn-fkf" secondAttribute="trailing" constant="42" id="Z2x-DO-wQF"/>
+                            <constraint firstAttribute="trailing" secondItem="xbb-nn-fkf" secondAttribute="trailing" constant="38" id="Z2x-DO-wQF"/>
                             <constraint firstAttribute="trailing" secondItem="dMK-MW-RVV" secondAttribute="trailing" constant="50" id="swI-0z-9if"/>
                         </constraints>
                     </customView>
@@ -387,14 +383,6 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-40" y="1278"/>
-        </scene>
-        <!--Preferences-->
-        <scene sceneID="XxN-p0-mNm">
-            <objects>
-                <controllerPlaceholder storyboardName="Preferences" id="sX3-o1-y6E" sceneMemberID="viewController"/>
-                <customObject id="g68-6Q-0ql" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="111" y="2116"/>
         </scene>
         <!--HomeItemViewController-->
         <scene sceneID="cMD-sp-umU">
@@ -413,6 +401,9 @@
         </namedColor>
         <namedColor name="HomeBackgroundColor">
             <color red="0.20200000703334808" green="0.20200000703334808" blue="0.20200000703334808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="TouchBarButtonBackgroundColor">
+            <color red="0.2669999897480011" green="0.2669999897480011" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

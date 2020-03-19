@@ -37,8 +37,8 @@ class ButtonCollectionViewItem: NSCollectionViewItem {
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([button.centerYAnchor.constraint(equalTo: container.centerYAnchor),
                                      button.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-                                     button.widthAnchor.constraint(greaterThanOrEqualToConstant: 24),
-                                     button.heightAnchor.constraint(equalToConstant: 24)])
+                                     button.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
+                                     button.heightAnchor.constraint(equalToConstant: 20)])
     }
     
     override func viewDidAppear() {
