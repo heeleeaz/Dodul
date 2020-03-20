@@ -40,13 +40,14 @@ class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
     }
     
     private func showAddBookmarkController(_ link: Link?, anchor: NSView){
-        let addLinkController = AddLinkViewController.createFromNib()
-        addLinkController?.prefillLink = link
-        addLinkController!.delegate = self
-        self.presentAsTooltop(addLinkController!, anchor: anchor)
+        if let controller = AddLinkViewController.createFromNib(){
+            controller.prefillLink = link
+            controller.delegate = self
+            presentAsTooltop(controller, anchor: anchor)
+        }
     }
     
-    override func itemAtPosition(at index: Int) -> TouchBarItem? {
+    override func touchBarItem(at index: Int) -> TouchBarItem? {
         return TouchBarItem(identifier: links[index].url.absoluteString, type: .Web)
     }
     

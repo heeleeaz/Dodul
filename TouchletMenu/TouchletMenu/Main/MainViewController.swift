@@ -29,12 +29,13 @@ class MainViewController: EditableTouchBarController {
         
         updateKeybindPresentationView()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(windowWillClosedNotification), name: NSWindow.willCloseNotification, object: nil)        
+        NotificationCenter.default.addObserver(self, selector: #selector(windowWillClosedNotification), name: NSWindow.willCloseNotification, object: nil)
     }
-    
+
     @objc func windowWillClosedNotification(notification: NSNotification){
         if notification.object is PreferencesWindow{
             updateKeybindPresentationView()
+            DistributedNotificationCenter.default().postNotificationName(.hotKeySetup, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
         }
     }
     
@@ -51,8 +52,6 @@ class MainViewController: EditableTouchBarController {
         commitTouchBarEditing()
         
         DistributedNotificationCenter.default().postNotificationName(.touchItemReload, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
-        
-        DistributedNotificationCenter.default().postNotificationName(.hotKeySetup, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
         terminateApp(self)
     }
     

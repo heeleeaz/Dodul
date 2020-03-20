@@ -9,7 +9,7 @@
 import Foundation
 
 public struct GlobalKeybindPreferencesStore{
-    static let KEYCODE_CACHE_KEY = "HotKey_2"
+    static let KEYCODE_CACHE_KEY = "HotKey_3"
     
     public static func save(keyBind: GlobalKeybindPreferences){
         let cache = (try? Cache.loadFromDisk(withName: KEYCODE_CACHE_KEY)) ?? Cache<String, GlobalKeybindPreferences>()

@@ -79,7 +79,7 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
         collectionView.dataSource = self
     }
     
-    override func itemAtPosition(at index: Int) -> TouchBarItem? {
+    override func touchBarItem(at index: Int) -> TouchBarItem? {
         return TouchBarItem(identifier: spotlightItem[index].bundleIdentifier, type: .App)
     }
 }

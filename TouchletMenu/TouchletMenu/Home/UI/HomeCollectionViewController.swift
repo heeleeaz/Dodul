@@ -14,7 +14,7 @@ class HomeCollectionViewController: NSViewController{
 
     var indexPathsOfItemsBeingDragged: IndexPath?
     
-    func itemAtPosition(at index: Int) -> TouchBarItem? {return nil}
+    func touchBarItem(at index: Int) -> TouchBarItem? {return nil}
     
     public weak var delegate: HomeItemViewControllerDelegate?
     
@@ -34,18 +34,18 @@ extension HomeCollectionViewController: NSCollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt index: Int) -> NSPasteboardWriting? {
-        return itemAtPosition(at: index)?.identifier as NSPasteboardWriting?
+        return touchBarItem(at: index)?.identifier as NSPasteboardWriting?
     }
     
     func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexPaths: Set<IndexPath>) {
         indexPathsOfItemsBeingDragged = indexPaths.first
         
-        CollectionItemDragObserver.instance.beginDrag(object: itemAtPosition(at: (indexPathsOfItemsBeingDragged?.item)!))
+        CollectionItemDragObserver.instance.beginDrag(object: touchBarItem(at: (indexPathsOfItemsBeingDragged?.item)!))
     }
     
     func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, dragOperation operation: NSDragOperation) {
         if let index = indexPathsOfItemsBeingDragged?.item{
-            CollectionItemDragObserver.instance.endDrag(object: itemAtPosition(at: index))
+            CollectionItemDragObserver.instance.endDrag(object: touchBarItem(at: index))
         }
     }
 }
