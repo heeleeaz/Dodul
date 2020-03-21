@@ -33,17 +33,17 @@ class MainViewController: EditableTouchBarController {
     }
 
     @objc func windowWillClosedNotification(notification: NSNotification){
-        if notification.object is PreferencesWindow{
+        if notification.object is KeybindPreferenceWindow{
             updateKeybindPresentationView()
             DistributedNotificationCenter.default().postNotificationName(.hotKeySetup, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
         }
     }
     
     private func updateKeybindPresentationView(){
-        keybindTagView.removeAllTags()
+        keybindTagView.removeAll()
         if let keybind = GlobalKeybindPreferencesStore.fetch(){
             for s in keybind.description.split(separator: "-"){
-                keybindTagView.addTagItem(String(s), isEditing: false)
+                keybindTagView.addTag(String(s), isEditing: false)
             }
         }
     }
@@ -63,7 +63,7 @@ class MainViewController: EditableTouchBarController {
     }
     
     @IBAction func launcherKeyChangeButtonTapped(_ sender: Any) {
-        PreferencesViewController.presentAsWindowKeyAndOrderFront(nil)
+        KeybindPreferenceViewController.presentAsWindowKeyAndOrderFront(nil)
     }
     
     deinit {

@@ -30,11 +30,11 @@ class KeybindTagView: NSStackView{
         NSLayoutConstraint.activate([widthAnchor.constraint(greaterThanOrEqualToConstant: 50)])
     }
     
-    func removeAllTags(){
+    func removeAll(){
         self.arrangedSubviews.forEach { $0.removeFromSuperview() }
     }
     
-    func addTagItem(_ title: String, isEditing: Bool){
+    func addTag(_ title: String, isEditing: Bool){
         addArrangedSubview(KeybindTagViewItem(title: title, isEditing: isEditing))
     }
 }
