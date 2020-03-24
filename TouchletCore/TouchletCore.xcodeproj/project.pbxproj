@@ -44,6 +44,7 @@
 		92ACEAFB2412A6B6009994EB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA662412A21F009994EB /* Utility.swift */; };
 		92ACEAFC2412A6BA009994EB /* EditableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA682412A21F009994EB /* EditableTextField.swift */; };
 		92ACEAFD2412A6BA009994EB /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA692412A21F009994EB /* NibLoadable.swift */; };
+		92C85C91242905F200002173 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C85C90242905F200002173 /* NetworkRequest.swift */; };
 		92EE135424234D36001513A8 /* RoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE135324234D36001513A8 /* RoundedRectButton.swift */; };
 		92EE41C22412BB9700987DDE /* ContentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE41B72412BB9700987DDE /* ContentTypes.swift */; };
 		92EE41C32412BB9700987DDE /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE41B82412BB9700987DDE /* Icon.swift */; };
@@ -104,6 +105,7 @@
 		92ACEA8E2412A220009994EB /* SpotlightWhitelist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpotlightWhitelist.json; sourceTree = "<group>"; };
 		92ACEA8F2412A220009994EB /* SpotlightResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightResult.swift; sourceTree = "<group>"; };
 		92ACEA902412A220009994EB /* SpotlightRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightRepository.swift; sourceTree = "<group>"; };
+		92C85C90242905F200002173 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		92EE135324234D36001513A8 /* RoundedRectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
 		92EE41B72412BB9700987DDE /* ContentTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTypes.swift; sourceTree = "<group>"; };
 		92EE41B82412BB9700987DDE /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 		92ACEA592412A214009994EB /* TouchletCore */ = {
 			isa = PBXGroup;
 			children = (
+				92C85C8F242905DE00002173 /* Network */,
 				92EE41B52412BB9700987DDE /* Modules */,
 				92ACEA792412A21F009994EB /* Extension */,
 				92ACEA872412A21F009994EB /* Favicon */,
@@ -305,6 +308,14 @@
 				92ACEA902412A220009994EB /* SpotlightRepository.swift */,
 			);
 			path = Spotlight;
+			sourceTree = "<group>";
+		};
+		92C85C8F242905DE00002173 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				92C85C90242905F200002173 /* NetworkRequest.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		92EE41B52412BB9700987DDE /* Modules */ = {
@@ -479,6 +490,7 @@
 				92ACEAF32412A6A8009994EB /* TouchBarCollectionViewItem.swift in Sources */,
 				92ACEAE32412A670009994EB /* NSCursorHelper.swift in Sources */,
 				92ACEAF82412A6B0009994EB /* TouchBarItemUserDefault.swift in Sources */,
+				92C85C91242905F200002173 /* NetworkRequest.swift in Sources */,
 				92ACEAED2412A689009994EB /* PersistentContainer.swift in Sources */,
 				92EE41C42412BB9700987DDE /* IconType.swift in Sources */,
 				92ACEAF22412A6A8009994EB /* CollectionItemDragObserver.swift in Sources */,

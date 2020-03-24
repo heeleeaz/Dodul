@@ -33,6 +33,7 @@
 		92BAFB682424F438008BC2B5 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAFB672424F438008BC2B5 /* PreferencesViewController.swift */; };
 		92BAFB7B24251084008BC2B5 /* SourceSansPro-Light.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92BAFB7324250BD7008BC2B5 /* SourceSansPro-Light.ttf */; };
 		92BAFB7C24251084008BC2B5 /* SourceSansPro-Regular.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92BAFB7424250BD7008BC2B5 /* SourceSansPro-Regular.ttf */; };
+		92C85C9224290A1300002173 /* VersionUpdateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C85C8D2429039C00002173 /* VersionUpdateAPI.swift */; };
 		92E16C762403D60E00511EE1 /* KeybindPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16C752403D60E00511EE1 /* KeybindPreferenceViewController.swift */; };
 		92EE13562423A323001513A8 /* KeybindPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EE13552423A323001513A8 /* KeybindPreferenceViewController.xib */; };
 		92FE9B2223D0718100FA6AC6 /* HomeCollectionItemsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */; };
@@ -102,6 +103,7 @@
 		92BAFB672424F438008BC2B5 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		92BAFB7324250BD7008BC2B5 /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
 		92BAFB7424250BD7008BC2B5 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
+		92C85C8D2429039C00002173 /* VersionUpdateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionUpdateAPI.swift; sourceTree = "<group>"; };
 		92E16C752403D60E00511EE1 /* KeybindPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindPreferenceViewController.swift; sourceTree = "<group>"; };
 		92EE13552423A323001513A8 /* KeybindPreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeybindPreferenceViewController.xib; sourceTree = "<group>"; };
 		92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionItemsUtil.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 		92BAFB642424F220008BC2B5 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				92C85C8C2429037D00002173 /* API */,
 				92D98A7B240439740072F68F /* KeybindPreferences */,
 				92BAFB652424F2DE008BC2B5 /* Preferences.storyboard */,
 				92BAFB672424F438008BC2B5 /* PreferencesViewController.swift */,
@@ -317,6 +320,14 @@
 				92BAFB6C2425064D008BC2B5 /* Fonts */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		92C85C8C2429037D00002173 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				92C85C8D2429039C00002173 /* VersionUpdateAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		92D98A7B240439740072F68F /* KeybindPreferences */ = {
@@ -436,6 +447,7 @@
 				92FE9B2523D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift in Sources */,
 				92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */,
 				92E16C762403D60E00511EE1 /* KeybindPreferenceViewController.swift in Sources */,
+				92C85C9224290A1300002173 /* VersionUpdateAPI.swift in Sources */,
 				92FE9B2223D0718100FA6AC6 /* HomeCollectionItemsUtil.swift in Sources */,
 				925A245723C8D811002BB85F /* BookmarkStore.swift in Sources */,
 				925A241523C7378B002BB85F /* BookmarkRepository.swift in Sources */,
