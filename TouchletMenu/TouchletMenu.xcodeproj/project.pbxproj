@@ -17,6 +17,7 @@
 		925A245923C8D88C002BB85F /* BookmarkUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245823C8D88C002BB85F /* BookmarkUserDefaults.swift */; };
 		925A245E23C8DB80002BB85F /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245D23C8DB80002BB85F /* Link.swift */; };
 		925F8C112406C0E3008CC1DE /* KeybindTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925F8C102406C0E3008CC1DE /* KeybindTagView.swift */; };
+		927C62FB2430A33200B03CF2 /* UpdateService.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 927C62F724309BC300B03CF2 /* UpdateService.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9283108023CA773200B115D1 /* LinkCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */; };
 		9283108423CA78D700B115D1 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283108323CA78D700B115D1 /* BookmarkViewController.swift */; };
 		92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92861C922406DD34001B8EFD /* AddLinkViewController.swift */; };
@@ -41,7 +42,27 @@
 		EC7029672429010EF3346662 /* libPods-TouchletMenu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F89230C0431EAE8B7888EAEC /* libPods-TouchletMenu.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		927C62F624309BC300B03CF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 927C62F224309BC200B03CF2 /* UpdateService.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 927C62DF24309BC000B03CF2;
+			remoteInfo = UpdateService;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		927C62FA2430A31000B03CF2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/UpdateService;
+			dstSubfolderSpec = 1;
+			files = (
+				927C62FB2430A33200B03CF2 /* UpdateService.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92ACE8E7240FB7EA009994EB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -85,6 +106,7 @@
 		925A245823C8D88C002BB85F /* BookmarkUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkUserDefaults.swift; sourceTree = "<group>"; };
 		925A245D23C8DB80002BB85F /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		925F8C102406C0E3008CC1DE /* KeybindTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindTagView.swift; sourceTree = "<group>"; };
+		927C62F224309BC200B03CF2 /* UpdateService.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UpdateService.xcodeproj; path = UpdateService/UpdateService.xcodeproj; sourceTree = "<group>"; };
 		9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCollectionViewItem.swift; sourceTree = "<group>"; };
 		9283108323CA78D700B115D1 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		92861C922406DD34001B8EFD /* AddLinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLinkViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +208,14 @@
 			path = Bookmarks;
 			sourceTree = "<group>";
 		};
+		927C62F324309BC200B03CF2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				927C62F724309BC300B03CF2 /* UpdateService.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9283108223CA773A00B115D1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +238,7 @@
 		92A1B2E923C4AA2100D7BEF1 = {
 			isa = PBXGroup;
 			children = (
+				927C62F224309BC200B03CF2 /* UpdateService.xcodeproj */,
 				92A1B2F423C4AA2100D7BEF1 /* TouchletMenu */,
 				92A1B2F323C4AA2100D7BEF1 /* Products */,
 				925A243623C76205002BB85F /* Frameworks */,
@@ -353,6 +384,7 @@
 				92A1B2F023C4AA2100D7BEF1 /* Resources */,
 				92ACE8E7240FB7EA009994EB /* Embed Frameworks */,
 				92BAFB7A24251060008BC2B5 /* CopyFiles */,
+				927C62FA2430A31000B03CF2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -389,12 +421,28 @@
 			mainGroup = 92A1B2E923C4AA2100D7BEF1;
 			productRefGroup = 92A1B2F323C4AA2100D7BEF1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 927C62F324309BC200B03CF2 /* Products */;
+					ProjectRef = 927C62F224309BC200B03CF2 /* UpdateService.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				92A1B2F123C4AA2100D7BEF1 /* TouchletMenu */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		927C62F724309BC300B03CF2 /* UpdateService.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = UpdateService.app;
+			remoteRef = 927C62F624309BC300B03CF2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		92A1B2F023C4AA2100D7BEF1 /* Resources */ = {

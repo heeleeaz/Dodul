@@ -22,35 +22,3 @@ class VersionUpdateAPI{
         }
     }
 }
-
-
-class VersionDownloadRequestAPI: NSObject, URLSessionDownloadDelegate{
-    func downloadAppFile(fileURL: URL){
-        let config = URLSessionConfiguration.background(withIdentifier: "AppDownload")
-        
-        let session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
-        let backgroundTask = session.downloadTask(with: fileURL)
-        backgroundTask.resume()
-    }
-    
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-    }
-    
-    
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        do{
-            let documentsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            let savedURL = documentsURL.appendingPathComponent(location.lastPathComponent)
-            try FileManager.default.moveItem(at: location, to: savedURL)
-        }catch{
-            
-        }
-    }
-    
-    
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        
-    }
-    
-    
-}
