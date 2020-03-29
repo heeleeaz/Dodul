@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		920BA47C242237F700256CF1 /* CollectionViewTouchBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920BA47B242237F700256CF1 /* CollectionViewTouchBarItem.swift */; };
 		920BA47E2422492D00256CF1 /* EmptyTouchBarItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920BA47D2422492C00256CF1 /* EmptyTouchBarItemInfoView.swift */; };
+		927C63202430E29200B03CF2 /* ProjectBundleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C631E2430E28000B03CF2 /* ProjectBundleConstant.swift */; };
+		927C63212430E29500B03CF2 /* ProjectBundleResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C631D2430E28000B03CF2 /* ProjectBundleResolver.swift */; };
+		927C63382430E5F200B03CF2 /* DownloaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C63372430E5F100B03CF2 /* DownloaderService.swift */; };
 		92ACEA5C2412A214009994EB /* TouchletCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 92ACEA5A2412A214009994EB /* TouchletCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92ACEADA2412A670009994EB /* NSDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA6F2412A21F009994EB /* NSDataExtension.swift */; };
 		92ACEADB2412A670009994EB /* NSViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA702412A21F009994EB /* NSViewControllerExtension.swift */; };
@@ -67,6 +70,9 @@
 		66C3777A2CA501A6338AD975 /* libPods-TouchletCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TouchletCore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		920BA47B242237F700256CF1 /* CollectionViewTouchBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTouchBarItem.swift; sourceTree = "<group>"; };
 		920BA47D2422492C00256CF1 /* EmptyTouchBarItemInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTouchBarItemInfoView.swift; sourceTree = "<group>"; };
+		927C631D2430E28000B03CF2 /* ProjectBundleResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectBundleResolver.swift; sourceTree = "<group>"; };
+		927C631E2430E28000B03CF2 /* ProjectBundleConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectBundleConstant.swift; sourceTree = "<group>"; };
+		927C63372430E5F100B03CF2 /* DownloaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloaderService.swift; sourceTree = "<group>"; };
 		92ACEA572412A214009994EB /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92ACEA5A2412A214009994EB /* TouchletCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchletCore.h; sourceTree = "<group>"; };
 		92ACEA5B2412A214009994EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,6 +142,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		927C631F2430E28000B03CF2 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				92ACEA852412A21F009994EB /* global.swift */,
+				927C631D2430E28000B03CF2 /* ProjectBundleResolver.swift */,
+				927C631E2430E28000B03CF2 /* ProjectBundleConstant.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
 		92ACEA4D2412A214009994EB = {
 			isa = PBXGroup;
 			children = (
@@ -157,11 +173,11 @@
 		92ACEA592412A214009994EB /* TouchletCore */ = {
 			isa = PBXGroup;
 			children = (
+				927C631F2430E28000B03CF2 /* Project */,
 				92C85C8F242905DE00002173 /* Network */,
 				92EE41B52412BB9700987DDE /* Modules */,
 				92ACEA792412A21F009994EB /* Extension */,
 				92ACEA872412A21F009994EB /* Favicon */,
-				92ACEA852412A21F009994EB /* global.swift */,
 				92ACEA6E2412A21F009994EB /* Keybind */,
 				92ACEA912412A220009994EB /* Spotlight */,
 				92ACEA8C2412A21F009994EB /* Storage */,
@@ -313,6 +329,7 @@
 		92C85C8F242905DE00002173 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				927C63372430E5F100B03CF2 /* DownloaderService.swift */,
 				92C85C90242905F200002173 /* NetworkRequest.swift */,
 			);
 			path = Network;
@@ -488,12 +505,14 @@
 				92ACEAEF2412A68E009994EB /* Cache.swift in Sources */,
 				92ACEAE92412A683009994EB /* SpotlightItem.swift in Sources */,
 				92ACEAF32412A6A8009994EB /* TouchBarCollectionViewItem.swift in Sources */,
+				927C63212430E29500B03CF2 /* ProjectBundleResolver.swift in Sources */,
 				92ACEAE32412A670009994EB /* NSCursorHelper.swift in Sources */,
 				92ACEAF82412A6B0009994EB /* TouchBarItemUserDefault.swift in Sources */,
 				92C85C91242905F200002173 /* NetworkRequest.swift in Sources */,
 				92ACEAED2412A689009994EB /* PersistentContainer.swift in Sources */,
 				92EE41C42412BB9700987DDE /* IconType.swift in Sources */,
 				92ACEAF22412A6A8009994EB /* CollectionItemDragObserver.swift in Sources */,
+				927C63202430E29200B03CF2 /* ProjectBundleConstant.swift in Sources */,
 				92ACEAE52412A678009994EB /* FaviconProvider.swift in Sources */,
 				92ACEAF72412A6B0009994EB /* TouchBarItemFileStorage.swift in Sources */,
 				92ACEAEE2412A689009994EB /* DataController.swift in Sources */,
@@ -501,6 +520,7 @@
 				92ACEAE72412A67E009994EB /* GlobalKeybindPreferences.swift in Sources */,
 				92EE41C92412BB9700987DDE /* XML.swift in Sources */,
 				92ACEADD2412A670009994EB /* NSViewExtension.swift in Sources */,
+				927C63382430E5F200B03CF2 /* DownloaderService.swift in Sources */,
 				92ACEAFA2412A6B6009994EB /* FileLoader.swift in Sources */,
 				92ACEAE82412A67E009994EB /* GlobalKeybindPreferencesStore.swift in Sources */,
 				92ACEAE02412A670009994EB /* NSColorExtension.swift in Sources */,

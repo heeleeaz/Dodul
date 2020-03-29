@@ -9,7 +9,7 @@
 import Foundation
 import TouchletCore
 
-class VersionUpdateAPI{
+class UpdateAPI{
     func requestVersion(_ completionHandler: @escaping (String?, Error?)->()){
         let request = NetworkRequest()
         request.setURL(url: "https://us-central1-touchlet-11807.cloudfunctions.net/lastestVersion")
@@ -21,4 +21,13 @@ class VersionUpdateAPI{
             }
         }
     }
+}
+
+struct VersionInfo: Codable {
+    var version: String?
+    var releaseNote: String?
+    var releaseDate: String?
+    var state: String?
+    var downloadLink: String?
+    var buildVersion: String?
 }

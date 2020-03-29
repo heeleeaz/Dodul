@@ -26,10 +26,4 @@ public struct Global {
     }()
 }
 
-extension Notification.Name{
-    public static let hotKeySetup = NSNotification.Name("HOTKEY_SETUP")
-    public static let touchItemReload = Notification.Name("refreshTouchItem")
-
-}
-
 public let menuAppBundleIdentifier = "com.heeleeaz.touchlet.TouchletMenu"

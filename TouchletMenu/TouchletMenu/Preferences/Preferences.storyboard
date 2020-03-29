@@ -32,11 +32,11 @@
             <objects>
                 <viewController title="About" id="DKi-0O-b35" customClass="AboutPreferenceViewController" customModule="TouchletMenu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="I1V-Gq-1U1">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="174"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="176"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="om5-TG-Kbj">
-                                <rect key="frame" x="176" y="142" width="99" height="24"/>
+                                <rect key="frame" x="176" y="144" width="99" height="24"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="App Name" id="H2x-mu-glI">
                                     <font key="font" metaFont="systemLight" size="21"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -44,7 +44,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zzd-aP-V0K">
-                                <rect key="frame" x="203" y="122" width="44" height="16"/>
+                                <rect key="frame" x="203" y="124" width="44" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="x5r-ce-7Rr"/>
                                 </constraints>
@@ -65,32 +65,30 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jac-z8-lFQ">
-                                <rect key="frame" x="153" y="70" width="145" height="32"/>
-                                <buttonCell key="cell" type="push" title="Check for update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pRk-Ip-u0B">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="checkUpdateTapped:" target="DKi-0O-b35" id="ufJ-k8-SYJ"/>
-                                </connections>
-                            </button>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="Rc7-zK-9W8">
+                                <rect key="frame" x="10" y="69" width="430" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="5F4-ii-ZLQ"/>
+                                </constraints>
+                            </containerView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="jac-z8-lFQ" firstAttribute="top" secondItem="Zzd-aP-V0K" secondAttribute="bottom" constant="24" id="0TS-3k-xcb"/>
                             <constraint firstItem="Zzd-aP-V0K" firstAttribute="top" secondItem="om5-TG-Kbj" secondAttribute="bottom" constant="4" id="4oi-96-cyQ"/>
                             <constraint firstItem="om5-TG-Kbj" firstAttribute="centerX" secondItem="I1V-Gq-1U1" secondAttribute="centerX" id="5Il-MM-Qjh"/>
+                            <constraint firstItem="Rc7-zK-9W8" firstAttribute="top" secondItem="Zzd-aP-V0K" secondAttribute="bottom" constant="20" id="BQo-7x-BlE"/>
                             <constraint firstAttribute="bottom" secondItem="dgc-pM-qSw" secondAttribute="bottom" constant="8" id="LR7-Sv-zQr"/>
                             <constraint firstItem="om5-TG-Kbj" firstAttribute="top" secondItem="I1V-Gq-1U1" secondAttribute="top" constant="8" id="XL2-Uc-xRP"/>
+                            <constraint firstAttribute="trailing" secondItem="Rc7-zK-9W8" secondAttribute="trailing" constant="10" id="cNl-3Q-dgO"/>
                             <constraint firstItem="Zzd-aP-V0K" firstAttribute="centerX" secondItem="I1V-Gq-1U1" secondAttribute="centerX" id="fyG-J3-cL3"/>
-                            <constraint firstItem="jac-z8-lFQ" firstAttribute="centerX" secondItem="I1V-Gq-1U1" secondAttribute="centerX" id="gD8-pD-xfA"/>
                             <constraint firstItem="dgc-pM-qSw" firstAttribute="centerX" secondItem="I1V-Gq-1U1" secondAttribute="centerX" id="tUu-VS-8uD"/>
+                            <constraint firstItem="Rc7-zK-9W8" firstAttribute="leading" secondItem="I1V-Gq-1U1" secondAttribute="leading" constant="10" id="wNe-x9-Kfq"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="appNameLabel" destination="om5-TG-Kbj" id="vGk-Vf-1J2"/>
                         <outlet property="appVersionLabel" destination="Zzd-aP-V0K" id="LBu-Dc-eYO"/>
                         <outlet property="copyrightLabel" destination="dgc-pM-qSw" id="rIW-cN-K1m"/>
+                        <outlet property="updateViewContainer" destination="Rc7-zK-9W8" id="hjs-Qt-BGI"/>
                     </connections>
                 </viewController>
                 <customObject id="HKu-FJ-VwR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

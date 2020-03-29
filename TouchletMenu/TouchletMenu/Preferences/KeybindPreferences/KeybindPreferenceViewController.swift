@@ -93,15 +93,13 @@ class KeybindPreferenceViewController: NSViewController, NibLoadable {
 
 extension KeybindPreferenceViewController{
     public static func presentAsWindowKeyAndOrderFront(_ sender: Any?){
-        if let controller = KeybindPreferenceViewController.createFromNib(){
-            let window = KeybindPreferenceWindow(contentViewController: controller)
-            
-            if let screenSize = NSScreen.main?.frame.size{
-                window.setFrameOrigin(NSPoint.center(a: screenSize, b: window.frame.size))
-            }
-            
-            window.makeKeyAndOrderFront(sender)
+        let window = KeybindPreferenceWindow(contentViewController: createFromNib()!)
+        
+        if let screenSize = NSScreen.main?.frame.size{
+            window.setFrameOrigin(NSPoint.center(a: screenSize, b: window.frame.size))
         }
+        
+        window.makeKeyAndOrderFront(sender)
     }
 }
 

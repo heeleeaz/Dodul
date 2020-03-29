@@ -4,9 +4,11 @@
 
 workspace 'Touchlet'
 
-project 'TouchletMenu/TouchletMenu.xcodeproj'
-project 'TouchletPanel/TouchletPanel.xcodeproj'
 project 'TouchletCore/TouchletCore.xcodeproj'
+project 'TouchletMenu/TouchletMenu.xcodeproj'
+project 'TouchletMenu/UpdateService/UpdateService.xcodeproj'
+project 'TouchletPanel/TouchletPanel.xcodeproj'
+
 
 
 def global_pod
@@ -24,6 +26,11 @@ end
 
 target 'TouchletPanel' do
   project 'TouchletPanel/TouchletPanel.xcodeproj'
+  global_pod
+end
+
+target 'UpdateService' do
+  project 'TouchletMenu/UpdateService/UpdateService.xcodeproj'
   global_pod
 end
 
