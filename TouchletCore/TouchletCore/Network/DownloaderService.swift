@@ -15,12 +15,24 @@ public class DownloaderService: NSObject{
     public var downloadTask: URLSessionDownloadTask?
     public var downloadedFilePath: URL?
     
+    var session: URLSession?
+    
     public func downloadFile(fileURL: URL){
-        let config = URLSessionConfiguration.background(withIdentifier: "AppDownload")
-        
-        let session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
-        downloadTask = session.downloadTask(with: fileURL)
+        downloadTask = session?.downloadTask(with: fileURL)
         downloadTask?.resume()
+    }
+    
+    public func findTask(with url: URL, completionHandler: @escaping (URLSessionTask?)->()){
+        session?.getAllTasks(completionHandler: { (tasks) in
+            completionHandler(tasks.first{$0.originalRequest?.url == url})
+        })
+    }
+    
+    public override init() {
+        super.init()
+
+        let config = URLSessionConfiguration.background(withIdentifier: "AppDownload")
+        session = URLSession(configuration: config, delegate: self, delegateQueue: OperationQueue())
     }
     
     public func cancelDownload(){downloadTask?.cancel()}

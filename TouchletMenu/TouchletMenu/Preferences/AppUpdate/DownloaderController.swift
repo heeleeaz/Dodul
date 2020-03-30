@@ -17,8 +17,15 @@ class DownloaderController: NSViewController, NibLoadable{
     @IBOutlet weak var continueInBackgroundButton: NSButton!
     
     func beginDownload(fileURL: URL){
-        downloadService.downloadFile(fileURL: fileURL)
-        downloadService.delegate = self
+        //check if the file is not already in the download queue. if it is not,
+        //then proceed to download. the delegate is set in either cases so as to
+        //receive progress.
+        downloadService.findTask(with: fileURL) {
+            if $0 == nil{self.downloadService.downloadFile(fileURL: fileURL)}
+        }
+        
+        self.downloadService.delegate = self
+        if isViewLoaded{progressLabel.stringValue = "Preparing to download"}
     }
     
     @IBAction func continueInBackgroundClicked(_ sender: NSButton) {
@@ -27,12 +34,13 @@ class DownloaderController: NSViewController, NibLoadable{
         switch downloadTask.state {
         case .running:
             try? ProjectBundleResolver.instance.launch(project: .updateService)
+            view.window?.close()
         case .completed:
             do{
                 try NSWorkspace.shared.open(downloadService.downloadedFilePath!, options: .default, configuration: [:])
                 ProjectBundleResolver.instance.terminateAppWithAllSubProject()
             }catch{
-                Logger.log(text: error.localizedDescription)
+                Logger.log(items: "Error: \(error.localizedDescription)")
             }
         default: break
         }
@@ -40,6 +48,22 @@ class DownloaderController: NSViewController, NibLoadable{
 }
 
 extension DownloaderController: DownloaderServiceDelegate{
+    func downloadService(downloadService: DownloaderService, didFinishDownloadingTo location: URL) {
+        DispatchQueue.main.async {
+            self.progressLabel.stringValue = "Download completed"
+            self.continueInBackgroundButton.title = "Install update now"
+        }
+    }
+    
+    func downloadService(downloadService: DownloaderService, didCompleteWithError error: Error?) {
+        if let error = error{
+            progressLabel.textColor = .red
+            progressLabel.stringValue = error.localizedDescription
+            
+            Logger.log(items: "Error: \(error.localizedDescription)")
+        }
+    }
+    
     func downloadService(downloadService: DownloaderService, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         DispatchQueue.main.async {
             self.progressIndicator.maxValue = Double(totalBytesExpectedToWrite)
@@ -49,17 +73,6 @@ extension DownloaderController: DownloaderServiceDelegate{
             let totalBytesExpectedToWriteString = ByteCountFormatter.string(fromByteCount: totalBytesExpectedToWrite, countStyle: .file)
             self.progressLabel.stringValue = "Downloaded \(totalBytesWrittenString) of \(totalBytesExpectedToWriteString)"
         }
-    }
-    
-    func downloadService(downloadService: DownloaderService, didFinishDownloadingTo location: URL) {
-        DispatchQueue.main.async {
-            self.progressLabel.stringValue = "Download completed"
-            self.continueInBackgroundButton.title = "Install update now"
-        }
-    }
-    
-    func downloadService(downloadService: DownloaderService, didCompleteWithError error: Error?) {
-        print("download error \(error)")
     }
 }
 

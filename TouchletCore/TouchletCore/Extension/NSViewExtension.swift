@@ -147,6 +147,10 @@ extension NSView{
     }
 }
 
+extension NSView{
+    public var undermostWindowView: NSView? {NSApp.windows.first?.contentView}
+}
+
 extension NSPoint{
     public static func center(a: NSSize, b: NSSize) -> NSPoint{
         return NSPoint(x: a.width/2 - b.width/2, y: a.height/2 - b.height/2)

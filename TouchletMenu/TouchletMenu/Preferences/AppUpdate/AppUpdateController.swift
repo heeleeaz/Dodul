@@ -27,37 +27,44 @@ class AppUpdateController: NSViewController{
     }
     
     @objc private func downloadButtonClicked(){
-        let api = UpdateAPI()
-        
-        self.setButtonState(.updating)
-        api.requestVersion { (data, error) in
+        self.setButtonDownloadState(.updating)
+        UpdateAPI().requestVersion { (data, error) in
             guard
                 let data = data?.data(using: .utf8),
                 let versionInfo = try? JSONDecoder().decode(VersionInfo.self, from: data),
                 let serverBundleVersion = Int(versionInfo.buildVersion ?? "-1"),
                 let fileDownloadURL = versionInfo.downloadLink,
                 let bundleVersion = Int(Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "-1") else {
-                    self.downloadButton.downloadState = .normal
+                    self.setButtonDownloadState(.normal)
+                    self.showErrorMessage("Something went wrong -:, Please try again later.")
+                    
                     Logger.log(text: "error reading or decoding data from server")
                     return
             }
             
-            if bundleVersion < serverBundleVersion{
-                self.setButtonState(.updating)
+            if serverBundleVersion > bundleVersion {
+                self.setButtonDownloadState(.normal)
                 DispatchQueue.main.async {
                     let downloader = DownloaderController.presentAsWindowKeyAndOrderFront(nil)
                     downloader.beginDownload(fileURL: URL(string: fileDownloadURL)!)
                 }
                 Logger.log(text: "update required")
             }else{
+                self.setButtonDownloadState(.updated)
                 Logger.log(text: "app is up to date")
-                self.setButtonState(.updated)
             }
         }
     }
-    
-    private func setButtonState(_ state: DownloadButton.DownloadState){
+
+    private func setButtonDownloadState(_ state: DownloadButton.DownloadState){
         DispatchQueue.main.async {self.downloadButton.downloadState = state}
+    }
+    
+    private func showErrorMessage(_ message: String){
+        DispatchQueue.main.async {
+            class ToastStyle: Style{var position: Position = .top}
+            self.view.undermostWindowView?.makeToast(message as NSString, style: ToastStyle())
+        }
     }
 }
 

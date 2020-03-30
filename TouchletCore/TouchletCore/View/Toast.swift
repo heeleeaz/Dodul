@@ -12,6 +12,7 @@ import Cocoa
 public enum Position {
     case center
     case bottom
+    case top
 }
 
 public protocol Style {
@@ -24,7 +25,7 @@ public protocol Style {
     var foregroundColor: NSColor {get}
     var fadeInOutDuration: CGFloat {get}
     var fadeInOutDelay: CGFloat {get}
-    var position: Position {get}
+    var position: Position {get set}
 }
 
 extension Style {
@@ -47,19 +48,15 @@ extension Style {
     
     public var position: Position {return .bottom}
 }
-
-public struct DefaultStyle: Style {
-    public static let shared = DefaultStyle()
-}
     
 class ToastView: NSView {
     private let message: NSString
     private let labelSize: CGSize
     private let style: Style
     
-    init(message: NSString) {
+    init(message: NSString, style: Style) {
         self.message = message
-        self.style = DefaultStyle()
+        self.style = style
         self.labelSize = message.size(with: style.fontSize)
         let size = CGSize(width: labelSize.width + style.horizontalMargin * 2,
                           height: labelSize.height + style.verticalMargin * 2)
@@ -97,6 +94,8 @@ class ToastView: NSView {
         switch style.position {
         case .bottom:
             container.position = CGRect.botttom(of: superview!)
+        case .top:
+            container.position = CGRect.top(of: superview!)
         default:
             container.position = CGRect.center(of: superview!)
         }
@@ -119,10 +118,10 @@ class ToastView: NSView {
 }
 
 extension NSView {
-    public func makeToast(_ message: NSString) {
-        let toast = ToastView(message: message)
+    public func makeToast(_ message: NSString, style: Style) {
+        let toast = ToastView(message: message, style: style)
         self.addSubview(toast)
-        hideAnimation(view: toast, style: DefaultStyle.shared)
+        hideAnimation(view: toast, style: style)
     }
 }
 
@@ -135,6 +134,11 @@ fileprivate extension CGRect {
     static func botttom(of layer: NSView) -> CGPoint {
         let parentSize = layer.frame.size
         return CGPoint(x: parentSize.width / 2, y: 60)
+    }
+    
+    static func top(of layer: NSView) -> CGPoint {
+        let parentSize = layer.frame.size
+        return CGPoint(x: parentSize.width / 2, y: parentSize.height - 60)
     }
     
     static func center(of parent: NSView) -> CGPoint {
