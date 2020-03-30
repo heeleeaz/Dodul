@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="H7S-61-SvV">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="aPP-zb-W3q">
+            <objects>
+                <windowController id="H7S-61-SvV" sceneMemberID="viewController">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="2xI-kA-FRX" customClass="PreferencesWindow" customModule="TouchletMenu" customModuleProvider="target">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <connections>
+                            <outlet property="delegate" destination="H7S-61-SvV" id="hJs-5J-IwS"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="DKi-0O-b35" kind="relationship" relationship="window.shadowedContentViewController" id="gYp-kB-k1a"/>
+                    </connections>
+                </windowController>
+                <customObject id="Nha-hx-z3a" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-120" y="-1100"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="rfV-On-Xkb">
+            <objects>
+                <viewController title="About" id="DKi-0O-b35" customClass="AboutPreferenceViewController" customModule="TouchletMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="I1V-Gq-1U1">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="176"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="om5-TG-Kbj">
+                                <rect key="frame" x="176" y="144" width="99" height="24"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="App Name" id="H2x-mu-glI">
+                                    <font key="font" metaFont="systemLight" size="21"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zzd-aP-V0K">
+                                <rect key="frame" x="203" y="124" width="44" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="x5r-ce-7Rr"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Version" id="wPG-xs-DbT">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dgc-pM-qSw">
+                                <rect key="frame" x="197" y="8" width="56" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="OVt-oo-4TB"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Copyright" id="BdP-6k-CRQ">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="Rc7-zK-9W8">
+                                <rect key="frame" x="10" y="69" width="430" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="5F4-ii-ZLQ"/>
+                                </constraints>
+                            </containerView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Zzd-aP-V0K" firstAttribute="top" secondItem="om5-TG-Kbj" secondAttribute="bottom" constant="4" id="4oi-96-cyQ"/>
+                            <constraint firstItem="om5-TG-Kbj" firstAttribute="centerX" secondItem="I1V-Gq-1U1" secondAttribute="centerX" id="5Il-MM-Qjh"/>
+                            <constraint firstItem="Rc7-zK-9W8" firstAttribute="top" secondItem="Zzd-aP-V0K" secondAttribute="bottom" constant="20" id="BQo-7x-BlE"/>
+                            <constraint firstAttribute="bottom" secondItem="dgc-pM-qSw" secondAttribute="bottom" constant="8" id="LR7-Sv-zQr"/>
+                            <constraint firstItem="om5-TG-Kbj" firstAttribute="top" secondItem="I1V-Gq-1U1" secondAttribute="top" constant="8" id="XL2-Uc-xRP"/>
+                            <constraint firstAttribute="trailing" secondItem="Rc7-zK-9W8" secondAttribute="trailing" constant="10" id="cNl-3Q-dgO"/>
+                            <constraint firstItem="Zzd-aP-V0K" firstAttribute="centerX" secondItem="I1V-Gq-1U1" secondAttribute="centerX" id="fyG-J3-cL3"/>
+                            <constraint firstItem="dgc-pM-qSw" firstAttribute="centerX" secondItem="I1V-Gq-1U1" secondAttribute="centerX" id="tUu-VS-8uD"/>
+                            <constraint firstItem="Rc7-zK-9W8" firstAttribute="leading" secondItem="I1V-Gq-1U1" secondAttribute="leading" constant="10" id="wNe-x9-Kfq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="appNameLabel" destination="om5-TG-Kbj" id="vGk-Vf-1J2"/>
+                        <outlet property="appVersionLabel" destination="Zzd-aP-V0K" id="LBu-Dc-eYO"/>
+                        <outlet property="copyrightLabel" destination="dgc-pM-qSw" id="rIW-cN-K1m"/>
+                        <outlet property="updateViewContainer" destination="Rc7-zK-9W8" id="hjs-Qt-BGI"/>
+                    </connections>
+                </viewController>
+                <customObject id="HKu-FJ-VwR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-120" y="-696"/>
+        </scene>
+    </scenes>
+</document>

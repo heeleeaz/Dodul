@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AddLinkViewController" customModule="TouchletMenu" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="COr-ZY-QHu" id="qzu-VB-KdH"/>
+                <outlet property="doneButton" destination="z7O-WM-BcQ" id="bsV-A4-uhf"/>
+                <outlet property="invalidURLTextField" destination="xqg-c1-USh" id="eek-X6-4Zg"/>
+                <outlet property="nameInputField" destination="IGa-pS-hXY" id="l3K-DJ-iZ7"/>
+                <outlet property="removeButton" destination="Qz6-lA-tGb" id="Vfe-qp-t1D"/>
+                <outlet property="urlInputField" destination="agV-b4-q4Q" id="ZbC-fY-aSr"/>
+                <outlet property="view" destination="QIB-WQ-gq3" id="xj3-KW-PCu"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="QIB-WQ-gq3">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="259"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QAr-A2-PVr">
+                    <rect key="frame" x="18" y="226" width="105" height="19"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Add Bookmark" id="Rx5-ZG-GNo">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IGa-pS-hXY" customClass="EditingTextField" customModule="TouchletCore">
+                    <rect key="frame" x="20" y="152" width="310" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="34o-rT-3QG"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="xrh-ZR-Vhz" customClass="VerticallyCenteredTextFieldCell" customModule="TouchletCore">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kZb-H8-yq9">
+                    <rect key="frame" x="18" y="190" width="37" height="15"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Name" id="w2M-DB-euf">
+                        <font key="font" metaFont="cellTitle"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agV-b4-q4Q" customClass="EditingTextField" customModule="TouchletCore">
+                    <rect key="frame" x="20" y="83" width="310" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="YoA-zK-Xvp"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="iXW-6G-juX" customClass="VerticallyCenteredTextFieldCell" customModule="TouchletCore">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pno-9M-CAb">
+                    <rect key="frame" x="18" y="121" width="28" height="15"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="URL" id="RYv-sH-4eU">
+                        <font key="font" metaFont="cellTitle"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qz6-lA-tGb">
+                    <rect key="frame" x="20" y="14" width="77" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="77" id="KYS-ot-Kdf"/>
+                        <constraint firstAttribute="height" constant="30" id="VE1-EJ-Pat"/>
+                    </constraints>
+                    <buttonCell key="cell" type="bevel" title="Remove" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="zBI-Nz-FxT">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <color key="contentTintColor" name="BezelButtonTextColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="BezelButtonBorderColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="removeAction:" target="-2" id="f5Z-K8-hX2"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z7O-WM-BcQ">
+                    <rect key="frame" x="241" y="14" width="89" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="3nc-5s-DD4"/>
+                        <constraint firstAttribute="width" constant="89" id="aGO-m1-07u"/>
+                    </constraints>
+                    <buttonCell key="cell" type="bevel" title="Done" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="vTN-VS-TQp">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <color key="contentTintColor" name="BezelButtonTextColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="BezelButtonBorderColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="doneAction:" target="-2" id="A7h-Rw-wCm"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="COr-ZY-QHu">
+                    <rect key="frame" x="144" y="14" width="89" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="efK-ez-jCF"/>
+                        <constraint firstAttribute="width" constant="89" id="nZW-0a-2NN"/>
+                    </constraints>
+                    <buttonCell key="cell" type="bevel" title="Cancel" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="tSg-dR-NeJ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <color key="contentTintColor" name="BezelButtonTextColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="BezelButtonBorderColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="cancelAction:" target="-2" id="r7K-zC-ihE"/>
+                    </connections>
+                </button>
+                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xqg-c1-USh">
+                    <rect key="frame" x="20" y="61" width="141" height="14"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="The URL entered is invalid" id="YZZ-ja-0hw">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="InvalidURLTextColor"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Pno-9M-CAb" firstAttribute="top" secondItem="IGa-pS-hXY" secondAttribute="bottom" constant="16" id="1cC-cE-b5H"/>
+                <constraint firstItem="agV-b4-q4Q" firstAttribute="leading" secondItem="QIB-WQ-gq3" secondAttribute="leading" constant="20" id="8Ca-xx-9Le"/>
+                <constraint firstAttribute="trailing" secondItem="z7O-WM-BcQ" secondAttribute="trailing" constant="20" id="8H7-YR-Kmw"/>
+                <constraint firstItem="Pno-9M-CAb" firstAttribute="leading" secondItem="QIB-WQ-gq3" secondAttribute="leading" constant="20" id="HOe-E1-BdK"/>
+                <constraint firstAttribute="bottom" secondItem="Qz6-lA-tGb" secondAttribute="bottom" constant="14" id="IbZ-jw-uzd"/>
+                <constraint firstItem="agV-b4-q4Q" firstAttribute="top" secondItem="Pno-9M-CAb" secondAttribute="bottom" constant="8" id="MWi-DA-ZnH"/>
+                <constraint firstItem="QAr-A2-PVr" firstAttribute="top" secondItem="QIB-WQ-gq3" secondAttribute="top" constant="14" id="NJ2-SW-qq6"/>
+                <constraint firstItem="QAr-A2-PVr" firstAttribute="leading" secondItem="QIB-WQ-gq3" secondAttribute="leading" constant="20" id="QYl-Vm-Hfe"/>
+                <constraint firstItem="Qz6-lA-tGb" firstAttribute="leading" secondItem="QIB-WQ-gq3" secondAttribute="leading" constant="20" id="Rap-wr-kXD"/>
+                <constraint firstItem="IGa-pS-hXY" firstAttribute="leading" secondItem="QIB-WQ-gq3" secondAttribute="leading" constant="20" id="Reo-2S-e16"/>
+                <constraint firstItem="kZb-H8-yq9" firstAttribute="leading" secondItem="QIB-WQ-gq3" secondAttribute="leading" constant="20" id="TXg-Lc-aSp"/>
+                <constraint firstItem="IGa-pS-hXY" firstAttribute="top" secondItem="kZb-H8-yq9" secondAttribute="bottom" constant="8" id="V45-f1-N9J"/>
+                <constraint firstItem="xqg-c1-USh" firstAttribute="leading" secondItem="QIB-WQ-gq3" secondAttribute="leading" constant="22" id="ZJ3-ii-p9z"/>
+                <constraint firstItem="z7O-WM-BcQ" firstAttribute="leading" secondItem="COr-ZY-QHu" secondAttribute="trailing" constant="8" id="bWf-Uh-5zx"/>
+                <constraint firstAttribute="trailing" secondItem="IGa-pS-hXY" secondAttribute="trailing" constant="20" id="eaW-Id-hrD"/>
+                <constraint firstItem="xqg-c1-USh" firstAttribute="top" secondItem="agV-b4-q4Q" secondAttribute="bottom" constant="8" id="hha-zK-brz"/>
+                <constraint firstItem="kZb-H8-yq9" firstAttribute="top" secondItem="QAr-A2-PVr" secondAttribute="bottom" constant="21" id="kC0-CQ-SJM"/>
+                <constraint firstAttribute="trailing" secondItem="agV-b4-q4Q" secondAttribute="trailing" constant="20" id="o0p-Md-mAY"/>
+                <constraint firstAttribute="bottom" secondItem="z7O-WM-BcQ" secondAttribute="bottom" constant="14" id="rZy-Bd-7Xp"/>
+                <constraint firstAttribute="bottom" secondItem="COr-ZY-QHu" secondAttribute="bottom" constant="14" id="s9d-tg-wsa"/>
+            </constraints>
+            <point key="canvasLocation" x="113" y="473.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <namedColor name="BezelButtonBorderColor">
+            <color red="0.37299999594688416" green="0.37099999189376831" blue="0.375" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="BezelButtonTextColor">
+            <color red="0.96399998664855957" green="0.95800000429153442" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="InvalidURLTextColor">
+            <color red="0.66500002145767212" green="0.30899998545646667" blue="0.17100000381469727" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
