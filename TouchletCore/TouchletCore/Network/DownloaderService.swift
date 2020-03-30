@@ -28,7 +28,7 @@ public class DownloaderService: NSObject{
         })
     }
     
-    public override init() {
+    private override init() {
         super.init()
 
         let config = URLSessionConfiguration.background(withIdentifier: "AppDownload")
@@ -66,4 +66,15 @@ public protocol DownloaderServiceDelegate: class {
     func downloadService(downloadService: DownloaderService, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
     func downloadService(downloadService: DownloaderService, didFinishDownloadingTo location: URL)
     func downloadService(downloadService: DownloaderService, didCompleteWithError error: Error?)
+}
+
+extension DownloaderServiceDelegate{
+    func downloadService(downloadService: DownloaderService, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64){
+    }
+    
+    func downloadService(downloadService: DownloaderService, didFinishDownloadingTo location: URL){
+    }
+    
+    func downloadService(downloadService: DownloaderService, didCompleteWithError error: Error?){
+    }
 }

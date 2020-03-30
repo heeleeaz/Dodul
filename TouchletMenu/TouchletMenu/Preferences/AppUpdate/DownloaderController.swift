@@ -50,6 +50,7 @@ class DownloaderController: NSViewController, NibLoadable{
 extension DownloaderController: DownloaderServiceDelegate{
     func downloadService(downloadService: DownloaderService, didFinishDownloadingTo location: URL) {
         DispatchQueue.main.async {
+            self.progressLabel.textColor = .white
             self.progressLabel.stringValue = "Download completed"
             self.continueInBackgroundButton.title = "Install update now"
         }

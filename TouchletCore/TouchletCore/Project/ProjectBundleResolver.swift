@@ -35,8 +35,12 @@ public class ProjectBundleResolver{
         default: break
         }
         
+        print(NSString.path(withComponents: pathComponents))
+        
         return URL(fileURLWithPath: NSString.path(withComponents: pathComponents))
     }
+    
+    public func bundle(for project: Project) -> Bundle?{Bundle(url: bundlePath(for: project))}
     
     public func isRunning(project: Project) -> Bool{
         NSWorkspace.shared.runningApplications.contains{$0.bundleURL == bundlePath(for: project)}
@@ -44,7 +48,13 @@ public class ProjectBundleResolver{
     
     public func launch(project: Project) throws {
         if !isRunning(project: project){
-            try NSWorkspace.shared.launchApplication(at: bundlePath(for: project), options: .default, configuration: [:])
+            do{
+                try NSWorkspace.shared.launchApplication(at: bundlePath(for: project), options: .default, configuration: [:])
+            }catch{
+                print(error.localizedDescription)
+                throw error
+            }
+            
         }
     }
     
