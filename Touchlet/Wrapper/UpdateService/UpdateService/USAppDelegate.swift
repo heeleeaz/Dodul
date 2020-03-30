@@ -10,18 +10,17 @@ import Cocoa
 import TouchletCore
 
 @NSApplicationMain
-class USAppDelegate: NSObject, NSApplicationDelegate, DownloaderServiceDelegate, NSUserNotificationCenterDelegate {
+class USAppDelegate: NSObject, NSApplicationDelegate, DownloaderServiceDelegate, NSUserNotificationCenterDelegate {    
     private let downloaderService = DownloaderService.instance
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         downloaderService.delegate = self
     }
     
-    func deliverAppInstallNotification(){
-        let bundle = ProjectBundleResolver.instance.bundle(for: .main)!
+    func downloadService(downloadService: DownloaderService, didFinishDownloadingTo location: URL) {
         let notification = NSUserNotification()
-        notification.identifier = "\(bundle.bundleIdentifier!).appInstallNotification"
-        notification.title = String(format: "%@ Update", bundle.infoDictionary["CFBundleName"] as! String)
+        notification.identifier = "\(Bundle.main.bundleIdentifier!).appInstallNotification"
+        notification.title = String(format: "%@ Update", ProjectBundleResolver.instance.appName(for: .main))
         notification.informativeText = "New version is ready for installation"
         
         notification.hasActionButton = true
@@ -32,15 +31,16 @@ class USAppDelegate: NSObject, NSApplicationDelegate, DownloaderServiceDelegate,
         notificationCenter.deliver(notification)
     }
     
-    func downloadService(downloadService: DownloaderService, didFinishDownloadingTo location: URL) {
-        
+    func downloadService(downloadService: DownloaderService, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64){
     }
     
     func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
         switch notification.activationType {
         case .replied:
-            try NSWorkspace.shared.open(downloaderService.downloadedFilePath!, options: .default, configuration: [:])
+            let result = try? NSWorkspace.shared.open(downloaderService.downloadedFilePath!, options: .default, configuration: [:])
             ProjectBundleResolver.instance.terminateAppWithAllSubProject()
+            
+            Logger.log(text: "Application launched \(String(describing: result))")
         default: break
         }
     }

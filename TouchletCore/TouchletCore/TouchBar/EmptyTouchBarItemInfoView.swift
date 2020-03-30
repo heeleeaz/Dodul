@@ -86,10 +86,8 @@ class ReadonlyEmptyCollectionTouchBarItem: NSCustomTouchBarItem {
     }
     
     @objc private func addButtonClicked(){
-        if let identifier = ProjectBundleResolver.instance.bundle(for: .main)?.bundleIdentifier{
-            NSWorkspace.shared.launchApplication(withBundleIdentifier: identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
-        }
-        
+        let identifier = ProjectBundleResolver.instance.bundleIdentifier(for: .main)
+        NSWorkspace.shared.launchApplication(withBundleIdentifier: identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
     }
 }
 
@@ -101,7 +99,7 @@ class EditButtonTouchBarItem: NSCustomTouchBarItem {
     override init(identifier: NSTouchBarItem.Identifier) {
         super.init(identifier: identifier)
     
-        let button = Button(image: NSImage(named: "EditIcon")!, target: self, action: #selector(buttonTapped))
+        let button = Button(image: NSImage(named: "EditIcon")!, target: self, action: #selector(editButtonTapped))
         
         view = button
         view.translatesAutoresizingMaskIntoConstraints = true
@@ -109,10 +107,9 @@ class EditButtonTouchBarItem: NSCustomTouchBarItem {
                                      view.heightAnchor.constraint(equalToConstant: 30)])
     }
     
-    @objc private func buttonTapped(){
-        if let identifier = ProjectBundleResolver.instance.bundle(for: .main)?.bundleIdentifier{
-            NSWorkspace.shared.launchApplication(withBundleIdentifier: identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
-        }
+    @objc private func editButtonTapped(){
+        let identifier = ProjectBundleResolver.instance.bundleIdentifier(for: .main)
+        NSWorkspace.shared.launchApplication(withBundleIdentifier: identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
     }
     
     private class Button: NSButton{

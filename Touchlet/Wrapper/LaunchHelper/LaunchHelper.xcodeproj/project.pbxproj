@@ -10,7 +10,23 @@
 		9208237524166EFE00217940 /* LHAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208237424166EFE00217940 /* LHAppDelegate.swift */; };
 		9208237924166EFF00217940 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9208237824166EFF00217940 /* Assets.xcassets */; };
 		9208237C24166EFF00217940 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9208237A24166EFF00217940 /* Main.storyboard */; };
+		9255300424328FE800578650 /* TouchletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9255300324328FE800578650 /* TouchletCore.framework */; };
+		9255300524328FE800578650 /* TouchletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9255300324328FE800578650 /* TouchletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9255300624328FE800578650 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9255300524328FE800578650 /* TouchletCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9208237124166EFE00217940 /* LaunchHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaunchHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,6 +35,7 @@
 		9208237B24166EFF00217940 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9208237D24166EFF00217940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9208237E24166EFF00217940 /* LaunchHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LaunchHelper.entitlements; sourceTree = "<group>"; };
+		9255300324328FE800578650 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9255300424328FE800578650 /* TouchletCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +55,7 @@
 			children = (
 				9208237324166EFE00217940 /* LaunchHelper */,
 				9208237224166EFE00217940 /* Products */,
+				9255300224328FE800578650 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +79,14 @@
 			path = LaunchHelper;
 			sourceTree = "<group>";
 		};
+		9255300224328FE800578650 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9255300324328FE800578650 /* TouchletCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -70,6 +97,7 @@
 				9208236D24166EFE00217940 /* Sources */,
 				9208236E24166EFE00217940 /* Frameworks */,
 				9208236F24166EFE00217940 /* Resources */,
+				9255300624328FE800578650 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -17,5 +17,5 @@ public let isDebugBuild = false
 public var groupIdPrefix = ""
 
 public class Global{
-    public static var groupIdPrefix = ""
+    public static var groupIdPrefix = ProjectBundleResolver.instance.projectGroupIdPrefix
 }

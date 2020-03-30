@@ -22,7 +22,8 @@ class PanelViewController: ReadonlyTouchBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(refreshTouchItems), name: .touchItemReload, object: menuAppBundleIdentifier)
+        let identifier = ProjectBundleResolver.instance.bundleIdentifier(for: .main)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(refreshTouchItems), name: .touchItemReload, object: identifier)
     }
     
     @objc func refreshTouchItems(){

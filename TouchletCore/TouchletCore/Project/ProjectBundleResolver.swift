@@ -13,51 +13,30 @@ public class ProjectBundleResolver{
     
     private init(){}
     
-    public func bundlePath(for project: Project) -> URL{
-        var pathComponents = URL(fileURLWithPath: Bundle.main.bundlePath).pathComponents
-
+    public func bundleIdentifier(for project: Project) -> String{
         switch project {
-        case .updateService:
-            pathComponents.append("Contents")
-            pathComponents.append("Library")
-            pathComponents.append("App")
-            pathComponents.append("UpdateService.app")
+        case .main:
+            return "com.heeleeaz.touchlet.Touchlet"
         case .panel:
-            pathComponents.append("Contents")
-            pathComponents.append("Library")
-            pathComponents.append("App")
-            pathComponents.append("TouchletPanel.app")
+            return "com.heeleeaz.touchlet.TouchletPanel"
         case .panelLauncher:
-            pathComponents.append("Contents")
-            pathComponents.append("Library")
-            pathComponents.append("App")
-            pathComponents.append("LaunchHelper.app")
-        default: break
-        }
-        
-        print(NSString.path(withComponents: pathComponents))
-        
-        return URL(fileURLWithPath: NSString.path(withComponents: pathComponents))
-    }
-    
-    public func bundle(for project: Project) -> Bundle?{Bundle(url: bundlePath(for: project))}
-    
-    public func isRunning(project: Project) -> Bool{
-        NSWorkspace.shared.runningApplications.contains{$0.bundleURL == bundlePath(for: project)}
-    }
-    
-    public func launch(project: Project) throws {
-        if !isRunning(project: project){
-            do{
-                try NSWorkspace.shared.launchApplication(at: bundlePath(for: project), options: .default, configuration: [:])
-            }catch{
-                print(error.localizedDescription)
-                throw error
-            }
-            
+            return "com.heeleeaz.touchlet.LaunchHelper"
+        case .updateService:
+            return "com.heeleeaz.touchlet.UpdateService"
         }
     }
     
+    public func appName(for project: Project) -> String{
+        switch project {
+        case .main:
+            return "Touchlet"
+        default:
+            return ""
+        }
+    }
+    
+    public let projectGroupIdPrefix = "group.com.heeleeaz.touchlet"
+
     public enum Project{
         case main, updateService, panel, panelLauncher
     }

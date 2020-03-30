@@ -12,3 +12,9 @@ end
 target 'TouchletCore' do
   project 'TouchletCore/TouchletCore.xcodeproj'
 end
+
+target 'TouchletPanel' do
+  project 'Touchlet/Wrapper/TouchletPanel/TouchletPanel.xcodeproj'
+  
+  pod 'HotKey'
+end

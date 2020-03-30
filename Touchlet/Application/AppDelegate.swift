@@ -14,8 +14,6 @@ import TouchletCore
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillBecomeActive(_ notification: Notification) {
         NSApplication.shared.windows[0].contentView?.enterFullScreenMode()
-        
-        Global.groupIdPrefix = projectGroupIdPrefix
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -30,15 +28,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
-    }
-    
-    private var projectGroupIdPrefix: String {
-        let bundle = ProjectBundleResolver.instance.bundle(for: .main)
-        let groupIdPrefixKey = "GroupIdentifierPrefix"
-        guard let groupIdPrefix = bundle?.object(forInfoDictionaryKey: groupIdPrefixKey) as? String else {
-            fatalError("Info.plist must contain a \"\(groupIdPrefixKey)\" entry with a string value")
-        }
-    
-        return groupIdPrefix
     }
 }

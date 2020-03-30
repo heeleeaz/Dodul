@@ -40,7 +40,7 @@ public class DownloaderService: NSObject{
 
 extension DownloaderService: URLSessionDownloadDelegate{
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        delegate?.downloadService(downloadService: self, totalBytesWritten: totalBytesWritten, totalBytesExpectedToWrite: totalBytesExpectedToWrite)
+        delegate?.downloadService?(downloadService: self, totalBytesWritten: totalBytesWritten, totalBytesExpectedToWrite: totalBytesExpectedToWrite)
     }
     
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
@@ -48,33 +48,22 @@ extension DownloaderService: URLSessionDownloadDelegate{
             let documentsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             downloadedFilePath = documentsURL.appendingPathComponent(downloadTask.currentRequest!.url!.lastPathComponent)
             
-            try FileManager.default.removeItem(at: downloadedFilePath!)
+            try? FileManager.default.removeItem(at: downloadedFilePath!)
             try FileManager.default.moveItem(at: location, to: downloadedFilePath!)
                         
-            delegate?.downloadService(downloadService: self, didFinishDownloadingTo: downloadedFilePath!)
+            delegate?.downloadService?(downloadService: self, didFinishDownloadingTo: downloadedFilePath!)
         }catch{
-            delegate?.downloadService(downloadService: self, didCompleteWithError: error)
+            delegate?.downloadService?(downloadService: self, didCompleteWithError: error)
         }
     }
     
     public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        delegate?.downloadService(downloadService: self, didCompleteWithError: error)
+        delegate?.downloadService?(downloadService: self, didCompleteWithError: error)
     }
 }
 
-public protocol DownloaderServiceDelegate: class {
-    func downloadService(downloadService: DownloaderService, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
-    func downloadService(downloadService: DownloaderService, didFinishDownloadingTo location: URL)
-    func downloadService(downloadService: DownloaderService, didCompleteWithError error: Error?)
-}
-
-extension DownloaderServiceDelegate{
-    func downloadService(downloadService: DownloaderService, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64){
-    }
-    
-    func downloadService(downloadService: DownloaderService, didFinishDownloadingTo location: URL){
-    }
-    
-    func downloadService(downloadService: DownloaderService, didCompleteWithError error: Error?){
-    }
+@objc public protocol DownloaderServiceDelegate {
+    @objc optional func downloadService(downloadService: DownloaderService, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
+    @objc optional func downloadService(downloadService: DownloaderService, didFinishDownloadingTo location: URL)
+    @objc optional func downloadService(downloadService: DownloaderService, didCompleteWithError error: Error?)
 }

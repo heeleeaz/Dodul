@@ -7,35 +7,28 @@
 //
 
 import Cocoa
+import TouchletCore
 
 @NSApplicationMain
 class LHAppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         //check if the Main application is running
-        let mainRunning = NSWorkspace.shared.runningApplications.contains{$0.bundleIdentifier == Constants.mainBundleIdentifier}
+        let manAppIdentifier = ProjectBundleResolver.instance.bundleIdentifier(for: .main)
+        let mainRunning = NSWorkspace.shared.runningApplications.contains{$0.bundleIdentifier == manAppIdentifier}
         if mainRunning {
             // true, main app was launched at login, terminate helper app
             killApp()
         }else{
-            DistributedNotificationCenter.default().addObserver(self, selector: #selector(killApp), name: Constants.KILLAPP, object: Constants.mainBundleIdentifier)
+            DistributedNotificationCenter.default().addObserver(self, selector: #selector(killApp), name: .killApp, object: manAppIdentifier)
             launchMainApplication()
         }
     }
     
     private func launchMainApplication(){
-        var pathComponents = URL(fileURLWithPath: Bundle.main.bundlePath).pathComponents
-        pathComponents.removeLast(4)
-        
-        NSWorkspace.shared.launchApplication(NSString.path(withComponents: pathComponents))
+        let identifier = ProjectBundleResolver.instance.bundleIdentifier(for: .main)
+        NSWorkspace.shared.launchApplication(withBundleIdentifier: identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
     }
     
     @objc func killApp(){NSApp.terminate(nil)}
-}
-
-extension LHAppDelegate{
-    struct Constants {
-        static let KILLAPP = NSNotification.Name("KILLAPP")
-        static let mainBundleIdentifier = "com.heeleeaz.touchlet.TouchletPanel"
-    }
 }

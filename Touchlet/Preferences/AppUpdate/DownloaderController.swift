@@ -33,7 +33,8 @@ class DownloaderController: NSViewController, NibLoadable{
         
         switch downloadTask.state {
         case .running:
-            try? ProjectBundleResolver.instance.launch(project: .updateService)
+            let identifier = ProjectBundleResolver.instance.bundleIdentifier(for: .updateService)
+            print(NSWorkspace.shared.launchApplication(withBundleIdentifier: identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil))
             view.window?.close()
         case .completed:
             do{
@@ -58,8 +59,10 @@ extension DownloaderController: DownloaderServiceDelegate{
     
     func downloadService(downloadService: DownloaderService, didCompleteWithError error: Error?) {
         if let error = error{
-            progressLabel.textColor = .red
-            progressLabel.stringValue = error.localizedDescription
+            DispatchQueue.main.async {
+                self.progressLabel.textColor = .red
+                self.progressLabel.stringValue = "download failed, please try again"
+            }
             
             Logger.log(items: "Error: \(error.localizedDescription)")
         }
