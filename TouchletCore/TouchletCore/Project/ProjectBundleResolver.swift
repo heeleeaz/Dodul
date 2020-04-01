@@ -30,6 +30,17 @@ public class ProjectBundleResolver{
         switch project {
         case .main:
             return "Touchlet"
+        case .panel:
+            return "TouchletPanel"
+        default:
+            return ""
+        }
+    }
+    
+    public func appURL(for project: Project) -> String{
+        switch project {
+        case .main:
+            return "Touchlet"
         default:
             return ""
         }

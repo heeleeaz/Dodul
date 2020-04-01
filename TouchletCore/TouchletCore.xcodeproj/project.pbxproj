@@ -30,8 +30,6 @@
 		92ACEAE92412A683009994EB /* SpotlightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA8D2412A220009994EB /* SpotlightItem.swift */; };
 		92ACEAEB2412A683009994EB /* SpotlightResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA8F2412A220009994EB /* SpotlightResult.swift */; };
 		92ACEAEC2412A683009994EB /* SpotlightRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA902412A220009994EB /* SpotlightRepository.swift */; };
-		92ACEAED2412A689009994EB /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA882412A21F009994EB /* PersistentContainer.swift */; };
-		92ACEAEE2412A689009994EB /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA892412A21F009994EB /* DataController.swift */; };
 		92ACEAEF2412A68E009994EB /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA8A2412A21F009994EB /* Cache.swift */; };
 		92ACEAF02412A693009994EB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA622412A21E009994EB /* Theme.swift */; };
 		92ACEAF12412A6A8009994EB /* EditableTouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA7A2412A21F009994EB /* EditableTouchBarController.swift */; };
@@ -104,8 +102,6 @@
 		92ACEA822412A21F009994EB /* TouchBarItemUserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarItemUserDefault.swift; sourceTree = "<group>"; };
 		92ACEA852412A21F009994EB /* global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
 		92ACEA862412A21F009994EB /* FaviconProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaviconProvider.swift; sourceTree = "<group>"; };
-		92ACEA882412A21F009994EB /* PersistentContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
-		92ACEA892412A21F009994EB /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		92ACEA8A2412A21F009994EB /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		92ACEA8D2412A220009994EB /* SpotlightItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightItem.swift; sourceTree = "<group>"; };
 		92ACEA8E2412A220009994EB /* SpotlightWhitelist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpotlightWhitelist.json; sourceTree = "<group>"; };
@@ -308,8 +304,6 @@
 		92ACEA8C2412A21F009994EB /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				92ACEA882412A21F009994EB /* PersistentContainer.swift */,
-				92ACEA892412A21F009994EB /* DataController.swift */,
 				92ACEA8B2412A21F009994EB /* PersistentCache */,
 			);
 			path = Storage;
@@ -509,13 +503,11 @@
 				92ACEAE32412A670009994EB /* NSCursorHelper.swift in Sources */,
 				92ACEAF82412A6B0009994EB /* TouchBarItemUserDefault.swift in Sources */,
 				92C85C91242905F200002173 /* NetworkRequest.swift in Sources */,
-				92ACEAED2412A689009994EB /* PersistentContainer.swift in Sources */,
 				92EE41C42412BB9700987DDE /* IconType.swift in Sources */,
 				92ACEAF22412A6A8009994EB /* CollectionItemDragObserver.swift in Sources */,
 				927C63202430E29200B03CF2 /* ProjectBundleConstant.swift in Sources */,
 				92ACEAE52412A678009994EB /* FaviconProvider.swift in Sources */,
 				92ACEAF72412A6B0009994EB /* TouchBarItemFileStorage.swift in Sources */,
-				92ACEAEE2412A689009994EB /* DataController.swift in Sources */,
 				92ACEADF2412A670009994EB /* NSCollectionViewItem.swift in Sources */,
 				92ACEAE72412A67E009994EB /* GlobalKeybindPreferences.swift in Sources */,
 				92EE41C92412BB9700987DDE /* XML.swift in Sources */,

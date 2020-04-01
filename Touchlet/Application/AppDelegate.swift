@@ -9,11 +9,15 @@
 import Cocoa
 import HotKey
 import TouchletCore
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillBecomeActive(_ notification: Notification) {
         NSApplication.shared.windows[0].contentView?.enterFullScreenMode()
+        
+        let launchHelperIdentifer = ProjectBundleResolver.instance.bundleIdentifier(for: .panelLauncher)
+        SMLoginItemSetEnabled(launchHelperIdentifer as CFString, true)
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {

@@ -9,7 +9,6 @@
 import Cocoa
 import HotKey
 import TouchletCore
-import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -27,8 +26,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let launchHelperIdentifer = ProjectBundleResolver.instance.bundleIdentifier(for: .panelLauncher)
-
-        SMLoginItemSetEnabled(launchHelperIdentifer as CFString, true)
         
         if #available(OSX 10.12.2, *) {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
