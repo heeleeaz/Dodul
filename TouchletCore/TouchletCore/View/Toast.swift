@@ -48,6 +48,12 @@ extension Style {
     
     public var position: Position {return .bottom}
 }
+
+public class DefaultStyle: Style{
+    public var position: Position
+    
+    public init(position: Position){self.position = position}
+}
     
 class ToastView: NSView {
     private let message: NSString

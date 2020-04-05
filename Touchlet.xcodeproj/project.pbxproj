@@ -46,7 +46,6 @@
 		92C85C9224290A1300002173 /* UpdateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C85C8D2429039C00002173 /* UpdateAPI.swift */; };
 		92E16C762403D60E00511EE1 /* KeybindPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16C752403D60E00511EE1 /* KeybindPreferenceViewController.swift */; };
 		92EE13562423A323001513A8 /* KeybindPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EE13552423A323001513A8 /* KeybindPreferenceViewController.xib */; };
-		92FE9B2223D0718100FA6AC6 /* HomeCollectionItemsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */; };
 		92FE9B2523D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -167,7 +166,6 @@
 		92C85C8D2429039C00002173 /* UpdateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAPI.swift; sourceTree = "<group>"; };
 		92E16C752403D60E00511EE1 /* KeybindPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindPreferenceViewController.swift; sourceTree = "<group>"; };
 		92EE13552423A323001513A8 /* KeybindPreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeybindPreferenceViewController.xib; sourceTree = "<group>"; };
-		92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionItemsUtil.swift; sourceTree = "<group>"; };
 		92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewItem.swift; sourceTree = "<group>"; };
 		B72E19481489507B4114A98F /* libPods-Core.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Core.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89230C0431EAE8B7888EAEC /* libPods-TouchletMenu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TouchletMenu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -355,7 +353,6 @@
 			children = (
 				92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */,
 				923B986C23C600C000BC48A7 /* HomeItemViewController.swift */,
-				92FE9B2123D0718100FA6AC6 /* HomeCollectionItemsUtil.swift */,
 				92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */,
 				9246321F23CB32C200042EFE /* HomeItemViewController.storyboard */,
 			);
@@ -598,7 +595,6 @@
 				92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */,
 				92E16C762403D60E00511EE1 /* KeybindPreferenceViewController.swift in Sources */,
 				92C85C9224290A1300002173 /* UpdateAPI.swift in Sources */,
-				92FE9B2223D0718100FA6AC6 /* HomeCollectionItemsUtil.swift in Sources */,
 				925A245723C8D811002BB85F /* BookmarkStore.swift in Sources */,
 				925A241523C7378B002BB85F /* BookmarkRepository.swift in Sources */,
 				92A1B2F823C4AA2100D7BEF1 /* MainViewController.swift in Sources */,

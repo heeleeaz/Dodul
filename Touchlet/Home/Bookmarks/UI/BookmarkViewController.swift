@@ -75,6 +75,15 @@ extension BookmarkViewController: NSCollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {links.count + 1}
+    
+    override func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
+        let isLoaded = (collectionView.item(at: indexes.first!) as! LinkCollectionViewItem).isImageLoaded
+        if !isLoaded{
+            view.undermostWindowView?.makeToast("Wait a sec, while icon is downloaded!", style: DefaultStyle(position: .bottom))
+        }
+        
+        return isLoaded
+    }
 }
 
 extension BookmarkViewController: AddLinkViewControllerDelegate{

@@ -62,8 +62,7 @@ class AppUpdateController: NSViewController{
     
     private func showErrorMessage(_ message: String){
         DispatchQueue.main.async {
-            class ToastStyle: Style{var position: Position = .top}
-            self.view.undermostWindowView?.makeToast(message as NSString, style: ToastStyle())
+            self.view.undermostWindowView?.makeToast(message as NSString, style: DefaultStyle(position: .top))
         }
     }
 }

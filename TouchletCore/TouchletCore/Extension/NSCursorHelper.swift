@@ -11,22 +11,24 @@ import Cocoa
 public class NSCursorHelper{
     private var counter = 0
     
-    static var instance = NSCursorHelper()
+    public static var instance = NSCursorHelper()
     
     private init(){
     }
     
-    func hide(){
+    public func hide(){
         if counter > 1 {return}
         
         NSCursor.hide()
         counter += 1
     }
     
-    func show(){
+    public func show(){
         while(counter != 0){
             NSCursor.unhide()
             counter -= 1
         }
     }
+    
+    public var isHidden: Bool {counter != 0}
 }

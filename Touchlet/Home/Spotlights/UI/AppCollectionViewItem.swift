@@ -73,6 +73,10 @@ class AppCollectionViewItem: NSCollectionViewItem {
     }
     
     override var draggingImageComponents: [NSDraggingImageComponent]{
-        return collectionItemDraggingImageComponent(collectionItemView: view, iconImage: cimageView.image)
+        ctextField.isHidden = true
+        defer{
+            ctextField.isHidden = false
+        }
+        return super.draggingImageComponents
     }
 }

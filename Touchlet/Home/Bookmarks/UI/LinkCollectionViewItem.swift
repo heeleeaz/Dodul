@@ -16,9 +16,12 @@ class LinkCollectionViewItem: NSCollectionViewItem {
     
     var moreClicked: (() -> Void)?
     
-    private lazy var cimageView: NSImageView = {
+    private(set) var isImageLoaded: Bool = false
+    
+    lazy var cimageView: NSImageView = {
         let imageView = NSImageView()
         imageView.imageScaling = .scaleProportionallyDown
+        imageView.image = NSImage(named: "NSBookmarksTemplate")
         
         return imageView
     }()
@@ -102,12 +105,23 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         
         cimageView.image = NSImage(named: "NSBookmarksTemplate")
         FaviconProvider.instance.load(url: link.url){ (image, error) in
-            if let image = image {self.cimageView.image = image}
+            if let image = image {
+                self.cimageView.image = image
+                self.isImageLoaded = true
+            }else{
+                self.isImageLoaded = false
+            }
         }
     }
     
     override var draggingImageComponents: [NSDraggingImageComponent]{
-        return collectionItemDraggingImageComponent(collectionItemView: self.view, iconImage: self.cimageView.image)
+        ctextField.isHidden = true
+        moreButton.isHidden = true
+        defer {
+            ctextField.isHidden = false
+            moreButton.isHidden = false
+        }
+        return super.draggingImageComponents
     }
     
     override func mouseEntered(with event: NSEvent) {

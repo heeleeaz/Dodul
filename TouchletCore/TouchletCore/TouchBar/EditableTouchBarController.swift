@@ -41,6 +41,8 @@ extension EditableTouchBarController: CollectionItemDragObserverDelegate{
         guard let touchBarItem = object as? TouchBarItem else {return}
                 
         if acceptChangesRect.contains(pointerLocation){
+            NSCursorHelper.instance.hide()
+
             guard let index = collectionViewTouchBarItem.itemInPoint(pointerLocation) else {return}
             if let existingIndex = collectionViewTouchBarItem.items.firstIndex(of: touchBarItem){
                 //item already in touchbar, and being dragged arround, hence do position swap operation
@@ -52,6 +54,7 @@ extension EditableTouchBarController: CollectionItemDragObserverDelegate{
             }
             collectionViewTouchBarItem.highlightItem(at: index) // highlight item either in dragging or insertion state
         }else{
+            NSCursorHelper.instance.show()
             //if adding operation is in progress(item added to touchbar temporarily)
             //and pointer escape touchbar rect, remove the item from touchbar
             if let index = collectionViewTouchBarItem.items.firstIndex(where: {$0 == touchBarItem && $0.itemState == .adding}){
@@ -86,8 +89,6 @@ extension EditableTouchBarController {
     }
     
     open override func mouseMoved(with event: NSEvent) {
-        super.mouseMoved(with: event)
-        
         if let item = collectionViewTouchBarItem.itemInPoint(event.locationInWindow){
             collectionViewTouchBarItem.highlightItem(at: item)
         }
