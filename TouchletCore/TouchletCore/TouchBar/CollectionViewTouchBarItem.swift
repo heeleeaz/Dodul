@@ -48,7 +48,7 @@ class CollectionViewTouchBarItem: NSCustomTouchBarItem{
     func insertItem(touchBarItem: TouchBarItem, at index: Int){
         let maxItem = maxAllowedItem()
         if items.count >= maxItem{
-            view.makeToast("Sorry, only \(maxItem) items can be added at the moment." as NSString, style: DefaultStyle(position: .bottom))
+            view.undermostWindowView?.makeToast("Only \(maxItem) items can be added at the moment." as NSString, style: DefaultStyle(position: .bottom))
             return
         }
            
