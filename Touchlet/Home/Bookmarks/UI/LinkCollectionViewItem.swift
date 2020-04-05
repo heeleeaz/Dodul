@@ -104,12 +104,12 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         ctextField.stringValue = link.displayTitle ?? ""
         
         cimageView.image = NSImage(named: "NSBookmarksTemplate")
+        isImageLoaded = false
+        
         FaviconProvider.instance.load(url: link.url){ (image, error) in
             if let image = image {
                 self.cimageView.image = image
                 self.isImageLoaded = true
-            }else{
-                self.isImageLoaded = false
             }
         }
     }

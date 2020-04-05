@@ -51,7 +51,10 @@ public class FaviconProvider{
     }
     
     public func load(url: URL, completion: @escaping ImageCacheProviderCompletion){
-        if let image = loadFromCache(url: url){completion(image, nil)}
-        else{loadFromNetwork(url: url, completion: completion)}
+        if let image = loadFromCache(url: url){
+            completion(image, nil)
+        }else{
+            loadFromNetwork(url: url, completion: completion)
+        }
     }
 }

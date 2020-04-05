@@ -10,7 +10,7 @@
         <!--Home Item View Controller-->
         <scene sceneID="YJ8-1E-bY3">
             <objects>
-                <viewController id="zIZ-6i-IIO" customClass="HomeItemViewController" customModule="TouchletMenu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zIZ-6i-IIO" customClass="HomeItemViewController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="fic-u6-MYu">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -75,7 +75,7 @@
         <scene sceneID="rn5-zy-DJz">
             <objects>
                 <customObject id="iCg-6o-A71" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="AppItemViewController" id="ffA-6c-ZT6" customClass="AppItemViewController" customModule="TouchletMenu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AppItemViewController" id="ffA-6c-ZT6" customClass="AppItemViewController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="D7f-kJ-n94">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -160,7 +160,7 @@
         <scene sceneID="pCj-kj-Yg4">
             <objects>
                 <customObject id="gMh-SP-u2i" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="BookmarkViewController" id="Ahp-dm-4Wr" customClass="BookmarkViewController" customModule="TouchletMenu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookmarkViewController" id="Ahp-dm-4Wr" customClass="BookmarkViewController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="WNs-Aj-W02">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
