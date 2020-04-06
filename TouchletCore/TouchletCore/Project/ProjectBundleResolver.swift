@@ -23,6 +23,8 @@ public class ProjectBundleResolver{
             return "com.heeleeaz.touchlet.LaunchHelper"
         case .updateService:
             return "com.heeleeaz.touchlet.UpdateService"
+        case .core:
+            return "com.heeleeaz.touchlet.TouchletCore"
         }
     }
     
@@ -49,7 +51,7 @@ public class ProjectBundleResolver{
     public let projectGroupIdPrefix = "group.com.heeleeaz.touchlet"
 
     public enum Project{
-        case main, updateService, panel, panelLauncher
+        case main, updateService, panel, panelLauncher, core
     }
     
     public func terminateAppWithAllSubProject(){

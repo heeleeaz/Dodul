@@ -1,8 +1,5 @@
 [
-    "Calculator",
-    "FaceTime",
     "System Preferences",
-    "Terminal",
     "GarageBand",
     "Photo Booth",
     "CCXProcess",
@@ -12,7 +9,6 @@
     "Bluetooth File Exchange",
     "Font Book",
     "Script Editor",
-    "TextEdit",
     "Accessibility Inspector",
     "FileMerge",
     "Reality Composer",
@@ -40,10 +36,8 @@
     "Disk Utility",
     "Digital Colour Meter",
     "AirPort Utility",
-    "Chess",
     "Keynote",
     "Time Machine",
-    "iMovie",
     "Automator",
     "Dashboard",
     "Launchpad"

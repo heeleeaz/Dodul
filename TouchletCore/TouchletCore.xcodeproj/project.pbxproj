@@ -12,6 +12,7 @@
 		927C63202430E29200B03CF2 /* ProjectBundleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C631E2430E28000B03CF2 /* ProjectBundleConstant.swift */; };
 		927C63212430E29500B03CF2 /* ProjectBundleResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C631D2430E28000B03CF2 /* ProjectBundleResolver.swift */; };
 		927C63382430E5F200B03CF2 /* DownloaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C63372430E5F100B03CF2 /* DownloaderService.swift */; };
+		929448D5243B852D00DD02FF /* SpotlightWhitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 92ACEA8E2412A220009994EB /* SpotlightWhitelist.json */; };
 		92ACEA5C2412A214009994EB /* TouchletCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 92ACEA5A2412A214009994EB /* TouchletCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92ACEADA2412A670009994EB /* NSDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA6F2412A21F009994EB /* NSDataExtension.swift */; };
 		92ACEADB2412A670009994EB /* NSViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA702412A21F009994EB /* NSViewControllerExtension.swift */; };
@@ -445,6 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929448D5243B852D00DD02FF /* SpotlightWhitelist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
