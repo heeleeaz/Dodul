@@ -9,6 +9,8 @@
 import AppKit
 
 open class EditableTouchBarController: ReadonlyTouchBarController{
+    override var isItemClickable: Bool{return false}
+
     private var rawDraggingIndex: Int?
     
     //serves for item removal and insertion accepted point rect
@@ -16,7 +18,6 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        isItemClickable = false
         CollectionItemDragObserver.instance.delegate = self
         
         setupTrackingAreas()

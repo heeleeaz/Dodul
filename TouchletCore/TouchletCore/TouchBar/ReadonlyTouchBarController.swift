@@ -9,7 +9,7 @@
 import AppKit
 
 open class ReadonlyTouchBarController: NSViewController{
-    var isItemClickable = true
+    private(set) var isItemClickable = true
 
     private var activeIdentifier: NSTouchBarItem.Identifier = Constants.collectionIdentifier{didSet{touchBar = nil}}
     
@@ -18,6 +18,7 @@ open class ReadonlyTouchBarController: NSViewController{
         item.delegate = self
         return item
     }()
+    
     var emptyCollectionTouchbarItem: NSTouchBarItem {ReadonlyEmptyCollectionTouchBarItem(identifier: Constants.emptyCollectionIdentifier)}
     var editButtonTouchBarItem: NSTouchBarItem? {EditButtonTouchBarItem(identifier: Constants.editIdentifier)}
     

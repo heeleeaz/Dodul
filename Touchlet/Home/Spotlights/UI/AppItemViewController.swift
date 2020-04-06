@@ -121,6 +121,6 @@ extension AppItemViewController: SpotlightRepositoryDelegate{
 
 extension AppItemViewController{
     struct Constant {
-        fileprivate static let pagingInitial = 15, pagingForward = 20
+        fileprivate static let pagingInitial = 15, pagingForward = 25
     }
 }
