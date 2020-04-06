@@ -20,6 +20,8 @@ class AddLinkViewController: NSViewController, NibLoadable {
     var prefillLink: Link?
     weak var delegate: AddLinkViewControllerDelegate?
 
+    private var bookmarkRepository = BookmarkRepository.instance
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,11 +35,14 @@ class AddLinkViewController: NSViewController, NibLoadable {
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-        self.delegate?.addLinkViewController(self, dismiss: true)
+        self.delegate?.addLinkViewController(self, bookmarkRepository: bookmarkRepository, dismiss: true)
     }
     
     @IBAction func removeAction(_ sender: Any) {
-        self.delegate?.addLinkViewController(self, deleteLink: self.prefillLink)
+        if let link = prefillLink {
+            bookmarkRepository.delete(link: link)
+            delegate?.addLinkViewController(self, bookmarkRepository: bookmarkRepository, delete: link)
+        }
     }
     
     @IBAction func doneAction(_ sender: Any) {
@@ -50,8 +55,16 @@ class AddLinkViewController: NSViewController, NibLoadable {
             }
             
             let title = nameInputField.stringValue.isEmpty ? url.absoluteString : nameInputField.stringValue
+            let link = Link(title: title, url: url, id: id)
             
-            self.delegate?.addLinkViewController(self, saveLink: Link(title: title, url: url, id: id))
+            if let oldLink = prefillLink, bookmarkRepository.contains(link: oldLink){
+                bookmarkRepository.update(replace: oldLink, with: link)
+                self.delegate?.addLinkViewController(self, bookmarkRepository: bookmarkRepository, update: link)
+            }else{
+                bookmarkRepository.save(bookmark: link)
+                self.delegate?.addLinkViewController(self, bookmarkRepository: bookmarkRepository, save: link)
+            }
+            
         }else{
             invalidURLTextField.isHidden = false
             doneButton.isEnabled = false
@@ -76,7 +89,8 @@ extension AddLinkViewController: NSTextFieldDelegate{
 }
 
 @objc protocol AddLinkViewControllerDelegate{
-    func addLinkViewController(_ controller: AddLinkViewController, deleteLink link: Link?)
-    func addLinkViewController(_ controller: AddLinkViewController, saveLink link: Link)
-    func addLinkViewController(_ controller: AddLinkViewController, dismiss byUser: Bool)
+    func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, delete link: Link)
+    func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, update link: Link)
+    func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, save link: Link)
+    func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, dismiss byUser: Bool)
 }

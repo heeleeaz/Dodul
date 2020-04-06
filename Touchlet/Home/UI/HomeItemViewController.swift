@@ -37,7 +37,7 @@ extension HomeItemViewController: NSTableViewDataSource, NSTableViewDelegate{
     func numberOfRows(in tableView: NSTableView) -> Int {items.count}
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {items[row].view}
-    
+
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         let item = items[row]
         return item.isViewLoaded ? (item.height ?? 150) : 150

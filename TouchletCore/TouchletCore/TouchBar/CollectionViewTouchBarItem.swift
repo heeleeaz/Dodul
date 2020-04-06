@@ -90,8 +90,11 @@ class CollectionViewTouchBarItem: NSCustomTouchBarItem{
     }
        
     func maxAllowedItem() -> Int{
-        guard let width = collectionView.superview?.frame.width else {return 9}
-        return Int(floor(width / 72))
+        if let width = collectionView.superview?.frame.width, width > 0{
+            return Int(floor(width / 72))
+        }else{
+            return 9
+        }
     }
        
     func setItemState(at index: Int, state: TouchBarCollectionViewItem.State){findItem(at: index)?.state = state}

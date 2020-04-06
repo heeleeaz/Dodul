@@ -9,7 +9,9 @@
 import Foundation
 import TouchletCore
 
-public class BookmarkRepository{
+public class BookmarkRepository: NSObject{
+    public static let instance = BookmarkRepository()
+        
     static let imageCacheName = "bookmarks"
 
     private var dataStore: BookmarkStore
@@ -18,15 +20,13 @@ public class BookmarkRepository{
         self.dataStore = dataStore
     }
 
-    var bookmarksCount: Int {
-        return (try? dataStore.findAll())?.count ?? 0
-    }
+    var count: Int {return (try? dataStore.findAll())?.count ?? 0}
     
     var bookmarks: [Link]  {
         do{
             return try dataStore.findAll()
-        }catch let error as NSError{
-            Logger.log(text: "bookmark list failed \(error.userInfo)")
+        }catch{
+            Logger.log(text: "bookmark list failed \(error.localizedDescription)")
             return []
         }
     }
@@ -40,48 +40,68 @@ public class BookmarkRepository{
     func save(bookmark: Link) {
         do{
             try dataStore.addBookmark(bookmark)
-        }catch let error as NSError{
-            Logger.log(text: "Save bookmark \(bookmark) failed \(error.userInfo)")
+        }catch{
+            Logger.log(text: "save bookmark \(bookmark) failed \(error.localizedDescription)")
         }
     }
 
-    func moveBookmark(at fromIndex: Int, to toIndex: Int) {
+    func move(at fromIndex: Int, to toIndex: Int) {
         do{
             var bookmarks = try dataStore.findAll()
             let link = bookmarks.remove(at: fromIndex)
             bookmarks.insert(link, at: toIndex)
             try dataStore.setBookmarks(bookmarks)
-        }catch let error as NSError{
-            Logger.log(text: "Move bookmark failed \(error.userInfo)")
+        }catch{
+            Logger.log(text: "move bookmark failed \(error.localizedDescription)")
         }
     }
 
-    func deleteBookmark(at index: Int) {
+    func delete(at index: Int) {
         do{
             var bookmarks = try dataStore.findAll()
             bookmarks.remove(at: index)
             try dataStore.setBookmarks(bookmarks)
-        }catch let error as NSError{
-            Logger.log(text: "Delete bookmark failed \(error.userInfo)")
+        }catch{
+            Logger.log(text: "delete bookmark failed \(error.localizedDescription)")
+        }
+    }
+    
+    func delete(link: Link){
+        do{
+            var bookmarks = try dataStore.findAll()
+            bookmarks.removeAll{$0 == link}
+            try dataStore.setBookmarks(bookmarks)
+        }catch{
+            Logger.log(text: "delete bookmark failed \(error.localizedDescription)")
+        }
+    }
+    
+    func update(replace link: Link, with newLink: Link){
+        do{
+            if let index = try dataStore.findAll().firstIndex(of: link){
+                update(at: index, with: newLink)
+            }
+        }catch{
+            Logger.log(text: "update bookmark failed \(error.localizedDescription)")
         }
     }
 
-    func updateBookmark(at index: Int, with link: Link) {
+    func update(at index: Int, with link: Link) {
         do{
             var bookmarks = try dataStore.findAll()
             _ = bookmarks.remove(at: index)
             bookmarks.insert(link, at: index)
             try dataStore.setBookmarks(bookmarks)
-        }catch let error as NSError{
-            Logger.log(text: "Update bookmark failed \(error.userInfo)")
+        }catch{
+            Logger.log(text: "update bookmark failed \(error.localizedDescription)")
         }
     }
     
-    func contains(url: URL) -> Bool {
+    func contains(link: Link) -> Bool{
         do{
-            return try dataStore.findAll().firstIndex { $0.url == url } != nil
-        }catch let error as NSError{
-            Logger.log(text: "check contain bookmark failed \(error.userInfo)")
+            return try dataStore.findAll().contains(link)
+        }catch{
+            Logger.log(text: "check contain bookmark failed \(error.localizedDescription)")
             return false
         }
     }

@@ -18,7 +18,7 @@ class LinkCollectionViewItem: NSCollectionViewItem {
     
     private(set) var isImageLoaded: Bool = false
     
-    lazy var cimageView: NSImageView = {
+    lazy var linkIconimageView: NSImageView = {
         let imageView = NSImageView()
         imageView.imageScaling = .scaleProportionallyDown
         imageView.image = NSImage(named: "NSBookmarksTemplate")
@@ -26,7 +26,7 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         return imageView
     }()
     
-    private lazy var ctextField: NSTextField = {
+    private lazy var addressTextField: NSTextField = {
         let textField = NSTextField()
         textField.font = NSFont.systemFont(ofSize: 13)
         textField.textColor = NSColor.white
@@ -53,8 +53,7 @@ class LinkCollectionViewItem: NSCollectionViewItem {
     private lazy var touchRect: NSView = {
         let view = NSView()
         view.cornerRadius = 7
-        view._backgroundColor = NSColor(named: "TouchBarButtonBackgroundColor")
-        
+        view._backgroundColor = Theme.touchBarButtonBackgroundColor
         return view
     }()
     
@@ -70,12 +69,12 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         
         
         
-        touchRect.addSubview(cimageView)
-        cimageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([cimageView.centerYAnchor.constraint(equalTo: touchRect.centerYAnchor),
-                                     cimageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                                     cimageView.widthAnchor.constraint(equalToConstant: 24),
-                                     cimageView.heightAnchor.constraint(equalToConstant: 24)])
+        touchRect.addSubview(linkIconimageView)
+        linkIconimageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([linkIconimageView.centerYAnchor.constraint(equalTo: touchRect.centerYAnchor),
+                                     linkIconimageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                     linkIconimageView.widthAnchor.constraint(equalToConstant: 24),
+                                     linkIconimageView.heightAnchor.constraint(equalToConstant: 24)])
         
         touchRect.addSubview(moreButton)
         moreButton.translatesAutoresizingMaskIntoConstraints = false
@@ -84,12 +83,12 @@ class LinkCollectionViewItem: NSCollectionViewItem {
                                      moreButton.topAnchor.constraint(equalTo: touchRect.topAnchor, constant: 2),
                                      moreButton.trailingAnchor.constraint(equalTo: touchRect.trailingAnchor, constant: -4)])
         
-        view.addSubview(ctextField)
-        ctextField.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([ctextField.topAnchor.constraint(equalTo: touchRect.bottomAnchor, constant: 5),
-                                     ctextField.leadingAnchor.constraint(equalTo: touchRect.leadingAnchor),
-                                     ctextField.trailingAnchor.constraint(equalTo: touchRect.trailingAnchor),
-                                     ctextField.heightAnchor.constraint(equalToConstant: 25)])
+        view.addSubview(addressTextField)
+        addressTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([addressTextField.topAnchor.constraint(equalTo: touchRect.bottomAnchor, constant: 5),
+                                     addressTextField.leadingAnchor.constraint(equalTo: touchRect.leadingAnchor),
+                                     addressTextField.trailingAnchor.constraint(equalTo: touchRect.trailingAnchor),
+                                     addressTextField.heightAnchor.constraint(equalToConstant: 25)])
         
         moreButton.isHidden = true
         moreButton.addClickGestureRecognizer{self.moreClicked?()}
@@ -98,38 +97,36 @@ class LinkCollectionViewItem: NSCollectionViewItem {
     override func viewDidAppear() {
         super.viewDidAppear()
         touchRect.addTrackingArea(NSTrackingArea(rect: touchRect.bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil))
+        
+        itemAppearanceAnimation(touchRect)
     }
             
     private func updateView(){
-        ctextField.stringValue = link.displayTitle ?? ""
+        addressTextField.stringValue = link.displayTitle ?? ""
         
-        cimageView.image = NSImage(named: "NSBookmarksTemplate")
+        linkIconimageView.image = NSImage(named: "NSBookmarksTemplate")
         isImageLoaded = false
         
         FaviconProvider.instance.load(url: link.url){ (image, error) in
             if let image = image {
-                self.cimageView.image = image
+                self.linkIconimageView.image = image
                 self.isImageLoaded = true
             }
         }
     }
     
     override var draggingImageComponents: [NSDraggingImageComponent]{
-        ctextField.isHidden = true
+        addressTextField.isHidden = true
         moreButton.isHidden = true
         defer {
-            ctextField.isHidden = false
+            addressTextField.isHidden = false
             moreButton.isHidden = false
         }
         return super.draggingImageComponents
     }
     
-    override func mouseEntered(with event: NSEvent) {
-        if moreButton.isHidden {moreButton.isHidden = false}
-    }
+    override func mouseEntered(with event: NSEvent) {if moreButton.isHidden {moreButton.isHidden = false}}
     
-    override func mouseExited(with event: NSEvent) {
-        if !moreButton.isHidden {moreButton.isHidden = true}
-    }
+    override func mouseExited(with event: NSEvent) {if !moreButton.isHidden {moreButton.isHidden = true}}
 }
 

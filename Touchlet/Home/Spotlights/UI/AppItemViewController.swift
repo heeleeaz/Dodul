@@ -11,7 +11,7 @@ import TouchletCore
 
 class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
     static var storyboardName: String?{ return "HomeItemViewController"}
-    
+        
     @IBOutlet weak var sortButton: NSButton!{
         didSet{
             sortButton.image?.isTemplate = true
@@ -20,12 +20,13 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
     }
     
     private let spotlightRepository = SpotlightRepository.instance
-    
     private var listIsSorted = false
         
-    private var spotlightItem: [SpotlightItem] = Array(repeating: SpotlightItem.dummy, count: Constants.SPOTLIGHT_PAGING_INITIAL){
+    private var spotlightItem: [SpotlightItem] = []{
         didSet{
-            collectionView.reloadData()
+            removeTrailItem(collectionView) //remove navigate more (>) button
+            insertItems(collectionView, oldCount: oldValue.count, newCount: spotlightItem.count)            
+            
             delegate?.homeItemViewController(collectionItemChanged: self)
         }
     }
@@ -34,35 +35,7 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionView()
         
-        spotlightRepository.delegate = self
-        spotlightRepository.query()
-        
-        sortButton.addClickGestureRecognizer{
-            if self.listIsSorted{
-                if let result = self.spotlightRepository.result{
-                    let position = result.reset()
-                    result.sortByRecentUsage()
-                    self.spotlightItem = result.next(forward: position)
-                    
-                    if #available(OSX 10.14, *) {self.sortButton.contentTintColor = DarkTheme.unselectedTintColor}
-                }
-            }else{
-                if let result = self.spotlightRepository.result{
-                    let position = result.reset()
-                    result.sortAlphabetically()
-                    self.spotlightItem = result.next(forward: position)
-                    
-                    if #available(OSX 10.14, *) {self.sortButton.contentTintColor = DarkTheme.selectedTintColor}
-                }
-            }
-            
-            self.listIsSorted.toggle()
-        }
-    }
-    
-    private func setupCollectionView(){
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.itemSize = NSSize(width: 120, height: 110)
         flowLayout.minimumLineSpacing = 5
@@ -73,6 +46,40 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
         collectionView.register(ButtonCollectionViewItem.self, forItemWithIdentifier: ButtonCollectionViewItem.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        spotlightItem = Array(repeating: SpotlightItem.dummy, count: Constant.pagingInitial)
+        spotlightRepository.delegate = self
+        spotlightRepository.query()
+        
+        sortButton.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(sortButtonClicked)))
+    }
+    
+    @objc private func sortButtonClicked(button: NSButton){
+        if listIsSorted{
+            if let result = spotlightRepository.result{
+                result.sortByRecentUsage()
+
+                self.spotlightItem = result.next(forward: result.reset())
+                collectionView.reloadData()
+                
+                if #available(OSX 10.14, *) {sortButton.contentTintColor = DarkTheme.unselectedTintColor}
+            }
+        }else{
+            if let result = spotlightRepository.result{
+                result.sortAlphabetically()
+
+                spotlightItem = result.next(forward: result.reset())
+                collectionView.reloadData()
+                
+                if #available(OSX 10.14, *) {sortButton.contentTintColor = DarkTheme.selectedTintColor}
+            }
+        }
+        
+        listIsSorted.toggle()
+    }
+    
+    private func setupCollectionView(){
+        
     }
     
     override func touchBarItem(at index: Int) -> TouchBarItem? {
@@ -93,8 +100,9 @@ extension AppItemViewController: NSCollectionViewDataSource{
             let reuseIdentifer = ButtonCollectionViewItem.reuseIdentifier
             let view = collectionView.makeItem(withIdentifier: reuseIdentifer, for: indexPath)
             guard let collectionViewItem = view as? ButtonCollectionViewItem else {return view}
+            
             collectionViewItem.showAction(action: .seeMoreIcon, {
-                self.spotlightItem += self.spotlightRepository.result?.next(forward: Constants.SPOTLIGHT_PAGING_FORWARD) ?? []
+                self.spotlightItem += self.spotlightRepository.result?.next(forward: Constant.pagingForward) ?? []
             })
             return collectionViewItem
         }
@@ -107,12 +115,12 @@ extension AppItemViewController: NSCollectionViewDataSource{
 
 extension AppItemViewController: SpotlightRepositoryDelegate{
     func spotlightRepository(spotlightRepository: SpotlightRepository, result: SpotlightResult) {
-        spotlightItem = spotlightRepository.result?.next(forward: Constants.SPOTLIGHT_PAGING_INITIAL) ?? []
+        spotlightItem = spotlightRepository.result?.next(forward: Constant.pagingInitial) ?? []
     }
 }
 
 extension AppItemViewController{
-    struct Constants {
-         static let SPOTLIGHT_PAGING_INITIAL = 10, SPOTLIGHT_PAGING_FORWARD = 30
-     }
+    struct Constant {
+        fileprivate static let pagingInitial = 15, pagingForward = 20
+    }
 }

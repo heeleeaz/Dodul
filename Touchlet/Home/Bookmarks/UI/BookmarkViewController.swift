@@ -12,12 +12,8 @@ import TouchletCore
 class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
     static var storyboardName: String?{return "HomeItemViewController"}
             
-    private var bookmarkRepository = BookmarkRepository()
-    private var links: [Link] = []{
-        didSet{
-            collectionView.reloadData()
-            delegate?.homeItemViewController(collectionItemChanged: self)
-        }
+    private var bookmarkLinks = BookmarkRepository.instance.bookmarks{
+        didSet{delegate?.homeItemViewController(collectionItemChanged: self)}
     }
         
     override func viewDidLoad() {
@@ -31,12 +27,9 @@ class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
         collectionView.register(ButtonCollectionViewItem.self, forItemWithIdentifier: ButtonCollectionViewItem.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    override func viewDidAppear() {reloadItem()}
-    
-    private func reloadItem(){
-        links = bookmarkRepository.bookmarks
+        
+        removeTrailItem(collectionView)
+        insertItems(collectionView, oldCount: 0, newCount: bookmarkLinks.count)
     }
     
     private func showAddBookmarkController(_ link: Link?, anchor: NSView){
@@ -48,7 +41,7 @@ class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
     }
     
     override func touchBarItem(at index: Int) -> TouchBarItem? {
-        return TouchBarItem(identifier: links[index].url.absoluteString, type: .Web)
+        return TouchBarItem(identifier: bookmarkLinks[index].url.absoluteString, type: .Web)
     }
     
     override var height: CGFloat?{ return (collectionView.contentSize?.height ?? 0) + 60 }
@@ -56,10 +49,11 @@ class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
 
 extension BookmarkViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        if(indexPath.item < links.count){
+        
+        if(indexPath.item < bookmarkLinks.count){
             let view = collectionView.makeItem(withIdentifier: LinkCollectionViewItem.reuseIdentifier, for: indexPath)
             guard let collectionViewItem = view as? LinkCollectionViewItem else {return view}
-            let link = links[indexPath.item]
+            let link = bookmarkLinks[indexPath.item]
             
             collectionViewItem.link = link
             collectionViewItem.moreClicked = {self.showAddBookmarkController(link, anchor: collectionViewItem.view)}
@@ -74,7 +68,7 @@ extension BookmarkViewController: NSCollectionViewDataSource{
         }
     }
     
-    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {links.count + 1}
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {bookmarkLinks.count + 1}
     
     override func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
         let isLoaded = (collectionView.item(at: indexes.first!) as! LinkCollectionViewItem).isImageLoaded
@@ -87,28 +81,33 @@ extension BookmarkViewController: NSCollectionViewDataSource{
 }
 
 extension BookmarkViewController: AddLinkViewControllerDelegate{
-    func addLinkViewController(_ controller: AddLinkViewController, deleteLink link: Link?) {
+    func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, delete link: Link) {
         self.dismiss(controller)
         
-        if let link = link, let index = links.firstIndex(of: link){
-            bookmarkRepository.deleteBookmark(at: index); reloadItem()
+        if  let index = bookmarkLinks.firstIndex(of: link){
+            bookmarkLinks.remove(at: index)
+            collectionView.deleteItems(at: [IndexPath(item: index, section: 0)])
         }
     }
     
-    func addLinkViewController(_ controller: AddLinkViewController, saveLink link: Link) {
+    func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, save link: Link) {
         self.dismiss(controller)
 
-        if let index = links.firstIndex(of: link){bookmarkRepository.updateBookmark(at: index, with: link)}
-        else{bookmarkRepository.save(bookmark: link)}
-        
-        reloadItem()
+        bookmarkLinks.append(link)
+        removeTrailItem(collectionView)
+        insertItems(collectionView, oldCount: bookmarkLinks.count-1, newCount: bookmarkLinks.count)
     }
     
-    func addLinkViewController(_ controller: AddLinkViewController, dismiss byUser: Bool) {
+    func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, update link: Link) {
+        self.dismiss(controller)
+
+        if let index = bookmarkLinks.firstIndex(of: link){
+            bookmarkLinks.replaceSubrange(index...index, with: [link])
+            collectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
+        }
+    }
+    
+    func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, dismiss byUser: Bool) {
         self.dismiss(controller)
     }
-}
-
-@objc protocol BookmarkViewControllerDelegate {
-    func bookmarkViewController(dataReloaded links: [Link])
 }

@@ -14,14 +14,14 @@ class AppCollectionViewItem: NSCollectionViewItem {
     
     var spotlight: SpotlightItem!{didSet{if isViewLoaded { updateView()}}}
     
-    private lazy var cimageView: NSImageView = {
+    private lazy var appIconImageView: NSImageView = {
         let imageView = NSImageView()
         imageView.imageScaling = .scaleProportionallyDown
         
         return imageView
     }()
     
-    private lazy var ctextField: NSTextField = {
+    private lazy var appNameTextField: NSTextField = {
         let textField = NSTextField()
         textField.font = NSFont.systemFont(ofSize: 13)
         textField.textColor = NSColor.white
@@ -36,12 +36,18 @@ class AppCollectionViewItem: NSCollectionViewItem {
         return textField
     }()
     
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
+        itemAppearanceAnimation(view.subviews[0])
+    }
+    
     override func loadView() {
         super.view = NSView()
         
         let touchRect = NSView()
         touchRect.cornerRadius = 7
-        touchRect._backgroundColor = NSColor(named: "TouchBarButtonBackgroundColor")
+        touchRect._backgroundColor = Theme.touchBarButtonBackgroundColor
         view.addSubview(touchRect)
         touchRect.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([touchRect.topAnchor.constraint(equalTo: view.topAnchor),
@@ -51,31 +57,31 @@ class AppCollectionViewItem: NSCollectionViewItem {
         
         
         
-        touchRect.addSubview(cimageView)
-        cimageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([cimageView.centerYAnchor.constraint(equalTo: touchRect.centerYAnchor),
-                                     cimageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                                     cimageView.widthAnchor.constraint(equalToConstant: 26),
-                                     cimageView.heightAnchor.constraint(equalToConstant: 26)])
+        touchRect.addSubview(appIconImageView)
+        appIconImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([appIconImageView.centerYAnchor.constraint(equalTo: touchRect.centerYAnchor),
+                                     appIconImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                     appIconImageView.widthAnchor.constraint(equalToConstant: 26),
+                                     appIconImageView.heightAnchor.constraint(equalToConstant: 26)])
         
         
-        view.addSubview(ctextField)
-        ctextField.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([ctextField.topAnchor.constraint(equalTo: touchRect.bottomAnchor, constant: 5),
-                                     ctextField.leadingAnchor.constraint(equalTo: touchRect.leadingAnchor),
-                                     ctextField.trailingAnchor.constraint(equalTo: touchRect.trailingAnchor),
-                                     ctextField.heightAnchor.constraint(equalToConstant: 16)])
+        view.addSubview(appNameTextField)
+        appNameTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([appNameTextField.topAnchor.constraint(equalTo: touchRect.bottomAnchor, constant: 5),
+                                     appNameTextField.leadingAnchor.constraint(equalTo: touchRect.leadingAnchor),
+                                     appNameTextField.trailingAnchor.constraint(equalTo: touchRect.trailingAnchor),
+                                     appNameTextField.heightAnchor.constraint(equalToConstant: 16)])
     }
     
     private func updateView(){
-        ctextField.stringValue = spotlight.displayName ?? ""
-        cimageView.image = SpotlightRepository.findAppIcon(bundleIdentifier: spotlight.bundleIdentifier) ?? NSImage(named: "NSApplicationIcon")
+        appNameTextField.stringValue = spotlight.displayName ?? ""
+        appIconImageView.image = SpotlightRepository.findAppIcon(bundleIdentifier: spotlight.bundleIdentifier) ?? NSImage(named: "NSApplicationIcon")
     }
     
     override var draggingImageComponents: [NSDraggingImageComponent]{
-        ctextField.isHidden = true
+        appNameTextField.isHidden = true
         defer{
-            ctextField.isHidden = false
+            appNameTextField.isHidden = false
         }
         return super.draggingImageComponents
     }

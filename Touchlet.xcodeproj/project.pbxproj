@@ -16,7 +16,6 @@
 		921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921329F32406EB2000D9FE9E /* AddLinkViewController.xib */; };
 		923B986123C5CF8D00BC48A7 /* AppCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */; };
 		923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B986C23C600C000BC48A7 /* HomeItemViewController.swift */; };
-		9246321D23CB2F6600042EFE /* AppItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246321C23CB2F6600042EFE /* AppItemViewController.swift */; };
 		9246322023CB32C200042EFE /* HomeItemViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9246321F23CB32C200042EFE /* HomeItemViewController.storyboard */; };
 		9255300C2432908600578650 /* UpdateService.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92048811243262570017FEC6 /* UpdateService.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9255300D2432908600578650 /* TouchletPanel.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9204880B243262520017FEC6 /* TouchletPanel.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -32,6 +31,7 @@
 		9283108023CA773200B115D1 /* LinkCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */; };
 		9283108423CA78D700B115D1 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283108323CA78D700B115D1 /* BookmarkViewController.swift */; };
 		92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92861C922406DD34001B8EFD /* AddLinkViewController.swift */; };
+		928DD067243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928DD066243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift */; };
 		92A0C8CA2409173F000C5011 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */; };
 		92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */; };
 		92A1B2F823C4AA2100D7BEF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B2F723C4AA2100D7BEF1 /* MainViewController.swift */; };
@@ -45,6 +45,7 @@
 		92BAFB7C24251084008BC2B5 /* SourceSansPro-Regular.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92BAFB7424250BD7008BC2B5 /* SourceSansPro-Regular.ttf */; };
 		92C85C9224290A1300002173 /* UpdateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C85C8D2429039C00002173 /* UpdateAPI.swift */; };
 		92E16C762403D60E00511EE1 /* KeybindPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16C752403D60E00511EE1 /* KeybindPreferenceViewController.swift */; };
+		92EB9430243B7B4900289316 /* AppItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB942F243B7B4900289316 /* AppItemViewController.swift */; };
 		92EE13562423A323001513A8 /* KeybindPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EE13552423A323001513A8 /* KeybindPreferenceViewController.xib */; };
 		92FE9B2523D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */; };
 /* End PBXBuildFile section */
@@ -133,7 +134,6 @@
 		92132A062407B21300D9FE9E /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewItem.swift; sourceTree = "<group>"; };
 		923B986C23C600C000BC48A7 /* HomeItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemViewController.swift; sourceTree = "<group>"; };
-		9246321C23CB2F6600042EFE /* AppItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppItemViewController.swift; sourceTree = "<group>"; };
 		9246321F23CB32C200042EFE /* HomeItemViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeItemViewController.storyboard; sourceTree = "<group>"; };
 		925A241423C7378B002BB85F /* BookmarkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkRepository.swift; sourceTree = "<group>"; };
 		925A243723C76205002BB85F /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
@@ -148,6 +148,7 @@
 		9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCollectionViewItem.swift; sourceTree = "<group>"; };
 		9283108323CA78D700B115D1 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		92861C922406DD34001B8EFD /* AddLinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLinkViewController.swift; sourceTree = "<group>"; };
+		928DD066243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewItemUtil.swift; sourceTree = "<group>"; };
 		92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		92A1B2F223C4AA2100D7BEF1 /* Touchlet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Touchlet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +166,7 @@
 		92BAFB7424250BD7008BC2B5 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		92C85C8D2429039C00002173 /* UpdateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAPI.swift; sourceTree = "<group>"; };
 		92E16C752403D60E00511EE1 /* KeybindPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindPreferenceViewController.swift; sourceTree = "<group>"; };
+		92EB942F243B7B4900289316 /* AppItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppItemViewController.swift; sourceTree = "<group>"; };
 		92EE13552423A323001513A8 /* KeybindPreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeybindPreferenceViewController.xib; sourceTree = "<group>"; };
 		92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewItem.swift; sourceTree = "<group>"; };
 		B72E19481489507B4114A98F /* libPods-Core.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Core.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -342,8 +344,8 @@
 		92ACE8AC240FB0CC009994EB /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				9246321C23CB2F6600042EFE /* AppItemViewController.swift */,
 				923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */,
+				92EB942F243B7B4900289316 /* AppItemViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -351,6 +353,7 @@
 		92ACE8AE240FB108009994EB /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				928DD066243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift */,
 				92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */,
 				923B986C23C600C000BC48A7 /* HomeItemViewController.swift */,
 				92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */,
@@ -440,9 +443,9 @@
 				92A1B2F023C4AA2100D7BEF1 /* Resources */,
 				92BAFB7A24251060008BC2B5 /* CopyFiles */,
 				920487F9243260C30017FEC6 /* Embed Frameworks */,
-				3C7A5AA0B70F9B4BA05B46B3 /* [CP] Embed Pods Frameworks */,
 				9204883524326B2D0017FEC6 /* CopyFiles */,
 				9255300B2432905E00578650 /* CopyFiles */,
+				F152C660BA64F749F252304A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -543,23 +546,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3C7A5AA0B70F9B4BA05B46B3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Touchlet/Pods-Touchlet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Touchlet/Pods-Touchlet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Touchlet/Pods-Touchlet-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EEE34B347D7308731DC6B5EF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -582,6 +568,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F152C660BA64F749F252304A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Touchlet/Pods-Touchlet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Touchlet/Pods-Touchlet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Touchlet/Pods-Touchlet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -595,10 +598,12 @@
 				92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */,
 				92E16C762403D60E00511EE1 /* KeybindPreferenceViewController.swift in Sources */,
 				92C85C9224290A1300002173 /* UpdateAPI.swift in Sources */,
+				928DD067243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift in Sources */,
 				925A245723C8D811002BB85F /* BookmarkStore.swift in Sources */,
 				925A241523C7378B002BB85F /* BookmarkRepository.swift in Sources */,
 				92A1B2F823C4AA2100D7BEF1 /* MainViewController.swift in Sources */,
 				92ACE8EB240FC175009994EB /* DarkTheme.swift in Sources */,
+				92EB9430243B7B4900289316 /* AppItemViewController.swift in Sources */,
 				925A245923C8D88C002BB85F /* BookmarkUserDefaults.swift in Sources */,
 				9283108023CA773200B115D1 /* LinkCollectionViewItem.swift in Sources */,
 				925A245E23C8DB80002BB85F /* Link.swift in Sources */,
@@ -607,7 +612,6 @@
 				92A0C8CA2409173F000C5011 /* HomeCollectionViewController.swift in Sources */,
 				927C633C2431154C00B03CF2 /* PreferenceWindow.swift in Sources */,
 				923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */,
-				9246321D23CB2F6600042EFE /* AppItemViewController.swift in Sources */,
 				925F8C112406C0E3008CC1DE /* KeybindTagView.swift in Sources */,
 				927C62FD2430A7EF00B03CF2 /* AppUpdateController.swift in Sources */,
 				92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */,
