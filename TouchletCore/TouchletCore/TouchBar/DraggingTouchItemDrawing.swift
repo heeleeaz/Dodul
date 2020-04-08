@@ -43,7 +43,7 @@ class DraggingTouchItemDrawing{
         context.setFillColor(Theme.touchBarButtonBackgroundColor.cgColor)
         
         //draw grey container
-        let boxSize = CGSize(width: 96, height: 40)
+        let boxSize = CGSize(width: 90, height: 40)
         let boxOrigin = CGPoint(x: 0, y: 20)
         context.fill(CGRect(origin: boxOrigin, size: boxSize))
         
