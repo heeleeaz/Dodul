@@ -36,7 +36,6 @@
 		92A1B2FD23C4AA2200D7BEF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A1B2FC23C4AA2200D7BEF1 /* Assets.xcassets */; };
 		92A1B30023C4AA2200D7BEF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92A1B2FE23C4AA2200D7BEF1 /* Main.storyboard */; };
 		92ACE8EB240FC175009994EB /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE8EA240FC175009994EB /* DarkTheme.swift */; };
-		92ACE91B241283B0009994EB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92A1B30123C4AA2200D7BEF1 /* Info.plist */; };
 		92BAFB662424F2DE008BC2B5 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BAFB652424F2DE008BC2B5 /* Preferences.storyboard */; };
 		92BAFB682424F438008BC2B5 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAFB672424F438008BC2B5 /* PreferencesViewController.swift */; };
 		92BAFB7B24251084008BC2B5 /* SourceSansPro-Light.ttf in Copy Font Resources */ = {isa = PBXBuildFile; fileRef = 92BAFB7324250BD7008BC2B5 /* SourceSansPro-Light.ttf */; };
@@ -462,7 +461,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Elias Igbalajobi";
 				TargetAttributes = {
 					92A1B2F123C4AA2100D7BEF1 = {
@@ -532,7 +531,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				92A1B2FD23C4AA2200D7BEF1 /* Assets.xcassets in Resources */,
-				92ACE91B241283B0009994EB /* Info.plist in Resources */,
 				92BAFB662424F2DE008BC2B5 /* Preferences.storyboard in Resources */,
 				92EE13562423A323001513A8 /* KeybindPreferenceViewController.xib in Resources */,
 				927C633A2431109800B03CF2 /* DownloaderController.xib in Resources */,
@@ -760,6 +758,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
+				ENABLE_HARDENED_RUNTIME = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/HotKey/HotKey.framework/Headers\"",
@@ -789,6 +788,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
+				ENABLE_HARDENED_RUNTIME = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/HotKey/HotKey.framework/Headers\"",

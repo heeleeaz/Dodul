@@ -33,13 +33,13 @@ class DownloaderController: NSViewController, NibLoadable{
         
         switch downloadTask.state {
         case .running:
-            let identifier = ProjectBundleResolver.instance.bundleIdentifier(for: .updateService)
+            let identifier = ProjectBundleProvider.instance.bundleIdentifier(for: .updateService)
             print(NSWorkspace.shared.launchApplication(withBundleIdentifier: identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil))
             view.window?.close()
         case .completed:
             do{
                 try NSWorkspace.shared.open(downloadService.downloadedFilePath!, options: .default, configuration: [:])
-                ProjectBundleResolver.instance.terminateAppWithAllSubProject()
+                ProjectBundleProvider.instance.terminateAppWithAllSubProject()
             }catch{
                 Logger.log(items: "Error: \(error.localizedDescription)")
             }

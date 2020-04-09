@@ -86,7 +86,7 @@ class ReadonlyEmptyCollectionTouchBarItem: NSCustomTouchBarItem {
     }
     
     @objc private func addButtonClicked(){
-        let identifier = ProjectBundleResolver.instance.bundleIdentifier(for: .main)
+        let identifier = ProjectBundleProvider.instance.bundleIdentifier(for: .main)
         NSWorkspace.shared.launchApplication(withBundleIdentifier: identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
     }
 }
@@ -108,7 +108,7 @@ class EditButtonTouchBarItem: NSCustomTouchBarItem {
     }
     
     @objc private func editButtonTapped(){
-        let identifier = ProjectBundleResolver.instance.bundleIdentifier(for: .main)
+        let identifier = ProjectBundleProvider.instance.bundleIdentifier(for: .main)
         NSWorkspace.shared.launchApplication(withBundleIdentifier: identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
     }
     

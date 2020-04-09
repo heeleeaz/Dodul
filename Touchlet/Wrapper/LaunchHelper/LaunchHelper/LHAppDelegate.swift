@@ -14,14 +14,13 @@ class LHAppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         //check if the Main application is running
-        let panelIdentifier = ProjectBundleResolver.instance.bundleIdentifier(for: .panel)
-        let mainRunning = NSWorkspace.shared.runningApplications.contains{$0.bundleIdentifier == panelIdentifier}
-        if mainRunning {
+        let panelIdentifier = ProjectBundleProvider.instance.bundleIdentifier(for: .panel)
+        if (NSWorkspace.shared.runningApplications.contains{$0.bundleIdentifier == panelIdentifier}) {
             // true, panel app was launched at login, terminate helper app
             killApp()
         }else{
             DistributedNotificationCenter.default().addObserver(self, selector: #selector(killApp), name: .killApp, object: panelIdentifier)
-            NSWorkspace.shared.launchApplication(ProjectBundleResolver.instance.appName(for: .panel))
+            NSWorkspace.shared.launchApplication(ProjectBundleProvider.instance.appName(for: .panel))
         }
     }
     

@@ -23,10 +23,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if GlobalKeybindPreferencesStore.fetch() == nil{
             GlobalKeybindPreferencesStore.save(keyBind: GlobalKeybindPreferences.defaultKeyBind)
         }
-        
     
-        let launchServiceBundleIdentifier = ProjectBundleResolver.instance.bundleIdentifier(for: .panelLauncher)
-        let enabled = SMLoginItemSetEnabled(launchServiceBundleIdentifier as CFString, true)
-        Logger.log(text: "\(launchServiceBundleIdentifier) as LoginItem enabled: \(enabled)")
+        setupPanelLauncherLoginItem(enabled: true)
+        ProjectBundleProvider.instance.launchApplication(project: .panel, launchOptions: .andHide)
+    }
+    
+    func setupPanelLauncherLoginItem(enabled: Bool){
+        let identifier = ProjectBundleProvider.instance.bundleIdentifier(for: .panelLauncher)
+        let isEnabled = SMLoginItemSetEnabled(identifier as CFString, enabled)
+        Logger.log(text: "\(identifier) as LoginItem enabled: \(isEnabled)")
+    }
+    
+    func applicationWillTerminate(_ notification: Notification) {
+        
     }
 }

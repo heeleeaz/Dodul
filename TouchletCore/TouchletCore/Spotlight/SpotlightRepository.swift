@@ -14,7 +14,7 @@ public class SpotlightRepository{
     public var result: SpotlightResult?
 
     static var whitelist: [String] = {
-        let identifier = ProjectBundleResolver.instance.bundleIdentifier(for: .core)
+        let identifier = ProjectBundleProvider.instance.bundleIdentifier(for: .core)
         guard let path = Bundle.init(identifier: identifier)!.path(forResource: "SpotlightWhitelist", ofType: "json"),
             let data = try? Data(contentsOf: URL.init(fileURLWithPath: path)) else {return []}
         return (try? JSONDecoder().decode([String].self, from: data)) ?? []

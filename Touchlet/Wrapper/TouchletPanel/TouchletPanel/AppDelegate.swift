@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let launchHelperIdentifer = ProjectBundleResolver.instance.bundleIdentifier(for: .panelLauncher)
+        let launchHelperIdentifer = ProjectBundleProvider.instance.bundleIdentifier(for: .panelLauncher)
         
         if #available(OSX 10.12.2, *) {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
@@ -39,7 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             DistributedNotificationCenter.default().postNotificationName(.killApp, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
         }
         
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(setupHotKey), name: .hotKeySetup, object: ProjectBundleResolver.instance.bundleIdentifier(for: .main))
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(setupHotKey), name: .hotKeySetup, object: ProjectBundleProvider.instance.bundleIdentifier(for: .main))
     }
     
     @objc private func setupHotKey(){

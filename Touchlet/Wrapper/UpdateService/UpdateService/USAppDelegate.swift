@@ -20,7 +20,7 @@ class USAppDelegate: NSObject, NSApplicationDelegate, DownloaderServiceDelegate,
     func downloadService(downloadService: DownloaderService, didFinishDownloadingTo location: URL) {
         let notification = NSUserNotification()
         notification.identifier = "\(Bundle.main.bundleIdentifier!).appInstallNotification"
-        notification.title = String(format: "%@ Update", ProjectBundleResolver.instance.appName(for: .main))
+        notification.title = String(format: "%@ Update", ProjectBundleProvider.instance.appName(for: .main))
         notification.informativeText = "New version is ready for installation"
         
         notification.hasActionButton = true
@@ -38,7 +38,7 @@ class USAppDelegate: NSObject, NSApplicationDelegate, DownloaderServiceDelegate,
         switch notification.activationType {
         case .replied:
             let result = try? NSWorkspace.shared.open(downloaderService.downloadedFilePath!, options: .default, configuration: [:])
-            ProjectBundleResolver.instance.terminateAppWithAllSubProject()
+            ProjectBundleProvider.instance.terminateAppWithAllSubProject()
             
             Logger.log(text: "Application launched \(String(describing: result))")
         default: break

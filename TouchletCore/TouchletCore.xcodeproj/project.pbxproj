@@ -10,7 +10,7 @@
 		920BA47C242237F700256CF1 /* CollectionViewTouchBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920BA47B242237F700256CF1 /* CollectionViewTouchBarItem.swift */; };
 		920BA47E2422492D00256CF1 /* EmptyTouchBarItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920BA47D2422492C00256CF1 /* EmptyTouchBarItemInfoView.swift */; };
 		927C63202430E29200B03CF2 /* ProjectBundleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C631E2430E28000B03CF2 /* ProjectBundleConstant.swift */; };
-		927C63212430E29500B03CF2 /* ProjectBundleResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C631D2430E28000B03CF2 /* ProjectBundleResolver.swift */; };
+		927C63212430E29500B03CF2 /* ProjectBundleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C631D2430E28000B03CF2 /* ProjectBundleProvider.swift */; };
 		927C63382430E5F200B03CF2 /* DownloaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C63372430E5F100B03CF2 /* DownloaderService.swift */; };
 		929448D5243B852D00DD02FF /* SpotlightWhitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 92ACEA8E2412A220009994EB /* SpotlightWhitelist.json */; };
 		92ACEA5C2412A214009994EB /* TouchletCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 92ACEA5A2412A214009994EB /* TouchletCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -69,7 +69,7 @@
 		66C3777A2CA501A6338AD975 /* libPods-TouchletCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TouchletCore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		920BA47B242237F700256CF1 /* CollectionViewTouchBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTouchBarItem.swift; sourceTree = "<group>"; };
 		920BA47D2422492C00256CF1 /* EmptyTouchBarItemInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTouchBarItemInfoView.swift; sourceTree = "<group>"; };
-		927C631D2430E28000B03CF2 /* ProjectBundleResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectBundleResolver.swift; sourceTree = "<group>"; };
+		927C631D2430E28000B03CF2 /* ProjectBundleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectBundleProvider.swift; sourceTree = "<group>"; };
 		927C631E2430E28000B03CF2 /* ProjectBundleConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectBundleConstant.swift; sourceTree = "<group>"; };
 		927C63372430E5F100B03CF2 /* DownloaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloaderService.swift; sourceTree = "<group>"; };
 		92ACEA572412A214009994EB /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				92ACEA852412A21F009994EB /* global.swift */,
-				927C631D2430E28000B03CF2 /* ProjectBundleResolver.swift */,
+				927C631D2430E28000B03CF2 /* ProjectBundleProvider.swift */,
 				927C631E2430E28000B03CF2 /* ProjectBundleConstant.swift */,
 			);
 			path = Project;
@@ -501,7 +501,7 @@
 				92ACEAEF2412A68E009994EB /* Cache.swift in Sources */,
 				92ACEAE92412A683009994EB /* SpotlightItem.swift in Sources */,
 				92ACEAF32412A6A8009994EB /* TouchBarCollectionViewItem.swift in Sources */,
-				927C63212430E29500B03CF2 /* ProjectBundleResolver.swift in Sources */,
+				927C63212430E29500B03CF2 /* ProjectBundleProvider.swift in Sources */,
 				92ACEAE32412A670009994EB /* NSCursorHelper.swift in Sources */,
 				92ACEAF82412A6B0009994EB /* TouchBarItemUserDefault.swift in Sources */,
 				92C85C91242905F200002173 /* NetworkRequest.swift in Sources */,
