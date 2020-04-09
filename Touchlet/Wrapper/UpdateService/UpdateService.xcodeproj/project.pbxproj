@@ -12,6 +12,7 @@
 		92DC3C3024324DEF00DDC727 /* USAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC3C2F24324DEF00DDC727 /* USAppDelegate.swift */; };
 		92DC3C3424324DF000DDC727 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92DC3C3324324DF000DDC727 /* Assets.xcassets */; };
 		92DC3C3724324DF000DDC727 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DC3C3524324DF000DDC727 /* Main.storyboard */; };
+		C32177BFA7CA7A6B9869D44A /* libPods-UpdateService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53015DBF07EC40934623D478 /* libPods-UpdateService.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		53015DBF07EC40934623D478 /* libPods-UpdateService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UpdateService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59CD9FCABDF7A2C65D3BAF8C /* Pods-UpdateService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpdateService.debug.xcconfig"; path = "Target Support Files/Pods-UpdateService/Pods-UpdateService.debug.xcconfig"; sourceTree = "<group>"; };
+		7971454E3538853192B4C5C0 /* Pods-UpdateService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpdateService.release.xcconfig"; path = "Target Support Files/Pods-UpdateService/Pods-UpdateService.release.xcconfig"; sourceTree = "<group>"; };
 		92552FFE24328A7E00578650 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DC3C2C24324DEF00DDC727 /* UpdateService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpdateService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DC3C2F24324DEF00DDC727 /* USAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USAppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +48,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92552FFF24328A7E00578650 /* TouchletCore.framework in Frameworks */,
+				C32177BFA7CA7A6B9869D44A /* libPods-UpdateService.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				92552FFE24328A7E00578650 /* TouchletCore.framework */,
+				53015DBF07EC40934623D478 /* libPods-UpdateService.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -64,6 +70,7 @@
 				92DC3C2E24324DEF00DDC727 /* UpdateService */,
 				92DC3C2D24324DEF00DDC727 /* Products */,
 				92552FFD24328A7E00578650 /* Frameworks */,
+				CB214379FD2306459B866451 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +94,16 @@
 			path = UpdateService;
 			sourceTree = "<group>";
 		};
+		CB214379FD2306459B866451 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59CD9FCABDF7A2C65D3BAF8C /* Pods-UpdateService.debug.xcconfig */,
+				7971454E3538853192B4C5C0 /* Pods-UpdateService.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../../../Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -94,6 +111,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92DC3C3C24324DF000DDC727 /* Build configuration list for PBXNativeTarget "UpdateService" */;
 			buildPhases = (
+				3AAA5F1B08F0C0E145AE4A21 /* [CP] Check Pods Manifest.lock */,
 				92DC3C2824324DEF00DDC727 /* Sources */,
 				92DC3C2924324DEF00DDC727 /* Frameworks */,
 				92DC3C2A24324DEF00DDC727 /* Resources */,
@@ -155,6 +173,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3AAA5F1B08F0C0E145AE4A21 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UpdateService-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		92DC3C2824324DEF00DDC727 /* Sources */ = {
@@ -229,7 +272,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -284,7 +326,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -296,6 +337,7 @@
 		};
 		92DC3C3D24324DF000DDC727 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59CD9FCABDF7A2C65D3BAF8C /* Pods-UpdateService.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = UpdateService/UpdateService.entitlements;
@@ -318,6 +360,7 @@
 		};
 		92DC3C3E24324DF000DDC727 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7971454E3538853192B4C5C0 /* Pods-UpdateService.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = UpdateService/UpdateService.entitlements;

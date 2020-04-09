@@ -10,7 +10,4 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Touchlet/Wrapper/TouchletPanel/TouchletPanel.xcodeproj">
-   </FileRef>
 </Workspace>

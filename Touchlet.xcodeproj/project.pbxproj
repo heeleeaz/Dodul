@@ -8,17 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		019FC9DF9494FEDD8EF2DAB0 /* Pods_Touchlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6BD8BDFF9337535BF53DE4 /* Pods_Touchlet.framework */; };
-		920487F7243260C20017FEC6 /* TouchletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 920487F6243260C20017FEC6 /* TouchletCore.framework */; };
-		920487F8243260C20017FEC6 /* TouchletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 920487F6243260C20017FEC6 /* TouchletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		92048815243263BF0017FEC6 /* TouchletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACEAD72412A564009994EB /* TouchletCore.framework */; };
-		9204881F243263ED0017FEC6 /* TouchletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACEAD72412A564009994EB /* TouchletCore.framework */; };
-		9204884324326EC10017FEC6 /* LaunchHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 920488052432624C0017FEC6 /* LaunchHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9204884324326EC10017FEC6 /* LaunchHelper.app in Copy Login Items */ = {isa = PBXBuildFile; fileRef = 920488052432624C0017FEC6 /* LaunchHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921329F32406EB2000D9FE9E /* AddLinkViewController.xib */; };
 		923B986123C5CF8D00BC48A7 /* AppCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */; };
 		923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B986C23C600C000BC48A7 /* HomeItemViewController.swift */; };
+		924241CE243F4A8E004862D2 /* TouchletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACEAD72412A564009994EB /* TouchletCore.framework */; };
+		924241CF243F4A8E004862D2 /* TouchletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACEAD72412A564009994EB /* TouchletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9246322023CB32C200042EFE /* HomeItemViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9246321F23CB32C200042EFE /* HomeItemViewController.storyboard */; };
-		9255300C2432908600578650 /* UpdateService.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92048811243262570017FEC6 /* UpdateService.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		9255300D2432908600578650 /* TouchletPanel.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9204880B243262520017FEC6 /* TouchletPanel.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9255300C2432908600578650 /* UpdateService.app in Copy App Items */ = {isa = PBXBuildFile; fileRef = 92048811243262570017FEC6 /* UpdateService.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9255300D2432908600578650 /* TouchletPanel.app in Copy App Items */ = {isa = PBXBuildFile; fileRef = 9204880B243262520017FEC6 /* TouchletPanel.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		925A241523C7378B002BB85F /* BookmarkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A241423C7378B002BB85F /* BookmarkRepository.swift */; };
 		925A245723C8D811002BB85F /* BookmarkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245623C8D811002BB85F /* BookmarkStore.swift */; };
 		925A245923C8D88C002BB85F /* BookmarkUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245823C8D88C002BB85F /* BookmarkUserDefaults.swift */; };
@@ -41,8 +39,8 @@
 		92ACE91B241283B0009994EB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92A1B30123C4AA2200D7BEF1 /* Info.plist */; };
 		92BAFB662424F2DE008BC2B5 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BAFB652424F2DE008BC2B5 /* Preferences.storyboard */; };
 		92BAFB682424F438008BC2B5 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAFB672424F438008BC2B5 /* PreferencesViewController.swift */; };
-		92BAFB7B24251084008BC2B5 /* SourceSansPro-Light.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92BAFB7324250BD7008BC2B5 /* SourceSansPro-Light.ttf */; };
-		92BAFB7C24251084008BC2B5 /* SourceSansPro-Regular.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92BAFB7424250BD7008BC2B5 /* SourceSansPro-Regular.ttf */; };
+		92BAFB7B24251084008BC2B5 /* SourceSansPro-Light.ttf in Copy Font Resources */ = {isa = PBXBuildFile; fileRef = 92BAFB7324250BD7008BC2B5 /* SourceSansPro-Light.ttf */; };
+		92BAFB7C24251084008BC2B5 /* SourceSansPro-Regular.ttf in Copy Font Resources */ = {isa = PBXBuildFile; fileRef = 92BAFB7424250BD7008BC2B5 /* SourceSansPro-Regular.ttf */; };
 		92C85C9224290A1300002173 /* UpdateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C85C8D2429039C00002173 /* UpdateAPI.swift */; };
 		92E16C762403D60E00511EE1 /* KeybindPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16C752403D60E00511EE1 /* KeybindPreferenceViewController.swift */; };
 		92EB9430243B7B4900289316 /* AppItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB942F243B7B4900289316 /* AppItemViewController.swift */; };
@@ -75,47 +73,50 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		920487F9243260C30017FEC6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				920487F8243260C20017FEC6 /* TouchletCore.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9204883524326B2D0017FEC6 /* CopyFiles */ = {
+		9204883524326B2D0017FEC6 /* Copy Login Items */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
-				9204884324326EC10017FEC6 /* LaunchHelper.app in CopyFiles */,
+				9204884324326EC10017FEC6 /* LaunchHelper.app in Copy Login Items */,
 			);
+			name = "Copy Login Items";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9255300B2432905E00578650 /* CopyFiles */ = {
+		924241D0243F4A8E004862D2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				924241CF243F4A8E004862D2 /* TouchletCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9255300B2432905E00578650 /* Copy App Items */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = Contents/Library/Apps;
 			dstSubfolderSpec = 1;
 			files = (
-				9255300C2432908600578650 /* UpdateService.app in CopyFiles */,
-				9255300D2432908600578650 /* TouchletPanel.app in CopyFiles */,
+				9255300C2432908600578650 /* UpdateService.app in Copy App Items */,
+				9255300D2432908600578650 /* TouchletPanel.app in Copy App Items */,
 			);
+			name = "Copy App Items";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		92BAFB7A24251060008BC2B5 /* CopyFiles */ = {
+		92BAFB7A24251060008BC2B5 /* Copy Font Resources */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = Fonts;
 			dstSubfolderSpec = 7;
 			files = (
-				92BAFB7B24251084008BC2B5 /* SourceSansPro-Light.ttf in CopyFiles */,
-				92BAFB7C24251084008BC2B5 /* SourceSansPro-Regular.ttf in CopyFiles */,
+				92BAFB7B24251084008BC2B5 /* SourceSansPro-Light.ttf in Copy Font Resources */,
+				92BAFB7C24251084008BC2B5 /* SourceSansPro-Regular.ttf in Copy Font Resources */,
 			);
+			name = "Copy Font Resources";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -180,9 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				019FC9DF9494FEDD8EF2DAB0 /* Pods_Touchlet.framework in Frameworks */,
-				920487F7243260C20017FEC6 /* TouchletCore.framework in Frameworks */,
-				92048815243263BF0017FEC6 /* TouchletCore.framework in Frameworks */,
-				9204881F243263ED0017FEC6 /* TouchletCore.framework in Frameworks */,
+				924241CE243F4A8E004862D2 /* TouchletCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,15 +436,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92A1B31B23C4AA2200D7BEF1 /* Build configuration list for PBXNativeTarget "Touchlet" */;
 			buildPhases = (
-				EEE34B347D7308731DC6B5EF /* [CP] Check Pods Manifest.lock */,
 				92A1B2EE23C4AA2100D7BEF1 /* Sources */,
 				92A1B2EF23C4AA2100D7BEF1 /* Frameworks */,
 				92A1B2F023C4AA2100D7BEF1 /* Resources */,
-				92BAFB7A24251060008BC2B5 /* CopyFiles */,
-				920487F9243260C30017FEC6 /* Embed Frameworks */,
-				9204883524326B2D0017FEC6 /* CopyFiles */,
-				9255300B2432905E00578650 /* CopyFiles */,
+				92BAFB7A24251060008BC2B5 /* Copy Font Resources */,
+				9204883524326B2D0017FEC6 /* Copy Login Items */,
+				9255300B2432905E00578650 /* Copy App Items */,
 				F152C660BA64F749F252304A /* [CP] Embed Pods Frameworks */,
+				EEE34B347D7308731DC6B5EF /* [CP] Check Pods Manifest.lock */,
+				924241D0243F4A8E004862D2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -775,7 +774,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.Touchlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INCLUDE_PATHS = "$(inherited) $(SDKROOT)/usr/include/libxml2 $(SRCROOT)/Kanna/Modules";
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(SDKROOT)/usr/include/libxml2";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -804,7 +803,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.Touchlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INCLUDE_PATHS = "$(inherited) $(SRCROOT)/Kanna/Modules $(SDKROOT)/usr/include/libxml2\n$(SDKROOT)/usr/include/libxml2";
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(SDKROOT)/usr/include/libxml2";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

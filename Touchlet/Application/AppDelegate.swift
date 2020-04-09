@@ -13,14 +13,9 @@ import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    func applicationWillBecomeActive(_ notification: Notification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApplication.shared.windows[0].contentView?.enterFullScreenMode()
         
-        let launchHelperIdentifer = ProjectBundleResolver.instance.bundleIdentifier(for: .panelLauncher)
-        SMLoginItemSetEnabled(launchHelperIdentifer as CFString, true)
-    }
-    
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
         if #available(OSX 10.12.2, *) {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
         }
@@ -28,9 +23,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if GlobalKeybindPreferencesStore.fetch() == nil{
             GlobalKeybindPreferencesStore.save(keyBind: GlobalKeybindPreferences.defaultKeyBind)
         }
-    }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+        
+    
+        let launchServiceBundleIdentifier = ProjectBundleResolver.instance.bundleIdentifier(for: .panelLauncher)
+        let enabled = SMLoginItemSetEnabled(launchServiceBundleIdentifier as CFString, true)
+        Logger.log(text: "\(launchServiceBundleIdentifier) as LoginItem enabled: \(enabled)")
     }
 }

@@ -9,12 +9,19 @@ target 'Touchlet' do
   pod 'HotKey'
 end
 
+target 'TouchletPanel' do
+  project 'Touchlet/Wrapper/TouchletPanel/TouchletPanel.xcodeproj'
+  pod 'HotKey'
+end
+
 target 'TouchletCore' do
   project 'TouchletCore/TouchletCore.xcodeproj'
 end
 
-target 'TouchletPanel' do
-  project 'Touchlet/Wrapper/TouchletPanel/TouchletPanel.xcodeproj'
-  
-  pod 'HotKey'
+target 'UpdateService' do
+  project 'Touchlet/Wrapper/UpdateService/UpdateService.xcodeproj'
+end
+
+target 'LaunchHelper' do
+  project 'Touchlet/Wrapper/LaunchHelper/LaunchHelper.xcodeproj'
 end

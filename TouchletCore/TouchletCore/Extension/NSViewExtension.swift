@@ -141,7 +141,7 @@ extension NSView{
 
 extension NSView{
     public func enterFullScreenMode(options: NSApplication.PresentationOptions = []){
-        let presOptions: NSApplication.PresentationOptions = ([.hideDock,.hideMenuBar])
+        let presOptions: NSApplication.PresentationOptions = ([.hideDock, .hideMenuBar])
         let dictionary = [NSView.FullScreenModeOptionKey.fullScreenModeApplicationPresentationOptions: NSNumber(value: presOptions.union(options).rawValue)]
         self.enterFullScreenMode(NSScreen.main!, withOptions: dictionary)
     }
