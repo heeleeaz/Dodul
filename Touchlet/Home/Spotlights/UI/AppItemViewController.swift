@@ -25,8 +25,11 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
     private var spotlightItem: [SpotlightItem] = []{
         didSet{
             removeTrailItem(collectionView) //remove navigate more (>) button
-            insertItems(collectionView, oldCount: oldValue.count, newCount: spotlightItem.count)            
-            
+            if (oldValue.count == spotlightItem.count){
+                collectionView.reloadData()
+            }else{
+                insertItems(collectionView, oldCount: oldValue.count, newCount: spotlightItem.count)
+            }
             delegate?.homeItemViewController(collectionItemChanged: self)
         }
     }
