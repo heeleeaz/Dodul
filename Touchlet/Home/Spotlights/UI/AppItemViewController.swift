@@ -6,7 +6,7 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 import TouchletCore
 
 class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
@@ -50,11 +50,14 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        sortButton.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(sortButtonClicked)))
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
         spotlightItem = Array(repeating: SpotlightItem.dummy, count: Constant.pagingInitial)
         spotlightRepository.delegate = self
         spotlightRepository.query()
-        
-        sortButton.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(sortButtonClicked)))
     }
     
     @objc private func sortButtonClicked(button: NSButton){

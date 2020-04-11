@@ -61,24 +61,39 @@ class CollectionViewTouchBarItem: NSCustomTouchBarItem{
             (collectionView.animator() as NSCollectionView).deleteItems(at: [IndexPath(item: $0, section: 0)])
         }
     }
-       
-    func itemInPoint(_ point: NSPoint) -> Int?{
-        let touchBarRect = CGRect(x: 178, y: 0, width: collectionView.frame.width, height: 20)
-                  
-        if touchBarRect.contains(point){
-            let normalized =  NSPoint(x: point.x - touchBarRect.origin.x, y: 0)
            
-            let itemWidth = (collectionView.collectionViewLayout as! NSCollectionViewFlowLayout).itemSize.width
-            return min(Int(floor(normalized.x / itemWidth)), max(collectionView.numberOfItems(inSection: 0) - 1, 0))
+    func index(at point: NSPoint) -> Int?{
+        let collectionViewFrame = CGRect(x: 178, y: 0, width: collectionView.visibleRect.width, height: 20)
+            
+        let itemWidth = (collectionView.collectionViewLayout as! NSCollectionViewFlowLayout).itemSize.width
+        if collectionViewFrame.contains(point){
+            return bestIndex(at: point)
+        }else if point.y <= collectionViewFrame.height{
+            var currentScrollXPoint = collectionView.enclosingScrollView!.contentView.bounds.origin.x
+            if point.x < collectionViewFrame.origin.x{
+                currentScrollXPoint = max(0, currentScrollXPoint - itemWidth)
+            }else{
+                currentScrollXPoint = currentScrollXPoint + itemWidth
+            }
+            
+            collectionView.enclosingScrollView!.contentView.scroll(NSPoint(x: currentScrollXPoint, y: 0))
+            collectionView.enclosingScrollView!.reflectScrolledClipView(collectionView.enclosingScrollView!.contentView)
+            
+            return bestIndex(at: point)
         }
-           
-           //still under the baseline height
-        if point.y <= touchBarRect.height{
-            if point.x > touchBarRect.maxX{return max(collectionView.numberOfItems(inSection: 0) - 1, 0)}
-            else{return 0}
-        }else{
-            return nil
-        }
+        
+        return nil
+    }
+    
+    private func bestIndex(at point: NSPoint) -> Int{
+        let collectionViewFrame = CGRect(x: 178, y: 0, width: collectionView.visibleRect.width, height: 0)
+        let itemWidth = (collectionView.collectionViewLayout as! NSCollectionViewFlowLayout).itemSize.width
+        
+        let scrollOffset = collectionView.enclosingScrollView!.contentView.bounds.origin.x
+        let pointerXInCollectionView = (point.x - collectionViewFrame.origin.x) + scrollOffset
+        let bestPointIndex = max(Int(floor(pointerXInCollectionView / itemWidth)), 0)
+        
+        return min(bestPointIndex, max(collectionView.numberOfItems(inSection: 0) - 1, 0))
     }
        
     //TODO: improve highlight performance, ignore looping through all element
@@ -89,11 +104,13 @@ class CollectionViewTouchBarItem: NSCustomTouchBarItem{
     }
        
     func maxAllowedItem() -> Int{
-        if let width = collectionView.superview?.frame.width, width > 0{
-            return Int(floor(width / 72))
-        }else{
-            return 9
-        }
+//        if let width = collectionView.superview?.frame.width, width > 0{
+//            return Int(floor(width / 72))
+//        }else{
+//            return 9
+//        }
+        
+        15
     }
        
     func setItemState(at index: Int, state: TouchBarCollectionViewItem.State){findItem(at: index)?.state = state}

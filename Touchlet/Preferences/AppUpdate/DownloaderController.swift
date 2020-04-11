@@ -34,7 +34,7 @@ class DownloaderController: NSViewController, NibLoadable{
         switch downloadTask.state {
         case .running:
             let identifier = ProjectBundleProvider.instance.bundleIdentifier(for: .updateService)
-            print(NSWorkspace.shared.launchApplication(withBundleIdentifier: identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil))
+            NSWorkspace.shared.launchApplication(withBundleIdentifier: identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
             view.window?.close()
         case .completed:
             do{

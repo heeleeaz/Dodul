@@ -42,7 +42,7 @@ class AppUpdateController: NSViewController{
                     return
             }
             
-            if serverBundleVersion == bundleVersion {
+            if serverBundleVersion > bundleVersion {
                 self.setButtonDownloadState(.normal)
                 DispatchQueue.main.async {
                     let downloader = DownloaderController.presentAsWindowKeyAndOrderFront(nil)

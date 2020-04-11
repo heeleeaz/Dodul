@@ -44,7 +44,7 @@ extension EditableTouchBarController: CollectionItemDragObserverDelegate{
         if acceptChangesRect.contains(pointerLocation){
             NSCursorHelper.instance.hide()
 
-            guard let index = collectionViewTouchBarItem.itemInPoint(pointerLocation) else {return}
+            guard let index = collectionViewTouchBarItem.index(at: pointerLocation) else {return}
             if let existingIndex = collectionViewTouchBarItem.items.firstIndex(of: touchBarItem){
                 //item already in touchbar, and being dragged arround, hence do position swap operation
                 collectionViewTouchBarItem.swapItem(at: existingIndex, to: index)
@@ -80,7 +80,7 @@ extension EditableTouchBarController {
     override public func mouseEntered(with event: NSEvent) {
         NSCursorHelper.instance.hide()
         
-        if let item = collectionViewTouchBarItem.itemInPoint(event.locationInWindow){
+        if let item = collectionViewTouchBarItem.index(at: event.locationInWindow){
             collectionViewTouchBarItem.highlightItem(at: item)
         }
     }
@@ -90,19 +90,19 @@ extension EditableTouchBarController {
     }
     
     open override func mouseMoved(with event: NSEvent) {
-        if let item = collectionViewTouchBarItem.itemInPoint(event.locationInWindow){
+        if let item = collectionViewTouchBarItem.index(at: event.locationInWindow){
             collectionViewTouchBarItem.highlightItem(at: item)
         }
     }
     
     override public func mouseDown(with event: NSEvent) {
-        rawDraggingIndex = collectionViewTouchBarItem.itemInPoint(event.locationInWindow)
+        rawDraggingIndex = collectionViewTouchBarItem.index(at: event.locationInWindow)
     }
 
     override public func mouseDragged(with event: NSEvent) {
         guard let existingIndex = rawDraggingIndex else {return}
         
-        if let index = collectionViewTouchBarItem.itemInPoint(event.locationInWindow){
+        if let index = collectionViewTouchBarItem.index(at: event.locationInWindow){
             collectionViewTouchBarItem.swapItem(at: existingIndex, to: index)
             
             rawDraggingIndex = index
