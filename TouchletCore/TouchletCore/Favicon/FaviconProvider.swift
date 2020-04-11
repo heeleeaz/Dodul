@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Cocoa
+import AppKit
 
 public class FaviconProvider{
     public static let instance = FaviconProvider()
@@ -34,20 +34,20 @@ public class FaviconProvider{
     }
     
     public func loadFromNetwork(url: URL, completion: @escaping ImageCacheProviderCompletion){
-        do{
-            let size = Constant.iconSize
-            try FavIcon.downloadPreferred(url, width: Int(size.width), height: Int(size.height)){
-                switch $0{
-                case .success(let image):
-                    if let data = image.resize(destSize: Constant.iconSize).data {
-                        self.cache.insert(data, forKey: url.absoluteString)
-                        try? self.cache.saveToDisk(withName: Constant.cachePath)
-                        completion(image, nil)
-                    }
-                case .failure(let error): completion(nil, error)
-                }
-            }
-        }catch let error as NSError{completion(nil, error)}
+//        do{
+//            let size = Constant.iconSize
+//            try FavIcon.downloadPreferred(url, width: Int(size.width), height: Int(size.height)){
+//                switch $0{
+//                case .success(let image):
+//                    if let data = image.resize(destSize: Constant.iconSize).data {
+//                        self.cache.insert(data, forKey: url.absoluteString)
+//                        try? self.cache.saveToDisk(withName: Constant.cachePath)
+//                        completion(image, nil)
+//                    }
+//                case .failure(let error): completion(nil, error)
+//                }
+//            }
+//        }catch let error as NSError{completion(nil, error)}
     }
     
     public func load(url: URL, completion: @escaping ImageCacheProviderCompletion){

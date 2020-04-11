@@ -6,7 +6,7 @@
 //  Copyright © 2019 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 extension NSView{
     //making view acceptFirstResponder by default,

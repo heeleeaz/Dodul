@@ -6,7 +6,7 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Foundation
+import AppKit
 
 public struct GlobalKeybindPreferencesStore{
     static let KEYCODE_CACHE_KEY = "HotKey_3"

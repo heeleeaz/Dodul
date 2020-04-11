@@ -10,12 +10,7 @@ import Cocoa
 import TouchletCore
 
 class PanelWindow: NSPanel{
-    override var contentView: NSView?{
-        didSet{
-            setFrame(.zero, display: true)
-            setContentSize(frame.size)
-        }
-    }
+    override var contentView: NSView?{didSet{setFrame(.zero, display: true)}}
 }
 
 class PanelViewController: ReadonlyTouchBarController{

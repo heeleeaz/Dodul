@@ -6,7 +6,7 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 public func terminateApp(_ sender: Any){
     NSApplication.shared.terminate(sender)

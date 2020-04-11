@@ -39,45 +39,10 @@ public class ProjectBundleProvider{
         case .updateService:
             return "UpdateService"
         case .panelLauncher:
-            return "PanelLauncher"
+            return "LaunchHelper"
         case .core:
             return "TouchletCore"
         }
-    }
-    
-    public func appURL(for project: Project, bundle: Bundle = Bundle.main) throws -> URL?{
-        if bundle.bundleIdentifier == bundleIdentifier(for: .main) {
-            switch project {
-            case .main:
-                return bundle.bundleURL
-            case .panel:
-                var paths = bundle.bundleURL.pathComponents
-                paths.append("Contents")
-                paths.append("Library")
-                paths.append("Apps")
-                paths.append("TouchletPanel")
-                return URL(string: NSString.path(withComponents: paths))
-            case .panelLauncher:
-                var paths = bundle.bundleURL.pathComponents
-                paths.append("Contents")
-                paths.append("Library")
-                paths.append("LoginItems")
-                paths.append("PanelLauncher")
-                return URL(string: NSString.path(withComponents: paths))
-            case .updateService:
-                var paths = bundle.bundleURL.pathComponents
-                paths.append("Contents")
-                paths.append("Library")
-                paths.append("Apps")
-                paths.append("UpdateService")
-                return URL(string: NSString.path(withComponents: paths))
-            default: return nil
-            }
-        }
-        
-        throw NSError(domain: appName(for: .main),
-                      code: 0,
-                      userInfo: [(kCFErrorDescriptionKey as String): "only main bundle is supported"])
     }
         
     public func terminateAppWithAllSubProject(){NSApp.terminate(nil)}

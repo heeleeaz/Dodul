@@ -8,21 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		8900ADA18D4FE884F4DDF293 /* libPods-TouchletPanel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA03BC9D2E9D80E858BE1219 /* libPods-TouchletPanel.a */; };
-		92048850243273CB0017FEC6 /* TouchletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 920488462432735C0017FEC6 /* TouchletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		921927B52412A9980008CCC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 921927B32412A9980008CCC8 /* Assets.xcassets */; };
+		9288B9AF2442159300D50D27 /* TouchletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9288B9AE2442159300D50D27 /* TouchletCore.framework */; };
+		9288B9B02442159300D50D27 /* TouchletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9288B9AE2442159300D50D27 /* TouchletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		92ACE9B5241295F6009994EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE9B4241295F6009994EB /* AppDelegate.swift */; };
 		92ACE9B7241295F6009994EB /* PanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE9B6241295F6009994EB /* PanelController.swift */; };
 		92ACE9BC241295F6009994EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92ACE9BA241295F6009994EB /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		92048851243273CB0017FEC6 /* Embed Frameworks */ = {
+		9288B9B12442159400D50D27 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				92048850243273CB0017FEC6 /* TouchletCore.framework in Embed Frameworks */,
+				9288B9B02442159300D50D27 /* TouchletCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,6 +36,9 @@
 		921927B22412A9980008CCC8 /* TouchletPanel.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TouchletPanel.entitlements; sourceTree = "<group>"; };
 		921927B32412A9980008CCC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		921927B42412A9980008CCC8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9288B8FF2441FFC000D50D27 /* libTouchletCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libTouchletCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9288B9AE2442159300D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92A393F52441F81300B8AC8B /* libTouchletCore2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libTouchletCore2.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		92ACE9B1241295F6009994EB /* TouchletPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchletPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92ACE9B4241295F6009994EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92ACE9B6241295F6009994EB /* PanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelController.swift; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8900ADA18D4FE884F4DDF293 /* libPods-TouchletPanel.a in Frameworks */,
+				9288B9AF2442159300D50D27 /* TouchletCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,10 +73,23 @@
 		920488442432735C0017FEC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9288B9AE2442159300D50D27 /* TouchletCore.framework */,
+				9288B8FF2441FFC000D50D27 /* libTouchletCore.a */,
+				92A393F52441F81300B8AC8B /* libTouchletCore2.a */,
 				920488462432735C0017FEC6 /* TouchletCore.framework */,
 				CA03BC9D2E9D80E858BE1219 /* libPods-TouchletPanel.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9288B9B6244217C800D50D27 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				921927B32412A9980008CCC8 /* Assets.xcassets */,
+				921927B42412A9980008CCC8 /* Info.plist */,
+				921927B22412A9980008CCC8 /* TouchletPanel.entitlements */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		92ACE9A8241295F6009994EB = {
@@ -95,9 +113,7 @@
 		92ACE9B3241295F6009994EB /* TouchletPanel */ = {
 			isa = PBXGroup;
 			children = (
-				921927B32412A9980008CCC8 /* Assets.xcassets */,
-				921927B42412A9980008CCC8 /* Info.plist */,
-				921927B22412A9980008CCC8 /* TouchletPanel.entitlements */,
+				9288B9B6244217C800D50D27 /* Supporting Files */,
 				92ACE9B4241295F6009994EB /* AppDelegate.swift */,
 				92ACE9B6241295F6009994EB /* PanelController.swift */,
 				92ACE9BA241295F6009994EB /* Main.storyboard */,
@@ -112,11 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92ACE9C1241295F6009994EB /* Build configuration list for PBXNativeTarget "TouchletPanel" */;
 			buildPhases = (
-				853336749060C2B38D54E2DC /* [CP] Check Pods Manifest.lock */,
+				E6EDBACC7F7A9758A6A4231E /* [CP] Check Pods Manifest.lock */,
 				92ACE9AD241295F6009994EB /* Sources */,
 				92ACE9AE241295F6009994EB /* Frameworks */,
 				92ACE9AF241295F6009994EB /* Resources */,
-				92048851243273CB0017FEC6 /* Embed Frameworks */,
+				9288B9B12442159400D50D27 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,7 +189,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		853336749060C2B38D54E2DC /* [CP] Check Pods Manifest.lock */ = {
+		E6EDBACC7F7A9758A6A4231E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

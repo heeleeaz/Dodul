@@ -6,7 +6,7 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 open class Theme{
     public static var selectedTintColor = NSColor(red: 0.384, green: 0.632, blue: 1, alpha: 1)

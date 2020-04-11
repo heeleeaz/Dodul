@@ -6,7 +6,7 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Foundation
+import AppKit
 
 extension String{
     public func dropPrefix(prefix: String) -> String {

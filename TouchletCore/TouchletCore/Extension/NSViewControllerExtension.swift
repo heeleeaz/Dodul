@@ -6,7 +6,7 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 @nonobjc extension NSViewController {
     public func addChildHelper(_ child: NSViewController, view: NSView? = nil) {

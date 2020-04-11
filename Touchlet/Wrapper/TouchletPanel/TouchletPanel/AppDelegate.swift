@@ -7,34 +7,19 @@
 //
 
 import Cocoa
-import HotKey
 import TouchletCore
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    private var hotKey: HotKey? {
-        didSet {
-            hotKey?.keyDownHandler = {
-                Logger.log(text: "showing TouchletPanel from HotKey context")
-                if let window = NSApplication.shared.windows.first{
-                    window.makeKeyAndOrderFront(nil)
-                    window.orderFrontRegardless()
-                }
-            }
-        }
-    }
+    private var hotKey: HotKey?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let launchHelperIdentifer = ProjectBundleProvider.instance.bundleIdentifier(for: .panelLauncher)
-        
-        if #available(OSX 10.12.2, *) {
-            NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
-        }
+        if #available(OSX 10.12.2, *) {NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true}
         
         setupHotKey()
         
-        let startedAtLogin = NSWorkspace.shared.runningApplications.contains{$0.bundleIdentifier == launchHelperIdentifer}
-        if startedAtLogin{
+        let launchHelperIdentifer = ProjectBundleProvider.instance.bundleIdentifier(for: .panelLauncher)
+        if (NSWorkspace.shared.runningApplications.contains{$0.bundleIdentifier == launchHelperIdentifer}){
             //terminate helper app
             DistributedNotificationCenter.default().postNotificationName(.killApp, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
         }
@@ -49,6 +34,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let defKey = GlobalKeybindPreferences.defaultKeyBind
             GlobalKeybindPreferencesStore.save(keyBind: defKey)
             hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: defKey.keyCode, carbonModifiers: defKey.carbonFlags))
+        }
+        
+        hotKey?.keyDownHandler = {
+            Logger.log(text: "showing TouchletPanel from HotKey context")
+            if let window = NSApplication.shared.windows.first{
+                window.makeKeyAndOrderFront(nil); window.orderFrontRegardless()
+            }
         }
     }
 }

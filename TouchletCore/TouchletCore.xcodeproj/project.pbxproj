@@ -7,423 +7,373 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		920BA47C242237F700256CF1 /* CollectionViewTouchBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920BA47B242237F700256CF1 /* CollectionViewTouchBarItem.swift */; };
-		920BA47E2422492D00256CF1 /* EmptyTouchBarItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920BA47D2422492C00256CF1 /* EmptyTouchBarItemInfoView.swift */; };
-		927C63202430E29200B03CF2 /* ProjectBundleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C631E2430E28000B03CF2 /* ProjectBundleConstant.swift */; };
-		927C63212430E29500B03CF2 /* ProjectBundleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C631D2430E28000B03CF2 /* ProjectBundleProvider.swift */; };
-		927C63382430E5F200B03CF2 /* DownloaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C63372430E5F100B03CF2 /* DownloaderService.swift */; };
-		929448D5243B852D00DD02FF /* SpotlightWhitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 92ACEA8E2412A220009994EB /* SpotlightWhitelist.json */; };
-		92ACEA5C2412A214009994EB /* TouchletCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 92ACEA5A2412A214009994EB /* TouchletCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		92ACEADA2412A670009994EB /* NSDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA6F2412A21F009994EB /* NSDataExtension.swift */; };
-		92ACEADB2412A670009994EB /* NSViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA702412A21F009994EB /* NSViewControllerExtension.swift */; };
-		92ACEADC2412A670009994EB /* NSStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA712412A21F009994EB /* NSStringExtension.swift */; };
-		92ACEADD2412A670009994EB /* NSViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA722412A21F009994EB /* NSViewExtension.swift */; };
-		92ACEADE2412A670009994EB /* NSScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA732412A21F009994EB /* NSScrollViewExtension.swift */; };
-		92ACEADF2412A670009994EB /* NSCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA742412A21F009994EB /* NSCollectionViewItem.swift */; };
-		92ACEAE02412A670009994EB /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA752412A21F009994EB /* NSColorExtension.swift */; };
-		92ACEAE12412A670009994EB /* NSWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA762412A21F009994EB /* NSWindowExtension.swift */; };
-		92ACEAE22412A670009994EB /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA772412A21F009994EB /* NSImageExtension.swift */; };
-		92ACEAE32412A670009994EB /* NSCursorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA782412A21F009994EB /* NSCursorHelper.swift */; };
-		92ACEAE52412A678009994EB /* FaviconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA862412A21F009994EB /* FaviconProvider.swift */; };
-		92ACEAE62412A678009994EB /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA852412A21F009994EB /* global.swift */; };
-		92ACEAE72412A67E009994EB /* GlobalKeybindPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA6B2412A21F009994EB /* GlobalKeybindPreferences.swift */; };
-		92ACEAE82412A67E009994EB /* GlobalKeybindPreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA6C2412A21F009994EB /* GlobalKeybindPreferencesStore.swift */; };
-		92ACEAE92412A683009994EB /* SpotlightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA8D2412A220009994EB /* SpotlightItem.swift */; };
-		92ACEAEB2412A683009994EB /* SpotlightResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA8F2412A220009994EB /* SpotlightResult.swift */; };
-		92ACEAEC2412A683009994EB /* SpotlightRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA902412A220009994EB /* SpotlightRepository.swift */; };
-		92ACEAEF2412A68E009994EB /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA8A2412A21F009994EB /* Cache.swift */; };
-		92ACEAF02412A693009994EB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA622412A21E009994EB /* Theme.swift */; };
-		92ACEAF12412A6A8009994EB /* EditableTouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA7A2412A21F009994EB /* EditableTouchBarController.swift */; };
-		92ACEAF22412A6A8009994EB /* CollectionItemDragObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA7B2412A21F009994EB /* CollectionItemDragObserver.swift */; };
-		92ACEAF32412A6A8009994EB /* TouchBarCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA7C2412A21F009994EB /* TouchBarCollectionViewItem.swift */; };
-		92ACEAF42412A6A8009994EB /* ReadonlyTouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA7D2412A21F009994EB /* ReadonlyTouchBarController.swift */; };
-		92ACEAF52412A6AC009994EB /* TouchBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA7E2412A21F009994EB /* TouchBarItem.swift */; };
-		92ACEAF62412A6B0009994EB /* TouchBarItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA802412A21F009994EB /* TouchBarItemStore.swift */; };
-		92ACEAF72412A6B0009994EB /* TouchBarItemFileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA812412A21F009994EB /* TouchBarItemFileStorage.swift */; };
-		92ACEAF82412A6B0009994EB /* TouchBarItemUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA822412A21F009994EB /* TouchBarItemUserDefault.swift */; };
-		92ACEAF92412A6B6009994EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA642412A21F009994EB /* Logger.swift */; };
-		92ACEAFA2412A6B6009994EB /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA652412A21F009994EB /* FileLoader.swift */; };
-		92ACEAFB2412A6B6009994EB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA662412A21F009994EB /* Utility.swift */; };
-		92ACEAFC2412A6BA009994EB /* EditableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA682412A21F009994EB /* EditableTextField.swift */; };
-		92ACEAFD2412A6BA009994EB /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACEA692412A21F009994EB /* NibLoadable.swift */; };
-		92C85C91242905F200002173 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C85C90242905F200002173 /* NetworkRequest.swift */; };
-		92EE135424234D36001513A8 /* RoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE135324234D36001513A8 /* RoundedRectButton.swift */; };
-		92EE41C22412BB9700987DDE /* ContentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE41B72412BB9700987DDE /* ContentTypes.swift */; };
-		92EE41C32412BB9700987DDE /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE41B82412BB9700987DDE /* Icon.swift */; };
-		92EE41C42412BB9700987DDE /* IconType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE41B92412BB9700987DDE /* IconType.swift */; };
-		92EE41C52412BB9700987DDE /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE41BA2412BB9700987DDE /* Download.swift */; };
-		92EE41C62412BB9700987DDE /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE41BB2412BB9700987DDE /* HTML.swift */; };
-		92EE41C72412BB9700987DDE /* FavIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE41BC2412BB9700987DDE /* FavIcon.swift */; };
-		92EE41C82412BB9700987DDE /* FavIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = 92EE41BD2412BB9700987DDE /* FavIcon.h */; };
-		92EE41C92412BB9700987DDE /* XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE41BE2412BB9700987DDE /* XML.swift */; };
-		92EE41CA2412BB9700987DDE /* Detection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE41BF2412BB9700987DDE /* Detection.swift */; };
-		92EE41CB2412BB9700987DDE /* libxml2-favicon.h in Headers */ = {isa = PBXBuildFile; fileRef = 92EE41C02412BB9700987DDE /* libxml2-favicon.h */; };
-		92F21CF22418ED8800F378D1 /* DraggingTouchItemDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F21CF12418ED8800F378D1 /* DraggingTouchItemDrawing.swift */; };
-		92F21CF6241B9EF200F378D1 /* OuterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F21CF5241B9EF200F378D1 /* OuterScrollView.swift */; };
-		92F21CFA241BCACE00F378D1 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F21CF9241BCACE00F378D1 /* Toast.swift */; };
-		D0F6E5F63C878267B6DD7C71 /* libPods-TouchletCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C3777A2CA501A6338AD975 /* libPods-TouchletCore.a */; };
+		9288B92E244213A900D50D27 /* TouchletCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 9288B92C244213A900D50D27 /* TouchletCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9288B975244214A900D50D27 /* NSEventModifierFlags+HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B937244213D500D50D27 /* NSEventModifierFlags+HotKey.swift */; };
+		9288B976244214A900D50D27 /* KeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B938244213D500D50D27 /* KeyCombo.swift */; };
+		9288B977244214A900D50D27 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B939244213D500D50D27 /* Key.swift */; };
+		9288B978244214A900D50D27 /* HotKeysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B93A244213D500D50D27 /* HotKeysController.swift */; };
+		9288B979244214A900D50D27 /* KeyCombo+System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B93B244213D500D50D27 /* KeyCombo+System.swift */; };
+		9288B97A244214A900D50D27 /* HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B93C244213D500D50D27 /* HotKey.swift */; };
+		9288B97B244214AE00D50D27 /* EditableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B958244213D600D50D27 /* EditableTextField.swift */; };
+		9288B97C244214AE00D50D27 /* RoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B959244213D600D50D27 /* RoundedRectButton.swift */; };
+		9288B97D244214AE00D50D27 /* OuterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B95A244213D600D50D27 /* OuterScrollView.swift */; };
+		9288B97E244214AE00D50D27 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B95B244213D600D50D27 /* NibLoadable.swift */; };
+		9288B97F244214AE00D50D27 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B95C244213D600D50D27 /* Toast.swift */; };
+		9288B980244214B200D50D27 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B971244213D600D50D27 /* Logger.swift */; };
+		9288B981244214B200D50D27 /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B972244213D600D50D27 /* FileLoader.swift */; };
+		9288B982244214B200D50D27 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B973244213D600D50D27 /* Utility.swift */; };
+		9288B983244214B600D50D27 /* NSDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B93E244213D500D50D27 /* NSDataExtension.swift */; };
+		9288B984244214B600D50D27 /* NSViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B93F244213D500D50D27 /* NSViewControllerExtension.swift */; };
+		9288B985244214B600D50D27 /* NSStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B940244213D500D50D27 /* NSStringExtension.swift */; };
+		9288B986244214B600D50D27 /* NSViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B941244213D500D50D27 /* NSViewExtension.swift */; };
+		9288B987244214B600D50D27 /* NSScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B942244213D500D50D27 /* NSScrollViewExtension.swift */; };
+		9288B988244214B600D50D27 /* NSCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B943244213D500D50D27 /* NSCollectionViewItem.swift */; };
+		9288B989244214B600D50D27 /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B944244213D500D50D27 /* NSColorExtension.swift */; };
+		9288B98A244214B600D50D27 /* NSWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B945244213D500D50D27 /* NSWindowExtension.swift */; };
+		9288B98B244214B600D50D27 /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B946244213D500D50D27 /* NSImageExtension.swift */; };
+		9288B98C244214B600D50D27 /* NSCursorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B947244213D500D50D27 /* NSCursorHelper.swift */; };
+		9288B98D244214BA00D50D27 /* FaviconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B949244213D500D50D27 /* FaviconProvider.swift */; };
+		9288B98E244214BE00D50D27 /* GlobalKeybindPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B950244213D600D50D27 /* GlobalKeybindPreferences.swift */; };
+		9288B98F244214C200D50D27 /* GlobalKeybindPreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B951244213D600D50D27 /* GlobalKeybindPreferencesStore.swift */; };
+		9288B990244214C600D50D27 /* DownloaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B934244213D500D50D27 /* DownloaderService.swift */; };
+		9288B991244214C600D50D27 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B935244213D500D50D27 /* NetworkRequest.swift */; };
+		9288B992244214CC00D50D27 /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B954244213D600D50D27 /* global.swift */; };
+		9288B993244214CC00D50D27 /* ProjectBundleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B955244213D600D50D27 /* ProjectBundleProvider.swift */; };
+		9288B994244214CC00D50D27 /* ProjectBundleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B956244213D600D50D27 /* ProjectBundleConstant.swift */; };
+		9288B995244214D100D50D27 /* SpotlightWhitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B95E244213D600D50D27 /* SpotlightWhitelist.swift */; };
+		9288B996244214D100D50D27 /* SpotlightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B95F244213D600D50D27 /* SpotlightItem.swift */; };
+		9288B997244214D100D50D27 /* SpotlightResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B960244213D600D50D27 /* SpotlightResult.swift */; };
+		9288B998244214D100D50D27 /* SpotlightRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B961244213D600D50D27 /* SpotlightRepository.swift */; };
+		9288B999244214D600D50D27 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B94B244213D500D50D27 /* Cache.swift */; };
+		9288B99A244214DA00D50D27 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B94E244213D600D50D27 /* Theme.swift */; };
+		9288B99B244214DF00D50D27 /* EditableTouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B963244213D600D50D27 /* EditableTouchBarController.swift */; };
+		9288B99C244214DF00D50D27 /* CollectionItemDragObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B964244213D600D50D27 /* CollectionItemDragObserver.swift */; };
+		9288B99D244214DF00D50D27 /* DraggingTouchItemDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B965244213D600D50D27 /* DraggingTouchItemDrawing.swift */; };
+		9288B99E244214DF00D50D27 /* TouchBarCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B966244213D600D50D27 /* TouchBarCollectionViewItem.swift */; };
+		9288B99F244214DF00D50D27 /* ReadonlyTouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B967244213D600D50D27 /* ReadonlyTouchBarController.swift */; };
+		9288B9A0244214DF00D50D27 /* CollectionViewTouchBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B968244213D600D50D27 /* CollectionViewTouchBarItem.swift */; };
+		9288B9A1244214E300D50D27 /* TouchBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B969244213D600D50D27 /* TouchBarItem.swift */; };
+		9288B9A2244214E500D50D27 /* EmptyTouchBarItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B96B244213D600D50D27 /* EmptyTouchBarItemInfoView.swift */; };
+		9288B9A3244214EA00D50D27 /* TouchBarItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B96C244213D600D50D27 /* TouchBarItemStore.swift */; };
+		9288B9A4244214EA00D50D27 /* TouchBarItemFileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B96D244213D600D50D27 /* TouchBarItemFileStorage.swift */; };
+		9288B9A5244214EA00D50D27 /* TouchBarItemUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B96E244213D600D50D27 /* TouchBarItemUserDefault.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		14C7B2298E1F6AD2CB49418D /* Pods-TouchletCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchletCore.debug.xcconfig"; path = "Target Support Files/Pods-TouchletCore/Pods-TouchletCore.debug.xcconfig"; sourceTree = "<group>"; };
-		66C3777A2CA501A6338AD975 /* libPods-TouchletCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TouchletCore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		920BA47B242237F700256CF1 /* CollectionViewTouchBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTouchBarItem.swift; sourceTree = "<group>"; };
-		920BA47D2422492C00256CF1 /* EmptyTouchBarItemInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTouchBarItemInfoView.swift; sourceTree = "<group>"; };
-		927C631D2430E28000B03CF2 /* ProjectBundleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectBundleProvider.swift; sourceTree = "<group>"; };
-		927C631E2430E28000B03CF2 /* ProjectBundleConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectBundleConstant.swift; sourceTree = "<group>"; };
-		927C63372430E5F100B03CF2 /* DownloaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloaderService.swift; sourceTree = "<group>"; };
-		92ACEA572412A214009994EB /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92ACEA5A2412A214009994EB /* TouchletCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchletCore.h; sourceTree = "<group>"; };
-		92ACEA5B2412A214009994EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92ACEA622412A21E009994EB /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		92ACEA642412A21F009994EB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		92ACEA652412A21F009994EB /* FileLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
-		92ACEA662412A21F009994EB /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-		92ACEA682412A21F009994EB /* EditableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableTextField.swift; sourceTree = "<group>"; };
-		92ACEA692412A21F009994EB /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
-		92ACEA6B2412A21F009994EB /* GlobalKeybindPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalKeybindPreferences.swift; sourceTree = "<group>"; };
-		92ACEA6C2412A21F009994EB /* GlobalKeybindPreferencesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalKeybindPreferencesStore.swift; sourceTree = "<group>"; };
-		92ACEA6F2412A21F009994EB /* NSDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataExtension.swift; sourceTree = "<group>"; };
-		92ACEA702412A21F009994EB /* NSViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSViewControllerExtension.swift; sourceTree = "<group>"; };
-		92ACEA712412A21F009994EB /* NSStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSStringExtension.swift; sourceTree = "<group>"; };
-		92ACEA722412A21F009994EB /* NSViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSViewExtension.swift; sourceTree = "<group>"; };
-		92ACEA732412A21F009994EB /* NSScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSScrollViewExtension.swift; sourceTree = "<group>"; };
-		92ACEA742412A21F009994EB /* NSCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCollectionViewItem.swift; sourceTree = "<group>"; };
-		92ACEA752412A21F009994EB /* NSColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
-		92ACEA762412A21F009994EB /* NSWindowExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSWindowExtension.swift; sourceTree = "<group>"; };
-		92ACEA772412A21F009994EB /* NSImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
-		92ACEA782412A21F009994EB /* NSCursorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCursorHelper.swift; sourceTree = "<group>"; };
-		92ACEA7A2412A21F009994EB /* EditableTouchBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableTouchBarController.swift; sourceTree = "<group>"; };
-		92ACEA7B2412A21F009994EB /* CollectionItemDragObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionItemDragObserver.swift; sourceTree = "<group>"; };
-		92ACEA7C2412A21F009994EB /* TouchBarCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarCollectionViewItem.swift; sourceTree = "<group>"; };
-		92ACEA7D2412A21F009994EB /* ReadonlyTouchBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadonlyTouchBarController.swift; sourceTree = "<group>"; };
-		92ACEA7E2412A21F009994EB /* TouchBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarItem.swift; sourceTree = "<group>"; };
-		92ACEA802412A21F009994EB /* TouchBarItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarItemStore.swift; sourceTree = "<group>"; };
-		92ACEA812412A21F009994EB /* TouchBarItemFileStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarItemFileStorage.swift; sourceTree = "<group>"; };
-		92ACEA822412A21F009994EB /* TouchBarItemUserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarItemUserDefault.swift; sourceTree = "<group>"; };
-		92ACEA852412A21F009994EB /* global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
-		92ACEA862412A21F009994EB /* FaviconProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaviconProvider.swift; sourceTree = "<group>"; };
-		92ACEA8A2412A21F009994EB /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
-		92ACEA8D2412A220009994EB /* SpotlightItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightItem.swift; sourceTree = "<group>"; };
-		92ACEA8E2412A220009994EB /* SpotlightWhitelist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpotlightWhitelist.json; sourceTree = "<group>"; };
-		92ACEA8F2412A220009994EB /* SpotlightResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightResult.swift; sourceTree = "<group>"; };
-		92ACEA902412A220009994EB /* SpotlightRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightRepository.swift; sourceTree = "<group>"; };
-		92C85C90242905F200002173 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
-		92EE135324234D36001513A8 /* RoundedRectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
-		92EE41B72412BB9700987DDE /* ContentTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTypes.swift; sourceTree = "<group>"; };
-		92EE41B82412BB9700987DDE /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
-		92EE41B92412BB9700987DDE /* IconType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconType.swift; sourceTree = "<group>"; };
-		92EE41BA2412BB9700987DDE /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
-		92EE41BB2412BB9700987DDE /* HTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTML.swift; sourceTree = "<group>"; };
-		92EE41BC2412BB9700987DDE /* FavIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavIcon.swift; sourceTree = "<group>"; };
-		92EE41BD2412BB9700987DDE /* FavIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavIcon.h; sourceTree = "<group>"; };
-		92EE41BE2412BB9700987DDE /* XML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XML.swift; sourceTree = "<group>"; };
-		92EE41BF2412BB9700987DDE /* Detection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detection.swift; sourceTree = "<group>"; };
-		92EE41C02412BB9700987DDE /* libxml2-favicon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "libxml2-favicon.h"; sourceTree = "<group>"; };
-		92EE41C12412BB9700987DDE /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		92F21CF12418ED8800F378D1 /* DraggingTouchItemDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggingTouchItemDrawing.swift; sourceTree = "<group>"; };
-		92F21CF5241B9EF200F378D1 /* OuterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterScrollView.swift; sourceTree = "<group>"; };
-		92F21CF9241BCACE00F378D1 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
-		A0F0571DFFFB602B37BB6402 /* Pods-TouchletCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchletCore.release.xcconfig"; path = "Target Support Files/Pods-TouchletCore/Pods-TouchletCore.release.xcconfig"; sourceTree = "<group>"; };
+		9288B929244213A900D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9288B92C244213A900D50D27 /* TouchletCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchletCore.h; sourceTree = "<group>"; };
+		9288B92D244213A900D50D27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9288B934244213D500D50D27 /* DownloaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloaderService.swift; sourceTree = "<group>"; };
+		9288B935244213D500D50D27 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		9288B937244213D500D50D27 /* NSEventModifierFlags+HotKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSEventModifierFlags+HotKey.swift"; sourceTree = "<group>"; };
+		9288B938244213D500D50D27 /* KeyCombo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCombo.swift; sourceTree = "<group>"; };
+		9288B939244213D500D50D27 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		9288B93A244213D500D50D27 /* HotKeysController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeysController.swift; sourceTree = "<group>"; };
+		9288B93B244213D500D50D27 /* KeyCombo+System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyCombo+System.swift"; sourceTree = "<group>"; };
+		9288B93C244213D500D50D27 /* HotKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKey.swift; sourceTree = "<group>"; };
+		9288B93E244213D500D50D27 /* NSDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataExtension.swift; sourceTree = "<group>"; };
+		9288B93F244213D500D50D27 /* NSViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSViewControllerExtension.swift; sourceTree = "<group>"; };
+		9288B940244213D500D50D27 /* NSStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSStringExtension.swift; sourceTree = "<group>"; };
+		9288B941244213D500D50D27 /* NSViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSViewExtension.swift; sourceTree = "<group>"; };
+		9288B942244213D500D50D27 /* NSScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSScrollViewExtension.swift; sourceTree = "<group>"; };
+		9288B943244213D500D50D27 /* NSCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCollectionViewItem.swift; sourceTree = "<group>"; };
+		9288B944244213D500D50D27 /* NSColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
+		9288B945244213D500D50D27 /* NSWindowExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSWindowExtension.swift; sourceTree = "<group>"; };
+		9288B946244213D500D50D27 /* NSImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
+		9288B947244213D500D50D27 /* NSCursorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCursorHelper.swift; sourceTree = "<group>"; };
+		9288B949244213D500D50D27 /* FaviconProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaviconProvider.swift; sourceTree = "<group>"; };
+		9288B94B244213D500D50D27 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		9288B94E244213D600D50D27 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		9288B950244213D600D50D27 /* GlobalKeybindPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalKeybindPreferences.swift; sourceTree = "<group>"; };
+		9288B951244213D600D50D27 /* GlobalKeybindPreferencesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalKeybindPreferencesStore.swift; sourceTree = "<group>"; };
+		9288B954244213D600D50D27 /* global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
+		9288B955244213D600D50D27 /* ProjectBundleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectBundleProvider.swift; sourceTree = "<group>"; };
+		9288B956244213D600D50D27 /* ProjectBundleConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectBundleConstant.swift; sourceTree = "<group>"; };
+		9288B958244213D600D50D27 /* EditableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableTextField.swift; sourceTree = "<group>"; };
+		9288B959244213D600D50D27 /* RoundedRectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButton.swift; sourceTree = "<group>"; };
+		9288B95A244213D600D50D27 /* OuterScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OuterScrollView.swift; sourceTree = "<group>"; };
+		9288B95B244213D600D50D27 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		9288B95C244213D600D50D27 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		9288B95E244213D600D50D27 /* SpotlightWhitelist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightWhitelist.swift; sourceTree = "<group>"; };
+		9288B95F244213D600D50D27 /* SpotlightItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightItem.swift; sourceTree = "<group>"; };
+		9288B960244213D600D50D27 /* SpotlightResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightResult.swift; sourceTree = "<group>"; };
+		9288B961244213D600D50D27 /* SpotlightRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightRepository.swift; sourceTree = "<group>"; };
+		9288B963244213D600D50D27 /* EditableTouchBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableTouchBarController.swift; sourceTree = "<group>"; };
+		9288B964244213D600D50D27 /* CollectionItemDragObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionItemDragObserver.swift; sourceTree = "<group>"; };
+		9288B965244213D600D50D27 /* DraggingTouchItemDrawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggingTouchItemDrawing.swift; sourceTree = "<group>"; };
+		9288B966244213D600D50D27 /* TouchBarCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarCollectionViewItem.swift; sourceTree = "<group>"; };
+		9288B967244213D600D50D27 /* ReadonlyTouchBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadonlyTouchBarController.swift; sourceTree = "<group>"; };
+		9288B968244213D600D50D27 /* CollectionViewTouchBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewTouchBarItem.swift; sourceTree = "<group>"; };
+		9288B969244213D600D50D27 /* TouchBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarItem.swift; sourceTree = "<group>"; };
+		9288B96B244213D600D50D27 /* EmptyTouchBarItemInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTouchBarItemInfoView.swift; sourceTree = "<group>"; };
+		9288B96C244213D600D50D27 /* TouchBarItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarItemStore.swift; sourceTree = "<group>"; };
+		9288B96D244213D600D50D27 /* TouchBarItemFileStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarItemFileStorage.swift; sourceTree = "<group>"; };
+		9288B96E244213D600D50D27 /* TouchBarItemUserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarItemUserDefault.swift; sourceTree = "<group>"; };
+		9288B971244213D600D50D27 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		9288B972244213D600D50D27 /* FileLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
+		9288B973244213D600D50D27 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		92ACEA542412A214009994EB /* Frameworks */ = {
+		9288B926244213A900D50D27 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0F6E5F63C878267B6DD7C71 /* libPods-TouchletCore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		927C631F2430E28000B03CF2 /* Project */ = {
+		9288B91F244213A900D50D27 = {
 			isa = PBXGroup;
 			children = (
-				92ACEA852412A21F009994EB /* global.swift */,
-				927C631D2430E28000B03CF2 /* ProjectBundleProvider.swift */,
-				927C631E2430E28000B03CF2 /* ProjectBundleConstant.swift */,
-			);
-			path = Project;
-			sourceTree = "<group>";
-		};
-		92ACEA4D2412A214009994EB = {
-			isa = PBXGroup;
-			children = (
-				92ACEA592412A214009994EB /* TouchletCore */,
-				92ACEA582412A214009994EB /* Products */,
-				E74B6F1846266C2AC6E074C3 /* Pods */,
-				F2F3021D20F58A0DB0218AFE /* Frameworks */,
+				9288B92B244213A900D50D27 /* TouchletCore */,
+				9288B92A244213A900D50D27 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		92ACEA582412A214009994EB /* Products */ = {
+		9288B92A244213A900D50D27 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				92ACEA572412A214009994EB /* TouchletCore.framework */,
+				9288B929244213A900D50D27 /* TouchletCore.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		92ACEA592412A214009994EB /* TouchletCore */ = {
+		9288B92B244213A900D50D27 /* TouchletCore */ = {
 			isa = PBXGroup;
 			children = (
-				927C631F2430E28000B03CF2 /* Project */,
-				92C85C8F242905DE00002173 /* Network */,
-				92EE41B52412BB9700987DDE /* Modules */,
-				92ACEA792412A21F009994EB /* Extension */,
-				92ACEA872412A21F009994EB /* Favicon */,
-				92ACEA6E2412A21F009994EB /* Keybind */,
-				92ACEA912412A220009994EB /* Spotlight */,
-				92ACEA8C2412A21F009994EB /* Storage */,
-				92ACEA632412A21E009994EB /* Theme */,
-				92ACEA842412A21F009994EB /* TouchBar */,
-				92ACEA672412A21F009994EB /* Utilities */,
-				92ACEA6A2412A21F009994EB /* View */,
-				92ACEA5A2412A214009994EB /* TouchletCore.h */,
-				92ACEA5B2412A214009994EB /* Info.plist */,
+				9288B93D244213D500D50D27 /* HotKey */,
+				9288B95D244213D600D50D27 /* View */,
+				9288B974244213D600D50D27 /* Utilities */,
+				9288B948244213D500D50D27 /* Extension */,
+				9288B94A244213D500D50D27 /* Favicon */,
+				9288B953244213D600D50D27 /* Keybind */,
+				9288B936244213D500D50D27 /* Network */,
+				9288B957244213D600D50D27 /* Project */,
+				9288B962244213D600D50D27 /* Spotlight */,
+				9288B94D244213D500D50D27 /* Storage */,
+				9288B94F244213D600D50D27 /* Theme */,
+				9288B970244213D600D50D27 /* TouchBar */,
+				9288B92C244213A900D50D27 /* TouchletCore.h */,
+				9288B92D244213A900D50D27 /* Info.plist */,
 			);
 			path = TouchletCore;
 			sourceTree = "<group>";
 		};
-		92ACEA632412A21E009994EB /* Theme */ = {
+		9288B936244213D500D50D27 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				92ACEA622412A21E009994EB /* Theme.swift */,
-			);
-			path = Theme;
-			sourceTree = "<group>";
-		};
-		92ACEA672412A21F009994EB /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				92ACEA642412A21F009994EB /* Logger.swift */,
-				92ACEA652412A21F009994EB /* FileLoader.swift */,
-				92ACEA662412A21F009994EB /* Utility.swift */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		92ACEA6A2412A21F009994EB /* View */ = {
-			isa = PBXGroup;
-			children = (
-				92F21CF5241B9EF200F378D1 /* OuterScrollView.swift */,
-				92ACEA682412A21F009994EB /* EditableTextField.swift */,
-				92ACEA692412A21F009994EB /* NibLoadable.swift */,
-				92F21CF9241BCACE00F378D1 /* Toast.swift */,
-				92EE135324234D36001513A8 /* RoundedRectButton.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		92ACEA6D2412A21F009994EB /* Store */ = {
-			isa = PBXGroup;
-			children = (
-				92ACEA6C2412A21F009994EB /* GlobalKeybindPreferencesStore.swift */,
-			);
-			path = Store;
-			sourceTree = "<group>";
-		};
-		92ACEA6E2412A21F009994EB /* Keybind */ = {
-			isa = PBXGroup;
-			children = (
-				92ACEA6B2412A21F009994EB /* GlobalKeybindPreferences.swift */,
-				92ACEA6D2412A21F009994EB /* Store */,
-			);
-			path = Keybind;
-			sourceTree = "<group>";
-		};
-		92ACEA792412A21F009994EB /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				92ACEA6F2412A21F009994EB /* NSDataExtension.swift */,
-				92ACEA702412A21F009994EB /* NSViewControllerExtension.swift */,
-				92ACEA712412A21F009994EB /* NSStringExtension.swift */,
-				92ACEA722412A21F009994EB /* NSViewExtension.swift */,
-				92ACEA732412A21F009994EB /* NSScrollViewExtension.swift */,
-				92ACEA742412A21F009994EB /* NSCollectionViewItem.swift */,
-				92ACEA752412A21F009994EB /* NSColorExtension.swift */,
-				92ACEA762412A21F009994EB /* NSWindowExtension.swift */,
-				92ACEA772412A21F009994EB /* NSImageExtension.swift */,
-				92ACEA782412A21F009994EB /* NSCursorHelper.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		92ACEA7F2412A21F009994EB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				92ACEA7E2412A21F009994EB /* TouchBarItem.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		92ACEA832412A21F009994EB /* Store */ = {
-			isa = PBXGroup;
-			children = (
-				92ACEA802412A21F009994EB /* TouchBarItemStore.swift */,
-				92ACEA812412A21F009994EB /* TouchBarItemFileStorage.swift */,
-				92ACEA822412A21F009994EB /* TouchBarItemUserDefault.swift */,
-			);
-			path = Store;
-			sourceTree = "<group>";
-		};
-		92ACEA842412A21F009994EB /* TouchBar */ = {
-			isa = PBXGroup;
-			children = (
-				92ACEA7A2412A21F009994EB /* EditableTouchBarController.swift */,
-				92ACEA7B2412A21F009994EB /* CollectionItemDragObserver.swift */,
-				92ACEA7C2412A21F009994EB /* TouchBarCollectionViewItem.swift */,
-				92ACEA7D2412A21F009994EB /* ReadonlyTouchBarController.swift */,
-				92ACEA7F2412A21F009994EB /* Model */,
-				92ACEA832412A21F009994EB /* Store */,
-				92F21CF12418ED8800F378D1 /* DraggingTouchItemDrawing.swift */,
-				920BA47B242237F700256CF1 /* CollectionViewTouchBarItem.swift */,
-				920BA47D2422492C00256CF1 /* EmptyTouchBarItemInfoView.swift */,
-			);
-			path = TouchBar;
-			sourceTree = "<group>";
-		};
-		92ACEA872412A21F009994EB /* Favicon */ = {
-			isa = PBXGroup;
-			children = (
-				92ACEA862412A21F009994EB /* FaviconProvider.swift */,
-			);
-			path = Favicon;
-			sourceTree = "<group>";
-		};
-		92ACEA8B2412A21F009994EB /* PersistentCache */ = {
-			isa = PBXGroup;
-			children = (
-				92ACEA8A2412A21F009994EB /* Cache.swift */,
-			);
-			path = PersistentCache;
-			sourceTree = "<group>";
-		};
-		92ACEA8C2412A21F009994EB /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				92ACEA8B2412A21F009994EB /* PersistentCache */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
-		92ACEA912412A220009994EB /* Spotlight */ = {
-			isa = PBXGroup;
-			children = (
-				92ACEA8D2412A220009994EB /* SpotlightItem.swift */,
-				92ACEA8E2412A220009994EB /* SpotlightWhitelist.json */,
-				92ACEA8F2412A220009994EB /* SpotlightResult.swift */,
-				92ACEA902412A220009994EB /* SpotlightRepository.swift */,
-			);
-			path = Spotlight;
-			sourceTree = "<group>";
-		};
-		92C85C8F242905DE00002173 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				927C63372430E5F100B03CF2 /* DownloaderService.swift */,
-				92C85C90242905F200002173 /* NetworkRequest.swift */,
+				9288B934244213D500D50D27 /* DownloaderService.swift */,
+				9288B935244213D500D50D27 /* NetworkRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		92EE41B52412BB9700987DDE /* Modules */ = {
+		9288B93D244213D500D50D27 /* HotKey */ = {
 			isa = PBXGroup;
 			children = (
-				92EE41B62412BB9700987DDE /* FavIcon.swiftmodule */,
-				92EE41C02412BB9700987DDE /* libxml2-favicon.h */,
-				92EE41C12412BB9700987DDE /* module.modulemap */,
+				9288B937244213D500D50D27 /* NSEventModifierFlags+HotKey.swift */,
+				9288B938244213D500D50D27 /* KeyCombo.swift */,
+				9288B939244213D500D50D27 /* Key.swift */,
+				9288B93A244213D500D50D27 /* HotKeysController.swift */,
+				9288B93B244213D500D50D27 /* KeyCombo+System.swift */,
+				9288B93C244213D500D50D27 /* HotKey.swift */,
 			);
-			path = Modules;
-			sourceTree = SOURCE_ROOT;
-		};
-		92EE41B62412BB9700987DDE /* FavIcon.swiftmodule */ = {
-			isa = PBXGroup;
-			children = (
-				92EE41B72412BB9700987DDE /* ContentTypes.swift */,
-				92EE41B82412BB9700987DDE /* Icon.swift */,
-				92EE41B92412BB9700987DDE /* IconType.swift */,
-				92EE41BA2412BB9700987DDE /* Download.swift */,
-				92EE41BB2412BB9700987DDE /* HTML.swift */,
-				92EE41BC2412BB9700987DDE /* FavIcon.swift */,
-				92EE41BD2412BB9700987DDE /* FavIcon.h */,
-				92EE41BE2412BB9700987DDE /* XML.swift */,
-				92EE41BF2412BB9700987DDE /* Detection.swift */,
-			);
-			path = FavIcon.swiftmodule;
+			path = HotKey;
 			sourceTree = "<group>";
 		};
-		E74B6F1846266C2AC6E074C3 /* Pods */ = {
+		9288B948244213D500D50D27 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				14C7B2298E1F6AD2CB49418D /* Pods-TouchletCore.debug.xcconfig */,
-				A0F0571DFFFB602B37BB6402 /* Pods-TouchletCore.release.xcconfig */,
+				9288B93E244213D500D50D27 /* NSDataExtension.swift */,
+				9288B93F244213D500D50D27 /* NSViewControllerExtension.swift */,
+				9288B940244213D500D50D27 /* NSStringExtension.swift */,
+				9288B941244213D500D50D27 /* NSViewExtension.swift */,
+				9288B942244213D500D50D27 /* NSScrollViewExtension.swift */,
+				9288B943244213D500D50D27 /* NSCollectionViewItem.swift */,
+				9288B944244213D500D50D27 /* NSColorExtension.swift */,
+				9288B945244213D500D50D27 /* NSWindowExtension.swift */,
+				9288B946244213D500D50D27 /* NSImageExtension.swift */,
+				9288B947244213D500D50D27 /* NSCursorHelper.swift */,
 			);
-			name = Pods;
-			path = ../Pods;
+			path = Extension;
 			sourceTree = "<group>";
 		};
-		F2F3021D20F58A0DB0218AFE /* Frameworks */ = {
+		9288B94A244213D500D50D27 /* Favicon */ = {
 			isa = PBXGroup;
 			children = (
-				66C3777A2CA501A6338AD975 /* libPods-TouchletCore.a */,
+				9288B949244213D500D50D27 /* FaviconProvider.swift */,
 			);
-			name = Frameworks;
+			path = Favicon;
+			sourceTree = "<group>";
+		};
+		9288B94C244213D500D50D27 /* PersistentCache */ = {
+			isa = PBXGroup;
+			children = (
+				9288B94B244213D500D50D27 /* Cache.swift */,
+			);
+			path = PersistentCache;
+			sourceTree = "<group>";
+		};
+		9288B94D244213D500D50D27 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				9288B94C244213D500D50D27 /* PersistentCache */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		9288B94F244213D600D50D27 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				9288B94E244213D600D50D27 /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		9288B952244213D600D50D27 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				9288B951244213D600D50D27 /* GlobalKeybindPreferencesStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		9288B953244213D600D50D27 /* Keybind */ = {
+			isa = PBXGroup;
+			children = (
+				9288B950244213D600D50D27 /* GlobalKeybindPreferences.swift */,
+				9288B952244213D600D50D27 /* Store */,
+			);
+			path = Keybind;
+			sourceTree = "<group>";
+		};
+		9288B957244213D600D50D27 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				9288B954244213D600D50D27 /* global.swift */,
+				9288B955244213D600D50D27 /* ProjectBundleProvider.swift */,
+				9288B956244213D600D50D27 /* ProjectBundleConstant.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		9288B95D244213D600D50D27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9288B958244213D600D50D27 /* EditableTextField.swift */,
+				9288B959244213D600D50D27 /* RoundedRectButton.swift */,
+				9288B95A244213D600D50D27 /* OuterScrollView.swift */,
+				9288B95B244213D600D50D27 /* NibLoadable.swift */,
+				9288B95C244213D600D50D27 /* Toast.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9288B962244213D600D50D27 /* Spotlight */ = {
+			isa = PBXGroup;
+			children = (
+				9288B95E244213D600D50D27 /* SpotlightWhitelist.swift */,
+				9288B95F244213D600D50D27 /* SpotlightItem.swift */,
+				9288B960244213D600D50D27 /* SpotlightResult.swift */,
+				9288B961244213D600D50D27 /* SpotlightRepository.swift */,
+			);
+			path = Spotlight;
+			sourceTree = "<group>";
+		};
+		9288B96A244213D600D50D27 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9288B969244213D600D50D27 /* TouchBarItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9288B96F244213D600D50D27 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				9288B96C244213D600D50D27 /* TouchBarItemStore.swift */,
+				9288B96D244213D600D50D27 /* TouchBarItemFileStorage.swift */,
+				9288B96E244213D600D50D27 /* TouchBarItemUserDefault.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		9288B970244213D600D50D27 /* TouchBar */ = {
+			isa = PBXGroup;
+			children = (
+				9288B963244213D600D50D27 /* EditableTouchBarController.swift */,
+				9288B964244213D600D50D27 /* CollectionItemDragObserver.swift */,
+				9288B965244213D600D50D27 /* DraggingTouchItemDrawing.swift */,
+				9288B966244213D600D50D27 /* TouchBarCollectionViewItem.swift */,
+				9288B967244213D600D50D27 /* ReadonlyTouchBarController.swift */,
+				9288B968244213D600D50D27 /* CollectionViewTouchBarItem.swift */,
+				9288B96A244213D600D50D27 /* Model */,
+				9288B96B244213D600D50D27 /* EmptyTouchBarItemInfoView.swift */,
+				9288B96F244213D600D50D27 /* Store */,
+			);
+			path = TouchBar;
+			sourceTree = "<group>";
+		};
+		9288B974244213D600D50D27 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9288B971244213D600D50D27 /* Logger.swift */,
+				9288B972244213D600D50D27 /* FileLoader.swift */,
+				9288B973244213D600D50D27 /* Utility.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		92ACEA522412A214009994EB /* Headers */ = {
+		9288B924244213A900D50D27 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92ACEA5C2412A214009994EB /* TouchletCore.h in Headers */,
-				92EE41C82412BB9700987DDE /* FavIcon.h in Headers */,
-				92EE41CB2412BB9700987DDE /* libxml2-favicon.h in Headers */,
+				9288B92E244213A900D50D27 /* TouchletCore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		92ACEA562412A214009994EB /* TouchletCore */ = {
+		9288B928244213A900D50D27 /* TouchletCore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 92ACEA5F2412A214009994EB /* Build configuration list for PBXNativeTarget "TouchletCore" */;
+			buildConfigurationList = 9288B931244213A900D50D27 /* Build configuration list for PBXNativeTarget "TouchletCore" */;
 			buildPhases = (
-				276580BAE5AE9DF8CF83C3C6 /* [CP] Check Pods Manifest.lock */,
-				92ACEA522412A214009994EB /* Headers */,
-				92ACEA532412A214009994EB /* Sources */,
-				92ACEA542412A214009994EB /* Frameworks */,
-				92ACEA552412A214009994EB /* Resources */,
+				9288B924244213A900D50D27 /* Headers */,
+				9288B925244213A900D50D27 /* Sources */,
+				9288B926244213A900D50D27 /* Frameworks */,
+				9288B927244213A900D50D27 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = TouchletCore;
-			productName = TouchletCore;
-			productReference = 92ACEA572412A214009994EB /* TouchletCore.framework */;
+			productName = TouchletCore2;
+			productReference = 9288B929244213A900D50D27 /* TouchletCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		92ACEA4E2412A214009994EB /* Project object */ = {
+		9288B920244213A900D50D27 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Elias Igbalajobi";
 				TargetAttributes = {
-					92ACEA562412A214009994EB = {
+					9288B928244213A900D50D27 = {
 						CreatedOnToolsVersion = 11.3;
 					};
 				};
 			};
-			buildConfigurationList = 92ACEA512412A214009994EB /* Build configuration list for PBXProject "TouchletCore" */;
+			buildConfigurationList = 9288B923244213A900D50D27 /* Build configuration list for PBXProject "TouchletCore" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -431,118 +381,90 @@
 				en,
 				Base,
 			);
-			mainGroup = 92ACEA4D2412A214009994EB;
-			productRefGroup = 92ACEA582412A214009994EB /* Products */;
+			mainGroup = 9288B91F244213A900D50D27;
+			productRefGroup = 9288B92A244213A900D50D27 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				92ACEA562412A214009994EB /* TouchletCore */,
+				9288B928244213A900D50D27 /* TouchletCore */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		92ACEA552412A214009994EB /* Resources */ = {
+		9288B927244213A900D50D27 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				929448D5243B852D00DD02FF /* SpotlightWhitelist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		276580BAE5AE9DF8CF83C3C6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TouchletCore-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		92ACEA532412A214009994EB /* Sources */ = {
+		9288B925244213A900D50D27 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92ACEAF42412A6A8009994EB /* ReadonlyTouchBarController.swift in Sources */,
-				92ACEAFD2412A6BA009994EB /* NibLoadable.swift in Sources */,
-				92ACEAF12412A6A8009994EB /* EditableTouchBarController.swift in Sources */,
-				92ACEAE62412A678009994EB /* global.swift in Sources */,
-				92ACEADA2412A670009994EB /* NSDataExtension.swift in Sources */,
-				92EE41C22412BB9700987DDE /* ContentTypes.swift in Sources */,
-				92ACEADB2412A670009994EB /* NSViewControllerExtension.swift in Sources */,
-				920BA47E2422492D00256CF1 /* EmptyTouchBarItemInfoView.swift in Sources */,
-				92F21CFA241BCACE00F378D1 /* Toast.swift in Sources */,
-				92EE41CA2412BB9700987DDE /* Detection.swift in Sources */,
-				92ACEAE12412A670009994EB /* NSWindowExtension.swift in Sources */,
-				920BA47C242237F700256CF1 /* CollectionViewTouchBarItem.swift in Sources */,
-				92ACEAEC2412A683009994EB /* SpotlightRepository.swift in Sources */,
-				92ACEADE2412A670009994EB /* NSScrollViewExtension.swift in Sources */,
-				92ACEAFC2412A6BA009994EB /* EditableTextField.swift in Sources */,
-				92ACEAF02412A693009994EB /* Theme.swift in Sources */,
-				92ACEAEF2412A68E009994EB /* Cache.swift in Sources */,
-				92ACEAE92412A683009994EB /* SpotlightItem.swift in Sources */,
-				92ACEAF32412A6A8009994EB /* TouchBarCollectionViewItem.swift in Sources */,
-				927C63212430E29500B03CF2 /* ProjectBundleProvider.swift in Sources */,
-				92ACEAE32412A670009994EB /* NSCursorHelper.swift in Sources */,
-				92ACEAF82412A6B0009994EB /* TouchBarItemUserDefault.swift in Sources */,
-				92C85C91242905F200002173 /* NetworkRequest.swift in Sources */,
-				92EE41C42412BB9700987DDE /* IconType.swift in Sources */,
-				92ACEAF22412A6A8009994EB /* CollectionItemDragObserver.swift in Sources */,
-				927C63202430E29200B03CF2 /* ProjectBundleConstant.swift in Sources */,
-				92ACEAE52412A678009994EB /* FaviconProvider.swift in Sources */,
-				92ACEAF72412A6B0009994EB /* TouchBarItemFileStorage.swift in Sources */,
-				92ACEADF2412A670009994EB /* NSCollectionViewItem.swift in Sources */,
-				92ACEAE72412A67E009994EB /* GlobalKeybindPreferences.swift in Sources */,
-				92EE41C92412BB9700987DDE /* XML.swift in Sources */,
-				92ACEADD2412A670009994EB /* NSViewExtension.swift in Sources */,
-				927C63382430E5F200B03CF2 /* DownloaderService.swift in Sources */,
-				92ACEAFA2412A6B6009994EB /* FileLoader.swift in Sources */,
-				92ACEAE82412A67E009994EB /* GlobalKeybindPreferencesStore.swift in Sources */,
-				92ACEAE02412A670009994EB /* NSColorExtension.swift in Sources */,
-				92EE135424234D36001513A8 /* RoundedRectButton.swift in Sources */,
-				92ACEAF52412A6AC009994EB /* TouchBarItem.swift in Sources */,
-				92ACEAF92412A6B6009994EB /* Logger.swift in Sources */,
-				92EE41C52412BB9700987DDE /* Download.swift in Sources */,
-				92EE41C32412BB9700987DDE /* Icon.swift in Sources */,
-				92ACEAEB2412A683009994EB /* SpotlightResult.swift in Sources */,
-				92F21CF22418ED8800F378D1 /* DraggingTouchItemDrawing.swift in Sources */,
-				92F21CF6241B9EF200F378D1 /* OuterScrollView.swift in Sources */,
-				92ACEAFB2412A6B6009994EB /* Utility.swift in Sources */,
-				92ACEAF62412A6B0009994EB /* TouchBarItemStore.swift in Sources */,
-				92EE41C62412BB9700987DDE /* HTML.swift in Sources */,
-				92ACEAE22412A670009994EB /* NSImageExtension.swift in Sources */,
-				92EE41C72412BB9700987DDE /* FavIcon.swift in Sources */,
-				92ACEADC2412A670009994EB /* NSStringExtension.swift in Sources */,
+				9288B988244214B600D50D27 /* NSCollectionViewItem.swift in Sources */,
+				9288B982244214B200D50D27 /* Utility.swift in Sources */,
+				9288B998244214D100D50D27 /* SpotlightRepository.swift in Sources */,
+				9288B997244214D100D50D27 /* SpotlightResult.swift in Sources */,
+				9288B9A4244214EA00D50D27 /* TouchBarItemFileStorage.swift in Sources */,
+				9288B98A244214B600D50D27 /* NSWindowExtension.swift in Sources */,
+				9288B999244214D600D50D27 /* Cache.swift in Sources */,
+				9288B9A5244214EA00D50D27 /* TouchBarItemUserDefault.swift in Sources */,
+				9288B995244214D100D50D27 /* SpotlightWhitelist.swift in Sources */,
+				9288B9A2244214E500D50D27 /* EmptyTouchBarItemInfoView.swift in Sources */,
+				9288B9A3244214EA00D50D27 /* TouchBarItemStore.swift in Sources */,
+				9288B989244214B600D50D27 /* NSColorExtension.swift in Sources */,
+				9288B976244214A900D50D27 /* KeyCombo.swift in Sources */,
+				9288B99D244214DF00D50D27 /* DraggingTouchItemDrawing.swift in Sources */,
+				9288B978244214A900D50D27 /* HotKeysController.swift in Sources */,
+				9288B98B244214B600D50D27 /* NSImageExtension.swift in Sources */,
+				9288B98D244214BA00D50D27 /* FaviconProvider.swift in Sources */,
+				9288B98E244214BE00D50D27 /* GlobalKeybindPreferences.swift in Sources */,
+				9288B99A244214DA00D50D27 /* Theme.swift in Sources */,
+				9288B975244214A900D50D27 /* NSEventModifierFlags+HotKey.swift in Sources */,
+				9288B99E244214DF00D50D27 /* TouchBarCollectionViewItem.swift in Sources */,
+				9288B97E244214AE00D50D27 /* NibLoadable.swift in Sources */,
+				9288B979244214A900D50D27 /* KeyCombo+System.swift in Sources */,
+				9288B985244214B600D50D27 /* NSStringExtension.swift in Sources */,
+				9288B97B244214AE00D50D27 /* EditableTextField.swift in Sources */,
+				9288B996244214D100D50D27 /* SpotlightItem.swift in Sources */,
+				9288B984244214B600D50D27 /* NSViewControllerExtension.swift in Sources */,
+				9288B97D244214AE00D50D27 /* OuterScrollView.swift in Sources */,
+				9288B980244214B200D50D27 /* Logger.swift in Sources */,
+				9288B994244214CC00D50D27 /* ProjectBundleConstant.swift in Sources */,
+				9288B99C244214DF00D50D27 /* CollectionItemDragObserver.swift in Sources */,
+				9288B98F244214C200D50D27 /* GlobalKeybindPreferencesStore.swift in Sources */,
+				9288B97C244214AE00D50D27 /* RoundedRectButton.swift in Sources */,
+				9288B981244214B200D50D27 /* FileLoader.swift in Sources */,
+				9288B9A0244214DF00D50D27 /* CollectionViewTouchBarItem.swift in Sources */,
+				9288B986244214B600D50D27 /* NSViewExtension.swift in Sources */,
+				9288B99B244214DF00D50D27 /* EditableTouchBarController.swift in Sources */,
+				9288B983244214B600D50D27 /* NSDataExtension.swift in Sources */,
+				9288B99F244214DF00D50D27 /* ReadonlyTouchBarController.swift in Sources */,
+				9288B97F244214AE00D50D27 /* Toast.swift in Sources */,
+				9288B977244214A900D50D27 /* Key.swift in Sources */,
+				9288B993244214CC00D50D27 /* ProjectBundleProvider.swift in Sources */,
+				9288B9A1244214E300D50D27 /* TouchBarItem.swift in Sources */,
+				9288B992244214CC00D50D27 /* global.swift in Sources */,
+				9288B97A244214A900D50D27 /* HotKey.swift in Sources */,
+				9288B98C244214B600D50D27 /* NSCursorHelper.swift in Sources */,
+				9288B990244214C600D50D27 /* DownloaderService.swift in Sources */,
+				9288B987244214B600D50D27 /* NSScrollViewExtension.swift in Sources */,
+				9288B991244214C600D50D27 /* NetworkRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		92ACEA5D2412A214009994EB /* Debug */ = {
+		9288B92F244213A900D50D27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				APPLY_RULES_IN_COPY_HEADERS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -574,7 +496,6 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -591,12 +512,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"Modules/**",
-					"$SDKROOT/usr/include/libxml2/**",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -608,11 +524,10 @@
 			};
 			name = Debug;
 		};
-		92ACEA5E2412A214009994EB /* Release */ = {
+		9288B930244213A900D50D27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				APPLY_RULES_IN_COPY_HEADERS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -644,7 +559,6 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -655,12 +569,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"Modules/**",
-					"$SDKROOT/usr/include/libxml2/**",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -671,11 +580,9 @@
 			};
 			name = Release;
 		};
-		92ACEA602412A214009994EB /* Debug */ = {
+		9288B932244213A900D50D27 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14C7B2298E1F6AD2CB49418D /* Pods-TouchletCore.debug.xcconfig */;
 			buildSettings = {
-				APPLY_RULES_IN_COPY_HEADERS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -683,10 +590,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = (
-					"$SDKROOT/usr/include/libxml2/**",
-					"\"$(PROJECT_DIR)\"/**",
-				);
 				INFOPLIST_FILE = TouchletCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -695,20 +598,16 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.TouchletCore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet..TouchletCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(inherited) Modules/**";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		92ACEA612412A214009994EB /* Release */ = {
+		9288B933244213A900D50D27 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A0F0571DFFFB602B37BB6402 /* Pods-TouchletCore.release.xcconfig */;
 			buildSettings = {
-				APPLY_RULES_IN_COPY_HEADERS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -716,10 +615,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = (
-					"$SDKROOT/usr/include/libxml2/**",
-					"\"$(PROJECT_DIR)\"/**",
-				);
 				INFOPLIST_FILE = TouchletCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -728,11 +623,9 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.TouchletCore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet..TouchletCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(inherited) Modules/**";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -740,25 +633,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		92ACEA512412A214009994EB /* Build configuration list for PBXProject "TouchletCore" */ = {
+		9288B923244213A900D50D27 /* Build configuration list for PBXProject "TouchletCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				92ACEA5D2412A214009994EB /* Debug */,
-				92ACEA5E2412A214009994EB /* Release */,
+				9288B92F244213A900D50D27 /* Debug */,
+				9288B930244213A900D50D27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		92ACEA5F2412A214009994EB /* Build configuration list for PBXNativeTarget "TouchletCore" */ = {
+		9288B931244213A900D50D27 /* Build configuration list for PBXNativeTarget "TouchletCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				92ACEA602412A214009994EB /* Debug */,
-				92ACEA612412A214009994EB /* Release */,
+				9288B932244213A900D50D27 /* Debug */,
+				9288B933244213A900D50D27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 92ACEA4E2412A214009994EB /* Project object */;
+	rootObject = 9288B920244213A900D50D27 /* Project object */;
 }

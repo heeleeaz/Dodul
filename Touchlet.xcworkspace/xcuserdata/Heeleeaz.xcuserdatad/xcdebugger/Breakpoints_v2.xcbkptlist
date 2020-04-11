@@ -7,16 +7,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BF285604-001C-4752-AA37-30C911647A38"
-            shouldBeEnabled = "Yes"
+            uuid = "27C8CD49-1DCA-423C-B5A8-99E06A6E12DB"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Touchlet/Application/AppDelegate.swift"
+            filePath = "TouchletCore2/TouchletCore2/TouchBar/ReadonlyTouchBarController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
-            landmarkName = "applicationWillTerminate(_:)"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "27C8CD49-1DCA-423C-B5A8-99E06A6E12DB - d8b400a7dbdeed9f"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TouchletCore2.ReadonlyTouchBarController.viewDidLoad() -&gt; ()"
+                  moduleName = "ABC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Heeleeaz/Documents/XCode%20Project/Touchlet/TouchletCore2/TouchletCore2/TouchBar/ReadonlyTouchBarController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "63">
+               </Location>
+               <Location
+                  uuid = "27C8CD49-1DCA-423C-B5A8-99E06A6E12DB - 234e89c73f85af4b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc TouchletCore2.ReadonlyTouchBarController.viewDidLoad() -&gt; ()"
+                  moduleName = "ABC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Heeleeaz/Documents/XCode%20Project/Touchlet/TouchletCore2/TouchletCore2/TouchBar/ReadonlyTouchBarController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "83">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "679795C1-44F1-4FE7-8AD1-3354C91D6A64"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TouchletCore2/TouchletCore2/TouchBar/ReadonlyTouchBarController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "makeTouchBar()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E7F0A9F7-7913-40C7-AEBC-A5EABD16875C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TouchletCore2/TouchletCore2/TouchBar/ReadonlyTouchBarController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "makeTouchBar()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F7C2B01-7164-4C47-83DD-49AA0666EA36"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Touchlet/Wrapper/ABC/ABC/PanelController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "createWindow()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

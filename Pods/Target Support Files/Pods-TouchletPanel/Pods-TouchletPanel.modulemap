@@ -1,6 +1,0 @@
-module Pods_TouchletPanel {
-  umbrella header "Pods-TouchletPanel-umbrella.h"
-
-  export *
-  module * { export * }
-}

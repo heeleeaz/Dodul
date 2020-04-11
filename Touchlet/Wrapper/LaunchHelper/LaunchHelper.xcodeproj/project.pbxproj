@@ -11,18 +11,18 @@
 		9208237524166EFE00217940 /* LHAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208237424166EFE00217940 /* LHAppDelegate.swift */; };
 		9208237924166EFF00217940 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9208237824166EFF00217940 /* Assets.xcassets */; };
 		9208237C24166EFF00217940 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9208237A24166EFF00217940 /* Main.storyboard */; };
-		9255300424328FE800578650 /* TouchletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9255300324328FE800578650 /* TouchletCore.framework */; };
-		9255300524328FE800578650 /* TouchletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9255300324328FE800578650 /* TouchletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9288B9B3244215A100D50D27 /* TouchletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9288B9B2244215A100D50D27 /* TouchletCore.framework */; };
+		9288B9B4244215A100D50D27 /* TouchletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9288B9B2244215A100D50D27 /* TouchletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9255300624328FE800578650 /* Embed Frameworks */ = {
+		9288B9B5244215A100D50D27 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9255300524328FE800578650 /* TouchletCore.framework in Embed Frameworks */,
+				9288B9B4244215A100D50D27 /* TouchletCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,6 +38,8 @@
 		9208237D24166EFF00217940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9208237E24166EFF00217940 /* LaunchHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LaunchHelper.entitlements; sourceTree = "<group>"; };
 		9255300324328FE800578650 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9288B9012441FFD400D50D27 /* libTouchletCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libTouchletCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9288B9B2244215A100D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93002307C695FBA93C63E48A /* Pods-LaunchHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaunchHelper.release.xcconfig"; path = "Target Support Files/Pods-LaunchHelper/Pods-LaunchHelper.release.xcconfig"; sourceTree = "<group>"; };
 		FED18C4076B098C62DBFBC4C /* Pods-LaunchHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaunchHelper.debug.xcconfig"; path = "Target Support Files/Pods-LaunchHelper/Pods-LaunchHelper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,8 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9255300424328FE800578650 /* TouchletCore.framework in Frameworks */,
 				6189978E5AAE0D4A20963EEA /* libPods-LaunchHelper.a in Frameworks */,
+				9288B9B3244215A100D50D27 /* TouchletCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +90,8 @@
 		9255300224328FE800578650 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9288B9B2244215A100D50D27 /* TouchletCore.framework */,
+				9288B9012441FFD400D50D27 /* libTouchletCore.a */,
 				9255300324328FE800578650 /* TouchletCore.framework */,
 				3E8DF08D70B5DF37EF411953 /* libPods-LaunchHelper.a */,
 			);
@@ -115,7 +119,7 @@
 				9208236D24166EFE00217940 /* Sources */,
 				9208236E24166EFE00217940 /* Frameworks */,
 				9208236F24166EFE00217940 /* Resources */,
-				9255300624328FE800578650 /* Embed Frameworks */,
+				9288B9B5244215A100D50D27 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -338,6 +342,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LaunchHelper/LaunchHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
@@ -361,6 +366,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LaunchHelper/LaunchHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;

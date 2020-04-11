@@ -1,6 +1,0 @@
-module HotKey {
-  umbrella header "HotKey-library-umbrella.h"
-
-  export *
-  module * { export * }
-}

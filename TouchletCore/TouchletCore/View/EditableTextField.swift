@@ -6,7 +6,7 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 @IBDesignable public class EditingTextField: NSTextField {
     private let commandKey = NSEvent.ModifierFlags.command.rawValue

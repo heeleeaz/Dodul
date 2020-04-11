@@ -6,19 +6,14 @@
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 public class SpotlightRepository{
     public static var instance = SpotlightRepository()
     
     public var result: SpotlightResult?
 
-    static var whitelist: [String] = {
-        let identifier = ProjectBundleProvider.instance.bundleIdentifier(for: .core)
-        guard let path = Bundle.init(identifier: identifier)!.path(forResource: "SpotlightWhitelist", ofType: "json"),
-            let data = try? Data(contentsOf: URL.init(fileURLWithPath: path)) else {return []}
-        return (try? JSONDecoder().decode([String].self, from: data)) ?? []
-    }()
+    static var whitelist: [String] = SpotlightWhitelist.all
         
     public weak var delegate: SpotlightRepositoryDelegate?
 

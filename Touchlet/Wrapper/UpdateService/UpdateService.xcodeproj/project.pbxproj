@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		92552FFF24328A7E00578650 /* TouchletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92552FFE24328A7E00578650 /* TouchletCore.framework */; };
-		9255300024328A7E00578650 /* TouchletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92552FFE24328A7E00578650 /* TouchletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9288B9AB2442158C00D50D27 /* TouchletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9288B9AA2442158C00D50D27 /* TouchletCore.framework */; };
+		9288B9AC2442158C00D50D27 /* TouchletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9288B9AA2442158C00D50D27 /* TouchletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		92DC3C3024324DEF00DDC727 /* USAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC3C2F24324DEF00DDC727 /* USAppDelegate.swift */; };
 		92DC3C3424324DF000DDC727 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92DC3C3324324DF000DDC727 /* Assets.xcassets */; };
 		92DC3C3724324DF000DDC727 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DC3C3524324DF000DDC727 /* Main.storyboard */; };
@@ -16,13 +16,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9255300124328A7E00578650 /* Embed Frameworks */ = {
+		9288B9AD2442158C00D50D27 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9255300024328A7E00578650 /* TouchletCore.framework in Embed Frameworks */,
+				9288B9AC2442158C00D50D27 /* TouchletCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -34,6 +34,8 @@
 		59CD9FCABDF7A2C65D3BAF8C /* Pods-UpdateService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpdateService.debug.xcconfig"; path = "Target Support Files/Pods-UpdateService/Pods-UpdateService.debug.xcconfig"; sourceTree = "<group>"; };
 		7971454E3538853192B4C5C0 /* Pods-UpdateService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpdateService.release.xcconfig"; path = "Target Support Files/Pods-UpdateService/Pods-UpdateService.release.xcconfig"; sourceTree = "<group>"; };
 		92552FFE24328A7E00578650 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9288B8FD2441FF8900D50D27 /* libTouchletCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libTouchletCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9288B9AA2442158C00D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DC3C2C24324DEF00DDC727 /* UpdateService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpdateService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DC3C2F24324DEF00DDC727 /* USAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USAppDelegate.swift; sourceTree = "<group>"; };
 		92DC3C3324324DF000DDC727 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,8 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92552FFF24328A7E00578650 /* TouchletCore.framework in Frameworks */,
 				C32177BFA7CA7A6B9869D44A /* libPods-UpdateService.a in Frameworks */,
+				9288B9AB2442158C00D50D27 /* TouchletCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +60,8 @@
 		92552FFD24328A7E00578650 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9288B9AA2442158C00D50D27 /* TouchletCore.framework */,
+				9288B8FD2441FF8900D50D27 /* libTouchletCore.a */,
 				92552FFE24328A7E00578650 /* TouchletCore.framework */,
 				53015DBF07EC40934623D478 /* libPods-UpdateService.a */,
 			);
@@ -115,7 +119,7 @@
 				92DC3C2824324DEF00DDC727 /* Sources */,
 				92DC3C2924324DEF00DDC727 /* Frameworks */,
 				92DC3C2A24324DEF00DDC727 /* Resources */,
-				9255300124328A7E00578650 /* Embed Frameworks */,
+				9288B9AD2442158C00D50D27 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

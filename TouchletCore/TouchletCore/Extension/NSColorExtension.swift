@@ -6,7 +6,7 @@
 //  Copyright © 2019 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 extension NSColor {
     public func combine(withColor other: NSColor, ratio: CGFloat) -> NSColor {

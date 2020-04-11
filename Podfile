@@ -6,16 +6,7 @@ workspace 'Touchlet'
 
 target 'Touchlet' do
   use_frameworks!
-  pod 'HotKey'
-end
-
-target 'TouchletPanel' do
-  project 'Touchlet/Wrapper/TouchletPanel/TouchletPanel.xcodeproj'
-  pod 'HotKey'
-end
-
-target 'TouchletCore' do
-  project 'TouchletCore/TouchletCore.xcodeproj'
+  pod 'FavIcon'
 end
 
 target 'UpdateService' do
@@ -24,4 +15,8 @@ end
 
 target 'LaunchHelper' do
   project 'Touchlet/Wrapper/LaunchHelper/LaunchHelper.xcodeproj'
+end
+
+target 'TouchletPanel' do
+  project 'Touchlet/Wrapper/TouchletPanel/TouchletPanel.xcodeproj'
 end

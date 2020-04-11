@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Cocoa
+import AppKit
 
 class TouchBarItemUserDefault: TouchBarItemStore {
     static let instance = TouchBarItemUserDefault()

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Elias Igbalajobi. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 public protocol NibLoadable {
     static var nibName: String? { get }
