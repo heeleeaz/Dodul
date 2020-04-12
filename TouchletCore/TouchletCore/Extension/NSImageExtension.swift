@@ -11,9 +11,9 @@ import CoreImage
 
 extension NSImage{
     
-    var data: Data? {return tiffRepresentation}
+    public var data: Data? {return tiffRepresentation}
 
-    var greyscale: NSImage? {
+    public var greyscale: NSImage? {
         guard let currentCGImage = cgImage else { return nil}
         let currentCIImage = CIImage(cgImage: currentCGImage)
 
@@ -32,7 +32,7 @@ extension NSImage{
         return nil
     }
 
-    var cgImage: CGImage? {
+    public var cgImage: CGImage? {
         if let data = tiffRepresentation as NSData?,
             let source = CGImageSourceCreateWithData(data, nil){
             return CGImageSourceCreateImageAtIndex(source, 0, nil) ?? nil
@@ -40,7 +40,7 @@ extension NSImage{
         return nil
     }
     
-    func resize(destSize: CGSize) -> NSImage {
+    public func resize(destSize: CGSize) -> NSImage {
         if self.size.width == destSize.width || self.size.height == destSize.height {return self}
         
         let newImage = NSImage(size: destSize)

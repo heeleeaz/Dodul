@@ -69,15 +69,15 @@ class CollectionViewTouchBarItem: NSCustomTouchBarItem{
         if collectionViewFrame.contains(point){
             return bestIndex(at: point)
         }else if point.y <= collectionViewFrame.height{
-            var currentScrollXPoint = collectionView.enclosingScrollView!.contentView.bounds.origin.x
+            let collectionViewEnclosingScrollView = collectionView.enclosingScrollView!
+            var currentScrollXPoint = collectionViewEnclosingScrollView.contentView.bounds.origin.x
             if point.x < collectionViewFrame.origin.x{
                 currentScrollXPoint = max(0, currentScrollXPoint - itemWidth)
             }else{
                 currentScrollXPoint = currentScrollXPoint + itemWidth
             }
             
-            collectionView.enclosingScrollView!.contentView.scroll(NSPoint(x: currentScrollXPoint, y: 0))
-            collectionView.enclosingScrollView!.reflectScrolledClipView(collectionView.enclosingScrollView!.contentView)
+            collectionViewEnclosingScrollView.contentView.setBoundsOrigin(NSPoint(x: currentScrollXPoint, y: 0))
             
             return bestIndex(at: point)
         }
@@ -103,15 +103,7 @@ class CollectionViewTouchBarItem: NSCustomTouchBarItem{
         if index != -1{setItemState(at: index, state: .browse)}
     }
        
-    func maxAllowedItem() -> Int{
-//        if let width = collectionView.superview?.frame.width, width > 0{
-//            return Int(floor(width / 72))
-//        }else{
-//            return 9
-//        }
-        
-        15
-    }
+    func maxAllowedItem() -> Int{15}
        
     func setItemState(at index: Int, state: TouchBarCollectionViewItem.State){findItem(at: index)?.state = state}
        
@@ -143,7 +135,7 @@ extension CollectionViewTouchBarItem: NSCollectionViewDataSource{
         case .App:
             return SpotlightRepository.findAppIcon(bundleIdentifier: touchBarItem.identifier)
         default:
-            return FaviconProvider.instance.loadFromCache(url: URL(string: touchBarItem.identifier)!)
+            return FaviconProvider.instance.loadFromCache(path: touchBarItem.identifier)
         }
     }
 }

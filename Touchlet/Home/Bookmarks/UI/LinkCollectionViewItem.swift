@@ -8,10 +8,11 @@
 
 import AppKit
 import TouchletCore
+import FavIcon
 
 class LinkCollectionViewItem: NSCollectionViewItem {
     static let reuseIdentifier = NSUserInterfaceItemIdentifier("LinkCollectionViewItem")
-        
+            
     var link: Link!{didSet{if isViewLoaded { updateView() }}}
     
     var moreClicked: (() -> Void)?
@@ -107,11 +108,39 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         linkIconimageView.image = NSImage(named: "NSBookmarksTemplate")
         isImageLoaded = false
         
-        FaviconProvider.instance.load(url: link.url){ (image, error) in
-            if let image = image {
-                self.linkIconimageView.image = image
-                self.isImageLoaded = true
+    
+        if let favicon = FaviconProvider.instance.loadFromCache(path: link.url.absoluteString){
+            self.linkIconimageView.image = favicon
+            self.isImageLoaded = true
+        }else{
+            loadFromNetwork(url: link.url, size: CGSize(width: 36, height: 36)){ image, error in
+                if let image = image{
+                    self.linkIconimageView.image = image
+                    self.isImageLoaded = true
+                }else{
+                    self.isImageLoaded = false
+                }
             }
+        }
+    }
+    
+    private func loadFromNetwork(url: URL, size: CGSize, completion: @escaping (NSImage?, Error?)->Void){
+        do{
+            try FavIcon.downloadPreferred(url, width: Int(size.width), height: Int(size.height)){
+                switch $0{
+                case .success(let image):
+                    if let data = image.resize(destSize: size).data {
+                        FaviconProvider.instance.insert(data, path: url.absoluteString)
+                        completion(image, nil)
+                    }
+                case .failure(let error):
+                    completion(nil, error)
+                    Logger.log(text: "failed to load favicon from \(url) with preffered size: \(size)")
+                }
+            }
+        }catch let error as NSError{
+            completion(nil, error)
+            Logger.log(text: "failed to load favicon from \(url) with preffered size: \(size)")
         }
     }
     

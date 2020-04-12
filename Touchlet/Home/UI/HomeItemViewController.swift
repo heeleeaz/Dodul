@@ -19,7 +19,7 @@ class HomeItemViewController: NSViewController, NibLoadable, HomeItemViewControl
         
         tableView.delegate = self
         tableView.dataSource = self
-        
+    
         items.forEach{$0.delegate = self}
     }
     
@@ -36,10 +36,29 @@ class HomeItemViewController: NSViewController, NibLoadable, HomeItemViewControl
 extension HomeItemViewController: NSTableViewDataSource, NSTableViewDelegate{
     func numberOfRows(in tableView: NSTableView) -> Int {items.count}
     
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {items[row].view}
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let identifier = NSUserInterfaceItemIdentifier("cell\(row)")
+        if let cell = tableView.makeView(withIdentifier: identifier, owner: self) as? NSTableCellView{
+            return cell
+        }else{
+            return createView(identifier: identifier, view: items[row].view)
+        }
+    }
 
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        let item = items[row]
-        return item.isViewLoaded ? (item.height ?? 150) : 150
+        return items[row].isViewLoaded ? (items[row].height ?? 150) : 150
+    }
+    
+    private func createView(identifier: NSUserInterfaceItemIdentifier, view: NSView) -> NSTableCellView{
+        let cell = NSTableCellView()
+        cell.identifier = identifier
+        cell.addSubview(view)
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([view.leadingAnchor.constraint(equalTo: cell.leadingAnchor),
+                                     view.topAnchor.constraint(equalTo: cell.topAnchor),
+                                     view.trailingAnchor.constraint(equalTo: cell.trailingAnchor),
+                                     view.bottomAnchor.constraint(equalTo: cell.bottomAnchor)])
+        return cell
     }
 }

@@ -12,49 +12,29 @@ import AppKit
 public class FaviconProvider{
     public static let instance = FaviconProvider()
     
-    private static let updateQueue = DispatchQueue(label: "UpdateQueue", qos: .utility)
     private var cache: Cache<String, Data>!
-    
-    public typealias ImageCacheProviderCompletion = ((NSImage?, Error?)->Void)
     
     struct Constant {
         public static let cachePath = String(describing: FaviconProvider.self)
-        public static let iconSize = NSSize(width: 36, height: 36)
     }
     
     private init() {
         cache = (try? Cache.loadFromDisk(withName: Constant.cachePath)) ?? Cache()
     }
     
-    public func loadFromCache(url: URL) -> NSImage?{
-        if let bitmap = cache.value(forKey: url.absoluteString)?.bitmap {
+    public func loadFromCache(path: String) -> NSImage?{
+        if let bitmap = cache.value(forKey: path)?.bitmap {
             let image = NSImage(); image.addRepresentation(bitmap); return image
         }
         return nil
     }
     
-    public func loadFromNetwork(url: URL, completion: @escaping ImageCacheProviderCompletion){
-//        do{
-//            let size = Constant.iconSize
-//            try FavIcon.downloadPreferred(url, width: Int(size.width), height: Int(size.height)){
-//                switch $0{
-//                case .success(let image):
-//                    if let data = image.resize(destSize: Constant.iconSize).data {
-//                        self.cache.insert(data, forKey: url.absoluteString)
-//                        try? self.cache.saveToDisk(withName: Constant.cachePath)
-//                        completion(image, nil)
-//                    }
-//                case .failure(let error): completion(nil, error)
-//                }
-//            }
-//        }catch let error as NSError{completion(nil, error)}
+    public func insert(_ image: NSImage, path: String){
+        if let data = image.data{insert(data, path: path)}
     }
     
-    public func load(url: URL, completion: @escaping ImageCacheProviderCompletion){
-        if let image = loadFromCache(url: url){
-            completion(image, nil)
-        }else{
-            loadFromNetwork(url: url, completion: completion)
-        }
+    public func insert(_ imageRepresentation: Data, path: String){
+        cache.insert(imageRepresentation, forKey: path)
+        try? cache.saveToDisk(withName: Constant.cachePath)
     }
 }

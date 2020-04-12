@@ -27,9 +27,15 @@ class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
         collectionView.register(ButtonCollectionViewItem.self, forItemWithIdentifier: ButtonCollectionViewItem.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
         
-        removeTrailItem(collectionView)
-        insertItems(collectionView, oldCount: 0, newCount: bookmarkLinks.count)
+        if bookmarkLinks.isEmpty{
+            removeTrailItem(collectionView)
+            insertItems(collectionView, oldCount: 0, newCount: bookmarkLinks.count)
+        }
     }
     
     private func showAddBookmarkController(_ link: Link?, anchor: NSView){

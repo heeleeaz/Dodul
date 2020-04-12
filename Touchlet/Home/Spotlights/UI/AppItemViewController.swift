@@ -53,11 +53,14 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
         sortButton.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(sortButtonClicked)))
     }
     
-    override func viewWillAppear() {
-        super.viewWillAppear()
-        spotlightItem = Array(repeating: SpotlightItem.dummy, count: Constant.pagingInitial)
-        spotlightRepository.delegate = self
-        spotlightRepository.query()
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
+        if self.spotlightItem.isEmpty{
+            self.spotlightItem = Array(repeating: SpotlightItem.dummy, count: Constant.pagingInitial)
+            self.spotlightRepository.delegate = self
+            self.spotlightRepository.query()
+        }
     }
     
     @objc private func sortButtonClicked(button: NSButton){
@@ -82,10 +85,6 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
         }
         
         listIsSorted.toggle()
-    }
-    
-    private func setupCollectionView(){
-        
     }
     
     override func touchBarItem(at index: Int) -> TouchBarItem? {
