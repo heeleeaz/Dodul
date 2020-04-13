@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92394B2A2444A8DF0019D80D /* DragDestinationObservableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92394B292444A8DF0019D80D /* DragDestinationObservableView.swift */; };
 		9288B92E244213A900D50D27 /* TouchletCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 9288B92C244213A900D50D27 /* TouchletCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9288B975244214A900D50D27 /* NSEventModifierFlags+HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B937244213D500D50D27 /* NSEventModifierFlags+HotKey.swift */; };
 		9288B976244214A900D50D27 /* KeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B938244213D500D50D27 /* KeyCombo.swift */; };
@@ -47,7 +48,6 @@
 		9288B999244214D600D50D27 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B94B244213D500D50D27 /* Cache.swift */; };
 		9288B99A244214DA00D50D27 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B94E244213D600D50D27 /* Theme.swift */; };
 		9288B99B244214DF00D50D27 /* EditableTouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B963244213D600D50D27 /* EditableTouchBarController.swift */; };
-		9288B99C244214DF00D50D27 /* CollectionItemDragObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B964244213D600D50D27 /* CollectionItemDragObserver.swift */; };
 		9288B99D244214DF00D50D27 /* DraggingTouchItemDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B965244213D600D50D27 /* DraggingTouchItemDrawing.swift */; };
 		9288B99E244214DF00D50D27 /* TouchBarCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B966244213D600D50D27 /* TouchBarCollectionViewItem.swift */; };
 		9288B99F244214DF00D50D27 /* ReadonlyTouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B967244213D600D50D27 /* ReadonlyTouchBarController.swift */; };
@@ -60,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92394B292444A8DF0019D80D /* DragDestinationObservableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDestinationObservableView.swift; sourceTree = "<group>"; };
 		9288B929244213A900D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9288B92C244213A900D50D27 /* TouchletCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchletCore.h; sourceTree = "<group>"; };
 		9288B92D244213A900D50D27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		9288B960244213D600D50D27 /* SpotlightResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightResult.swift; sourceTree = "<group>"; };
 		9288B961244213D600D50D27 /* SpotlightRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightRepository.swift; sourceTree = "<group>"; };
 		9288B963244213D600D50D27 /* EditableTouchBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableTouchBarController.swift; sourceTree = "<group>"; };
-		9288B964244213D600D50D27 /* CollectionItemDragObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionItemDragObserver.swift; sourceTree = "<group>"; };
 		9288B965244213D600D50D27 /* DraggingTouchItemDrawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggingTouchItemDrawing.swift; sourceTree = "<group>"; };
 		9288B966244213D600D50D27 /* TouchBarCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarCollectionViewItem.swift; sourceTree = "<group>"; };
 		9288B967244213D600D50D27 /* ReadonlyTouchBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadonlyTouchBarController.swift; sourceTree = "<group>"; };
@@ -305,7 +305,6 @@
 			isa = PBXGroup;
 			children = (
 				9288B963244213D600D50D27 /* EditableTouchBarController.swift */,
-				9288B964244213D600D50D27 /* CollectionItemDragObserver.swift */,
 				9288B965244213D600D50D27 /* DraggingTouchItemDrawing.swift */,
 				9288B966244213D600D50D27 /* TouchBarCollectionViewItem.swift */,
 				9288B967244213D600D50D27 /* ReadonlyTouchBarController.swift */,
@@ -313,6 +312,7 @@
 				9288B96A244213D600D50D27 /* Model */,
 				9288B96B244213D600D50D27 /* EmptyTouchBarItemInfoView.swift */,
 				9288B96F244213D600D50D27 /* Store */,
+				92394B292444A8DF0019D80D /* DragDestinationObservableView.swift */,
 			);
 			path = TouchBar;
 			sourceTree = "<group>";
@@ -421,6 +421,7 @@
 				9288B976244214A900D50D27 /* KeyCombo.swift in Sources */,
 				9288B99D244214DF00D50D27 /* DraggingTouchItemDrawing.swift in Sources */,
 				9288B978244214A900D50D27 /* HotKeysController.swift in Sources */,
+				92394B2A2444A8DF0019D80D /* DragDestinationObservableView.swift in Sources */,
 				9288B98B244214B600D50D27 /* NSImageExtension.swift in Sources */,
 				9288B98D244214BA00D50D27 /* FaviconProvider.swift in Sources */,
 				9288B98E244214BE00D50D27 /* GlobalKeybindPreferences.swift in Sources */,
@@ -436,7 +437,6 @@
 				9288B97D244214AE00D50D27 /* OuterScrollView.swift in Sources */,
 				9288B980244214B200D50D27 /* Logger.swift in Sources */,
 				9288B994244214CC00D50D27 /* ProjectBundleConstant.swift in Sources */,
-				9288B99C244214DF00D50D27 /* CollectionItemDragObserver.swift in Sources */,
 				9288B98F244214C200D50D27 /* GlobalKeybindPreferencesStore.swift in Sources */,
 				9288B97C244214AE00D50D27 /* RoundedRectButton.swift in Sources */,
 				9288B981244214B200D50D27 /* FileLoader.swift in Sources */,

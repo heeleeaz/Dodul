@@ -11,8 +11,6 @@ import TouchletCore
 
 class HomeCollectionViewController: NSViewController{
     @IBOutlet weak var collectionView: NSCollectionView!
-
-    var indexPathsOfItemsBeingDragged: IndexPath?
     
     func touchBarItem(at index: Int) -> TouchBarItem? {return nil}
     
@@ -21,7 +19,6 @@ class HomeCollectionViewController: NSViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        collectionView.registerForDraggedTypes([.string])
         collectionView.setDraggingSourceOperationMask(NSDragOperation.every, forLocal: true)
     }
     
@@ -34,19 +31,16 @@ extension HomeCollectionViewController: NSCollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt index: Int) -> NSPasteboardWriting? {
-        return touchBarItem(at: index)?.identifier as NSPasteboardWriting?
-    }
-    
-    func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexPaths: Set<IndexPath>) {
-        indexPathsOfItemsBeingDragged = indexPaths.first
+        let pasteboardItem = NSPasteboardItem()
+        pasteboardItem.setString(String(index), forType: .string)
         
-        CollectionItemDragObserver.instance.beginDrag(object: touchBarItem(at: (indexPathsOfItemsBeingDragged?.item)!))
-    }
-    
-    func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, dragOperation operation: NSDragOperation) {
-        if let index = indexPathsOfItemsBeingDragged?.item{
-            CollectionItemDragObserver.instance.endDrag(object: touchBarItem(at: index))
+        if let touchbarItem = touchBarItem(at: index),
+            let data = try? NSKeyedArchiver.archivedData(withRootObject: touchbarItem, requiringSecureCoding: false){
+            print(pasteboardItem.setData(data, forType: .rtfd))
         }
+        
+        
+        return pasteboardItem
     }
 }
 
