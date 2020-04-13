@@ -17,6 +17,8 @@ class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
     }
         
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.itemSize = NSSize(width: 120, height: 110)
         flowLayout.minimumLineSpacing = 5

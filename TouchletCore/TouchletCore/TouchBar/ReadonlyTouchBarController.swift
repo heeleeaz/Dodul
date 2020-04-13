@@ -9,18 +9,17 @@
 import AppKit
 
 open class ReadonlyTouchBarController: NSViewController{
-    private(set) var isItemClickable = true
-
-    private var activeIdentifier: NSTouchBarItem.Identifier = Constants.collectionIdentifier{didSet{touchBar = nil}}
+    var activeIdentifier = Constants.collectionIdentifier{didSet{touchBar = nil}}
     
-    lazy var collectionViewTouchBarItem: CollectionViewTouchBarItem = {
-        let item = CollectionViewTouchBarItem(identifier: Constants.collectionIdentifier, isClickable: isItemClickable)
-        item.delegate = self
-        return item
-    }()
+    var emptyCollectionTouchbarItem: NSTouchBarItem {
+        ReadonlyEmptyCollectionTouchBarItem(identifier: Constants.emptyCollectionIdentifier)
+    }
     
-    var emptyCollectionTouchbarItem: NSTouchBarItem {ReadonlyEmptyCollectionTouchBarItem(identifier: Constants.emptyCollectionIdentifier)}
-    var editButtonTouchBarItem: NSTouchBarItem? {EditButtonTouchBarItem(identifier: Constants.editIdentifier)}
+    var editButtonTouchBarItem: NSTouchBarItem? {
+        EditButtonTouchBarItem(identifier: Constants.editIdentifier)
+    }
+    
+    lazy var collectionViewTouchBarItem = setupTouchbarCollectionView(identifier: Constants.collectionIdentifier)
     
     override open func makeTouchBar() -> NSTouchBar? {
         let touchBar =  NSTouchBar()
@@ -33,14 +32,20 @@ open class ReadonlyTouchBarController: NSViewController{
         return touchBar
     }
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        reloadItems()
+    open func setupTouchbarCollectionView(identifier: NSTouchBarItem.Identifier) -> CollectionViewTouchBarItem{
+        let item = CollectionViewTouchBarItem(identifier: identifier)
+        item.delegate = self
+        return item
     }
     
     public func reloadItems(){
         collectionViewTouchBarItem.items = (try? TouchBarItemUserDefault.instance.findAll()) ?? []
         collectionViewTouchBarItem.reloadItems()
+    }
+    
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        reloadItems()
     }
 }
 
