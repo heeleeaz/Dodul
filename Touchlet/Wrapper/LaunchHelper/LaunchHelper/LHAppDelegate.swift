@@ -13,7 +13,7 @@ import TouchletCore
 class LHAppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        //check if the Main application is running
+        //check if the Main applic¡ation is running
         let panelIdentifier = ProjectBundleProvider.instance.bundleIdentifier(for: .panel)
         if (NSWorkspace.shared.runningApplications.contains{$0.bundleIdentifier == panelIdentifier}) {
             // true, panel app was launched at login, terminate helper app

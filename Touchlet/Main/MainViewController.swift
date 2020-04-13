@@ -29,22 +29,13 @@ class MainViewController: EditableTouchBarController {
         
         updateKeybindPresentationView()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(windowWillClosedNotification), name: NSWindow.willCloseNotification, object: nil)
-    }
-
-    @objc func windowWillClosedNotification(notification: NSNotification){
-        if notification.object is KeybindPreferenceWindow{
-            updateKeybindPresentationView()
-            DistributedNotificationCenter.default().postNotificationName(.hotKeySetup, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(windowWillClose), name: NSWindow.willCloseNotification, object: nil)
     }
     
     private func updateKeybindPresentationView(){
         keybindTagView.removeAll()
         if let keybind = GlobalKeybindPreferencesStore.fetch(){
-            for s in keybind.description.split(separator: "-"){
-                keybindTagView.addTag(String(s), isEditing: false)
-            }
+            for s in keybind.description.split(separator: "-"){keybindTagView.addTag(String(s), isEditing: false)}
         }
     }
     
@@ -53,6 +44,13 @@ class MainViewController: EditableTouchBarController {
         
         DistributedNotificationCenter.default().postNotificationName(.touchItemReload, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
         terminateApp(self)
+    }
+    
+    @objc func windowWillClose(notification: NSNotification){
+        if notification.object is KeybindPreferenceWindow{
+            updateKeybindPresentationView()
+            DistributedNotificationCenter.default().postNotificationName(.hotKeySetup, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
+        }
     }
     
     override func cancelOperation(_ sender: Any?) {terminateApp(self)}

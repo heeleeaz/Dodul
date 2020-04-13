@@ -11,7 +11,6 @@ import AppKit
 public class TouchBarItem: NSObject, NSCoding{
     public var identifier: String!
     public var type: TouchBarItemType!
-    
     public var itemState: State = .adding
 
     private struct NSCodingKeys {
@@ -43,8 +42,8 @@ public class TouchBarItem: NSObject, NSCoding{
     }
 }
 
-extension TouchBarItem{    
+extension TouchBarItem{
     public enum TouchBarItemType: String {case Web = "Web", App = "App"}
     
-    public enum State{case stored, dropped, adding}
+    public enum State: String {case stored = "stored", dropped = "dropped", adding = "adding"}
 }

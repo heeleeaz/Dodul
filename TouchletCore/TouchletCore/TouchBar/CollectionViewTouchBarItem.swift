@@ -8,21 +8,17 @@
 
 import AppKit
 
-class CollectionViewTouchBarItem: NSCustomTouchBarItem{
-    var isItemClickable = true
-
+public class CollectionViewTouchBarItem: NSCustomTouchBarItem{
+    var isClickable = true
     var items: [TouchBarItem] = []{didSet{delegate?.collectionViewTouchBarItem(didSetItem: self)}}
     
     weak var delegate: CollectionViewTouchBarItemDelegate?
-    
     lazy var collectionView = NSCollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 30))
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     
-    init(identifier: NSTouchBarItem.Identifier, isClickable: Bool) {
+    override init(identifier: NSTouchBarItem.Identifier) {
         super.init(identifier: identifier)
-        
-        self.isItemClickable = isClickable
         
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
@@ -36,6 +32,13 @@ class CollectionViewTouchBarItem: NSCustomTouchBarItem{
         let scrollView = NSScrollView()
         scrollView.documentView = collectionView
         view = scrollView
+    }
+    
+    convenience init(identifier: NSTouchBarItem.Identifier, trackingRect: CGRect, trackingEventView: NSView){
+        self.init(identifier: identifier)
+        
+        isClickable = false
+        _ = CollectionViewTouchBarItemDraggingSupport(rect: trackingRect, collectionViewTouchBarItem: self, trackingEvent: trackingEventView)
     }
     
     func reloadItems(){collectionView.reloadData()}
@@ -63,7 +66,7 @@ class CollectionViewTouchBarItem: NSCustomTouchBarItem{
     }
            
     func index(at point: NSPoint) -> Int?{
-        let collectionViewFrame = CGRect(x: 178, y: 0, width: collectionView.visibleRect.width, height: 20)
+        let collectionViewFrame = CGRect(x: 178, y: 0, width: collectionView.visibleRect.width, height: 1)
             
         let itemWidth = (collectionView.collectionViewLayout as! NSCollectionViewFlowLayout).itemSize.width
         if collectionViewFrame.contains(point){
@@ -122,7 +125,7 @@ extension CollectionViewTouchBarItem: NSCollectionViewDataSource{
         collectionViewItem.image = itemImage(items[indexPath.item])
         
         collectionViewItem.onTap = {
-            if self.isItemClickable{
+            if self.isClickable{
                 self.delegate?.collectionViewTouchBarItem(collectionViewTouchBarItem: self, onTap: self.items[indexPath.item])
             }
         }
@@ -144,4 +147,100 @@ protocol CollectionViewTouchBarItemDelegate: class {
     func collectionViewTouchBarItem(collectionViewTouchBarItem: CollectionViewTouchBarItem, onTap item: TouchBarItem)
     
     func collectionViewTouchBarItem(didSetItem collectionViewTouchBarItem: CollectionViewTouchBarItem)
+}
+
+fileprivate class CollectionViewTouchBarItemDraggingSupport{
+    
+    private var registeredDraggingIndex: Int?
+       
+    private var acceptChangesRect: CGRect
+    private var collectionViewTouchBarItem: CollectionViewTouchBarItem
+    private var trackingEventView: NSView
+       
+    init(rect: CGRect, collectionViewTouchBarItem: CollectionViewTouchBarItem, trackingEvent view: NSView){
+        self.acceptChangesRect = rect
+        self.collectionViewTouchBarItem = collectionViewTouchBarItem
+        self.trackingEventView = view
+     
+        view.addTrackingArea(NSTrackingArea(rect: NSRect(x: 0, y: 0, width: view.frame.width, height: 1),
+                                            options: [.mouseEnteredAndExited, .enabledDuringMouseDrag, .mouseMoved, .activeAlways],
+                                            owner: nil, userInfo: nil))
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(windowWillClose(notification:)),
+                                               name: NSWindow.willCloseNotification, object: nil)
+        registerForDraggingEvent()
+    }
+    
+    private lazy var eventMonitor: ((NSEvent) -> NSEvent?)? = {event in
+        if event.window != self.trackingEventView.window {return event}
+                
+        switch event.type {
+        case .leftMouseDown:
+            self.registeredDraggingIndex = self.collectionViewTouchBarItem.index(at: event.locationInWindow)
+            
+        case .mouseMoved:
+            if let item = self.collectionViewTouchBarItem.index(at: event.locationInWindow){
+                self.collectionViewTouchBarItem.highlightItem(at: item)
+            }
+        
+        case .leftMouseDragged:
+            guard let existingIndex = self.registeredDraggingIndex else {return event}
+
+            if let index = self.collectionViewTouchBarItem.index(at: event.locationInWindow){
+                self.collectionViewTouchBarItem.swapItem(at: existingIndex, to: index)
+                
+                self.registeredDraggingIndex = index
+                self.collectionViewTouchBarItem.highlightItem(at: index)
+            }else{
+                //dragging existing item outside of touchbar rect, then change state to hidden
+                if event.locationInWindow.y >= 10{
+                    self.collectionViewTouchBarItem.setItemState(at: existingIndex, state: .hidden)
+                }
+            }
+            
+            if let image = self.collectionViewTouchBarItem.findItem(at: existingIndex)?.image,
+                let dragImage = DraggingTouchItemDrawing.instance.draw(image){
+                NSCursor(image: dragImage, hotSpot: .zero).set()
+            }
+            
+        case .leftMouseUp:
+            if !self.acceptChangesRect.contains(event.locationInWindow), let index = self.registeredDraggingIndex{
+                self.collectionViewTouchBarItem.removeItem(at: [index])
+            }
+            NSCursor.arrow.set()
+            self.registeredDraggingIndex = nil
+            
+        case .mouseEntered:
+            if self.acceptChangesRect.contains(event.locationInWindow){
+                NSCursorHelper.instance.hide()
+                
+                if let item = self.collectionViewTouchBarItem.index(at: event.locationInWindow){
+                    self.collectionViewTouchBarItem.highlightItem(at: item)
+                }
+            }
+            
+        case .mouseExited:
+            NSCursorHelper.instance.show(); self.collectionViewTouchBarItem.highlightItem(at: -1)
+            
+        default:
+            return event
+        }
+        
+        
+        return event
+    }
+    
+    @objc private func windowWillClose(notification: NSNotification){
+        if ((notification.object as? NSWindow) == trackingEventView.window) && eventMonitor != nil {
+            NSEvent.removeMonitor(eventMonitor!)
+            eventMonitor = nil
+        }
+        NotificationCenter.default.removeObserver(self, name: NSWindow.willCloseNotification, object: nil)
+    }
+    
+    private func registerForDraggingEvent(){
+        if eventMonitor != nil{
+            NSEvent.addLocalMonitorForEvents(matching: [.mouseEntered, .mouseExited, .mouseMoved, .leftMouseDown, .leftMouseUp, .leftMouseDragged], handler: eventMonitor!)
+        }
+    }
 }

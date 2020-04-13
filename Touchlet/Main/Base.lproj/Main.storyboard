@@ -101,7 +101,7 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController showSeguePresentationStyle="single" id="XfG-lQ-9wD" customClass="MainViewController" customModule="Touchlet" customModuleProvider="target" sceneMemberID="viewController">
-                    <customView key="view" id="IQN-7z-XBS" userLabel="View">
+                    <customView key="view" id="IQN-7z-XBS" userLabel="View" customClass="DragDestinationObservableView" customModule="TouchletCore">
                         <rect key="frame" x="0.0" y="0.0" width="1340" height="1318"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
