@@ -13,7 +13,9 @@ class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
     static var storyboardName: String?{return "HomeItemViewController"}
             
     private var bookmarkLinks = BookmarkRepository.instance.bookmarks{
-        didSet{delegate?.homeItemViewController(collectionItemChanged: self)}
+        didSet{
+            delegate?.homeCollectionViewController(self, itemHeightChanged: height)
+        }
     }
         
     override func viewDidLoad() {

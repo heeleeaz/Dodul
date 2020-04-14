@@ -103,7 +103,7 @@ extension AddLinkViewController: NSTextFieldDelegate{
     }
 }
 
-@objc protocol AddLinkViewControllerDelegate{
+protocol AddLinkViewControllerDelegate: AnyObject{
     func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, delete link: Link)
     func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, update link: Link)
     func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, save link: Link)

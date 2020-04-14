@@ -138,12 +138,12 @@ extension CollectionViewTouchBarItem: NSCollectionViewDataSource{
         case .App:
             return SpotlightRepository.findAppIcon(bundleIdentifier: touchBarItem.identifier)
         default:
-            return FaviconProvider.instance.loadFromCache(path: touchBarItem.identifier)
+            return FaviconCacheProvider.instance.loadFromCache(path: touchBarItem.identifier)
         }
     }
 }
 
-protocol CollectionViewTouchBarItemDelegate: class {
+protocol CollectionViewTouchBarItemDelegate: AnyObject {
     func collectionViewTouchBarItem(collectionViewTouchBarItem: CollectionViewTouchBarItem, onTap item: TouchBarItem)
     
     func collectionViewTouchBarItem(didSetItem collectionViewTouchBarItem: CollectionViewTouchBarItem)

@@ -30,7 +30,7 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
             }else{
                 insertItems(collectionView, oldCount: oldValue.count, newCount: spotlightItem.count)
             }
-            delegate?.homeItemViewController(collectionItemChanged: self)
+            delegate?.homeCollectionViewController(self, itemHeightChanged: height)
         }
     }
     

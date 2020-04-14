@@ -14,7 +14,7 @@ class HomeCollectionViewController: NSViewController{
     
     func touchBarItem(at index: Int) -> TouchBarItem? {return nil}
     
-    public weak var delegate: HomeItemViewControllerDelegate?
+    public weak var delegate: HomeCollectionViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,14 +36,13 @@ extension HomeCollectionViewController: NSCollectionViewDelegate{
         
         if let touchbarItem = touchBarItem(at: index),
             let data = try? NSKeyedArchiver.archivedData(withRootObject: touchbarItem, requiringSecureCoding: false){
-            print(pasteboardItem.setData(data, forType: .rtfd))
+            pasteboardItem.setData(data, forType: .rtfd)
         }
-        
         
         return pasteboardItem
     }
 }
 
-@objc protocol HomeItemViewControllerDelegate {
-    func homeItemViewController(collectionItemChanged controller: HomeCollectionViewController)
+protocol HomeCollectionViewControllerDelegate: AnyObject {
+    func homeCollectionViewController(_ controller: HomeCollectionViewController, itemHeightChanged height: CGFloat?)
 }

@@ -24,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     
         setupPanelLauncherLoginItem(enabled: true)
-//        ProjectBundleProvider.instance.launchApplication(project: .panel, launchOptions: .andHide)
+        ProjectBundleProvider.instance.launchApplication(project: .panel, launchOptions: .andHide)
     }
     
     func setupPanelLauncherLoginItem(enabled: Bool){

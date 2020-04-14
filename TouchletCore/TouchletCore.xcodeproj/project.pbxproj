@@ -33,7 +33,7 @@
 		9288B98A244214B600D50D27 /* NSWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B945244213D500D50D27 /* NSWindowExtension.swift */; };
 		9288B98B244214B600D50D27 /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B946244213D500D50D27 /* NSImageExtension.swift */; };
 		9288B98C244214B600D50D27 /* NSCursorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B947244213D500D50D27 /* NSCursorHelper.swift */; };
-		9288B98D244214BA00D50D27 /* FaviconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B949244213D500D50D27 /* FaviconProvider.swift */; };
+		9288B98D244214BA00D50D27 /* FaviconCacheProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B949244213D500D50D27 /* FaviconCacheProvider.swift */; };
 		9288B98E244214BE00D50D27 /* GlobalKeybindPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B950244213D600D50D27 /* GlobalKeybindPreferences.swift */; };
 		9288B98F244214C200D50D27 /* GlobalKeybindPreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B951244213D600D50D27 /* GlobalKeybindPreferencesStore.swift */; };
 		9288B990244214C600D50D27 /* DownloaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B934244213D500D50D27 /* DownloaderService.swift */; };
@@ -82,7 +82,7 @@
 		9288B945244213D500D50D27 /* NSWindowExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSWindowExtension.swift; sourceTree = "<group>"; };
 		9288B946244213D500D50D27 /* NSImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
 		9288B947244213D500D50D27 /* NSCursorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCursorHelper.swift; sourceTree = "<group>"; };
-		9288B949244213D500D50D27 /* FaviconProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaviconProvider.swift; sourceTree = "<group>"; };
+		9288B949244213D500D50D27 /* FaviconCacheProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaviconCacheProvider.swift; sourceTree = "<group>"; };
 		9288B94B244213D500D50D27 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		9288B94E244213D600D50D27 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		9288B950244213D600D50D27 /* GlobalKeybindPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalKeybindPreferences.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		9288B94A244213D500D50D27 /* Favicon */ = {
 			isa = PBXGroup;
 			children = (
-				9288B949244213D500D50D27 /* FaviconProvider.swift */,
+				9288B949244213D500D50D27 /* FaviconCacheProvider.swift */,
 			);
 			path = Favicon;
 			sourceTree = "<group>";
@@ -423,7 +423,7 @@
 				9288B978244214A900D50D27 /* HotKeysController.swift in Sources */,
 				92394B2A2444A8DF0019D80D /* DragDestinationObservableView.swift in Sources */,
 				9288B98B244214B600D50D27 /* NSImageExtension.swift in Sources */,
-				9288B98D244214BA00D50D27 /* FaviconProvider.swift in Sources */,
+				9288B98D244214BA00D50D27 /* FaviconCacheProvider.swift in Sources */,
 				9288B98E244214BE00D50D27 /* GlobalKeybindPreferences.swift in Sources */,
 				9288B99A244214DA00D50D27 /* Theme.swift in Sources */,
 				9288B975244214A900D50D27 /* NSEventModifierFlags+HotKey.swift in Sources */,

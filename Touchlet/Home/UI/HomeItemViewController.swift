@@ -9,7 +9,7 @@
 import AppKit
 import TouchletCore
 
-class HomeItemViewController: NSViewController, NibLoadable, HomeItemViewControllerDelegate{
+class HomeItemViewController: NSViewController, NibLoadable, HomeCollectionViewControllerDelegate{
     @IBOutlet weak var tableView: NSTableView!
     
     private lazy var items = [AppItemViewController.createFromStoryboard()!, BookmarkViewController.createFromStoryboard()!]
@@ -23,7 +23,7 @@ class HomeItemViewController: NSViewController, NibLoadable, HomeItemViewControl
         items.forEach{$0.delegate = self}
     }
     
-    func homeItemViewController(collectionItemChanged controller: HomeCollectionViewController) {
+    func homeCollectionViewController(_ controller: HomeCollectionViewController, itemHeightChanged height: CGFloat?) {
         tableView.beginUpdates()
         NSAnimationContext.runAnimationGroup { (context) in
             context.duration = 0

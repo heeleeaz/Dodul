@@ -59,6 +59,6 @@ public class SpotlightRepository{
     }
 }
 
-public protocol SpotlightRepositoryDelegate: class{
+public protocol SpotlightRepositoryDelegate: AnyObject{
     func spotlightRepository(spotlightRepository: SpotlightRepository, result: SpotlightResult)
 }
