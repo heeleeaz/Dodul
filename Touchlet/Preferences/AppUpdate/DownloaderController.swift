@@ -25,7 +25,7 @@ class DownloaderController: NSViewController, NibLoadable{
         }
         
         self.downloadService.delegate = self
-        if isViewLoaded{progressLabel.stringValue = "Preparing to download"}
+        if isViewLoaded{progressLabel.stringValue = "Preparing to download"}        
     }
     
     @IBAction func continueInBackgroundClicked(_ sender: NSButton) {

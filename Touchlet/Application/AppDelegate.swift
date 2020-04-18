@@ -24,16 +24,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     
         setupPanelLauncherLoginItem(enabled: true)
-        ProjectBundleProvider.instance.launchApplication(project: .panel, launchOptions: .andHide)
+        setupGoogleAnalytics()
     }
     
-    func setupPanelLauncherLoginItem(enabled: Bool){
+    private func setupGoogleAnalytics(){
+        MPGoogleAnalyticsTracker.shared.activate(configuration: MPAnalyticsConfiguration(identifier: "UA-121293848-3"))
+        MPAnalyticsTimingManager.shared.beginTracking(timingVariable: Bundle.main.bundleIdentifier ?? "Main")
+    }
+    
+    private func setupPanelLauncherLoginItem(enabled: Bool){
         let identifier = ProjectBundleProvider.instance.bundleIdentifier(for: .panelLauncher)
         let isEnabled = SMLoginItemSetEnabled(identifier as CFString, enabled)
         Logger.log(text: "\(identifier) as LoginItem enabled: \(isEnabled)")
+        
+        ProjectBundleProvider.instance.launchApplication(project: .panel, launchOptions: .andHide)
     }
     
-    func applicationWillTerminate(_ notification: Notification) {
-        
-    }
+    func applicationWillTerminate(_ notification: Notification) {MPAnalyticsTimingManager.shared.endTracking()}
 }

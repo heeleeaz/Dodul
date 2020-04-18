@@ -71,10 +71,13 @@ extension ReadonlyTouchBarController: CollectionViewTouchBarItemDelegate{
         switch item.type {
         case .Web:
             NSWorkspace.shared.open(URL(fileURLWithPath: item.identifier))
+            trackItemClickEvent(label: kCSFWebLink, identifier: item.identifier)
         case .App:
             NSWorkspace.shared.launchApplication(withBundleIdentifier: item.identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
+            trackItemClickEvent(label: kCSFApp, identifier: item.identifier)
         default:
             Logger.log(text: "unrecognised touch item type \(String(describing: item.type))")
+            trackItemClickEvent(label: kCSFUnspecified, identifier: item.identifier)
         }
     }
     

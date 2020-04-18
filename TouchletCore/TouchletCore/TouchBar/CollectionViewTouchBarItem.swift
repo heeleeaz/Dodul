@@ -56,10 +56,15 @@ public class CollectionViewTouchBarItem: NSCustomTouchBarItem{
            
         items.insert(touchBarItem, at: index)
         (collectionView.animator() as NSCollectionView).insertItems(at: [IndexPath(item: index, section: 0)])
+        
+        trackItemAdd(item: touchBarItem)
     }
        
     func removeItem(at indexSet: [Int]){
         indexSet.forEach{
+            //track item removal
+            trackItemAdd(item: items[$0])
+            
             items.remove(at: $0)
             (collectionView.animator() as NSCollectionView).deleteItems(at: [IndexPath(item: $0, section: 0)])
         }
@@ -111,6 +116,18 @@ public class CollectionViewTouchBarItem: NSCustomTouchBarItem{
     func setItemState(at index: Int, state: TouchBarCollectionViewItem.State){findItem(at: index)?.state = state}
        
     func findItem(at index: Int) -> TouchBarCollectionViewItem?{collectionView.item(at: index) as? TouchBarCollectionViewItem}
+}
+
+extension CollectionViewTouchBarItem{
+    func trackItemRemoval(item: TouchBarItem){
+        let label = item.type == TouchBarItem.TouchBarItemType.App ? kCSFApp : kCSFWebLink
+        trackItemRemoveEvent(label: label, identifier: item.identifier)
+    }
+    
+    func trackItemAdd(item: TouchBarItem){
+        let label = item.type == TouchBarItem.TouchBarItemType.App ? kCSFApp : kCSFWebLink
+        trackItemAddEvent(label: label, identifier: item.identifier)
+    }
 }
 
 extension CollectionViewTouchBarItem: NSCollectionViewDataSource{

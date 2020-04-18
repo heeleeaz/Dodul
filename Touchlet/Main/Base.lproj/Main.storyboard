@@ -152,9 +152,9 @@
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DragIcon" id="6pe-dk-thV"/>
                                             </imageView>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5UP-Fg-Yfg">
-                                                <rect key="frame" x="411" y="22" width="60" height="30"/>
+                                                <rect key="frame" x="411" y="12" width="60" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="nx3-TT-o2N"/>
+                                                    <constraint firstAttribute="height" constant="50" id="nx3-TT-o2N"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="vPf-vo-PHK"/>
                                                 </constraints>
                                                 <buttonCell key="cell" type="bevel" title="Done" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="JB4-X8-nn7">
@@ -224,7 +224,7 @@
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="launcherKeyChangeButtonTapped:" target="XfG-lQ-9wD" id="9lb-gO-X8F"/>
+                                                    <action selector="quickLaunchClicked:" target="XfG-lQ-9wD" id="9lb-gO-X8F"/>
                                                 </connections>
                                             </button>
                                             <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKV-xa-xEB" customClass="KeybindTagView" customModule="Touchlet" customModuleProvider="target">

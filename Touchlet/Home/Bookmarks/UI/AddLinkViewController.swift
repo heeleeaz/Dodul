@@ -22,7 +22,7 @@ class AddLinkViewController: NSViewController, NibLoadable {
 
     private var bookmarkRepository = BookmarkRepository.instance
     
-    private lazy var eventMonitor: ((NSEvent) -> NSEvent?)? = {event in self.view.window?.close(); return event}
+    private var eventMonitor: ((NSEvent) -> NSEvent?)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,19 +31,23 @@ class AddLinkViewController: NSViewController, NibLoadable {
             nameInputField.stringValue = prefillLink.title ?? ""
             urlInputField.stringValue = prefillLink.url.absoluteString
             removeButton.isHidden = false
-        }else{removeButton.isHidden = true}
+        }else{
+            removeButton.isHidden = true
+        }
     
         urlInputField.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(windowWillClose(notification:)),
                                                name: NSWindow.willCloseNotification, object: nil)
         
-        NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDown, .leftMouseDragged], handler: eventMonitor!)
+        
+        eventMonitor = {if $0.window != self.view.window{self.view.window?.close()}; return $0}
+        NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDown, .leftMouseDragged], handler: eventMonitor!)        
     }
     
     @objc private func windowWillClose(notification: NSNotification){
         if (notification.object as? NSWindow) == view.window && eventMonitor != nil {
-//            NSEvent.removeMonitor(eventMonitor);
+            //TODO: NSEvent.removeMonitor(eventMonitor);
             eventMonitor = nil
         }
         NotificationCenter.default.removeObserver(self, name: NSWindow.willCloseNotification, object: nil)

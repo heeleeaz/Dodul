@@ -9,11 +9,16 @@
 import AppKit
 
 open class EditableTouchBarController: ReadonlyTouchBarController{
-    private var rawDraggingIndex: Int?
     private var draggingImageComponent: [NSDraggingImageComponent]?
     
     //serves for item removal and insertion accepted point rect
     private lazy var acceptChangesRect = NSRect(x: 0, y: 0, width: view.frame.width, height: 3)
+    
+    override var emptyCollectionTouchbarItem: NSTouchBarItem{
+        EditableEmptyCollectionTouchBarItem(identifier: Constants.emptyCollectionIdentifier)
+    }
+    
+    override var editButtonTouchBarItem: NSTouchBarItem?{nil}
         
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -31,17 +36,11 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
         }
     }
     
-    override var emptyCollectionTouchbarItem: NSTouchBarItem{
-        EditableEmptyCollectionTouchBarItem(identifier: Constants.emptyCollectionIdentifier)
-    }
-    
     open override func setupTouchbarCollectionView(identifier: NSTouchBarItem.Identifier) -> CollectionViewTouchBarItem {
         let item = CollectionViewTouchBarItem(identifier: identifier, trackingRect: acceptChangesRect, trackingEventView: view)
         item.delegate = self
         return item
     }
-    
-    override var editButtonTouchBarItem: NSTouchBarItem?{nil}
 }
 
 extension EditableTouchBarController: DragDestinationObservableViewDelegate{
@@ -95,6 +94,6 @@ extension EditableTouchBarController: DragDestinationObservableViewDelegate{
     }
     
     public func dragDestinationObservableView(_ view: DragDestinationObservableView, info: NSDraggingInfo, updateDraggingImage screenPoint: NSPoint) -> [NSDraggingImageComponent] {
-        return self.acceptChangesRect.contains(info.draggingLocation) ? [] : self.draggingImageComponent ?? []
+        return acceptChangesRect.contains(info.draggingLocation) ? [] : draggingImageComponent ?? []
     }
 }

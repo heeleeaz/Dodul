@@ -18,7 +18,7 @@ class AppUpdateController: NSViewController{
         
         downloadButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([downloadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                                     downloadButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)])
+                                     downloadButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)])        
     }
     
     override func viewDidLoad() {

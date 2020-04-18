@@ -11,6 +11,11 @@ import TouchletCore
 
 class PanelWindow: NSPanel{
     override var contentView: NSView?{didSet{setFrame(.zero, display: true)}}
+    
+    public override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
+        super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
+        trackScreenViewEvent(screen: self.className) //track screenView
+    }
 }
 
 class PanelViewController: ReadonlyTouchBarController{

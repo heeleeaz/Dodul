@@ -10,17 +10,6 @@ import AppKit
 import TouchletCore
 import Carbon
 
-class MainWindow: NSWindow{
-    override var contentView: NSView?{
-        didSet{
-            if let frame = NSScreen.main?.frame{
-                setFrame(frame, display: true)
-                setContentSize(frame.size)
-            }
-        }
-    }
-}
-
 class MainViewController: EditableTouchBarController {
     @IBOutlet weak var keybindTagView: KeybindTagView!
             
@@ -35,7 +24,7 @@ class MainViewController: EditableTouchBarController {
     private func updateKeybindPresentationView(){
         keybindTagView.removeAll()
         if let keybind = GlobalKeybindPreferencesStore.fetch(){
-            for s in keybind.description.split(separator: "-"){keybindTagView.addTag(String(s), isEditing: false)}
+            keybind.description.split(separator: "-").forEach{keybindTagView.addTag(String($0), isEditing: false)}
         }
     }
     
@@ -43,7 +32,8 @@ class MainViewController: EditableTouchBarController {
         commitTouchBarEditing()
         
         DistributedNotificationCenter.default().postNotificationName(.touchItemReload, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
-        terminateApp(self)
+        
+        NSApp.terminate(nil)
     }
     
     @objc func windowWillClose(notification: NSNotification){
@@ -53,18 +43,50 @@ class MainViewController: EditableTouchBarController {
         }
     }
     
-    override func cancelOperation(_ sender: Any?) {terminateApp(self)}
+    override func cancelOperation(_ sender: Any?) {
+        let alert = NSAlert()
+        alert.messageText = "Save Changes?"
+        alert.informativeText = "You've made some changes, they will only reflect if you save them."
+        alert.alertStyle = .informational
+        
+        alert.addButton(withTitle: "Save")
+        alert.addButton(withTitle: "Cancel")
+        alert.beginSheetModal(for: view.window!) { ( modalResponse) in
+            switch modalResponse{
+            case .alertSecondButtonReturn:
+                print("Cancel")
+            default:
+                print("Save")
+            }
+        }
+    }
     
     override func keyDown(with event: NSEvent) {
         //default escape button
         if event.keyCode == kVK_Escape{super.keyDown(with: event)}
     }
     
-    @IBAction func launcherKeyChangeButtonTapped(_ sender: Any) {
+    @IBAction func quickLaunchClicked(_ sender: Any) {
         KeybindPreferenceViewController.presentAsWindowKeyAndOrderFront(nil)
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+}
+
+class MainWindow: NSWindow{
+    public override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
+        super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
+        trackScreenViewEvent(screen: self.className) //track screenView
+    }
+    
+    override var contentView: NSView?{
+        didSet{
+            if let frame = NSScreen.main?.frame{
+                setFrame(frame, display: true)
+                setContentSize(frame.size)
+            }
+        }
     }
 }

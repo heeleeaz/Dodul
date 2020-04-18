@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		920B6909244B0C4C009EE413 /* MPAnalyticsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B6908244B0C4C009EE413 /* MPAnalyticsConfiguration.swift */; };
+		920B690B244B0CE2009EE413 /* MPAnalyticsParamBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B690A244B0CE2009EE413 /* MPAnalyticsParamBuilder.swift */; };
 		92394B2A2444A8DF0019D80D /* DragDestinationObservableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92394B292444A8DF0019D80D /* DragDestinationObservableView.swift */; };
 		9288B92E244213A900D50D27 /* TouchletCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 9288B92C244213A900D50D27 /* TouchletCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9288B975244214A900D50D27 /* NSEventModifierFlags+HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B937244213D500D50D27 /* NSEventModifierFlags+HotKey.swift */; };
@@ -57,9 +59,14 @@
 		9288B9A3244214EA00D50D27 /* TouchBarItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B96C244213D600D50D27 /* TouchBarItemStore.swift */; };
 		9288B9A4244214EA00D50D27 /* TouchBarItemFileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B96D244213D600D50D27 /* TouchBarItemFileStorage.swift */; };
 		9288B9A5244214EA00D50D27 /* TouchBarItemUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B96E244213D600D50D27 /* TouchBarItemUserDefault.swift */; };
+		92B4EF7524484E5200341C6B /* MPGoogleAnalyticsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B4EF7424484E5200341C6B /* MPGoogleAnalyticsTracker.swift */; };
+		92D36EEB244B5C5000BB6F2F /* CoreSupportFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D36EEA244B5C5000BB6F2F /* CoreSupportFunctions.swift */; };
+		92D36EED244B670100BB6F2F /* MPAnalyticsTimingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D36EEC244B670100BB6F2F /* MPAnalyticsTimingManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		920B6908244B0C4C009EE413 /* MPAnalyticsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAnalyticsConfiguration.swift; sourceTree = "<group>"; };
+		920B690A244B0CE2009EE413 /* MPAnalyticsParamBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAnalyticsParamBuilder.swift; sourceTree = "<group>"; };
 		92394B292444A8DF0019D80D /* DragDestinationObservableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDestinationObservableView.swift; sourceTree = "<group>"; };
 		9288B929244213A900D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9288B92C244213A900D50D27 /* TouchletCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchletCore.h; sourceTree = "<group>"; };
@@ -112,6 +119,9 @@
 		9288B971244213D600D50D27 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		9288B972244213D600D50D27 /* FileLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
 		9288B973244213D600D50D27 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		92B4EF7424484E5200341C6B /* MPGoogleAnalyticsTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPGoogleAnalyticsTracker.swift; sourceTree = "<group>"; };
+		92D36EEA244B5C5000BB6F2F /* CoreSupportFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSupportFunctions.swift; sourceTree = "<group>"; };
+		92D36EEC244B670100BB6F2F /* MPAnalyticsTimingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAnalyticsTimingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +154,8 @@
 		9288B92B244213A900D50D27 /* TouchletCore */ = {
 			isa = PBXGroup;
 			children = (
+				92D36EEA244B5C5000BB6F2F /* CoreSupportFunctions.swift */,
+				92B4EF7324484E3F00341C6B /* Analytics */,
 				9288B93D244213D500D50D27 /* HotKey */,
 				9288B95D244213D600D50D27 /* View */,
 				9288B974244213D600D50D27 /* Utilities */,
@@ -327,6 +339,17 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		92B4EF7324484E3F00341C6B /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				92D36EEC244B670100BB6F2F /* MPAnalyticsTimingManager.swift */,
+				92B4EF7424484E5200341C6B /* MPGoogleAnalyticsTracker.swift */,
+				920B6908244B0C4C009EE413 /* MPAnalyticsConfiguration.swift */,
+				920B690A244B0CE2009EE413 /* MPAnalyticsParamBuilder.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -370,6 +393,7 @@
 				TargetAttributes = {
 					9288B928244213A900D50D27 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -435,6 +459,7 @@
 				9288B996244214D100D50D27 /* SpotlightItem.swift in Sources */,
 				9288B984244214B600D50D27 /* NSViewControllerExtension.swift in Sources */,
 				9288B97D244214AE00D50D27 /* OuterScrollView.swift in Sources */,
+				92D36EED244B670100BB6F2F /* MPAnalyticsTimingManager.swift in Sources */,
 				9288B980244214B200D50D27 /* Logger.swift in Sources */,
 				9288B994244214CC00D50D27 /* ProjectBundleConstant.swift in Sources */,
 				9288B98F244214C200D50D27 /* GlobalKeybindPreferencesStore.swift in Sources */,
@@ -444,9 +469,12 @@
 				9288B986244214B600D50D27 /* NSViewExtension.swift in Sources */,
 				9288B99B244214DF00D50D27 /* EditableTouchBarController.swift in Sources */,
 				9288B983244214B600D50D27 /* NSDataExtension.swift in Sources */,
+				92B4EF7524484E5200341C6B /* MPGoogleAnalyticsTracker.swift in Sources */,
 				9288B99F244214DF00D50D27 /* ReadonlyTouchBarController.swift in Sources */,
+				92D36EEB244B5C5000BB6F2F /* CoreSupportFunctions.swift in Sources */,
 				9288B97F244214AE00D50D27 /* Toast.swift in Sources */,
 				9288B977244214A900D50D27 /* Key.swift in Sources */,
+				920B690B244B0CE2009EE413 /* MPAnalyticsParamBuilder.swift in Sources */,
 				9288B993244214CC00D50D27 /* ProjectBundleProvider.swift in Sources */,
 				9288B9A1244214E300D50D27 /* TouchBarItem.swift in Sources */,
 				9288B992244214CC00D50D27 /* global.swift in Sources */,
@@ -455,6 +483,7 @@
 				9288B990244214C600D50D27 /* DownloaderService.swift in Sources */,
 				9288B987244214B600D50D27 /* NSScrollViewExtension.swift in Sources */,
 				9288B991244214C600D50D27 /* NetworkRequest.swift in Sources */,
+				920B6909244B0C4C009EE413 /* MPAnalyticsConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +612,7 @@
 		9288B932244213A900D50D27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -597,10 +627,18 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet..TouchletCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -608,6 +646,7 @@
 		9288B933244213A900D50D27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -622,10 +661,17 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet..TouchletCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
