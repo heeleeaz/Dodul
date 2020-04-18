@@ -27,9 +27,11 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
         (view as? DragDestinationObservableView)?.delegate = self
     }
     
+    public var isTouchbarDirty:Bool {!TouchBarItemUserDefault.shared.compare(collectionViewTouchBarItem.items)}
+    
     @discardableResult public func commitTouchBarEditing() -> Bool{
         do{
-            try TouchBarItemUserDefault.instance.setItems(collectionViewTouchBarItem.items)
+            try TouchBarItemUserDefault.shared.setItems(collectionViewTouchBarItem.items)
             return true
         }catch{
             return false

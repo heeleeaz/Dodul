@@ -28,13 +28,7 @@ class MainViewController: EditableTouchBarController {
         }
     }
     
-    @IBAction func doneAction(_ sender: Any) {
-        commitTouchBarEditing()
-        
-        DistributedNotificationCenter.default().postNotificationName(.touchItemReload, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
-        
-        NSApp.terminate(nil)
-    }
+    @IBAction func doneAction(_ sender: Any) {commitChangesAndDispatchUpdateNotification()}
     
     @objc func windowWillClose(notification: NSNotification){
         if notification.object is KeybindPreferenceWindow{
@@ -43,21 +37,32 @@ class MainViewController: EditableTouchBarController {
         }
     }
     
-    override func cancelOperation(_ sender: Any?) {
-        let alert = NSAlert()
-        alert.messageText = "Save Changes?"
-        alert.informativeText = "You've made some changes, they will only reflect if you save them."
-        alert.alertStyle = .informational
+    private func commitChangesAndDispatchUpdateNotification(){
+        commitTouchBarEditing()
         
-        alert.addButton(withTitle: "Save")
-        alert.addButton(withTitle: "Cancel")
-        alert.beginSheetModal(for: view.window!) { ( modalResponse) in
-            switch modalResponse{
-            case .alertSecondButtonReturn:
-                print("Cancel")
-            default:
-                print("Save")
+        DistributedNotificationCenter.default().postNotificationName(.touchItemReload, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
+        
+        NSApp.terminate(nil)
+    }
+    
+    override func cancelOperation(_ sender: Any?) {
+        if isTouchbarDirty{
+            let alert = NSAlert()
+            alert.messageText = "Save Changes?"
+            alert.informativeText = "You've made some changes, they will only reflect if you save them."
+            alert.alertStyle = .informational
+            
+            alert.addButton(withTitle: "Save")
+            alert.addButton(withTitle: "Cancel")
+            alert.beginSheetModal(for: view.window!) { ( modalResponse) in
+                switch modalResponse{
+                case .alertFirstButtonReturn:
+                    self.commitChangesAndDispatchUpdateNotification()
+                default: break
+                }
             }
+        }else{
+            commitChangesAndDispatchUpdateNotification()
         }
     }
     

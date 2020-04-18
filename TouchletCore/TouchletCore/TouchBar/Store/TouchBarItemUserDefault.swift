@@ -10,7 +10,12 @@ import Foundation
 import AppKit
 
 class TouchBarItemUserDefault: TouchBarItemStore {
-    static let instance = TouchBarItemUserDefault()
+    public static let shared = TouchBarItemUserDefault()
+    
+    /**
+     true if data as been changed during it shared lifespan
+     */
+    public var isDirty = false
     
     struct Keys {
         static let touchBarItemKey = "touchBarItemKey"
@@ -37,15 +42,27 @@ class TouchBarItemUserDefault: TouchBarItemStore {
     func setItems(_ item: [TouchBarItem]) throws {
         let data = try NSKeyedArchiver.archivedData(withRootObject: item, requiringSecureCoding: false)
         userDefaults.set(data, forKey: Keys.touchBarItemKey)
+        isDirty = true
     }
     
     func findAll() throws -> [TouchBarItem]{
         guard let data = userDefaults.data(forKey: Keys.touchBarItemKey) else {return []}
         return try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [TouchBarItem]
     }
+    
+    func compare(_ items: [TouchBarItem]) -> Bool{
+        let a = (try? findAll()) ?? []
+        if a.count != items.count {return false}
+        
+        for i in 0..<a.count{
+            if a[i] != items[i] {
+                return false
+            }
+        }
+        return true
+    }
 }
 
 extension UserDefaults {
-    
     static let touchBarSuite = UserDefaults(suiteName: "\(Global.groupIdPrefix)")!
 }

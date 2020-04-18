@@ -39,7 +39,7 @@ open class ReadonlyTouchBarController: NSViewController{
     }
     
     public func reloadItems(){
-        collectionViewTouchBarItem.items = (try? TouchBarItemUserDefault.instance.findAll()) ?? []
+        collectionViewTouchBarItem.items = (try? TouchBarItemUserDefault.shared.findAll()) ?? []
         collectionViewTouchBarItem.reloadItems()
     }
     
