@@ -8,10 +8,6 @@
 
 import AppKit
 
-public func terminateApp(_ sender: Any){
-    NSApplication.shared.terminate(sender)
-}
-
 public func synced(_ lock: Any, closure: () -> ()) {
     objc_sync_enter(lock)
     closure()

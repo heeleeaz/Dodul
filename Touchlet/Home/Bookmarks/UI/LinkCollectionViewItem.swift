@@ -109,7 +109,7 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         isImageLoaded = false
         
     
-        if let favicon = FaviconProvider.instance.loadFromCache(path: link.url.absoluteString){
+        if let favicon = FaviconCacheProvider.instance.loadFromCache(path: link.url.absoluteString){
             self.linkIconimageView.image = favicon
             self.isImageLoaded = true
         }else{
@@ -130,7 +130,7 @@ class LinkCollectionViewItem: NSCollectionViewItem {
                 switch $0{
                 case .success(let image):
                     if let data = image.resize(destSize: size).data {
-                        FaviconProvider.instance.insert(data, path: url.absoluteString)
+                        FaviconCacheProvider.instance.insert(data, path: url.absoluteString)
                         completion(image, nil)
                     }
                 case .failure(let error):

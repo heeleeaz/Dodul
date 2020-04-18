@@ -8,6 +8,7 @@
 
 import AppKit
 import Carbon
+import TouchletCore
 
 class AboutPreferenceViewController: NSViewController{
     @IBOutlet weak var appNameLabel: NSTextField!

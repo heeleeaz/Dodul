@@ -9,11 +9,16 @@
 import AppKit
 
 open class EditableTouchBarController: ReadonlyTouchBarController{
-    private var rawDraggingIndex: Int?
     private var draggingImageComponent: [NSDraggingImageComponent]?
     
     //serves for item removal and insertion accepted point rect
     private lazy var acceptChangesRect = NSRect(x: 0, y: 0, width: view.frame.width, height: 3)
+    
+    override var emptyCollectionTouchbarItem: NSTouchBarItem{
+        EditableEmptyCollectionTouchBarItem(identifier: Constants.emptyCollectionIdentifier)
+    }
+    
+    override var editButtonTouchBarItem: NSTouchBarItem?{nil}
         
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -22,17 +27,15 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
         (view as? DragDestinationObservableView)?.delegate = self
     }
     
+    public var isTouchbarDirty:Bool {!TouchBarItemUserDefault.shared.compare(collectionViewTouchBarItem.items)}
+    
     @discardableResult public func commitTouchBarEditing() -> Bool{
         do{
-            try TouchBarItemUserDefault.instance.setItems(collectionViewTouchBarItem.items)
+            try TouchBarItemUserDefault.shared.setItems(collectionViewTouchBarItem.items)
             return true
         }catch{
             return false
         }
-    }
-    
-    override var emptyCollectionTouchbarItem: NSTouchBarItem{
-        EditableEmptyCollectionTouchBarItem(identifier: Constants.emptyCollectionIdentifier)
     }
     
     open override func setupTouchbarCollectionView(identifier: NSTouchBarItem.Identifier) -> CollectionViewTouchBarItem {
@@ -40,8 +43,6 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
         item.delegate = self
         return item
     }
-    
-    override var editButtonTouchBarItem: NSTouchBarItem?{nil}
 }
 
 extension EditableTouchBarController: DragDestinationObservableViewDelegate{
@@ -95,6 +96,6 @@ extension EditableTouchBarController: DragDestinationObservableViewDelegate{
     }
     
     public func dragDestinationObservableView(_ view: DragDestinationObservableView, info: NSDraggingInfo, updateDraggingImage screenPoint: NSPoint) -> [NSDraggingImageComponent] {
-        return self.acceptChangesRect.contains(info.draggingLocation) ? [] : self.draggingImageComponent ?? []
+        return acceptChangesRect.contains(info.draggingLocation) ? [] : draggingImageComponent ?? []
     }
 }

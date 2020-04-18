@@ -25,6 +25,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         DistributedNotificationCenter.default().addObserver(self, selector: #selector(setupHotKey), name: .hotKeySetup, object: ProjectBundleProvider.instance.bundleIdentifier(for: .main))
+        
+        setupGoogleAnalytics()
+    }
+    
+    private func setupGoogleAnalytics(){
+        MPGoogleAnalyticsTracker.shared.activate(configuration: MPAnalyticsConfiguration(identifier: "UA-121293848-3"))
     }
     
     @objc private func setupHotKey(){

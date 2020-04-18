@@ -32,6 +32,7 @@ public class DownloaderService: NSObject{
         super.init()
 
         let config = URLSessionConfiguration.background(withIdentifier: "AppDownload")
+        config.httpMaximumConnectionsPerHost = 1
         session = URLSession(configuration: config, delegate: self, delegateQueue: OperationQueue())
     }
     

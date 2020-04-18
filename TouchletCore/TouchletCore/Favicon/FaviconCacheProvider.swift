@@ -9,13 +9,13 @@
 import Foundation
 import AppKit
 
-public class FaviconProvider{
-    public static let instance = FaviconProvider()
+public class FaviconCacheProvider{
+    public static let instance = FaviconCacheProvider()
     
     private var cache: Cache<String, Data>!
     
     struct Constant {
-        public static let cachePath = String(describing: FaviconProvider.self)
+        public static let cachePath = String(describing: FaviconCacheProvider.self)
     }
     
     private init() {

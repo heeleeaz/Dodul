@@ -35,7 +35,7 @@ public class DragDestinationObservableView: NSView{
     }
 }
 
-public protocol DragDestinationObservableViewDelegate: class {
+public protocol DragDestinationObservableViewDelegate: AnyObject {
     func dragDestinationObservableView(_ view: DragDestinationObservableView, info: NSDraggingInfo, willBeginAt screenPoint: NSPoint)
     func dragDestinationObservableView(_ view: DragDestinationObservableView, info: NSDraggingInfo, updated screenPoint: NSPoint)
     func dragDestinationObservableView(_ view: DragDestinationObservableView, info: NSDraggingInfo, endedAt screenPoint: NSPoint)
