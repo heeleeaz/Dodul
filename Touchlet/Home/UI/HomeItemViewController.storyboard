@@ -87,7 +87,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView selectable="YES" allowsEmptySelection="NO" id="juc-JF-YBy">
-                                            <rect key="frame" x="0.0" y="0.0" width="450" height="240"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="434" height="240"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="VgJ-q7-bUG">
                                                 <size key="itemSize" width="50" height="50"/>
@@ -106,7 +106,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="FmD-hJ-Kkr">
-                                    <rect key="frame" x="434" y="0.0" width="16" height="192"/>
+                                    <rect key="frame" x="426" y="0.0" width="16" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -177,13 +177,13 @@
                                 </textFieldCell>
                             </textField>
                             <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asB-Ln-9qf" customClass="OuterScrollView" customModule="TouchletCore">
-                                <rect key="frame" x="0.0" y="-3" width="450" height="243"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="240"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="ueD-b4-XdY">
-                                    <rect key="frame" x="0.0" y="0.0" width="450" height="243"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="240"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView selectable="YES" allowsEmptySelection="NO" id="47O-Gb-ONo">
-                                            <rect key="frame" x="0.0" y="0.0" width="450" height="243"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="434" height="240"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="TWF-l4-xk1">
                                                 <size key="itemSize" width="50" height="50"/>
@@ -196,16 +196,13 @@
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </clipView>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="243" id="0de-tQ-uEN"/>
-                                </constraints>
                                 <edgeInsets key="contentInsets" left="8" right="8" top="0.0" bottom="0.0"/>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="LYa-Xb-nH8">
                                     <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Z0i-aj-dnE">
-                                    <rect key="frame" x="434" y="0.0" width="16" height="165"/>
+                                    <rect key="frame" x="426" y="0.0" width="16" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -213,6 +210,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="1g7-gi-hwi" secondAttribute="trailing" constant="20" id="2yu-9C-zyR"/>
                             <constraint firstItem="asB-Ln-9qf" firstAttribute="leading" secondItem="WNs-Aj-W02" secondAttribute="leading" id="89t-XZ-ooN"/>
+                            <constraint firstAttribute="bottom" secondItem="asB-Ln-9qf" secondAttribute="bottom" id="aav-FI-iNW"/>
                             <constraint firstItem="GIA-N7-1pe" firstAttribute="leading" secondItem="WNs-Aj-W02" secondAttribute="leading" constant="20" id="cjX-gg-vJ3"/>
                             <constraint firstItem="asB-Ln-9qf" firstAttribute="top" secondItem="1g7-gi-hwi" secondAttribute="bottom" constant="10" id="eui-B6-LsV"/>
                             <constraint firstItem="1g7-gi-hwi" firstAttribute="leading" secondItem="WNs-Aj-W02" secondAttribute="leading" constant="20" id="flZ-Pg-lAV"/>

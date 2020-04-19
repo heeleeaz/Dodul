@@ -24,7 +24,9 @@ public class FaviconCacheProvider{
     
     public func loadFromCache(path: String) -> NSImage?{
         if let bitmap = cache.value(forKey: path)?.bitmap {
-            let image = NSImage(); image.addRepresentation(bitmap); return image
+            let image = NSImage()
+            image.addRepresentation(bitmap)
+            return image
         }
         return nil
     }

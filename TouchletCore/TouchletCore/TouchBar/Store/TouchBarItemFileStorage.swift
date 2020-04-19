@@ -14,17 +14,17 @@ public class TouchBarItemFileStorage: TouchBarItemStore{
     private var cache: Cache<String, Data>
     
     init() {
-        cache = (try? Cache.loadFromDisk(withName: Keys.main)) ?? Cache()
+        cache = (try? Cache.loadFromDisk(withName: Constant.cachePath)) ?? Cache()
     }
     
     func setItems(_ item: [TouchBarItem]) throws {
         let data = try NSKeyedArchiver.archivedData(withRootObject: item, requiringSecureCoding: false)
-        cache.insert(data, forKey: Keys.main)
-        try cache.saveToDisk(withName: Keys.main)
+        cache.insert(data, forKey: Constant.cachePath)
+        try cache.saveToDisk(withName: Constant.cachePath)
     }
     
     func findAll() throws -> [TouchBarItem] {
-        guard let data = cache.value(forKey: Keys.main) else {return []}
+        guard let data = cache.value(forKey: Constant.cachePath) else {return []}
         return try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [TouchBarItem]
     }
     
@@ -34,7 +34,7 @@ public class TouchBarItemFileStorage: TouchBarItemStore{
         try setItems(newItems)
     }
     
-    struct Keys {
-        static let main = "\(Global.groupIdPrefix).touchBarItemKeys_"
+    struct Constant {
+        static let cachePath = "touchBarItems"
     }
 }

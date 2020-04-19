@@ -128,8 +128,9 @@ extension Cache where Key: Codable, Value: Codable {
             let fileURL = folderURL.appendingPathComponent(name + ".cache")
             let data = try JSONEncoder().encode(self)
             try data.write(to: fileURL)
+        }else{
+            throw NSError(domain: Bundle.main.bundleIdentifier ?? "", code: 0, userInfo: nil)
         }
-        throw NSError(domain: Bundle.main.bundleIdentifier!, code: 0, userInfo: nil)
     }
     
     public static func loadFromDisk(withName name: String, using fileManager: FileManager = .default) throws -> Cache {
@@ -138,13 +139,10 @@ extension Cache where Key: Codable, Value: Codable {
             let data = try Data(contentsOf: fileURL)
             
             return try JSONDecoder().decode(Cache.self, from: data)
+        }else{
+            throw NSError(domain: Bundle.main.bundleIdentifier ?? "", code: 0, userInfo: nil)
         }
-        throw NSError(domain: Bundle.main.bundleIdentifier!, code: 0, userInfo: nil)
     }
 }
 
 extension Cache.Entry: Codable where Key: Codable, Value: Codable {}
-
-extension FileManager{
-//    static let appGroup = FileManager(authorization: NSWorkspace.Authorization)
-}

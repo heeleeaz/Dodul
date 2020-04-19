@@ -108,7 +108,7 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         linkIconimageView.image = NSImage(named: "NSBookmarksTemplate")
         isImageLoaded = false
         
-    
+        
         if let favicon = FaviconCacheProvider.instance.loadFromCache(path: link.url.absoluteString){
             self.linkIconimageView.image = favicon
             self.isImageLoaded = true
