@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:TouchletCore/TouchletCore.xcodeproj">
+      location = "group:/Users/Heeleeaz/Documents/XCode Project/Touchlet/TouchletCore/MetaCore.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Touchlet.xcodeproj">
+      location = "group:/Users/Heeleeaz/Documents/XCode Project/Touchlet/Meta.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
