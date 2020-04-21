@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8900ADA18D4FE884F4DDF293 /* libPods-TouchletPanel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA03BC9D2E9D80E858BE1219 /* libPods-TouchletPanel.a */; };
 		921927B52412A9980008CCC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 921927B32412A9980008CCC8 /* Assets.xcassets */; };
 		9288B9AF2442159300D50D27 /* TouchletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9288B9AE2442159300D50D27 /* TouchletCore.framework */; };
 		9288B9B02442159300D50D27 /* TouchletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9288B9AE2442159300D50D27 /* TouchletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -32,19 +31,15 @@
 
 /* Begin PBXFileReference section */
 		74D60A453FF58D7741570AE1 /* Pods-TouchletPanel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchletPanel.release.xcconfig"; path = "Target Support Files/Pods-TouchletPanel/Pods-TouchletPanel.release.xcconfig"; sourceTree = "<group>"; };
-		920488462432735C0017FEC6 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		921927B22412A9980008CCC8 /* TouchletPanel.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TouchletPanel.entitlements; sourceTree = "<group>"; };
 		921927B32412A9980008CCC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		921927B42412A9980008CCC8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9288B8FF2441FFC000D50D27 /* libTouchletCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libTouchletCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9288B9AE2442159300D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92A393F52441F81300B8AC8B /* libTouchletCore2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libTouchletCore2.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		92ACE9B1241295F6009994EB /* TouchletPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchletPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92ACE9B4241295F6009994EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92ACE9B6241295F6009994EB /* PanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelController.swift; sourceTree = "<group>"; };
 		92ACE9BB241295F6009994EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7D70E102E34AA2CE7CF60A1 /* Pods-TouchletPanel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchletPanel.debug.xcconfig"; path = "Target Support Files/Pods-TouchletPanel/Pods-TouchletPanel.debug.xcconfig"; sourceTree = "<group>"; };
-		CA03BC9D2E9D80E858BE1219 /* libPods-TouchletPanel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TouchletPanel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +47,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8900ADA18D4FE884F4DDF293 /* libPods-TouchletPanel.a in Frameworks */,
 				9288B9AF2442159300D50D27 /* TouchletCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,10 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				9288B9AE2442159300D50D27 /* TouchletCore.framework */,
-				9288B8FF2441FFC000D50D27 /* libTouchletCore.a */,
-				92A393F52441F81300B8AC8B /* libTouchletCore2.a */,
-				920488462432735C0017FEC6 /* TouchletCore.framework */,
-				CA03BC9D2E9D80E858BE1219 /* libPods-TouchletPanel.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
