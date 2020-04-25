@@ -10,13 +10,13 @@ target 'Touchlet' do
 end
 
 target 'UpdateService' do
-  project 'Touchlet/Wrapper/UpdateService/UpdateService.xcodeproj'
+  project 'Meta/Wrapper/UpdateService/UpdateService.xcodeproj'
 end
 
 target 'LaunchHelper' do
-  project 'Touchlet/Wrapper/LaunchHelper/LaunchHelper.xcodeproj'
+  project 'Meta/Wrapper/MetaLaunchAgent/MetaLaunchAgent.xcodeproj'
 end
 
 target 'TouchletPanel' do
-  project 'Touchlet/Wrapper/TouchletPanel/TouchletPanel.xcodeproj'
+  project 'Meta/Wrapper/TouchletPanel/TouchletPanel.xcodeproj'
 end
