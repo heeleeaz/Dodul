@@ -12,6 +12,8 @@ import MetaCore
 class DarkTheme: Theme {
     static var hotkeyTextColor = NSColor(named: "EditingHotkeyTextColor")!
     static var hotkeyBackgroundColor = NSColor(named: "HotKeyBackgroundColor")!
+    static var quickObserverColor = NSColor(named: "QuickObserverColor")!
+    static var quickLaunchPreferenceContainerBackgroundColor = NSColor(named: "QLPContainerBackgroundColor")!
     
     struct Fonts {
         static func sourceSansProRegular(with size: CGFloat) -> NSFont {

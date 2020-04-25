@@ -31,6 +31,8 @@ class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
         collectionView.register(ButtonCollectionViewItem.self, forItemWithIdentifier: ButtonCollectionViewItem.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        setupDefaultBookmark()
     }
     
     override func viewWillAppear() {
@@ -51,10 +53,30 @@ class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
     }
     
     override func touchBarItem(at index: Int) -> TouchBarItem? {
-        return TouchBarItem(identifier: bookmarkLinks[index].url.absoluteString, type: .Web)
+        return TouchBarItem(identifier: bookmarkLinks[index].url, type: .Web)
     }
     
     override var height: CGFloat?{ return (collectionView.contentSize?.height ?? 0) + 60 }
+    
+    private func addLink(link: Link){
+        bookmarkLinks.append(link)
+        removeTrailItem(collectionView)
+        insertItems(collectionView, oldCount: bookmarkLinks.count-1, newCount: bookmarkLinks.count)
+    }
+    
+    private func setupDefaultBookmark(){
+        if !AppPrefs.shared.hasSetupDefaultBookmark{
+            BookmarkWebService.shared.defaultBookmarks { (links, error) in
+                if let links = links{
+                    links.forEach{ link in
+                        DispatchQueue.main.async {self.addLink(link: link)}
+                        if !BookmarkRepository.instance.contains(link: link){BookmarkRepository.instance.save(bookmark: link)}
+                    }
+                    AppPrefs.shared.hasSetupDefaultBookmark = true
+                }
+            }
+        }
+    }
 }
 
 extension BookmarkViewController: NSCollectionViewDataSource{
@@ -103,9 +125,7 @@ extension BookmarkViewController: AddLinkViewControllerDelegate{
     func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, save link: Link) {
         self.dismiss(controller)
 
-        bookmarkLinks.append(link)
-        removeTrailItem(collectionView)
-        insertItems(collectionView, oldCount: bookmarkLinks.count-1, newCount: bookmarkLinks.count)
+        addLink(link: link)
     }
     
     func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, update link: Link) {

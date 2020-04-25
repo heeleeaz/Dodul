@@ -204,10 +204,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Vzv-Gn-xFF">
-                                        <rect key="frame" x="455" y="20" width="331" height="30"/>
+                                        <rect key="frame" x="455" y="10" width="331" height="40"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ghu-tn-Czj">
-                                                <rect key="frame" x="59" y="7" width="183" height="17"/>
+                                                <rect key="frame" x="59" y="12" width="183" height="17"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="to launch Touchbar anytime" id="kcj-V6-GWU">
                                                     <font key="font" metaFont="system" size="14"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -215,7 +215,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fUM-7H-43Q">
-                                                <rect key="frame" x="242" y="-2" width="87" height="32"/>
+                                                <rect key="frame" x="242" y="3" width="87" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="73T-KG-BvF"/>
                                                 </constraints>
@@ -228,7 +228,7 @@
                                                 </connections>
                                             </button>
                                             <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKV-xa-xEB" customClass="KeybindTagView" customModule="Meta" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="5" width="45" height="20"/>
+                                                <rect key="frame" x="8" y="10" width="45" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="45" id="nsg-Sq-aN9"/>
                                                     <constraint firstAttribute="height" constant="20" id="zQS-5Y-qHa"/>
@@ -239,13 +239,21 @@
                                             <constraint firstAttribute="trailing" secondItem="fUM-7H-43Q" secondAttribute="trailing" constant="8" id="87J-aH-1mT"/>
                                             <constraint firstItem="OKV-xa-xEB" firstAttribute="leading" secondItem="Vzv-Gn-xFF" secondAttribute="leading" constant="8" id="9VX-79-CkJ"/>
                                             <constraint firstItem="ghu-tn-Czj" firstAttribute="leading" secondItem="OKV-xa-xEB" secondAttribute="trailing" constant="8" id="D6K-vb-UbM"/>
-                                            <constraint firstAttribute="height" constant="30" id="HOo-Ur-WRY"/>
+                                            <constraint firstAttribute="height" constant="40" id="HOo-Ur-WRY"/>
                                             <constraint firstItem="fUM-7H-43Q" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="M1s-jK-CAz"/>
                                             <constraint firstItem="fUM-7H-43Q" firstAttribute="leading" secondItem="ghu-tn-Czj" secondAttribute="trailing" constant="8" id="a9R-Ot-C56"/>
                                             <constraint firstItem="ghu-tn-Czj" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="tJI-w9-z9P"/>
                                             <constraint firstItem="OKV-xa-xEB" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="wDA-kM-9KH"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="200" constant="400" id="zIK-6t-b2p"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_backgroundColor">
+                                                <color key="value" name="QLPContainerBackgroundColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </customView>
                                 </subviews>
                                 <constraints>
@@ -288,6 +296,7 @@
                     </customView>
                     <connections>
                         <outlet property="keybindTagView" destination="OKV-xa-xEB" id="DS5-TS-dsL"/>
+                        <outlet property="launchTouchbarContainer" destination="Vzv-Gn-xFF" id="3oH-St-pY8"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -311,6 +320,9 @@
         </namedColor>
         <namedColor name="HomeBackgroundColor">
             <color red="0.20200000703334808" green="0.20200000703334808" blue="0.20200000703334808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="QLPContainerBackgroundColor">
+            <color red="0.15961026566325076" green="0.15961026566325076" blue="0.15961026566325076" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="TouchBarButtonBackgroundColor">
             <color red="0.2669999897480011" green="0.2669999897480011" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

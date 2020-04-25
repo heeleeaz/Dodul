@@ -29,7 +29,7 @@ class AddLinkViewController: NSViewController, NibLoadable {
         
         if let prefillLink = prefillLink{
             nameInputField.stringValue = prefillLink.title ?? ""
-            urlInputField.stringValue = prefillLink.url.absoluteString
+            urlInputField.stringValue = prefillLink.url
             removeButton.isHidden = false
         }else{
             removeButton.isHidden = true
@@ -42,7 +42,12 @@ class AddLinkViewController: NSViewController, NibLoadable {
         
         
         eventMonitor = {if $0.window != self.view.window{self.view.window?.close()}; return $0}
-        NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDown, .leftMouseDragged], handler: eventMonitor!)        
+        NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDown, .leftMouseDragged], handler: eventMonitor!)
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        nameInputField.becomeFirstResponder()
     }
     
     @objc private func windowWillClose(notification: NSNotification){
@@ -74,7 +79,7 @@ class AddLinkViewController: NSViewController, NibLoadable {
             }
             
             let title = nameInputField.stringValue.isEmpty ? url.absoluteString : nameInputField.stringValue
-            let link = Link(title: title, url: url, id: id)
+            let link = Link(title: title, url: url.absoluteString, id: id)
             
             if let oldLink = prefillLink, bookmarkRepository.contains(link: oldLink){
                 bookmarkRepository.update(replace: oldLink, with: link)

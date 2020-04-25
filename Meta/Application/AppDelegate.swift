@@ -9,6 +9,7 @@
 import AppKit
 import MetaCore
 import ServiceManagement
+import Carbon
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -17,10 +18,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if #available(OSX 10.12.2, *) {
             NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true
-        }
-    
-        if GlobalKeybindPreferencesStore.fetch() == nil{
-            GlobalKeybindPreferencesStore.save(keyBind: GlobalKeybindPreferences.defaultKeyBind)
         }
     
         setupPanelLauncherLoginItem(enabled: true)

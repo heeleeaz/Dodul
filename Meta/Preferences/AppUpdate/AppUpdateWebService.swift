@@ -9,7 +9,7 @@
 import Foundation
 import MetaCore
 
-class UpdateAPI{
+class AppUpdateWebService{
     func requestVersion(_ completionHandler: @escaping (String?, Error?)->()){
         let request = NetworkRequest()
         request.setURL(url: "https://us-central1-touchlet-11807.cloudfunctions.net/lastestVersion")

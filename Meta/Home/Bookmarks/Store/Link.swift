@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Link: NSObject, NSCoding {
+public class Link: NSObject, NSCoding, Codable {
     private struct NSCodingKeys {
         static let id = "id"
         static let title = "title"
@@ -17,21 +17,24 @@ public class Link: NSObject, NSCoding {
 
     public let id: String
     public let title: String?
-    public let url: URL
+    public let url: String
     
     public var displayTitle: String? {
-        let host = url.host?.dropPrefix(prefix: "www.") ?? url.absoluteString
-        return (title?.isEmpty ?? true) ? host : title
+        if let url = URL(string: self.url){
+            let host = url.host?.dropPrefix(prefix: "www.") ?? url.absoluteString
+            return (title?.isEmpty ?? true) ? host : title
+        }
+        return ""
     }
 
-    public required init(title: String?, url: URL, id: String = UUID().uuidString) {
+    public required init(title: String?, url: String, id: String = UUID().uuidString) {
         self.id = id
         self.title = title
         self.url = url
     }
 
     public convenience required init?(coder decoder: NSCoder) {
-        guard let url = decoder.decodeObject(forKey: NSCodingKeys.url) as? URL, let id = decoder.decodeObject(forKey: NSCodingKeys.id) as? String else { return nil }
+        guard let url = decoder.decodeObject(forKey: NSCodingKeys.url) as? String, let id = decoder.decodeObject(forKey: NSCodingKeys.id) as? String else { return nil }
         let title = decoder.decodeObject(forKey: NSCodingKeys.title) as? String
         
         self.init(title: title, url: url, id: id)

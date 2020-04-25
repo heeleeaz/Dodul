@@ -28,7 +28,7 @@ class AppUpdateController: NSViewController{
     
     @objc private func downloadButtonClicked(){
         self.setButtonDownloadState(.updating)
-        UpdateAPI().requestVersion { (data, error) in
+        AppUpdateWebService().requestVersion { (data, error) in
             guard
                 let data = data?.data(using: .utf8),
                 let versionInfo = try? JSONDecoder().decode(VersionInfo.self, from: data),

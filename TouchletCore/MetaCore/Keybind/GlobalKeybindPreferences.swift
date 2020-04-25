@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import Carbon
 
 public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
     public let function : Bool

@@ -12,7 +12,8 @@ import Carbon
 
 class MainViewController: EditableTouchBarController {
     @IBOutlet weak var keybindTagView: KeybindTagView!
-            
+    @IBOutlet weak var launchTouchbarContainer: NSView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +23,17 @@ class MainViewController: EditableTouchBarController {
     }
     
     private func updateKeybindPresentationView(){
+        if GlobalKeybindPreferencesStore.fetch() == nil{
+            GlobalKeybindPreferencesStore.save(keyBind: GlobalKeybindPreferences.defaultKeyBind)
+
+            let animation =  CABasicAnimation(keyPath: "backgroundColor")
+            animation.fromValue = DarkTheme.quickObserverColor.cgColor
+            animation.toValue = DarkTheme.quickLaunchPreferenceContainerBackgroundColor.cgColor
+            animation.duration = 3
+            launchTouchbarContainer.wantsLayer = true
+            launchTouchbarContainer.layer?.add(animation, forKey: "backgroundColor")
+        }
+        
         keybindTagView.removeAll()
         if let keybind = GlobalKeybindPreferencesStore.fetch(){
             keybind.description.split(separator: "-").forEach{keybindTagView.addTag(String($0), isEditing: false)}

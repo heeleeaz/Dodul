@@ -108,7 +108,7 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         linkIconimageView.image = NSImage(named: "NSBookmarksTemplate")
         isImageLoaded = false
         
-        if let favicon = FaviconCacheProvider.instance.loadFromCache(path: link.url.absoluteString){
+        if let favicon = FaviconCacheProvider.instance.loadFromCache(path: link.url){
             self.linkIconimageView.image = favicon
             self.isImageLoaded = true
         }else{
@@ -123,13 +123,13 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         }
     }
     
-    private func loadFromNetwork(url: URL, size: CGSize, completion: @escaping (NSImage?, Error?)->Void){
+    private func loadFromNetwork(url: String, size: CGSize, completion: @escaping (NSImage?, Error?)->Void){
         do{
             try FavIcon.downloadPreferred(url, width: Int(size.width), height: Int(size.height)){
                 switch $0{
                 case .success(let image):
                     if let data = image.resize(destSize: size).data {
-                        FaviconCacheProvider.instance.insert(data, path: url.absoluteString)
+                        FaviconCacheProvider.instance.insert(data, path: url)
                         completion(image, nil)
                     }
                 case .failure(let error):

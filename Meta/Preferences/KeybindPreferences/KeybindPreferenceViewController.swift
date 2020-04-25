@@ -74,7 +74,6 @@ class KeybindPreferenceViewController: NSViewController, NibLoadable {
     }
     
     override func keyDown(with event: NSEvent) {
-        print(event)
         if event.keyCode == kVK_Escape{
             interpretKeyEvents([event])
         }else{

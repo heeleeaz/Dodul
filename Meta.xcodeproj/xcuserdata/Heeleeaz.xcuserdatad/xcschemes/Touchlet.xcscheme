@@ -92,6 +92,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Meta"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
