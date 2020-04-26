@@ -11,7 +11,7 @@ import MetaCore
 
 class BookmarkUserDefaults: BookmarkStore {
     public struct Constants {
-        static let groupName = "\(Global.groupIdPrefix).bookmarks_0_0"
+        static let groupName = "\(Global.shared.APP_SECURITY_GROUP).bookmarks_0_0"
         static let bookmarkKey = "bookmark"
     }
     private let userDefaults: UserDefaults

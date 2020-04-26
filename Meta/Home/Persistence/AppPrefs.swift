@@ -13,7 +13,7 @@ class AppPrefs{
     static let shared = AppPrefs()
     
     public struct Constants {
-        static let groupName = "\(Global.groupIdPrefix).app_prefs_0"
+        static let groupName = "\(Global.shared.APP_SECURITY_GROUP).app_prefs_0"
         static let setupDefaultBookmark = "defaultBookmarks"
     }
     
@@ -32,4 +32,3 @@ class AppPrefs{
         }
     }
 }
-

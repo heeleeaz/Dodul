@@ -14,7 +14,7 @@ class BookmarkWebService{
     
     func defaultBookmarks(_ completionHandler: @escaping ([Link]?, Error?)->()){
         let request = NetworkRequest()
-        request.setURL(url: "https://us-central1-touchlet-11807.cloudfunctions.net/defaultBookmarks")
+        request.setURL(url: "\(API.serverURL)/defaultBookmarks")
         request.request { (data, error) in
             if let data = data, let links = try? JSONDecoder().decode([Link].self, from: data){
                 completionHandler(links, nil)

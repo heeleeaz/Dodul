@@ -4,19 +4,13 @@ platform :macos, '10.13'
 workspace 'Touchlet'
 
 
-target 'Touchlet' do
+target 'Meta' do
   use_frameworks!
   pod 'FavIcon'
 end
 
-target 'UpdateService' do
-  project 'Meta/Wrapper/UpdateService/UpdateService.xcodeproj'
+target 'MetaPanel' do
+  project 'Meta/Wrapper/MetaPanel/MetaPanel.xcodeproj'
 end
 
-target 'LaunchHelper' do
-  project 'Meta/Wrapper/MetaLaunchAgent/MetaLaunchAgent.xcodeproj'
-end
 
-target 'TouchletPanel' do
-  project 'Meta/Wrapper/TouchletPanel/TouchletPanel.xcodeproj'
-end
