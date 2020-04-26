@@ -38,7 +38,5 @@
 	<string>NSApplication</string>
 	<key>NSSupportsAutomaticTermination</key>
 	<false/>
-	<key>NSSupportsSuddenTermination</key>
-	<true/>
 </dict>
 </plist>
