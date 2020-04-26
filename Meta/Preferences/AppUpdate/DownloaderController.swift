@@ -45,7 +45,7 @@ class DownloaderController: NSViewController, NibLoadable{
     }
     
     private func shutdownMeta(){
-        DistributedNotificationCenter.default().postNotificationName(.killApp, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
+        DistributedNotificationCenter.default().postNotificationName(.killApp, object: nil, userInfo: nil, options: .deliverImmediately)
         NSApp.terminate(nil)
     }
 }

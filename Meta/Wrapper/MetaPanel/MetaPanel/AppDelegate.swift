@@ -19,8 +19,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         setupHotKey()
         setupGoogleAnalytics()
         
-        DistributedNotificationCenter.default()
-            .addObserver(self, selector: #selector(killApp), name: .killApp, object: Global.shared.bundleIdentifier(for: .meta))
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(killApp), name: .killApp, object: nil)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(setupHotKey), name: .hotKeySetup, object: nil)
     }
     
     @objc private func setupHotKey(){
@@ -35,7 +35,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         hotKey?.keyDownHandler = {
             Logger.log(text: "showing TouchletPanel from HotKey context")
             if let window = NSApplication.shared.windows.first{
-                window.makeKeyAndOrderFront(nil); window.orderFrontRegardless()
+                window.makeKeyAndOrderFront(nil)
+                window.orderFrontRegardless()
             }
         }
     }

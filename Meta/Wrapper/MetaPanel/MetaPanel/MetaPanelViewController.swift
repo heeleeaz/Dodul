@@ -13,7 +13,7 @@ class MetaPanelViewController: ReadonlyTouchBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(refreshTouchItems), name: .touchItemReload, object: Global.shared.bundleIdentifier(for: .meta))
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(refreshTouchItems), name: .touchItemReload, object: nil)
     }
     
     override func readonlyEmptyTouchBarItem(addButtonTapped touchBarItem: NSTouchBarItem) {
