@@ -17,11 +17,11 @@ class PanelViewController: ReadonlyTouchBarController{
     }
     
     override func readonlyEmptyTouchBarItem(addButtonTapped touchBarItem: NSTouchBarItem) {
-        Global.shared.launch(removeLast: 1, append: [Global.shared.appName(for: .meta)])
+        Global.shared.launch(removeLast: 3, append: ["MacOS", Global.shared.appName(for: .meta)])
     }
     
     override func readonlyEmptyTouchBarItem(editButtonTapped touchBarItem: NSTouchBarItem) {
-        Global.shared.launch(removeLast: 1, append: [Global.shared.appName(for: .meta)])
+        Global.shared.launch(removeLast: 3, append: ["MacOS", Global.shared.appName(for: .meta)])
     }
     
     @objc func refreshTouchItems(){

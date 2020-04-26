@@ -12,16 +12,15 @@ public class Global{
     public var APP_SECURITY_GROUP: String{Bundle.main.object(forInfoDictionaryKey: "APP_SECURITY_GROUP") as! String}
 
     public static let shared = Global()
+    
     private init(){}
         
     public func bundleIdentifier(for project: Project) -> String{
         switch project {
         case .meta:
             return "com.heeleeaz.Meta\(environmentSuffixString("."))"
-        case .metaPanel:
+        case .panel:
             return "com.heeleeaz.MetaPanel\(environmentSuffixString("."))"
-        case .panelLaunchAgent:
-            return "com.heeleeaz.MetaLaunchAgent\(environmentSuffixString("."))"
         }
     }
     
@@ -29,10 +28,8 @@ public class Global{
         switch project {
         case .meta:
             return "Meta\(environmentSuffixString("-"))"
-        case .metaPanel:
+        case .panel:
             return "MetaPanel\(environmentSuffixString("-"))"
-        case .panelLaunchAgent:
-            return "MetaLaunchAgent\(environmentSuffixString("-"))"
         }
     }
     
@@ -54,15 +51,15 @@ public class Global{
         }
         
         var pathComponents = (bundlePath as NSString).pathComponents
-        
         if removeLast > 0{pathComponents.removeLast(removeLast)}
         append.forEach{pathComponents.append($0)}
+        
         return NSWorkspace.shared.launchApplication(NSString.path(withComponents: pathComponents))
     }
-        
-    public func terminateAppWithAllSubProject(){NSApp.terminate(nil)}
     
-    public enum Project{case meta, metaPanel, panelLaunchAgent}
+    public enum Project{
+        case meta, panel
+    }
 }
 
 extension Notification.Name{
@@ -70,9 +67,3 @@ extension Notification.Name{
     public static let touchItemReload = Notification.Name("refreshTouchItem")
     public static let killApp = NSNotification.Name("KILLAPP")
 }
-
-#if DEBUG
-public let isDebugBuild = true
-#else
-public let isDebugBuild = false
-#endif

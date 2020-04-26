@@ -58,7 +58,7 @@
 		9288B9A4244214EA00D50D27 /* TouchBarItemFileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B96D244213D600D50D27 /* TouchBarItemFileStorage.swift */; };
 		9288B9A5244214EA00D50D27 /* TouchBarItemUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B96E244213D600D50D27 /* TouchBarItemUserDefault.swift */; };
 		92B4EF7524484E5200341C6B /* MPGoogleAnalyticsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B4EF7424484E5200341C6B /* MPGoogleAnalyticsTracker.swift */; };
-		92D36EEB244B5C5000BB6F2F /* CoreSupportFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D36EEA244B5C5000BB6F2F /* CoreSupportFunctions.swift */; };
+		92D36EEB244B5C5000BB6F2F /* GoogleAnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D36EEA244B5C5000BB6F2F /* GoogleAnalyticsHelper.swift */; };
 		92D36EED244B670100BB6F2F /* MPAnalyticsTimingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D36EEC244B670100BB6F2F /* MPAnalyticsTimingManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -116,7 +116,7 @@
 		9288B972244213D600D50D27 /* FileLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
 		9288B973244213D600D50D27 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		92B4EF7424484E5200341C6B /* MPGoogleAnalyticsTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPGoogleAnalyticsTracker.swift; sourceTree = "<group>"; };
-		92D36EEA244B5C5000BB6F2F /* CoreSupportFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSupportFunctions.swift; sourceTree = "<group>"; };
+		92D36EEA244B5C5000BB6F2F /* GoogleAnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAnalyticsHelper.swift; sourceTree = "<group>"; };
 		92D36EEC244B670100BB6F2F /* MPAnalyticsTimingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAnalyticsTimingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +131,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92885F5C2455BBD600E779B9 /* GA */ = {
+			isa = PBXGroup;
+			children = (
+				92D36EEC244B670100BB6F2F /* MPAnalyticsTimingManager.swift */,
+				92B4EF7424484E5200341C6B /* MPGoogleAnalyticsTracker.swift */,
+				920B6908244B0C4C009EE413 /* MPAnalyticsConfiguration.swift */,
+				920B690A244B0CE2009EE413 /* MPAnalyticsParamBuilder.swift */,
+			);
+			path = GA;
+			sourceTree = "<group>";
+		};
 		9288B91F244213A900D50D27 = {
 			isa = PBXGroup;
 			children = (
@@ -150,7 +161,6 @@
 		9288B92B244213A900D50D27 /* MetaCore */ = {
 			isa = PBXGroup;
 			children = (
-				92D36EEA244B5C5000BB6F2F /* CoreSupportFunctions.swift */,
 				92B4EF7324484E3F00341C6B /* Analytics */,
 				9288B93D244213D500D50D27 /* HotKey */,
 				9288B95D244213D600D50D27 /* View */,
@@ -336,10 +346,8 @@
 		92B4EF7324484E3F00341C6B /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				92D36EEC244B670100BB6F2F /* MPAnalyticsTimingManager.swift */,
-				92B4EF7424484E5200341C6B /* MPGoogleAnalyticsTracker.swift */,
-				920B6908244B0C4C009EE413 /* MPAnalyticsConfiguration.swift */,
-				920B690A244B0CE2009EE413 /* MPAnalyticsParamBuilder.swift */,
+				92D36EEA244B5C5000BB6F2F /* GoogleAnalyticsHelper.swift */,
+				92885F5C2455BBD600E779B9 /* GA */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -464,7 +472,7 @@
 				9288B983244214B600D50D27 /* NSDataExtension.swift in Sources */,
 				92B4EF7524484E5200341C6B /* MPGoogleAnalyticsTracker.swift in Sources */,
 				9288B99F244214DF00D50D27 /* ReadonlyTouchBarController.swift in Sources */,
-				92D36EEB244B5C5000BB6F2F /* CoreSupportFunctions.swift in Sources */,
+				92D36EEB244B5C5000BB6F2F /* GoogleAnalyticsHelper.swift in Sources */,
 				9288B97F244214AE00D50D27 /* Toast.swift in Sources */,
 				9288B977244214A900D50D27 /* Key.swift in Sources */,
 				920B690B244B0CE2009EE413 /* MPAnalyticsParamBuilder.swift in Sources */,
