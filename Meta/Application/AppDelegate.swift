@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func setupMetaPanel(enabled: Bool){
-        let identifier = Global.shared.bundleIdentifier(for: .metaPanel)
+        let identifier = Global.shared.bundleIdentifier(for: .panel)
         let isEnabled = SMLoginItemSetEnabled(identifier as CFString, enabled)
         Logger.log(text: "\(identifier) as LoginItem enabled: \(isEnabled)")
     }

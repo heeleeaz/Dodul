@@ -10,7 +10,6 @@ import AppKit
 import Carbon
 
 public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
-    public let function : Bool
     public let control : Bool
     public let command : Bool
     public let shift : Bool
@@ -41,8 +40,7 @@ public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
         return "\(stringBuilder.dropLast(seperator.count))"
     }
     
-    public init(function: Bool, control: Bool, command: Bool, shift: Bool, option: Bool, carbonFlags: UInt32, characters: String?, keyCode: UInt32) {
-        self.function = function
+    public init(control: Bool, command: Bool, shift: Bool, option: Bool, carbonFlags: UInt32, characters: String?, keyCode: UInt32) {
         self.control = control
         self.command = command
         self.shift = shift
@@ -52,13 +50,13 @@ public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
         self.keyCode = keyCode
     }
     
-    public var hasModifierFlag: Bool {function || control || command || shift || option}
+    public var hasModifierFlag: Bool {control || command || shift || option}
     
     public static var acceptedModifiersDescription: String {"Use ⌃, ⌥, ⌘, or ⇧ with any other key, e.g ⌘E"}
 }
 
 extension GlobalKeybindPreferences{
     public static var defaultKeyBind: GlobalKeybindPreferences{
-        return GlobalKeybindPreferences(function: true, control: true, command: false, shift: false, option: false, carbonFlags: 4096, characters: "1", keyCode: 18)
+        return GlobalKeybindPreferences(control: false, command: true, shift: false, option: false, carbonFlags: 4096, characters: "1", keyCode: 18)
     }
 }

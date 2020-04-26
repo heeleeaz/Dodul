@@ -20,9 +20,7 @@ class DownloaderController: NSViewController, NibLoadable{
         //check if the file is not already in the download queue. if it is not,
         //then proceed to download. the delegate is set in either cases so as to
         //receive progress.
-        downloadService.findTask(with: fileURL) {
-            if $0 == nil{self.downloadService.downloadFile(fileURL: fileURL)}
-        }
+        downloadService.findTask(with: fileURL) {if $0 == nil{self.downloadService.downloadFile(fileURL: fileURL)}}
         
         self.downloadService.delegate = self
         if isViewLoaded{progressLabel.stringValue = "Preparing to download"}        
@@ -33,18 +31,22 @@ class DownloaderController: NSViewController, NibLoadable{
         
         switch downloadTask.state {
         case .running:
-//            let identifier = ProjectBundleProvider.instance.bundleIdentifier(for: .updateService)
-//            NSWorkspace.shared.launchApplication(withBundleIdentifier: identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
+            //run background service
             view.window?.close()
         case .completed:
             do{
                 try NSWorkspace.shared.open(downloadService.downloadedFilePath!, options: .default, configuration: [:])
-                Global.shared.terminateAppWithAllSubProject()
+                shutdownMeta()
             }catch{
                 Logger.log(items: "Error: \(error.localizedDescription)")
             }
         default: break
         }
+    }
+    
+    private func shutdownMeta(){
+        DistributedNotificationCenter.default().postNotificationName(.killApp, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
+        NSApp.terminate(nil)
     }
 }
 

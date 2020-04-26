@@ -18,6 +18,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         setupHotKey()
         setupGoogleAnalytics()
+        
+        DistributedNotificationCenter.default()
+            .addObserver(self, selector: #selector(killApp), name: .killApp, object: Global.shared.bundleIdentifier(for: .meta))
     }
     
     @objc private func setupHotKey(){
@@ -44,4 +47,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         MPGoogleAnalyticsTracker.shared.activate(configuration: MPAnalyticsConfiguration(identifier: GAIdentifier))
     }
+    
+    @objc private func killApp(){NSApp.terminate(nil)}
 }
