@@ -28,7 +28,6 @@ class KeybindPreferenceViewController: NSViewController, NibLoadable {
         guard let characters = event.charactersIgnoringModifiers else {return false}
     
         let newGlobalKeybind = GlobalKeybindPreferences(
-            function: event.modifierFlags.contains(.function),
             control: event.modifierFlags.contains(.control),
             command: event.modifierFlags.contains(.command),
             shift: event.modifierFlags.contains(.shift),
