@@ -9,7 +9,7 @@
 import Cocoa
 import MetaCore
 
-class PanelViewController: ReadonlyTouchBarController{
+class MetaPanelViewController: ReadonlyTouchBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +33,7 @@ class PanelViewController: ReadonlyTouchBarController{
     }
 }
 
-class PanelWindow: NSPanel{
+class MetaPanelWindow: NSPanel{
     override var contentView: NSView?{didSet{setFrame(.zero, display: true)}}
     
     public override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
