@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		019FC9DF9494FEDD8EF2DAB0 /* Pods_Touchlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6BD8BDFF9337535BF53DE4 /* Pods_Touchlet.framework */; };
+		07A39152B0D9321B2012C74A /* Pods_Meta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F74CB5C8D05D98E18FFDD1 /* Pods_Meta.framework */; };
 		921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921329F32406EB2000D9FE9E /* AddLinkViewController.xib */; };
 		923B986123C5CF8D00BC48A7 /* AppCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */; };
 		923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B986C23C600C000BC48A7 /* HomeItemViewController.swift */; };
@@ -24,6 +24,7 @@
 		9283108023CA773200B115D1 /* LinkCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */; };
 		9283108423CA78D700B115D1 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283108323CA78D700B115D1 /* BookmarkViewController.swift */; };
 		92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92861C922406DD34001B8EFD /* AddLinkViewController.swift */; };
+		92885F5B2455B0E900E779B9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92885F5A2455B0E900E779B9 /* API.swift */; };
 		928DD067243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928DD066243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift */; };
 		92A0C8CA2409173F000C5011 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */; };
 		92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */; };
@@ -33,8 +34,6 @@
 		92ACE8EB240FC175009994EB /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE8EA240FC175009994EB /* DarkTheme.swift */; };
 		92BAFB662424F2DE008BC2B5 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BAFB652424F2DE008BC2B5 /* Preferences.storyboard */; };
 		92BAFB682424F438008BC2B5 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAFB672424F438008BC2B5 /* PreferencesViewController.swift */; };
-		92BAFB7B24251084008BC2B5 /* SourceSansPro-Light.ttf in Copy Font Resources */ = {isa = PBXBuildFile; fileRef = 92BAFB7324250BD7008BC2B5 /* SourceSansPro-Light.ttf */; };
-		92BAFB7C24251084008BC2B5 /* SourceSansPro-Regular.ttf in Copy Font Resources */ = {isa = PBXBuildFile; fileRef = 92BAFB7424250BD7008BC2B5 /* SourceSansPro-Regular.ttf */; };
 		92C85C9224290A1300002173 /* AppUpdateWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C85C8D2429039C00002173 /* AppUpdateWebService.swift */; };
 		92E16C762403D60E00511EE1 /* KeybindPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16C752403D60E00511EE1 /* KeybindPreferenceViewController.swift */; };
 		92EB9430243B7B4900289316 /* AppItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB942F243B7B4900289316 /* AppItemViewController.swift */; };
@@ -43,22 +42,13 @@
 		92F3BAFE2454B29F00AE3057 /* AppPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F3BAFD2454B29F00AE3057 /* AppPrefs.swift */; };
 		92F7D8B1244F308C00C13AA1 /* MetaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F7D8B0244F308C00C13AA1 /* MetaCore.framework */; };
 		92F7D8B2244F308C00C13AA1 /* MetaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92F7D8B0244F308C00C13AA1 /* MetaCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		92F7D8C6244F3B3500C13AA1 /* MetaPanel.app in Copy MacOS Items */ = {isa = PBXBuildFile; fileRef = 92F7D8C5244F397400C13AA1 /* MetaPanel.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		92F7D8C7244F3B4100C13AA1 /* MetaLaunchAgent.app in Copy Login Items */ = {isa = PBXBuildFile; fileRef = 92F7D8C2244F397400C13AA1 /* MetaLaunchAgent.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		92FE9B2523D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		92F7D8C1244F397400C13AA1 /* PBXContainerItemProxy */ = {
+		92885F552455AC5D00E779B9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 92F7D89E244F2A3600C13AA1 /* MetaLaunchAgent.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9208237124166EFE00217940;
-			remoteInfo = MetaLaunchAgent;
-		};
-		92F7D8C4244F397400C13AA1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 92F7D8A4244F2A3C00C13AA1 /* MetaPanel.xcodeproj */;
+			containerPortal = 92D392912455687B005576C5 /* MetaPanel.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 92ACE9B1241295F6009994EB;
 			remoteInfo = MetaPanel;
@@ -72,20 +62,8 @@
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
-				92F7D8C7244F3B4100C13AA1 /* MetaLaunchAgent.app in Copy Login Items */,
 			);
 			name = "Copy Login Items";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9255300B2432905E00578650 /* Copy MacOS Items */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = Contents/MacOS;
-			dstSubfolderSpec = 1;
-			files = (
-				92F7D8C6244F3B3500C13AA1 /* MetaPanel.app in Copy MacOS Items */,
-			);
-			name = "Copy MacOS Items";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		92BAFB7A24251060008BC2B5 /* Copy Font Resources */ = {
@@ -94,8 +72,6 @@
 			dstPath = Fonts;
 			dstSubfolderSpec = 7;
 			files = (
-				92BAFB7B24251084008BC2B5 /* SourceSansPro-Light.ttf in Copy Font Resources */,
-				92BAFB7C24251084008BC2B5 /* SourceSansPro-Regular.ttf in Copy Font Resources */,
 			);
 			name = "Copy Font Resources";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +91,8 @@
 
 /* Begin PBXFileReference section */
 		3CE5E929780F50A3654027A5 /* Pods_TouchletLauncher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouchletLauncher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		461911A34E7D53CBF79ED4A9 /* Pods-Meta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meta.release.xcconfig"; path = "Target Support Files/Pods-Meta/Pods-Meta.release.xcconfig"; sourceTree = "<group>"; };
+		4F2E0877807212134A667B55 /* Pods-Meta.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meta.alpha.xcconfig"; path = "Target Support Files/Pods-Meta/Pods-Meta.alpha.xcconfig"; sourceTree = "<group>"; };
 		7532F49AA2942E8684B1AE32 /* Pods-Touchlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Touchlet.release.xcconfig"; path = "Target Support Files/Pods-Touchlet/Pods-Touchlet.release.xcconfig"; sourceTree = "<group>"; };
 		767BF93ABBD97F4B415DD1D5 /* Pods-TouchletMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchletMenu.release.xcconfig"; path = "Target Support Files/Pods-TouchletMenu/Pods-TouchletMenu.release.xcconfig"; sourceTree = "<group>"; };
 		8666E114651F4CF01367B61D /* Pods-TouchletMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchletMenu.debug.xcconfig"; path = "Target Support Files/Pods-TouchletMenu/Pods-TouchletMenu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,11 +118,12 @@
 		9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCollectionViewItem.swift; sourceTree = "<group>"; };
 		9283108323CA78D700B115D1 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		92861C922406DD34001B8EFD /* AddLinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLinkViewController.swift; sourceTree = "<group>"; };
+		92885F5A2455B0E900E779B9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		9288B8FB2441FF5700D50D27 /* libTouchletCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libTouchletCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9288B9A62442155800D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		928DD066243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewItemUtil.swift; sourceTree = "<group>"; };
 		92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
-		92A1B2F223C4AA2100D7BEF1 /* Meta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92A1B2F223C4AA2100D7BEF1 /* Meta-debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meta-debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92A1B2F723C4AA2100D7BEF1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		92A1B2FC23C4AA2200D7BEF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -157,21 +136,19 @@
 		92B49A8424169C8800E6AF35 /* TouchletPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = TouchletPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92BAFB652424F2DE008BC2B5 /* Preferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
 		92BAFB672424F438008BC2B5 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
-		92BAFB7324250BD7008BC2B5 /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
-		92BAFB7424250BD7008BC2B5 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		92C85C8D2429039C00002173 /* AppUpdateWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateWebService.swift; sourceTree = "<group>"; };
+		92D392912455687B005576C5 /* MetaPanel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MetaPanel.xcodeproj; path = Meta/Wrapper/MetaPanel/MetaPanel.xcodeproj; sourceTree = "<group>"; };
 		92E16C752403D60E00511EE1 /* KeybindPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindPreferenceViewController.swift; sourceTree = "<group>"; };
 		92EB942F243B7B4900289316 /* AppItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppItemViewController.swift; sourceTree = "<group>"; };
 		92EE13552423A323001513A8 /* KeybindPreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeybindPreferenceViewController.xib; sourceTree = "<group>"; };
 		92F3BAFA24549DF200AE3057 /* BookmarkWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkWebService.swift; sourceTree = "<group>"; };
 		92F3BAFD2454B29F00AE3057 /* AppPrefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPrefs.swift; sourceTree = "<group>"; };
-		92F7D89E244F2A3600C13AA1 /* MetaLaunchAgent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MetaLaunchAgent.xcodeproj; path = Wrapper/LaunchHelper/MetaLaunchAgent.xcodeproj; sourceTree = "<group>"; };
-		92F7D8A4244F2A3C00C13AA1 /* MetaPanel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MetaPanel.xcodeproj; path = Wrapper/TouchletPanel/MetaPanel.xcodeproj; sourceTree = "<group>"; };
 		92F7D8B0244F308C00C13AA1 /* MetaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MetaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewItem.swift; sourceTree = "<group>"; };
 		B72E19481489507B4114A98F /* libPods-Core.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Core.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9F74CB5C8D05D98E18FFDD1 /* Pods_Meta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6E4D424333255645C1E2CAD /* Pods-Meta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meta.debug.xcconfig"; path = "Target Support Files/Pods-Meta/Pods-Meta.debug.xcconfig"; sourceTree = "<group>"; };
 		F89230C0431EAE8B7888EAEC /* libPods-TouchletMenu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TouchletMenu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE6BD8BDFF9337535BF53DE4 /* Pods_Touchlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Touchlet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92F7D8B1244F308C00C13AA1 /* MetaCore.framework in Frameworks */,
-				019FC9DF9494FEDD8EF2DAB0 /* Pods_Touchlet.framework in Frameworks */,
+				07A39152B0D9321B2012C74A /* Pods_Meta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +201,7 @@
 				3CE5E929780F50A3654027A5 /* Pods_TouchletLauncher.framework */,
 				B72E19481489507B4114A98F /* libPods-Core.a */,
 				F89230C0431EAE8B7888EAEC /* libPods-TouchletMenu.a */,
-				FE6BD8BDFF9337535BF53DE4 /* Pods_Touchlet.framework */,
+				C9F74CB5C8D05D98E18FFDD1 /* Pods_Meta.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -269,6 +246,22 @@
 			path = Spotlights;
 			sourceTree = "<group>";
 		};
+		92885F522455AC5D00E779B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92885F562455AC5D00E779B9 /* MetaPanel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		92885F592455B0D400E779B9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				92885F5A2455B0E900E779B9 /* API.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		92A1B2E923C4AA2100D7BEF1 = {
 			isa = PBXGroup;
 			children = (
@@ -276,13 +269,14 @@
 				92A1B2F323C4AA2100D7BEF1 /* Products */,
 				925A243623C76205002BB85F /* Frameworks */,
 				B9367A57FC91513B2724C723 /* Pods */,
+				92D392912455687B005576C5 /* MetaPanel.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
 		92A1B2F323C4AA2100D7BEF1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				92A1B2F223C4AA2100D7BEF1 /* Meta.app */,
+				92A1B2F223C4AA2100D7BEF1 /* Meta-debug.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -290,12 +284,10 @@
 		92A1B2F423C4AA2100D7BEF1 /* Meta */ = {
 			isa = PBXGroup;
 			children = (
-				92F7D8A4244F2A3C00C13AA1 /* MetaPanel.xcodeproj */,
-				92F7D89E244F2A3600C13AA1 /* MetaLaunchAgent.xcodeproj */,
+				92885F592455B0D400E779B9 /* Networking */,
 				92BAFB7724250D43008BC2B5 /* Resources */,
 				92ACE91C2412874F009994EB /* Supporting Files */,
 				92A1B33623C4DBBF00D7BEF1 /* Application */,
-				92ACE8E9240FC133009994EB /* Themes */,
 				923B987023C602E300BC48A7 /* Main */,
 				92BAFB642424F220008BC2B5 /* Preferences */,
 				92A1B33D23C4E7EB00D7BEF1 /* Home */,
@@ -306,6 +298,7 @@
 		92A1B33623C4DBBF00D7BEF1 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				92ACE8E9240FC133009994EB /* Themes */,
 				92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */,
 			);
 			path = Application;
@@ -376,8 +369,6 @@
 		92BAFB6C2425064D008BC2B5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				92BAFB7324250BD7008BC2B5 /* SourceSansPro-Light.ttf */,
-				92BAFB7424250BD7008BC2B5 /* SourceSansPro-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -416,22 +407,6 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
-		92F7D8BC244F397400C13AA1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				92F7D8C5244F397400C13AA1 /* MetaPanel.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		92F7D8BE244F397400C13AA1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				92F7D8C2244F397400C13AA1 /* MetaLaunchAgent.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		B9367A57FC91513B2724C723 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +414,9 @@
 				767BF93ABBD97F4B415DD1D5 /* Pods-TouchletMenu.release.xcconfig */,
 				91D7DC98650E089BCBD0F1E3 /* Pods-Touchlet.debug.xcconfig */,
 				7532F49AA2942E8684B1AE32 /* Pods-Touchlet.release.xcconfig */,
+				E6E4D424333255645C1E2CAD /* Pods-Meta.debug.xcconfig */,
+				461911A34E7D53CBF79ED4A9 /* Pods-Meta.release.xcconfig */,
+				4F2E0877807212134A667B55 /* Pods-Meta.alpha.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -457,7 +435,6 @@
 				92A1B2F023C4AA2100D7BEF1 /* Resources */,
 				92BAFB7A24251060008BC2B5 /* Copy Font Resources */,
 				9204883524326B2D0017FEC6 /* Copy Login Items */,
-				9255300B2432905E00578650 /* Copy MacOS Items */,
 				92F7D8B3244F308C00C13AA1 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -466,7 +443,7 @@
 			);
 			name = Meta;
 			productName = Touchlet;
-			productReference = 92A1B2F223C4AA2100D7BEF1 /* Meta.app */;
+			productReference = 92A1B2F223C4AA2100D7BEF1 /* Meta-debug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -498,12 +475,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 92F7D8BE244F397400C13AA1 /* Products */;
-					ProjectRef = 92F7D89E244F2A3600C13AA1 /* MetaLaunchAgent.xcodeproj */;
-				},
-				{
-					ProductGroup = 92F7D8BC244F397400C13AA1 /* Products */;
-					ProjectRef = 92F7D8A4244F2A3C00C13AA1 /* MetaPanel.xcodeproj */;
+					ProductGroup = 92885F522455AC5D00E779B9 /* Products */;
+					ProjectRef = 92D392912455687B005576C5 /* MetaPanel.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -514,18 +487,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		92F7D8C2244F397400C13AA1 /* MetaLaunchAgent.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = MetaLaunchAgent.app;
-			remoteRef = 92F7D8C1244F397400C13AA1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		92F7D8C5244F397400C13AA1 /* MetaPanel.app */ = {
+		92885F562455AC5D00E779B9 /* MetaPanel.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = MetaPanel.app;
-			remoteRef = 92F7D8C4244F397400C13AA1 /* PBXContainerItemProxy */;
+			remoteRef = 92885F552455AC5D00E779B9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -563,7 +529,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Touchlet-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Meta-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -576,15 +542,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Touchlet/Pods-Touchlet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Meta/Pods-Meta-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Touchlet/Pods-Touchlet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Meta/Pods-Meta-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Touchlet/Pods-Touchlet-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meta/Pods-Meta-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -602,6 +568,7 @@
 				92E16C762403D60E00511EE1 /* KeybindPreferenceViewController.swift in Sources */,
 				92F3BAFE2454B29F00AE3057 /* AppPrefs.swift in Sources */,
 				92C85C9224290A1300002173 /* AppUpdateWebService.swift in Sources */,
+				92885F5B2455B0E900E779B9 /* API.swift in Sources */,
 				928DD067243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift in Sources */,
 				925A245723C8D811002BB85F /* BookmarkStore.swift in Sources */,
 				925A241523C7378B002BB85F /* BookmarkRepository.swift in Sources */,
@@ -757,16 +724,19 @@
 		};
 		92A1B31C23C4AA2200D7BEF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91D7DC98650E089BCBD0F1E3 /* Pods-Touchlet.debug.xcconfig */;
+			baseConfigurationReference = E6E4D424333255645C1E2CAD /* Pods-Meta.debug.xcconfig */;
 			buildSettings = {
+				APP_SECURITY_GROUP = group.com.heeleeaz.meta.debug;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Meta/Meta.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GA_IDENTIFIER = "UA-121293848-3";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/HotKey/HotKey.framework/Headers\"",
@@ -779,8 +749,9 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.Meta;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.Meta.debug;
+				PRODUCT_NAME = "$(TARGET_NAME)-debug";
+				SERVER_URL = "https://us-central1-touchlet-11807.cloudfunctions.net";
 				SWIFT_INCLUDE_PATHS = "$(inherited) $(SDKROOT)/usr/include/libxml2";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -789,16 +760,19 @@
 		};
 		92A1B31D23C4AA2200D7BEF1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7532F49AA2942E8684B1AE32 /* Pods-Touchlet.release.xcconfig */;
+			baseConfigurationReference = 461911A34E7D53CBF79ED4A9 /* Pods-Meta.release.xcconfig */;
 			buildSettings = {
+				APP_SECURITY_GROUP = group.com.heeleeaz.meta;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Meta/Meta.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GA_IDENTIFIER = "UA-121293848-3";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/HotKey/HotKey.framework/Headers\"",
@@ -813,6 +787,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.Meta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SERVER_URL = "https://us-central1-touchlet-11807.cloudfunctions.net";
 				SWIFT_INCLUDE_PATHS = "$(inherited) $(SDKROOT)/usr/include/libxml2";
 				SWIFT_VERSION = 5.0;
 			};

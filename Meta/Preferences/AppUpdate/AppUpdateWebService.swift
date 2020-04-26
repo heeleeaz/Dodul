@@ -12,7 +12,7 @@ import MetaCore
 class AppUpdateWebService{
     func requestVersion(_ completionHandler: @escaping (String?, Error?)->()){
         let request = NetworkRequest()
-        request.setURL(url: "https://us-central1-touchlet-11807.cloudfunctions.net/lastestVersion")
+        request.setURL(url: "\(API.serverURL)/lastestVersion")
         request.request { (data, error) in
             if error != nil || data == nil{
                 completionHandler(nil, error)
@@ -26,7 +26,7 @@ class AppUpdateWebService{
 struct VersionInfo: Codable {
     var version: String?
     var releaseNote: String?
-    var releaseDate: String?
+    var releaseDxate: String?
     var state: String?
     var downloadLink: String?
     var buildVersion: String?

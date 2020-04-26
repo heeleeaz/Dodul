@@ -65,12 +65,13 @@ class MainViewController: EditableTouchBarController {
             alert.alertStyle = .informational
             
             alert.addButton(withTitle: "Save")
-            alert.addButton(withTitle: "Cancel")
+            alert.addButton(withTitle: "Close")
             alert.beginSheetModal(for: view.window!) { ( modalResponse) in
                 switch modalResponse{
                 case .alertFirstButtonReturn:
                     self.commitChangesAndDispatchUpdateNotification()
-                default: break
+                default:
+                    NSApp.terminate(nil)
                 }
             }
         }else{

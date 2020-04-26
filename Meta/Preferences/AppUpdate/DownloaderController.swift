@@ -39,7 +39,7 @@ class DownloaderController: NSViewController, NibLoadable{
         case .completed:
             do{
                 try NSWorkspace.shared.open(downloadService.downloadedFilePath!, options: .default, configuration: [:])
-                ProjectBundleProvider.instance.terminateAppWithAllSubProject()
+                Global.shared.terminateAppWithAllSubProject()
             }catch{
                 Logger.log(items: "Error: \(error.localizedDescription)")
             }
