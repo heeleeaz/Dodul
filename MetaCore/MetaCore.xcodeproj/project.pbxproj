@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		920B6909244B0C4C009EE413 /* MPAnalyticsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B6908244B0C4C009EE413 /* MPAnalyticsConfiguration.swift */; };
 		920B690B244B0CE2009EE413 /* MPAnalyticsParamBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B690A244B0CE2009EE413 /* MPAnalyticsParamBuilder.swift */; };
+		9219B6752457519600456D55 /* CellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9219B6742457519600456D55 /* CellItem.swift */; };
 		92394B2A2444A8DF0019D80D /* DragDestinationObservableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92394B292444A8DF0019D80D /* DragDestinationObservableView.swift */; };
 		9288B92E244213A900D50D27 /* TouchletCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 9288B92C244213A900D50D27 /* TouchletCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9288B975244214A900D50D27 /* NSEventModifierFlags+HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9288B937244213D500D50D27 /* NSEventModifierFlags+HotKey.swift */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		920B6908244B0C4C009EE413 /* MPAnalyticsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAnalyticsConfiguration.swift; sourceTree = "<group>"; };
 		920B690A244B0CE2009EE413 /* MPAnalyticsParamBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAnalyticsParamBuilder.swift; sourceTree = "<group>"; };
+		9219B6742457519600456D55 /* CellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItem.swift; sourceTree = "<group>"; };
 		92394B292444A8DF0019D80D /* DragDestinationObservableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDestinationObservableView.swift; sourceTree = "<group>"; };
 		9288B929244213A900D50D27 /* MetaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9288B92C244213A900D50D27 /* TouchletCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchletCore.h; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				9288B95A244213D600D50D27 /* OuterScrollView.swift */,
 				9288B95B244213D600D50D27 /* NibLoadable.swift */,
 				9288B95C244213D600D50D27 /* Toast.swift */,
+				9219B6742457519600456D55 /* CellItem.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				9288B9A4244214EA00D50D27 /* TouchBarItemFileStorage.swift in Sources */,
 				9288B98A244214B600D50D27 /* NSWindowExtension.swift in Sources */,
 				9288B999244214D600D50D27 /* Cache.swift in Sources */,
+				9219B6752457519600456D55 /* CellItem.swift in Sources */,
 				9288B9A5244214EA00D50D27 /* TouchBarItemUserDefault.swift in Sources */,
 				9288B995244214D100D50D27 /* SpotlightWhitelist.swift in Sources */,
 				9288B9A2244214E500D50D27 /* ReadonlyEmptyTouchBarItem.swift in Sources */,

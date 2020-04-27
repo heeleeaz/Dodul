@@ -17,11 +17,5 @@ func itemAppearanceAnimation(_ view: NSView){
     view.layer?.add(animation, forKey: "backgroundColor")
 }
 
-func insertItems(_ collectionView: NSCollectionView, oldCount: Int, newCount: Int){
-    let indexPaths = (oldCount ..< newCount).map{IndexPath(item: $0, section: 0)}
-    collectionView.reloadItems(at: Set<IndexPath>(indexPaths))
-}
-
-func removeTrailItem(_ collectionView: NSCollectionView){
-    collectionView.deleteItems(at: [IndexPath(item: collectionView.numberOfItems(inSection: 0), section: 0)])
+class HomeOptionCollectionItem: CellItem{
 }

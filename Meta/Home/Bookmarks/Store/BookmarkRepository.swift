@@ -30,39 +30,27 @@ public class BookmarkRepository: NSObject{
             return []
         }
     }
-
-    func bookmark(atIndex index: Int) -> Link? {
-        guard let links = try? dataStore.findAll() else { return nil }
-        guard links.count > index else { return nil }
-        return links[index]
+    
+    func update(link: Link) {
+        do{
+            if let index = try dataStore.findAll().firstIndex(of: link){
+                update(at: index, with: link)
+            }else{
+                try dataStore.addBookmark(link)
+            }
+        }catch{
+            Logger.log(text: "save bookmark \(link) failed \(error.localizedDescription)")
+        }
     }
     
-    func save(bookmark: Link) {
-        do{
-            try dataStore.addBookmark(bookmark)
-        }catch{
-            Logger.log(text: "save bookmark \(bookmark) failed \(error.localizedDescription)")
-        }
-    }
-
-    func move(at fromIndex: Int, to toIndex: Int) {
+    func update(at index: Int, with link: Link) {
         do{
             var bookmarks = try dataStore.findAll()
-            let link = bookmarks.remove(at: fromIndex)
-            bookmarks.insert(link, at: toIndex)
+            _ = bookmarks.remove(at: index)
+            bookmarks.insert(link, at: index)
             try dataStore.setBookmarks(bookmarks)
         }catch{
-            Logger.log(text: "move bookmark failed \(error.localizedDescription)")
-        }
-    }
-
-    func delete(at index: Int) {
-        do{
-            var bookmarks = try dataStore.findAll()
-            bookmarks.remove(at: index)
-            try dataStore.setBookmarks(bookmarks)
-        }catch{
-            Logger.log(text: "delete bookmark failed \(error.localizedDescription)")
+            Logger.log(text: "update bookmark failed \(error.localizedDescription)")
         }
     }
     
@@ -73,27 +61,6 @@ public class BookmarkRepository: NSObject{
             try dataStore.setBookmarks(bookmarks)
         }catch{
             Logger.log(text: "delete bookmark failed \(error.localizedDescription)")
-        }
-    }
-    
-    func update(replace link: Link, with newLink: Link){
-        do{
-            if let index = try dataStore.findAll().firstIndex(of: link){
-                update(at: index, with: newLink)
-            }
-        }catch{
-            Logger.log(text: "update bookmark failed \(error.localizedDescription)")
-        }
-    }
-
-    func update(at index: Int, with link: Link) {
-        do{
-            var bookmarks = try dataStore.findAll()
-            _ = bookmarks.remove(at: index)
-            bookmarks.insert(link, at: index)
-            try dataStore.setBookmarks(bookmarks)
-        }catch{
-            Logger.log(text: "update bookmark failed \(error.localizedDescription)")
         }
     }
     

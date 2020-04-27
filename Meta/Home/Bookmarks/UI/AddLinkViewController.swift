@@ -81,11 +81,10 @@ class AddLinkViewController: NSViewController, NibLoadable {
             let title = nameInputField.stringValue.isEmpty ? url.absoluteString : nameInputField.stringValue
             let link = Link(title: title, url: url.absoluteString, id: id)
             
+            bookmarkRepository.update(link: link)
             if let oldLink = prefillLink, bookmarkRepository.contains(link: oldLink){
-                bookmarkRepository.update(replace: oldLink, with: link)
                 self.delegate?.addLinkViewController(self, bookmarkRepository: bookmarkRepository, update: link)
             }else{
-                bookmarkRepository.save(bookmark: link)
                 self.delegate?.addLinkViewController(self, bookmarkRepository: bookmarkRepository, save: link)
             }
             

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct SpotlightItem{
+public struct SpotlightItem: CellItem{
     public let bundleIdentifier: String!
     public let displayName: String?
     public var lastUsed: Date!
