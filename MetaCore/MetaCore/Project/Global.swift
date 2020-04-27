@@ -63,7 +63,7 @@ public class Global{
 }
 
 extension Notification.Name{
-    public static let hotKeySetup = NSNotification.Name("HOTKEY_SETUP")
-    public static let touchItemReload = Notification.Name("refreshTouchItem")
-    public static let killApp = NSNotification.Name("KILLAPP")
+    public static let hotKeySetup = NSNotification.Name("\(Global.shared.APP_SECURITY_GROUP).hotKeySetup")
+    public static let touchItemReload = Notification.Name("\(Global.shared.APP_SECURITY_GROUP).refreshTouchItem")
+    public static let killApp = NSNotification.Name("\(Global.shared.APP_SECURITY_GROUP).killApp")
 }

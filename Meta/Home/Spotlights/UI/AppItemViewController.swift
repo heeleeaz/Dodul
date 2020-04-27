@@ -9,7 +9,7 @@
 import AppKit
 import MetaCore
 
-class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
+class AppItemViewController: HomeCollectionViewController, StoryboardLoadable, SpotlightRepositoryDelegate{
     static var storyboardName: String?{ return "HomeItemViewController"}
         
     @IBOutlet weak var sortButton: NSButton!{
@@ -22,14 +22,9 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
     private let spotlightRepository = SpotlightRepository.instance
     private var listIsSorted = false
         
-    private var spotlightItem: [SpotlightItem] = []{
+    private var spotlightItem: [CellItem] = []{
         didSet{
-            removeTrailItem(collectionView) //remove navigate more (>) button
-            if (oldValue.count == spotlightItem.count){
-                collectionView.reloadData()
-            }else{
-                insertItems(collectionView, oldCount: oldValue.count, newCount: spotlightItem.count)
-            }
+            insertReloadingLastItem(startIndex: oldValue.endIndex - 1, endIndex: spotlightItem.endIndex)
             delegate?.homeCollectionViewController(self, itemHeightChanged: height)
         }
     }
@@ -53,14 +48,19 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
         sortButton.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(sortButtonClicked)))
     }
     
-    override func viewDidAppear() {
-        super.viewDidAppear()
+    override func viewWillAppearSingleInvocked() {
+        spotlightItem = Array(repeating: SpotlightItem.dummy, count: Constant.pagingInitial)
+        collectionView.reloadData()
         
-        if self.spotlightItem.isEmpty{
-            self.spotlightItem = Array(repeating: SpotlightItem.dummy, count: Constant.pagingInitial)
-            self.spotlightRepository.delegate = self
-            self.spotlightRepository.query()
-        }
+        spotlightRepository.delegate = self
+        spotlightRepository.query()
+    }
+    
+    func spotlightRepository(spotlightRepository: SpotlightRepository, result: SpotlightResult) {
+        spotlightItem = spotlightRepository.result?.next(forward: Constant.pagingInitial) ?? []
+        
+        if spotlightRepository.result?.hasNext ?? false{spotlightItem.append(HomeOptionCollectionItem())}
+        collectionView.reloadData()
     }
     
     @objc private func sortButtonClicked(button: NSButton){
@@ -88,40 +88,38 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable{
     }
     
     override func touchBarItem(at index: Int) -> TouchBarItem? {
-        return TouchBarItem(identifier: spotlightItem[index].bundleIdentifier, type: .App)
+        guard let item = spotlightItem[index] as? SpotlightItem else {return nil}
+        return TouchBarItem(identifier: item.bundleIdentifier, type: .App)
     }
 }
 
 extension AppItemViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        if(indexPath.item < spotlightItem.count){
-            let reuseIdentifer = AppCollectionViewItem.reuseIdentifier
-            let view = collectionView.makeItem(withIdentifier: reuseIdentifer, for: indexPath)
+        let cellItem = spotlightItem[indexPath.item]
+        if let link = cellItem as? SpotlightItem{
+            let view = collectionView.makeItem(withIdentifier: AppCollectionViewItem.reuseIdentifier, for: indexPath)
             guard let collectionViewItem = view as? AppCollectionViewItem else {return view}
             
-            collectionViewItem.spotlight = spotlightItem[indexPath.item]
+            collectionViewItem.spotlight = link
             return collectionViewItem
         }else{
-            let reuseIdentifer = ButtonCollectionViewItem.reuseIdentifier
-            let view = collectionView.makeItem(withIdentifier: reuseIdentifer, for: indexPath)
+            let view = collectionView.makeItem(withIdentifier: ButtonCollectionViewItem.reuseIdentifier, for: indexPath)
             guard let collectionViewItem = view as? ButtonCollectionViewItem else {return view}
             
             collectionViewItem.showAction(action: .seeMoreIcon, {
-                self.spotlightItem += self.spotlightRepository.result?.next(forward: Constant.pagingForward) ?? []
+                let newItems = self.spotlightRepository.result?.next(forward: Constant.pagingForward) ?? []
+                self.spotlightItem.insert(contentsOf: newItems, at: self.spotlightItem.endIndex - 1)
+                
+                if self.spotlightRepository.result?.hasNext ?? false == false{
+                    self.spotlightItem.removeLast()
+                    collectionView.deleteItems(at: [IndexPath(item: self.spotlightItem.endIndex, section: 0)])
+                }
             })
             return collectionViewItem
         }
     }
     
-    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return spotlightItem.count + ((spotlightRepository.result?.hasNext ?? false) ? 1 : 0)
-    }
-}
-
-extension AppItemViewController: SpotlightRepositoryDelegate{
-    func spotlightRepository(spotlightRepository: SpotlightRepository, result: SpotlightResult) {
-        spotlightItem = spotlightRepository.result?.next(forward: Constant.pagingInitial) ?? []
-    }
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {spotlightItem.count}
 }
 
 extension AppItemViewController{

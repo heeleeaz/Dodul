@@ -26,6 +26,7 @@
 		92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92861C922406DD34001B8EFD /* AddLinkViewController.swift */; };
 		92885F5B2455B0E900E779B9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92885F5A2455B0E900E779B9 /* API.swift */; };
 		928DD067243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928DD066243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift */; };
+		929A4BC72455C60A00173887 /* MetaPanel.app in Copy Login Items */ = {isa = PBXBuildFile; fileRef = 92885F562455AC5D00E779B9 /* MetaPanel.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		92A0C8CA2409173F000C5011 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */; };
 		92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */; };
 		92A1B2F823C4AA2100D7BEF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B2F723C4AA2100D7BEF1 /* MainViewController.swift */; };
@@ -62,6 +63,7 @@
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
+				929A4BC72455C60A00173887 /* MetaPanel.app in Copy Login Items */,
 			);
 			name = "Copy Login Items";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,7 +735,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GA_IDENTIFIER = "UA-121293848-3";
@@ -769,7 +771,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GA_IDENTIFIER = "UA-121293848-3";

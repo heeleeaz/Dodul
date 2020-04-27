@@ -13,7 +13,11 @@ import FavIcon
 class LinkCollectionViewItem: NSCollectionViewItem {
     static let reuseIdentifier = NSUserInterfaceItemIdentifier("LinkCollectionViewItem")
             
-    var link: Link!{didSet{if isViewLoaded { updateView() }}}
+    var link: Link!{
+        didSet{
+            if isViewLoaded { updateView() }
+        }
+    }
     
     var moreClicked: (() -> Void)?
     

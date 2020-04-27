@@ -9,11 +9,11 @@
 import Cocoa
 import MetaCore
 
-class PanelViewController: ReadonlyTouchBarController{
+class MetaPanelViewController: ReadonlyTouchBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(refreshTouchItems), name: .touchItemReload, object: Global.shared.bundleIdentifier(for: .meta))
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(refreshTouchItems), name: .touchItemReload, object: nil)
     }
     
     override func readonlyEmptyTouchBarItem(addButtonTapped touchBarItem: NSTouchBarItem) {
@@ -33,7 +33,7 @@ class PanelViewController: ReadonlyTouchBarController{
     }
 }
 
-class PanelWindow: NSPanel{
+class MetaPanelWindow: NSPanel{
     override var contentView: NSView?{didSet{setFrame(.zero, display: true)}}
     
     public override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {

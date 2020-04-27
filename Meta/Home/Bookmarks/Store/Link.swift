@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import MetaCore
 
-public class Link: NSObject, NSCoding, Codable {
+public class Link: NSObject, NSCoding, Codable, CellItem {
     private struct NSCodingKeys {
         static let id = "id"
         static let title = "title"

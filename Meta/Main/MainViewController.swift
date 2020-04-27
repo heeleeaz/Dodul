@@ -45,15 +45,14 @@ class MainViewController: EditableTouchBarController {
     @objc func windowWillClose(notification: NSNotification){
         if notification.object is KeybindPreferenceWindow{
             updateKeybindPresentationView()
-            DistributedNotificationCenter.default().postNotificationName(.hotKeySetup, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
+            DistributedNotificationCenter.default().postNotificationName(.hotKeySetup, object: nil, userInfo: nil, options: .deliverImmediately)
         }
     }
     
     private func commitChangesAndDispatchUpdateNotification(){
         commitTouchBarEditing()
         
-        DistributedNotificationCenter.default().postNotificationName(.touchItemReload, object: Bundle.main.bundleIdentifier, userInfo: nil, options: .deliverImmediately)
-        
+        DistributedNotificationCenter.default().postNotificationName(.touchItemReload, object: nil, userInfo: nil, options: .deliverImmediately)
         NSApp.terminate(nil)
     }
     
