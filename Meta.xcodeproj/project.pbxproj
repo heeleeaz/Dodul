@@ -22,10 +22,10 @@
 		927C633A2431109800B03CF2 /* DownloaderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927C63392431109800B03CF2 /* DownloaderController.xib */; };
 		927C633C2431154C00B03CF2 /* PreferenceWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C633B2431154C00B03CF2 /* PreferenceWindow.swift */; };
 		9283108023CA773200B115D1 /* LinkCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */; };
-		9283108423CA78D700B115D1 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283108323CA78D700B115D1 /* BookmarkViewController.swift */; };
+		9283108423CA78D700B115D1 /* LinkItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283108323CA78D700B115D1 /* LinkItemViewController.swift */; };
 		92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92861C922406DD34001B8EFD /* AddLinkViewController.swift */; };
 		92885F5B2455B0E900E779B9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92885F5A2455B0E900E779B9 /* API.swift */; };
-		928DD067243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928DD066243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift */; };
+		928DD067243B4EBE007A38B0 /* ButtonCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928DD066243B4EBE007A38B0 /* ButtonCellItem.swift */; };
 		929A4BC72455C60A00173887 /* MetaPanel.app in Copy Login Items */ = {isa = PBXBuildFile; fileRef = 92885F562455AC5D00E779B9 /* MetaPanel.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		92A0C8CA2409173F000C5011 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */; };
 		92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */; };
@@ -118,12 +118,12 @@
 		927C63392431109800B03CF2 /* DownloaderController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloaderController.xib; sourceTree = "<group>"; };
 		927C633B2431154C00B03CF2 /* PreferenceWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindow.swift; sourceTree = "<group>"; };
 		9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCollectionViewItem.swift; sourceTree = "<group>"; };
-		9283108323CA78D700B115D1 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		9283108323CA78D700B115D1 /* LinkItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkItemViewController.swift; sourceTree = "<group>"; };
 		92861C922406DD34001B8EFD /* AddLinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLinkViewController.swift; sourceTree = "<group>"; };
 		92885F5A2455B0E900E779B9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		9288B8FB2441FF5700D50D27 /* libTouchletCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libTouchletCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9288B9A62442155800D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		928DD066243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewItemUtil.swift; sourceTree = "<group>"; };
+		928DD066243B4EBE007A38B0 /* ButtonCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellItem.swift; sourceTree = "<group>"; };
 		92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		92A1B2F223C4AA2100D7BEF1 /* Meta-debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meta-debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 			children = (
 				921329F32406EB2000D9FE9E /* AddLinkViewController.xib */,
 				92861C922406DD34001B8EFD /* AddLinkViewController.swift */,
-				9283108323CA78D700B115D1 /* BookmarkViewController.swift */,
+				9283108323CA78D700B115D1 /* LinkItemViewController.swift */,
 				9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */,
 			);
 			path = UI;
@@ -329,7 +329,7 @@
 		92ACE8AE240FB108009994EB /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				928DD066243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift */,
+				928DD066243B4EBE007A38B0 /* ButtonCellItem.swift */,
 				92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */,
 				923B986C23C600C000BC48A7 /* HomeItemViewController.swift */,
 				92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */,
@@ -571,7 +571,7 @@
 				92F3BAFE2454B29F00AE3057 /* AppPrefs.swift in Sources */,
 				92C85C9224290A1300002173 /* AppUpdateWebService.swift in Sources */,
 				92885F5B2455B0E900E779B9 /* API.swift in Sources */,
-				928DD067243B4EBE007A38B0 /* HomeCollectionViewItemUtil.swift in Sources */,
+				928DD067243B4EBE007A38B0 /* ButtonCellItem.swift in Sources */,
 				925A245723C8D811002BB85F /* BookmarkStore.swift in Sources */,
 				925A241523C7378B002BB85F /* BookmarkRepository.swift in Sources */,
 				92A1B2F823C4AA2100D7BEF1 /* MainViewController.swift in Sources */,
@@ -581,7 +581,7 @@
 				9283108023CA773200B115D1 /* LinkCollectionViewItem.swift in Sources */,
 				925A245E23C8DB80002BB85F /* Link.swift in Sources */,
 				92BAFB682424F438008BC2B5 /* PreferencesViewController.swift in Sources */,
-				9283108423CA78D700B115D1 /* BookmarkViewController.swift in Sources */,
+				9283108423CA78D700B115D1 /* LinkItemViewController.swift in Sources */,
 				92A0C8CA2409173F000C5011 /* HomeCollectionViewController.swift in Sources */,
 				927C633C2431154C00B03CF2 /* PreferenceWindow.swift in Sources */,
 				923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */,

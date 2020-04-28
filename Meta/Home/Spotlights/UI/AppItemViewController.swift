@@ -24,7 +24,7 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable, S
         
     private var spotlightItem: [CellItem] = []{
         didSet{
-            insertReloadingLastItem(startIndex: oldValue.endIndex - 1, endIndex: spotlightItem.endIndex)
+            collectionView.reloadData()
             delegate?.homeCollectionViewController(self, itemHeightChanged: height)
         }
     }
@@ -50,7 +50,6 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable, S
     
     override func viewWillAppearSingleInvocked() {
         spotlightItem = Array(repeating: SpotlightItem.dummy, count: Constant.pagingInitial)
-        collectionView.reloadData()
         
         spotlightRepository.delegate = self
         spotlightRepository.query()
@@ -59,8 +58,7 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable, S
     func spotlightRepository(spotlightRepository: SpotlightRepository, result: SpotlightResult) {
         spotlightItem = spotlightRepository.result?.next(forward: Constant.pagingInitial) ?? []
         
-        if spotlightRepository.result?.hasNext ?? false{spotlightItem.append(HomeOptionCollectionItem())}
-        collectionView.reloadData()
+        if spotlightRepository.result?.hasNext ?? false{spotlightItem.append(ButtonCellItem())}
     }
     
     @objc private func sortButtonClicked(button: NSButton){
@@ -69,8 +67,6 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable, S
                 result.sortByRecentUsage()
 
                 self.spotlightItem = result.next(forward: result.reset())
-                collectionView.reloadData()
-                
                 if #available(OSX 10.14, *) {sortButton.contentTintColor = DarkTheme.unselectedTintColor}
             }
         }else{
@@ -78,8 +74,6 @@ class AppItemViewController: HomeCollectionViewController, StoryboardLoadable, S
                 result.sortAlphabetically()
 
                 spotlightItem = result.next(forward: result.reset())
-                collectionView.reloadData()
-                
                 if #available(OSX 10.14, *) {sortButton.contentTintColor = DarkTheme.selectedTintColor}
             }
         }
@@ -108,12 +102,12 @@ extension AppItemViewController: NSCollectionViewDataSource{
             
             collectionViewItem.showAction(action: .seeMoreIcon, {
                 let newItems = self.spotlightRepository.result?.next(forward: Constant.pagingForward) ?? []
+                
+                //insert before the naviation item
                 self.spotlightItem.insert(contentsOf: newItems, at: self.spotlightItem.endIndex - 1)
                 
-                if self.spotlightRepository.result?.hasNext ?? false == false{
-                    self.spotlightItem.removeLast()
-                    collectionView.deleteItems(at: [IndexPath(item: self.spotlightItem.endIndex, section: 0)])
-                }
+                //remove navigation item since there is no more item to fetch
+                if self.spotlightRepository.result?.hasNext ?? false == false{self.spotlightItem.removeLast()}
             })
             return collectionViewItem
         }

@@ -19,44 +19,50 @@ class ButtonCollectionViewItem: NSCollectionViewItem {
         return button
     }()
     
+    private lazy var viewContainer: NSView = {
+        let view = NSView()
+        view.cornerRadius = 20
+        view._backgroundColor = Theme.touchBarButtonBackgroundColor
+        return view
+    }()
+    
     override func loadView() {
         super.view = NSView()
         
-        let container = NSView()
-        container._backgroundColor = Theme.touchBarButtonBackgroundColor
-        container.cornerRadius = 20
-        view.addSubview(container)
-
-        container.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([container.topAnchor.constraint(equalTo: view.topAnchor),
-                                     container.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                                     container.widthAnchor.constraint(equalToConstant: 70),
-                                     container.heightAnchor.constraint(equalToConstant: 40)])
+        view.addSubview(viewContainer)
+        viewContainer.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([viewContainer.topAnchor.constraint(equalTo: view.topAnchor),
+                                     viewContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                     viewContainer.widthAnchor.constraint(equalToConstant: 70),
+                                     viewContainer.heightAnchor.constraint(equalToConstant: 40)])
         
-        container.addSubview(button)
+        viewContainer.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([button.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-                                     button.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+        NSLayoutConstraint.activate([button.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor),
+                                     button.centerXAnchor.constraint(equalTo: viewContainer.centerXAnchor),
                                      button.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
                                      button.heightAnchor.constraint(equalToConstant: 20)])
     }
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        view.subviews[0].addTrackingArea(NSTrackingArea(rect: view.subviews[0].bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil))
+        
+        if viewContainer.trackingAreas.isEmpty{
+            viewContainer.addTrackingArea(NSTrackingArea(rect: viewContainer.bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil))
+        }
     }
     
     override func viewDidDisappear() {
         super.viewDidDisappear()
-        if let trackingAreas = view.subviews[0].trackingAreas.first {view.subviews[0].removeTrackingArea(trackingAreas)}
+        if let trackingArea = viewContainer.trackingAreas.first {viewContainer.removeTrackingArea(trackingArea)}
     }
     
     override func mouseEntered(with event: NSEvent) {
-        view.subviews[0]._backgroundColor = Theme.touchBarButtonBackgroundColor.highlight(withLevel: 0.1)
+        viewContainer._backgroundColor = Theme.touchBarButtonBackgroundColor.highlight(withLevel: 0.1)
     }
     
     override func mouseExited(with event: NSEvent) {
-        view.subviews[0]._backgroundColor = Theme.touchBarButtonBackgroundColor
+        viewContainer._backgroundColor = Theme.touchBarButtonBackgroundColor
     }
     
     func showAction(action: Action, _ didTap: (()->())?){
@@ -65,7 +71,7 @@ class ButtonCollectionViewItem: NSCollectionViewItem {
         case .seeMoreIcon: button.image = NSImage(named: "MoreIcon")
         }
         
-        view.subviews[0].addClickGestureRecognizer { didTap?() }
+        viewContainer.addClickGestureRecognizer { didTap?() }
     }
     
     enum Action {
