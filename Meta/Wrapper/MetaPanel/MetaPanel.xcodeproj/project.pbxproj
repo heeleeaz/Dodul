@@ -360,7 +360,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 31BF6528554A8878031D20C9 /* Pods-MetaPanel.debug.xcconfig */;
 			buildSettings = {
-				APP_SECURITY_GROUP = group.com.heeleeaz.meta.debug2;
+				APP_SECURITY_GROUP = group.com.heeleeaz.meta.debug;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MetaPanel/MetaPanel.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
