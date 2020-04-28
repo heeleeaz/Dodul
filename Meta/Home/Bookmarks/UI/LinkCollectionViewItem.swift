@@ -55,7 +55,7 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         return button
     }()
     
-    private lazy var touchRect: NSView = {
+    private lazy var viewContainer: NSView = {
         let view = NSView()
         view.cornerRadius = 7
         view._backgroundColor = Theme.touchBarButtonBackgroundColor
@@ -65,47 +65,40 @@ class LinkCollectionViewItem: NSCollectionViewItem {
     override func loadView() {
         super.view = NSView()
         
-        view.addSubview(touchRect)
-        touchRect.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([touchRect.topAnchor.constraint(equalTo: view.topAnchor),
-                                     touchRect.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                                     touchRect.widthAnchor.constraint(equalToConstant: 90),
-                                     touchRect.heightAnchor.constraint(equalToConstant: 40)])
+        view.addSubview(viewContainer)
+        viewContainer.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([viewContainer.topAnchor.constraint(equalTo: view.topAnchor),
+                                     viewContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                     viewContainer.widthAnchor.constraint(equalToConstant: 90),
+                                     viewContainer.heightAnchor.constraint(equalToConstant: 40)])
         
         
         
-        touchRect.addSubview(linkIconimageView)
+        viewContainer.addSubview(linkIconimageView)
         linkIconimageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([linkIconimageView.centerYAnchor.constraint(equalTo: touchRect.centerYAnchor),
+        NSLayoutConstraint.activate([linkIconimageView.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor),
                                      linkIconimageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      linkIconimageView.widthAnchor.constraint(equalToConstant: 24),
                                      linkIconimageView.heightAnchor.constraint(equalToConstant: 24)])
         
-        touchRect.addSubview(moreButton)
+        viewContainer.addSubview(moreButton)
         moreButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([moreButton.widthAnchor.constraint(equalToConstant: 13),
                                      moreButton.heightAnchor.constraint(equalToConstant: 20),
-                                     moreButton.topAnchor.constraint(equalTo: touchRect.topAnchor, constant: 2),
-                                     moreButton.trailingAnchor.constraint(equalTo: touchRect.trailingAnchor, constant: -4)])
+                                     moreButton.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 2),
+                                     moreButton.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -4)])
         
         view.addSubview(addressTextField)
         addressTextField.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([addressTextField.topAnchor.constraint(equalTo: touchRect.bottomAnchor, constant: 5),
-                                     addressTextField.leadingAnchor.constraint(equalTo: touchRect.leadingAnchor),
-                                     addressTextField.trailingAnchor.constraint(equalTo: touchRect.trailingAnchor),
+        NSLayoutConstraint.activate([addressTextField.topAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: 5),
+                                     addressTextField.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor),
+                                     addressTextField.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor),
                                      addressTextField.heightAnchor.constraint(equalToConstant: 25)])
         
         moreButton.isHidden = true
         moreButton.addClickGestureRecognizer{self.moreClicked?()}
     }
     
-    override func viewDidAppear() {
-        super.viewDidAppear()
-        touchRect.addTrackingArea(NSTrackingArea(rect: touchRect.bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil))
-        
-        itemAppearanceAnimation(touchRect)
-    }
-            
     private func updateView(){
         addressTextField.stringValue = link.displayTitle ?? ""
         
@@ -155,6 +148,27 @@ class LinkCollectionViewItem: NSCollectionViewItem {
             moreButton.isHidden = false
         }
         return super.draggingImageComponents
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+         
+        let fromColor = Theme.touchBarButtonBackgroundColor.highlight(withLevel: 0.1)
+        let toColor = Theme.touchBarButtonBackgroundColor
+        ViewAnimation.backgroundFlashAnimation(view.subviews[0], from: fromColor, to: toColor)
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        
+        if viewContainer.trackingAreas.isEmpty{
+            viewContainer.addTrackingArea(NSTrackingArea(rect: viewContainer.bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil))
+        }
+    }
+    
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+        if let trackingArea = viewContainer.trackingAreas.first{viewContainer.removeTrackingArea(trackingArea)}
     }
     
     override func mouseEntered(with event: NSEvent) {if moreButton.isHidden {moreButton.isHidden = false}}

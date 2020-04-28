@@ -36,30 +36,27 @@ class AppCollectionViewItem: NSCollectionViewItem {
         return textField
     }()
     
-    override func viewDidAppear() {
-        super.viewDidAppear()
-        
-        itemAppearanceAnimation(view.subviews[0])
-    }
+    private lazy var viewContainer: NSView = {
+        let view = NSView()
+        view.cornerRadius = 7
+        view._backgroundColor = Theme.touchBarButtonBackgroundColor
+        return view
+    }()
     
     override func loadView() {
         super.view = NSView()
-        
-        let touchRect = NSView()
-        touchRect.cornerRadius = 7
-        touchRect._backgroundColor = Theme.touchBarButtonBackgroundColor
-        view.addSubview(touchRect)
-        touchRect.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([touchRect.topAnchor.constraint(equalTo: view.topAnchor),
-                                     touchRect.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                                     touchRect.widthAnchor.constraint(equalToConstant: 90),
-                                     touchRect.heightAnchor.constraint(equalToConstant: 40)])
+        view.addSubview(viewContainer)
+        viewContainer.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([viewContainer.topAnchor.constraint(equalTo: view.topAnchor),
+                                     viewContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                     viewContainer.widthAnchor.constraint(equalToConstant: 90),
+                                     viewContainer.heightAnchor.constraint(equalToConstant: 40)])
         
         
         
-        touchRect.addSubview(appIconImageView)
+        viewContainer.addSubview(appIconImageView)
         appIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([appIconImageView.centerYAnchor.constraint(equalTo: touchRect.centerYAnchor),
+        NSLayoutConstraint.activate([appIconImageView.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor),
                                      appIconImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      appIconImageView.widthAnchor.constraint(equalToConstant: 26),
                                      appIconImageView.heightAnchor.constraint(equalToConstant: 26)])
@@ -67,9 +64,9 @@ class AppCollectionViewItem: NSCollectionViewItem {
         
         view.addSubview(appNameTextField)
         appNameTextField.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([appNameTextField.topAnchor.constraint(equalTo: touchRect.bottomAnchor, constant: 5),
-                                     appNameTextField.leadingAnchor.constraint(equalTo: touchRect.leadingAnchor),
-                                     appNameTextField.trailingAnchor.constraint(equalTo: touchRect.trailingAnchor),
+        NSLayoutConstraint.activate([appNameTextField.topAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: 5),
+                                     appNameTextField.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor),
+                                     appNameTextField.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor),
                                      appNameTextField.heightAnchor.constraint(equalToConstant: 16)])
     }
     
@@ -84,5 +81,13 @@ class AppCollectionViewItem: NSCollectionViewItem {
             appNameTextField.isHidden = false
         }
         return super.draggingImageComponents
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let fromColor = Theme.touchBarButtonBackgroundColor.highlight(withLevel: 0.1)
+        let toColor = Theme.touchBarButtonBackgroundColor
+        ViewAnimation.backgroundFlashAnimation(view.subviews[0], from: fromColor, to: toColor)
     }
 }

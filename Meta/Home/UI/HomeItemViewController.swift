@@ -12,7 +12,7 @@ import MetaCore
 class HomeItemViewController: NSViewController, NibLoadable, HomeCollectionViewControllerDelegate{
     @IBOutlet weak var tableView: NSTableView!
     
-    private lazy var items = [AppItemViewController.createFromStoryboard()!, BookmarkViewController.createFromStoryboard()!]
+    private lazy var items = [AppItemViewController.createFromStoryboard()!, LinkItemViewController.createFromStoryboard()!]
     
     override func viewDidLoad() {
         super.viewDidLoad()

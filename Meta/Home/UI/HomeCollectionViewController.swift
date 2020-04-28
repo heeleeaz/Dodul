@@ -11,6 +11,7 @@ import MetaCore
 
 class HomeCollectionViewController: NSViewController{
     @IBOutlet weak var collectionView: NSCollectionView!
+    
     var isViewAppeared: Bool = false
     
     func touchBarItem(at index: Int) -> TouchBarItem? {return nil}
@@ -27,24 +28,12 @@ class HomeCollectionViewController: NSViewController{
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        if !isViewAppeared{
-            viewWillAppearSingleInvocked()
-        }
+        if !isViewAppeared{viewWillAppearSingleInvocked()}
         
         isViewAppeared = true
     }
     
     func viewWillAppearSingleInvocked(){
-    }
-    
-    func insertReloadingLastItem(startIndex: Int, endIndex: Int){
-        if startIndex > -1{
-            let indexPaths = (startIndex ..< endIndex).map{IndexPath(item: $0, section: 0)}
-            if indexPaths.count > 0{
-                collectionView.insertItems(at: Set<IndexPath>(indexPaths))
-                collectionView.reloadItems(at: [indexPaths.first!])
-            }
-        }
     }
 }
 

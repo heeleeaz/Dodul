@@ -156,11 +156,11 @@
             </objects>
             <point key="canvasLocation" x="-1416" y="1938"/>
         </scene>
-        <!--Bookmark View Controller-->
+        <!--Link Item View Controller-->
         <scene sceneID="pCj-kj-Yg4">
             <objects>
                 <customObject id="gMh-SP-u2i" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="BookmarkViewController" id="Ahp-dm-4Wr" customClass="BookmarkViewController" customModule="Meta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LinkItemViewController" id="Ahp-dm-4Wr" customClass="LinkItemViewController" customModule="Meta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="WNs-Aj-W02">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>

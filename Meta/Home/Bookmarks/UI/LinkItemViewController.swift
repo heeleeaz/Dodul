@@ -9,12 +9,12 @@
 import AppKit
 import MetaCore
 
-class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
+class LinkItemViewController: HomeCollectionViewController, StoryboardLoadable{
     static var storyboardName: String?{return "HomeItemViewController"}
     
     private var bookmarkLinks: [CellItem] = []{
         didSet{
-            insertReloadingLastItem(startIndex: oldValue.count-1, endIndex: bookmarkLinks.endIndex)
+            collectionView.reloadData()
             delegate?.homeCollectionViewController(self, itemHeightChanged: height)
         }
     }
@@ -36,19 +36,17 @@ class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
     
     override func viewWillAppearSingleInvocked() {
         bookmarkLinks.append(contentsOf: BookmarkRepository.instance.bookmarks)
-        bookmarkLinks.append(HomeOptionCollectionItem())
+        bookmarkLinks.append(ButtonCellItem())
         
         //setup default bookmark from webserver
         if !AppPrefs.shared.hasSetupDefaultBookmark{
             BookmarkWebService.shared.defaultBookmarks { (links, error) in
                 DispatchQueue.main.async {
-                    if let links = links{
-                        self.bookmarkLinks.insert(contentsOf: links, at: self.bookmarkLinks.endIndex-1)
-                        
-                        //save to disk
-                        links.forEach{BookmarkRepository.instance.update(link: $0)}
-                        AppPrefs.shared.hasSetupDefaultBookmark = true
+                    links?.forEach{
+                        self.bookmarkLinks.insert($0, at: self.bookmarkLinks.endIndex - 1)// insert before the navigation item
+                        BookmarkRepository.instance.update(link: $0)
                     }
+                    AppPrefs.shared.hasSetupDefaultBookmark = true
                 }
             }
         }
@@ -70,29 +68,23 @@ class BookmarkViewController: HomeCollectionViewController, StoryboardLoadable{
     override var height: CGFloat?{ return (collectionView.contentSize?.height ?? 0) + 60 }
 }
 
-extension BookmarkViewController: NSCollectionViewDataSource{
+extension LinkItemViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let cellItem = bookmarkLinks[indexPath.item]
         
         if let link = cellItem as? Link{
             let view = collectionView.makeItem(withIdentifier: LinkCollectionViewItem.reuseIdentifier, for: indexPath)
-            guard let collectionViewItem = view as? LinkCollectionViewItem else {
-                return view
-            }
+            guard let collectionViewItem = view as? LinkCollectionViewItem else {return view}
             
             collectionViewItem.link = link
-            collectionViewItem.moreClicked = {
-                self.showAddBookmarkController(link, anchor: collectionViewItem.view)
-            }
+            collectionViewItem.moreClicked = {self.showAddBookmarkController(link, anchor: collectionViewItem.view)}
             return collectionViewItem
         }else{
             let view = collectionView.makeItem(withIdentifier: ButtonCollectionViewItem.reuseIdentifier, for: indexPath)
             guard let collectionViewItem = view as? ButtonCollectionViewItem else {return view}
-            collectionViewItem.showAction(action: .plusIcon, {
-                self.showAddBookmarkController(nil, anchor: collectionViewItem.button)
-            })
+            collectionViewItem.showAction(action: .plusIcon, {self.showAddBookmarkController(nil, anchor: collectionViewItem.button)})
 
-            return view
+            return collectionViewItem
         }
     }
     
@@ -108,29 +100,23 @@ extension BookmarkViewController: NSCollectionViewDataSource{
     }
 }
 
-extension BookmarkViewController: AddLinkViewControllerDelegate{
+extension LinkItemViewController: AddLinkViewControllerDelegate{
     func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, delete link: Link) {
         self.dismiss(controller)
         
-        if let index = (bookmarkLinks.firstIndex{($0 as? Link) == link}){
-            bookmarkLinks.remove(at: index)
-            collectionView.deleteItems(at: [IndexPath(item: index, section: 0)])
-        }
+        if let index = (bookmarkLinks.firstIndex{($0 as? Link) == link}){ bookmarkLinks.remove(at: index) }
     }
     
     func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, save link: Link) {
         self.dismiss(controller)
 
-        bookmarkLinks.insert(link, at: bookmarkLinks.endIndex-1)
+        bookmarkLinks.insert(link, at: bookmarkLinks.endIndex - 1) // insert before the navigation item
     }
     
     func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, update link: Link) {
         self.dismiss(controller)
 
-        if let index = (bookmarkLinks.firstIndex{($0 as? Link) == link}){
-            bookmarkLinks.replaceSubrange(index...index, with: [link])
-            collectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
-        }
+        if let index = (bookmarkLinks.firstIndex{($0 as? Link) == link}){ bookmarkLinks.replaceSubrange(index...index, with: [link]) }
     }
     
     func addLinkViewController(_ controller: AddLinkViewController, bookmarkRepository: BookmarkRepository, dismiss byUser: Bool) {
