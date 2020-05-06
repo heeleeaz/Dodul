@@ -63,8 +63,8 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XsL-vN-8Ib">
-                    <rect key="frame" x="74" y="190" width="263" height="19"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Change Touchbar QuickLaunch key " id="IDv-b6-p4u">
+                    <rect key="frame" x="103" y="190" width="204" height="19"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Touchbar QuickLaunch Key " id="IDv-b6-p4u">
                         <font key="font" metaFont="systemThin" size="16"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
