@@ -52,7 +52,7 @@ public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
     
     public var hasModifierFlag: Bool {control || command || shift || option}
     
-    public static var acceptedModifiersDescription: String {"Use ⌃, ⌥, ⌘, or ⇧ with any other key, e.g ⌘E"}
+    public static var acceptedModifiersDescription: String {"Press either ⌃, ⌥, ⌘, or ⇧ with any other key. e.g ⌘E"}
 }
 
 extension GlobalKeybindPreferences{

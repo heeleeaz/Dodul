@@ -19,11 +19,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="oeQ-h8-PAO">
-            <rect key="frame" x="0.0" y="0.0" width="450" height="217"/>
+            <rect key="frame" x="0.0" y="0.0" width="410" height="229"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iTx-QZ-Idq">
-                    <rect key="frame" x="341" y="20" width="89" height="30"/>
+                    <rect key="frame" x="301" y="20" width="89" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="cj6-gA-81A"/>
                         <constraint firstAttribute="width" constant="89" id="fNZ-ai-7j6"/>
@@ -43,7 +43,7 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rsp-Co-ZZh">
-                    <rect key="frame" x="232" y="20" width="89" height="30"/>
+                    <rect key="frame" x="192" y="20" width="89" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="I3V-rK-TK9"/>
                         <constraint firstAttribute="width" constant="89" id="xA2-0b-7Ct"/>
@@ -63,27 +63,24 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XsL-vN-8Ib">
-                    <rect key="frame" x="79" y="172" width="293" height="25"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Change Touchbar Quicklaunch Key" id="IDv-b6-p4u">
-                        <font key="font" size="18" name="AvenirNext-Regular"/>
+                    <rect key="frame" x="74" y="190" width="263" height="19"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Change Touchbar QuickLaunch key " id="IDv-b6-p4u">
+                        <font key="font" metaFont="systemThin" size="16"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6IF-on-P5g" customClass="HotkeyComboView" customModule="Meta" customModuleProvider="target">
-                    <rect key="frame" x="200" y="117" width="50" height="30"/>
+                    <rect key="frame" x="180" y="125" width="50" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="MY6-En-jRf"/>
-                        <constraint firstAttribute="height" constant="30" id="VCC-sQ-O39"/>
+                        <constraint firstAttribute="height" constant="40" id="VCC-sQ-O39"/>
                     </constraints>
                 </stackView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rYw-zD-Pa1">
-                    <rect key="frame" x="208" y="67" width="35" height="18"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="18" id="24G-mG-NHY"/>
-                    </constraints>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" drawsBackground="YES" id="NjU-hF-T0n">
-                        <font key="font" metaFont="cellTitle"/>
+                    <rect key="frame" x="26" y="70" width="358" height="23"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" drawsBackground="YES" id="NjU-hF-T0n">
+                        <font key="font" metaFont="systemThin" size="20"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="HomeBackgroundColor"/>
                     </textFieldCell>
@@ -94,10 +91,12 @@
                 <constraint firstItem="rYw-zD-Pa1" firstAttribute="centerX" secondItem="oeQ-h8-PAO" secondAttribute="centerX" id="LJM-TZ-nSB"/>
                 <constraint firstAttribute="bottom" secondItem="iTx-QZ-Idq" secondAttribute="bottom" constant="20" id="MMd-Ef-u3G"/>
                 <constraint firstAttribute="bottom" secondItem="rsp-Co-ZZh" secondAttribute="bottom" constant="20" id="Z6V-7o-7xa"/>
+                <constraint firstItem="rYw-zD-Pa1" firstAttribute="leading" secondItem="oeQ-h8-PAO" secondAttribute="leading" constant="26" id="bLi-DE-BPd"/>
                 <constraint firstItem="6IF-on-P5g" firstAttribute="top" secondItem="XsL-vN-8Ib" secondAttribute="bottom" constant="25" id="dYp-Kt-3B2"/>
                 <constraint firstItem="6IF-on-P5g" firstAttribute="centerX" secondItem="oeQ-h8-PAO" secondAttribute="centerX" id="kZE-QT-GHM"/>
+                <constraint firstAttribute="trailing" secondItem="rYw-zD-Pa1" secondAttribute="trailing" constant="26" id="mDI-Wq-JLx"/>
                 <constraint firstItem="XsL-vN-8Ib" firstAttribute="centerX" secondItem="oeQ-h8-PAO" secondAttribute="centerX" id="na8-yF-i0I"/>
-                <constraint firstItem="rsp-Co-ZZh" firstAttribute="top" secondItem="rYw-zD-Pa1" secondAttribute="bottom" constant="17" id="pEd-Pv-G3N"/>
+                <constraint firstItem="rsp-Co-ZZh" firstAttribute="top" secondItem="rYw-zD-Pa1" secondAttribute="bottom" constant="20" id="pEd-Pv-G3N"/>
                 <constraint firstItem="iTx-QZ-Idq" firstAttribute="leading" secondItem="rsp-Co-ZZh" secondAttribute="trailing" constant="20" id="s0g-Hu-rmD"/>
                 <constraint firstItem="XsL-vN-8Ib" firstAttribute="top" secondItem="oeQ-h8-PAO" secondAttribute="top" constant="20" id="xdI-9U-OgU"/>
             </constraints>
@@ -106,7 +105,7 @@
                     <real key="value" value="10"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="139" y="-156.5"/>
+            <point key="canvasLocation" x="159" y="-150.5"/>
         </customView>
     </objects>
     <resources>
