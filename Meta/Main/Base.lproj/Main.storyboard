@@ -102,11 +102,11 @@
             <objects>
                 <viewController id="3sb-UR-fIa" customClass="MenuPanelViewController" customModule="Meta" customModuleProvider="target" sceneMemberID="viewController">
                     <customView key="view" id="2OY-rh-Ac5" userLabel="View">
-                        <rect key="frame" x="0.0" y="0.0" width="767" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="697" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="u0c-el-ZD9">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="330" height="44"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Qc-ZL-jjF">
                                         <rect key="frame" x="16" y="10" width="24" height="24"/>
@@ -117,8 +117,8 @@
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DragIcon" id="XuL-f8-PPN"/>
                                     </imageView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cDz-B0-PTB">
-                                        <rect key="frame" x="46" y="11" width="340" height="23"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Drag preffered shortcut item to Touchbar" id="Ico-su-amq">
+                                        <rect key="frame" x="46" y="11" width="270" height="23"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Drag preffered item to Touchbar" id="Ico-su-amq">
                                             <font key="font" metaFont="systemThin" size="20"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -126,7 +126,7 @@
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="400" id="1am-6u-QlL"/>
+                                    <constraint firstAttribute="width" constant="330" id="1am-6u-QlL"/>
                                     <constraint firstItem="cDz-B0-PTB" firstAttribute="leading" secondItem="6Qc-ZL-jjF" secondAttribute="trailing" constant="8" id="8AX-L1-5a6"/>
                                     <constraint firstAttribute="trailing" secondItem="cDz-B0-PTB" secondAttribute="trailing" constant="16" id="E0w-i5-umX"/>
                                     <constraint firstItem="6Qc-ZL-jjF" firstAttribute="centerY" secondItem="u0c-el-ZD9" secondAttribute="centerY" id="YmF-sG-l8G"/>
@@ -135,10 +135,10 @@
                                 </constraints>
                             </customView>
                             <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="m4G-W4-4UK">
-                                <rect key="frame" x="406" y="0.0" width="5" height="44"/>
+                                <rect key="frame" x="336" y="0.0" width="5" height="44"/>
                             </box>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="ftO-9N-Ti6">
-                                <rect key="frame" x="417" y="0.0" width="350" height="44"/>
+                                <rect key="frame" x="347" y="0.0" width="350" height="44"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AhO-DT-NVv" customClass="HotkeyComboView" customModule="Meta" customModuleProvider="target">
                                         <rect key="frame" x="70" y="9" width="50" height="26"/>
@@ -217,7 +217,7 @@
                 </viewController>
                 <customObject id="8Xk-nf-7Rs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-14.5" y="2259"/>
+            <point key="canvasLocation" x="-49.5" y="2259"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -255,10 +255,10 @@
                                         </connections>
                                     </containerView>
                                     <containerView translatesAutoresizingMaskIntoConstraints="NO" id="dQQ-Ew-KHH">
-                                        <rect key="frame" x="235" y="504" width="770" height="56"/>
+                                        <rect key="frame" x="270" y="504" width="700" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="LKV-WM-tEo"/>
-                                            <constraint firstAttribute="width" constant="770" id="osd-rs-cHa"/>
+                                            <constraint firstAttribute="width" constant="700" id="osd-rs-cHa"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="3sb-UR-fIa" kind="embed" id="VFa-9M-Mmu"/>
