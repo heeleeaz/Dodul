@@ -10,8 +10,8 @@ import AppKit
 import Carbon
 import MetaCore
 
-class KeybindPreferenceViewController: NSViewController, NibLoadable {
-    @IBOutlet weak var stackView: KeybindTagView!
+class HotkeyPreferenceViewController: NSViewController, NibLoadable {
+    @IBOutlet weak var stackView: HotkeyComboView!
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var cancelButton: NSButton!
     @IBOutlet weak var tipLabelTextView: NSTextField!
@@ -35,7 +35,8 @@ class KeybindPreferenceViewController: NSViewController, NibLoadable {
             carbonFlags: event.modifierFlags.carbonFlags,
             characters: characters, keyCode: UInt32(event.keyCode)
         )
-        
+        Logger.log(text: "carbonFlags=\(event.modifierFlags.carbonFlags) characters=\(characters) keyCode=\(UInt32(event.keyCode))")
+                
         if newGlobalKeybind.hasModifierFlag{
             respondEditingKeybindPreferenceWithUI(keybind: newGlobalKeybind)
             saveButton.addClickGestureRecognizer{
@@ -44,7 +45,6 @@ class KeybindPreferenceViewController: NSViewController, NibLoadable {
             }
             return true
         }
-        
         return false
     }
     
@@ -67,9 +67,7 @@ class KeybindPreferenceViewController: NSViewController, NibLoadable {
     
     private func updateKeybindPresentationView(_ keybind : GlobalKeybindPreferences, editing: Bool){
         stackView.removeAll()
-        for s in keybind.description.split(separator: "-"){
-            stackView.addTag(String(s), isEditing: editing)
-        }
+        keybind.description.split(separator: "-").forEach{stackView.addKey($0.first!, isEditing: editing)}
     }
     
     override func keyDown(with event: NSEvent) {
@@ -88,9 +86,9 @@ class KeybindPreferenceViewController: NSViewController, NibLoadable {
     }
 }
 
-extension KeybindPreferenceViewController{
+extension HotkeyPreferenceViewController{
     public static func presentAsWindowKeyAndOrderFront(_ sender: Any?){
-        let window = KeybindPreferenceWindow(contentViewController: createFromNib()!)
+        let window = HotkeyPreferenceWindow(contentViewController: createFromNib()!)
         
         if let screenSize = NSScreen.main?.frame.size{
             window.setFrameOrigin(NSPoint.center(a: screenSize, b: window.frame.size))
@@ -100,7 +98,7 @@ extension KeybindPreferenceViewController{
     }
 }
 
-public class KeybindPreferenceWindow: NSWindow{
+public class HotkeyPreferenceWindow: NSWindow{
     public override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
         super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
         postInit()

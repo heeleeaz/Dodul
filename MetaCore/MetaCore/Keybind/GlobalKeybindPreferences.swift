@@ -57,6 +57,6 @@ public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
 
 extension GlobalKeybindPreferences{
     public static var defaultKeyBind: GlobalKeybindPreferences{
-        return GlobalKeybindPreferences(control: false, command: true, shift: false, option: false, carbonFlags: 4096, characters: "1", keyCode: 18)
+        return GlobalKeybindPreferences(control: false, command: true, shift: false, option: false, carbonFlags: 256, characters: "1", keyCode: 18)
     }
 }
