@@ -95,7 +95,129 @@
                 <controllerPlaceholder storyboardName="Preferences" id="0Hy-B8-1jb" sceneMemberID="viewController"/>
                 <customObject id="Bzl-6M-Pu7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-401" y="2116"/>
+            <point key="canvasLocation" x="-168" y="2116"/>
+        </scene>
+        <!--Menu Panel View Controller-->
+        <scene sceneID="qt9-GX-6KO">
+            <objects>
+                <viewController id="3sb-UR-fIa" customClass="MenuPanelViewController" customModule="Meta" customModuleProvider="target" sceneMemberID="viewController">
+                    <customView key="view" id="2OY-rh-Ac5" userLabel="View">
+                        <rect key="frame" x="0.0" y="0.0" width="767" height="44"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="u0c-el-ZD9">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Qc-ZL-jjF">
+                                        <rect key="frame" x="16" y="10" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="bGR-gA-MZe"/>
+                                            <constraint firstAttribute="height" constant="24" id="o5y-BI-2Uy"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DragIcon" id="XuL-f8-PPN"/>
+                                    </imageView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cDz-B0-PTB">
+                                        <rect key="frame" x="46" y="11" width="340" height="23"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Drag preffered shortcut item to Touchbar" id="Ico-su-amq">
+                                            <font key="font" metaFont="systemThin" size="20"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="1am-6u-QlL"/>
+                                    <constraint firstItem="cDz-B0-PTB" firstAttribute="leading" secondItem="6Qc-ZL-jjF" secondAttribute="trailing" constant="8" id="8AX-L1-5a6"/>
+                                    <constraint firstAttribute="trailing" secondItem="cDz-B0-PTB" secondAttribute="trailing" constant="16" id="E0w-i5-umX"/>
+                                    <constraint firstItem="6Qc-ZL-jjF" firstAttribute="centerY" secondItem="u0c-el-ZD9" secondAttribute="centerY" id="YmF-sG-l8G"/>
+                                    <constraint firstItem="6Qc-ZL-jjF" firstAttribute="leading" secondItem="u0c-el-ZD9" secondAttribute="leading" constant="16" id="sTB-u2-C14"/>
+                                    <constraint firstItem="cDz-B0-PTB" firstAttribute="centerY" secondItem="u0c-el-ZD9" secondAttribute="centerY" id="ya5-vQ-lvB"/>
+                                </constraints>
+                            </customView>
+                            <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="m4G-W4-4UK">
+                                <rect key="frame" x="406" y="0.0" width="5" height="44"/>
+                            </box>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ftO-9N-Ti6">
+                                <rect key="frame" x="417" y="0.0" width="350" height="44"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AhO-DT-NVv" customClass="HotkeyComboView" customModule="Meta" customModuleProvider="target">
+                                        <rect key="frame" x="70" y="9" width="50" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="DBj-8l-q7t"/>
+                                            <constraint firstAttribute="height" constant="26" id="bYL-Xa-pcC"/>
+                                        </constraints>
+                                    </stackView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="s57-xc-RnQ">
+                                        <rect key="frame" x="14" y="11" width="50" height="23"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Press" id="4cU-kT-JAu">
+                                            <font key="font" metaFont="systemThin" size="20"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9cS-sS-WIF">
+                                        <rect key="frame" x="120" y="9" width="62" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="k5W-Wn-cDj"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="bevel" title="(change)" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="GM3-1K-iGC">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="systemLight" size="10"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="changeHotkeyTapped:" target="3sb-UR-fIa" id="elw-nj-YdK"/>
+                                        </connections>
+                                    </button>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Iit-aV-8M1">
+                                        <rect key="frame" x="184" y="11" width="152" height="23"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="to show Touchbar" id="qrL-hz-Cjw">
+                                            <font key="font" metaFont="systemThin" size="20"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="2dn-jw-QBv"/>
+                                    <constraint firstItem="Iit-aV-8M1" firstAttribute="leading" secondItem="9cS-sS-WIF" secondAttribute="trailing" constant="4" id="Bnd-qd-T0G"/>
+                                    <constraint firstItem="s57-xc-RnQ" firstAttribute="leading" secondItem="ftO-9N-Ti6" secondAttribute="leading" constant="16" id="EjQ-Z8-t5w"/>
+                                    <constraint firstItem="9cS-sS-WIF" firstAttribute="leading" secondItem="AhO-DT-NVv" secondAttribute="trailing" id="GBZ-xe-plS"/>
+                                    <constraint firstItem="AhO-DT-NVv" firstAttribute="centerY" secondItem="ftO-9N-Ti6" secondAttribute="centerY" id="TgB-iC-xxC"/>
+                                    <constraint firstItem="s57-xc-RnQ" firstAttribute="centerY" secondItem="ftO-9N-Ti6" secondAttribute="centerY" id="W3u-3P-wfV"/>
+                                    <constraint firstItem="9cS-sS-WIF" firstAttribute="bottom" secondItem="AhO-DT-NVv" secondAttribute="bottom" id="ZTO-mV-BuQ"/>
+                                    <constraint firstItem="Iit-aV-8M1" firstAttribute="centerY" secondItem="ftO-9N-Ti6" secondAttribute="centerY" id="fB9-Nx-mz7"/>
+                                    <constraint firstAttribute="trailing" secondItem="Iit-aV-8M1" secondAttribute="trailing" constant="16" id="lEl-sZ-lYJ"/>
+                                    <constraint firstItem="AhO-DT-NVv" firstAttribute="leading" secondItem="s57-xc-RnQ" secondAttribute="trailing" constant="8" id="pOL-Ob-ozJ"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="m4G-W4-4UK" firstAttribute="top" secondItem="2OY-rh-Ac5" secondAttribute="top" id="Erh-2d-XP2"/>
+                            <constraint firstAttribute="bottom" secondItem="m4G-W4-4UK" secondAttribute="bottom" id="GEC-tV-YX4"/>
+                            <constraint firstAttribute="bottom" secondItem="u0c-el-ZD9" secondAttribute="bottom" id="Kdc-pT-HvV"/>
+                            <constraint firstAttribute="bottom" secondItem="ftO-9N-Ti6" secondAttribute="bottom" id="cX4-zM-3CB"/>
+                            <constraint firstItem="u0c-el-ZD9" firstAttribute="top" secondItem="2OY-rh-Ac5" secondAttribute="top" id="fIv-bQ-gA6"/>
+                            <constraint firstItem="u0c-el-ZD9" firstAttribute="leading" secondItem="2OY-rh-Ac5" secondAttribute="leading" id="hr0-Cx-JG2"/>
+                            <constraint firstItem="ftO-9N-Ti6" firstAttribute="top" secondItem="2OY-rh-Ac5" secondAttribute="top" id="qLS-JV-plq"/>
+                            <constraint firstItem="m4G-W4-4UK" firstAttribute="leading" secondItem="u0c-el-ZD9" secondAttribute="trailing" constant="8" id="scM-hv-HQk"/>
+                            <constraint firstItem="ftO-9N-Ti6" firstAttribute="leading" secondItem="m4G-W4-4UK" secondAttribute="trailing" constant="8" id="tTt-66-NZ7"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="_backgroundColor">
+                                <color key="value" name="QLPContainerBackgroundColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </customView>
+                    <connections>
+                        <outlet property="hotKeyComboView" destination="AhO-DT-NVv" id="98e-BD-SMM"/>
+                    </connections>
+                </viewController>
+                <customObject id="8Xk-nf-7Rs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-14.5" y="2259"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -132,137 +254,22 @@
                                             <segue destination="yYz-Hz-qMh" kind="embed" id="T3C-qL-MwK"/>
                                         </connections>
                                     </containerView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="vYl-tr-09g">
-                                        <rect key="frame" x="375" y="490" width="491" height="73"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QSP-ZO-iia">
-                                                <rect key="frame" x="71" y="27" width="167" height="19"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Drag Item to Touchbar" id="M4t-wn-p7O">
-                                                    <font key="font" metaFont="system" size="16"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JbY-kZ-0nc">
-                                                <rect key="frame" x="25" y="23" width="28" height="28"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="28" id="7CO-da-N3Q"/>
-                                                    <constraint firstAttribute="width" constant="28" id="w6G-3p-ZQk"/>
-                                                </constraints>
-                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DragIcon" id="6pe-dk-thV"/>
-                                            </imageView>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5UP-Fg-Yfg">
-                                                <rect key="frame" x="411" y="12" width="60" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="nx3-TT-o2N"/>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="vPf-vo-PHK"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="bevel" title="Done" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="JB4-X8-nn7">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system" size="16"/>
-                                                </buttonCell>
-                                                <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="doneAction:" target="XfG-lQ-9wD" id="f4e-FI-W1W"/>
-                                                </connections>
-                                            </button>
-                                            <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="aKZ-5J-VKk">
-                                                <rect key="frame" x="388" y="20" width="5" height="33"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="33" id="PKy-CE-uYA"/>
-                                                    <constraint firstAttribute="width" constant="1" id="qnc-Gh-Mm8"/>
-                                                </constraints>
-                                            </box>
-                                        </subviews>
+                                    <containerView translatesAutoresizingMaskIntoConstraints="NO" id="dQQ-Ew-KHH">
+                                        <rect key="frame" x="235" y="504" width="770" height="56"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="73" id="2Mc-XJ-foL"/>
-                                            <constraint firstItem="JbY-kZ-0nc" firstAttribute="leading" secondItem="vYl-tr-09g" secondAttribute="leading" constant="25" id="57z-dQ-UeR"/>
-                                            <constraint firstAttribute="width" constant="491" id="5h1-pf-YNe"/>
-                                            <constraint firstItem="QSP-ZO-iia" firstAttribute="leading" secondItem="JbY-kZ-0nc" secondAttribute="trailing" constant="20" id="8mf-AD-0Cg"/>
-                                            <constraint firstItem="QSP-ZO-iia" firstAttribute="centerY" secondItem="vYl-tr-09g" secondAttribute="centerY" id="God-fx-Sc0"/>
-                                            <constraint firstItem="JbY-kZ-0nc" firstAttribute="centerY" secondItem="vYl-tr-09g" secondAttribute="centerY" id="WYf-Jw-v2U"/>
-                                            <constraint firstItem="aKZ-5J-VKk" firstAttribute="centerY" secondItem="vYl-tr-09g" secondAttribute="centerY" id="ceW-1N-Fp6"/>
-                                            <constraint firstItem="5UP-Fg-Yfg" firstAttribute="centerY" secondItem="vYl-tr-09g" secondAttribute="centerY" id="hTs-d3-kqX"/>
-                                            <constraint firstItem="5UP-Fg-Yfg" firstAttribute="leading" secondItem="aKZ-5J-VKk" secondAttribute="trailing" constant="20" id="is6-QI-FTg"/>
-                                            <constraint firstAttribute="trailing" secondItem="5UP-Fg-Yfg" secondAttribute="trailing" constant="20" id="nK1-Yu-eZZ"/>
+                                            <constraint firstAttribute="height" constant="56" id="LKV-WM-tEo"/>
+                                            <constraint firstAttribute="width" constant="770" id="osd-rs-cHa"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" name="BorderColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </customView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Vzv-Gn-xFF">
-                                        <rect key="frame" x="455" y="10" width="331" height="40"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ghu-tn-Czj">
-                                                <rect key="frame" x="59" y="12" width="183" height="17"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="to launch Touchbar anytime" id="kcj-V6-GWU">
-                                                    <font key="font" metaFont="system" size="14"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fUM-7H-43Q">
-                                                <rect key="frame" x="242" y="3" width="87" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="73T-KG-BvF"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="push" title="Change" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mPG-Cf-cqf">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="quickLaunchClicked:" target="XfG-lQ-9wD" id="9lb-gO-X8F"/>
-                                                </connections>
-                                            </button>
-                                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKV-xa-xEB" customClass="KeybindTagView" customModule="Meta" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="10" width="45" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="45" id="nsg-Sq-aN9"/>
-                                                    <constraint firstAttribute="height" constant="20" id="zQS-5Y-qHa"/>
-                                                </constraints>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="fUM-7H-43Q" secondAttribute="trailing" constant="8" id="87J-aH-1mT"/>
-                                            <constraint firstItem="OKV-xa-xEB" firstAttribute="leading" secondItem="Vzv-Gn-xFF" secondAttribute="leading" constant="8" id="9VX-79-CkJ"/>
-                                            <constraint firstItem="ghu-tn-Czj" firstAttribute="leading" secondItem="OKV-xa-xEB" secondAttribute="trailing" constant="8" id="D6K-vb-UbM"/>
-                                            <constraint firstAttribute="height" constant="40" id="HOo-Ur-WRY"/>
-                                            <constraint firstItem="fUM-7H-43Q" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="M1s-jK-CAz"/>
-                                            <constraint firstItem="fUM-7H-43Q" firstAttribute="leading" secondItem="ghu-tn-Czj" secondAttribute="trailing" constant="8" id="a9R-Ot-C56"/>
-                                            <constraint firstItem="ghu-tn-Czj" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="tJI-w9-z9P"/>
-                                            <constraint firstItem="OKV-xa-xEB" firstAttribute="centerY" secondItem="Vzv-Gn-xFF" secondAttribute="centerY" id="wDA-kM-9KH"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="200" constant="400" id="zIK-6t-b2p"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="_backgroundColor">
-                                                <color key="value" name="QLPContainerBackgroundColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </customView>
+                                        <connections>
+                                            <segue destination="3sb-UR-fIa" kind="embed" id="VFa-9M-Mmu"/>
+                                        </connections>
+                                    </containerView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="0qx-2D-8fR" firstAttribute="top" secondItem="vYl-tr-09g" secondAttribute="bottom" constant="20" id="5SD-eM-rAZ"/>
                                     <constraint firstItem="0qx-2D-8fR" firstAttribute="centerX" secondItem="dMK-MW-RVV" secondAttribute="centerX" id="BUu-Ea-Uod"/>
+                                    <constraint firstItem="dQQ-Ew-KHH" firstAttribute="centerX" secondItem="dMK-MW-RVV" secondAttribute="centerX" id="G5J-ll-mwd"/>
                                     <constraint firstAttribute="bottom" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="70" id="HTs-QI-hEE"/>
-                                    <constraint firstItem="Vzv-Gn-xFF" firstAttribute="top" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="20" id="KDM-MK-5Xh"/>
-                                    <constraint firstItem="Vzv-Gn-xFF" firstAttribute="centerX" secondItem="dMK-MW-RVV" secondAttribute="centerX" id="NiS-yK-heH"/>
-                                    <constraint firstItem="vYl-tr-09g" firstAttribute="centerX" secondItem="dMK-MW-RVV" secondAttribute="centerX" id="O1L-SK-6Tv"/>
+                                    <constraint firstItem="dQQ-Ew-KHH" firstAttribute="top" secondItem="dMK-MW-RVV" secondAttribute="top" constant="23" id="i1t-TT-kzU"/>
                                     <constraint firstAttribute="height" constant="583" id="vO6-nX-yKI"/>
                                 </constraints>
                             </customView>
@@ -294,14 +301,10 @@
                             <constraint firstAttribute="trailing" secondItem="dMK-MW-RVV" secondAttribute="trailing" constant="50" id="swI-0z-9if"/>
                         </constraints>
                     </customView>
-                    <connections>
-                        <outlet property="keybindTagView" destination="OKV-xa-xEB" id="DS5-TS-dsL"/>
-                        <outlet property="launchTouchbarContainer" destination="Vzv-Gn-xFF" id="3oH-St-pY8"/>
-                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-40" y="1278"/>
+            <point key="canvasLocation" x="-40" y="1269"/>
         </scene>
         <!--HomeItemViewController-->
         <scene sceneID="cMD-sp-umU">
@@ -309,7 +312,7 @@
                 <controllerPlaceholder storyboardName="HomeItemViewController" id="yYz-Hz-qMh" sceneMemberID="viewController"/>
                 <customObject id="iO9-fM-5na" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-186" y="2116"/>
+            <point key="canvasLocation" x="90" y="2116"/>
         </scene>
     </scenes>
     <resources>
@@ -322,7 +325,7 @@
             <color red="0.20200000703334808" green="0.20200000703334808" blue="0.20200000703334808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="QLPContainerBackgroundColor">
-            <color red="0.15961026566325076" green="0.15961026566325076" blue="0.15961026566325076" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.15999999642372131" green="0.15999999642372131" blue="0.15999999642372131" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="TouchBarButtonBackgroundColor">
             <color red="0.2669999897480011" green="0.2669999897480011" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

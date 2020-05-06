@@ -8,52 +8,12 @@
 
 import AppKit
 import MetaCore
-import Carbon
 
 class MainViewController: EditableTouchBarController {
-    @IBOutlet weak var keybindTagView: KeybindTagView!
-    @IBOutlet weak var launchTouchbarContainer: NSView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear() {
+        super.viewDidAppear()
         
-        updateKeybindPresentationView()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(windowWillClose), name: NSWindow.willCloseNotification, object: nil)
-    }
-    
-    private func updateKeybindPresentationView(){
-        if GlobalKeybindPreferencesStore.fetch() == nil{
-            GlobalKeybindPreferencesStore.save(keyBind: GlobalKeybindPreferences.defaultKeyBind)
-
-            let animation =  CABasicAnimation(keyPath: "backgroundColor")
-            animation.fromValue = DarkTheme.quickObserverColor.cgColor
-            animation.toValue = DarkTheme.quickLaunchPreferenceContainerBackgroundColor.cgColor
-            animation.duration = 3
-            launchTouchbarContainer.wantsLayer = true
-            launchTouchbarContainer.layer?.add(animation, forKey: "backgroundColor")
-        }
-        
-        keybindTagView.removeAll()
-        if let keybind = GlobalKeybindPreferencesStore.fetch(){
-            keybind.description.split(separator: "-").forEach{keybindTagView.addTag(String($0), isEditing: false)}
-        }
-    }
-    
-    @IBAction func doneAction(_ sender: Any) {commitChangesAndDispatchUpdateNotification()}
-    
-    @objc func windowWillClose(notification: NSNotification){
-        if notification.object is KeybindPreferenceWindow{
-            updateKeybindPresentationView()
-            DistributedNotificationCenter.default().postNotificationName(.hotKeySetup, object: nil, userInfo: nil, options: .deliverImmediately)
-        }
-    }
-    
-    private func commitChangesAndDispatchUpdateNotification(){
-        commitTouchBarEditing()
-        
-        DistributedNotificationCenter.default().postNotificationName(.touchItemReload, object: nil, userInfo: nil, options: .deliverImmediately)
-        NSApp.terminate(nil)
+//        OnboardingPageController.presentAsWindowKeyAndOrderFront()
     }
     
     override func cancelOperation(_ sender: Any?) {
@@ -78,17 +38,11 @@ class MainViewController: EditableTouchBarController {
         }
     }
     
-    override func keyDown(with event: NSEvent) {
-        //default escape button
-        if event.keyCode == kVK_Escape{super.keyDown(with: event)}
-    }
-    
-    @IBAction func quickLaunchClicked(_ sender: Any) {
-        KeybindPreferenceViewController.presentAsWindowKeyAndOrderFront(nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    private func commitChangesAndDispatchUpdateNotification(){
+        commitTouchBarEditing()
+        
+        DistributedNotificationCenter.default().postNotificationName(.touchItemReload, object: nil, userInfo: nil, options: .deliverImmediately)
+        NSApp.terminate(nil)
     }
 }
 

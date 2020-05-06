@@ -8,7 +8,9 @@
 
 import AppKit
 
-class KeybindTagView: NSStackView{
+@IBDesignable public class HotkeyComboView: NSStackView{
+    
+    @IBInspectable var font: NSFont = NSFont.systemFont(ofSize: 18, weight: .light)
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -34,15 +36,19 @@ class KeybindTagView: NSStackView{
         self.arrangedSubviews.forEach { $0.removeFromSuperview() }
     }
     
-    func addTag(_ title: String, isEditing: Bool){
-        addArrangedSubview(KeybindTagViewItem(title: title, isEditing: isEditing))
+    func addKey(_ character: Character, isEditing: Bool){
+        let hotkey = HotkeyCharacter(character: character, isEditing: isEditing)
+        hotkey.font = font
+        addArrangedSubview(hotkey)
     }
 }
 
-class KeybindTagViewItem: NSButton{
-    var isEditing: Bool = false{didSet{updateView()}}
-    var buttonSpacingExtra = NSSize(width: 10, height: 10)
-    var defaultFont = NSFont.systemFont(ofSize: 15)
+class HotkeyCharacter: NSButton{
+    var isEditing: Bool = false{
+        didSet{
+            updateView()
+        }
+    }
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -52,20 +58,19 @@ class KeybindTagViewItem: NSButton{
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     
     override var intrinsicContentSize: NSSize{
-        let width = super.intrinsicContentSize.width + buttonSpacingExtra.width
+        let width = super.intrinsicContentSize.width + (super.intrinsicContentSize.width / 2)
         let height = superview?.frame.height ?? super.intrinsicContentSize.height
         return NSSize(width: width, height: height)
     }
     
-    convenience init(title: String, isEditing: Bool) {
+    convenience init(character: Character, isEditing: Bool) {
         self.init(frame: .zero)
-        self.title = title
+        self.title = String(character)
         self.isEditing = isEditing
     }
     
     private func setupView(){
         self.bezelStyle = .smallSquare
-        self.font = defaultFont
         self.cornerRadius = 2
     }
     

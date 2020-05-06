@@ -16,11 +16,11 @@
 		925A245723C8D811002BB85F /* BookmarkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245623C8D811002BB85F /* BookmarkStore.swift */; };
 		925A245923C8D88C002BB85F /* BookmarkUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245823C8D88C002BB85F /* BookmarkUserDefaults.swift */; };
 		925A245E23C8DB80002BB85F /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A245D23C8DB80002BB85F /* Link.swift */; };
-		925F8C112406C0E3008CC1DE /* KeybindTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925F8C102406C0E3008CC1DE /* KeybindTagView.swift */; };
+		925F8C112406C0E3008CC1DE /* HotkeyComboView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925F8C102406C0E3008CC1DE /* HotkeyComboView.swift */; };
 		927C62FD2430A7EF00B03CF2 /* AppUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C62FC2430A7EF00B03CF2 /* AppUpdateController.swift */; };
 		927C63022430B64A00B03CF2 /* DownloaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C63012430B64A00B03CF2 /* DownloaderController.swift */; };
 		927C633A2431109800B03CF2 /* DownloaderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927C63392431109800B03CF2 /* DownloaderController.xib */; };
-		927C633C2431154C00B03CF2 /* PreferenceWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C633B2431154C00B03CF2 /* PreferenceWindow.swift */; };
+		927C633C2431154C00B03CF2 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C633B2431154C00B03CF2 /* PreferencesWindow.swift */; };
 		9283108023CA773200B115D1 /* LinkCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */; };
 		9283108423CA78D700B115D1 /* LinkItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283108323CA78D700B115D1 /* LinkItemViewController.swift */; };
 		92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92861C922406DD34001B8EFD /* AddLinkViewController.swift */; };
@@ -35,10 +35,15 @@
 		92ACE8EB240FC175009994EB /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE8EA240FC175009994EB /* DarkTheme.swift */; };
 		92BAFB662424F2DE008BC2B5 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BAFB652424F2DE008BC2B5 /* Preferences.storyboard */; };
 		92BAFB682424F438008BC2B5 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BAFB672424F438008BC2B5 /* PreferencesViewController.swift */; };
+		92C5196E2461CDD900CD1006 /* OnboardingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C5196D2461CDD900CD1006 /* OnboardingPageController.swift */; };
+		92C519702461CE2D00CD1006 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C5196F2461CE2D00CD1006 /* Onboarding.storyboard */; };
+		92C519742461DE3600CD1006 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C519732461DE3600CD1006 /* OnboardingModel.swift */; };
+		92C5197624621C6600CD1006 /* OnboardingPageAdapterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C5197524621C6600CD1006 /* OnboardingPageAdapterVC.swift */; };
+		92C5197A2462C7A500CD1006 /* MenuPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C519792462C7A500CD1006 /* MenuPanelViewController.swift */; };
 		92C85C9224290A1300002173 /* AppUpdateWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C85C8D2429039C00002173 /* AppUpdateWebService.swift */; };
-		92E16C762403D60E00511EE1 /* KeybindPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16C752403D60E00511EE1 /* KeybindPreferenceViewController.swift */; };
+		92E16C762403D60E00511EE1 /* HotkeyPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16C752403D60E00511EE1 /* HotkeyPreferenceViewController.swift */; };
 		92EB9430243B7B4900289316 /* AppItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB942F243B7B4900289316 /* AppItemViewController.swift */; };
-		92EE13562423A323001513A8 /* KeybindPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EE13552423A323001513A8 /* KeybindPreferenceViewController.xib */; };
+		92EE13562423A323001513A8 /* HotkeyPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EE13552423A323001513A8 /* HotkeyPreferenceViewController.xib */; };
 		92F3BAFB24549DF200AE3057 /* BookmarkWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F3BAFA24549DF200AE3057 /* BookmarkWebService.swift */; };
 		92F3BAFE2454B29F00AE3057 /* AppPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F3BAFD2454B29F00AE3057 /* AppPrefs.swift */; };
 		92F7D8B1244F308C00C13AA1 /* MetaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F7D8B0244F308C00C13AA1 /* MetaCore.framework */; };
@@ -112,11 +117,11 @@
 		925A245623C8D811002BB85F /* BookmarkStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkStore.swift; sourceTree = "<group>"; };
 		925A245823C8D88C002BB85F /* BookmarkUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkUserDefaults.swift; sourceTree = "<group>"; };
 		925A245D23C8DB80002BB85F /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
-		925F8C102406C0E3008CC1DE /* KeybindTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindTagView.swift; sourceTree = "<group>"; };
+		925F8C102406C0E3008CC1DE /* HotkeyComboView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyComboView.swift; sourceTree = "<group>"; };
 		927C62FC2430A7EF00B03CF2 /* AppUpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateController.swift; sourceTree = "<group>"; };
 		927C63012430B64A00B03CF2 /* DownloaderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderController.swift; sourceTree = "<group>"; };
 		927C63392431109800B03CF2 /* DownloaderController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloaderController.xib; sourceTree = "<group>"; };
-		927C633B2431154C00B03CF2 /* PreferenceWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindow.swift; sourceTree = "<group>"; };
+		927C633B2431154C00B03CF2 /* PreferencesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
 		9283107E23CA773200B115D1 /* LinkCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCollectionViewItem.swift; sourceTree = "<group>"; };
 		9283108323CA78D700B115D1 /* LinkItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkItemViewController.swift; sourceTree = "<group>"; };
 		92861C922406DD34001B8EFD /* AddLinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLinkViewController.swift; sourceTree = "<group>"; };
@@ -138,11 +143,16 @@
 		92B49A8424169C8800E6AF35 /* TouchletPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = TouchletPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92BAFB652424F2DE008BC2B5 /* Preferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
 		92BAFB672424F438008BC2B5 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		92C5196D2461CDD900CD1006 /* OnboardingPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageController.swift; sourceTree = "<group>"; };
+		92C5196F2461CE2D00CD1006 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		92C519732461DE3600CD1006 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		92C5197524621C6600CD1006 /* OnboardingPageAdapterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageAdapterVC.swift; sourceTree = "<group>"; };
+		92C519792462C7A500CD1006 /* MenuPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPanelViewController.swift; sourceTree = "<group>"; };
 		92C85C8D2429039C00002173 /* AppUpdateWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateWebService.swift; sourceTree = "<group>"; };
 		92D392912455687B005576C5 /* MetaPanel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MetaPanel.xcodeproj; path = Meta/Wrapper/MetaPanel/MetaPanel.xcodeproj; sourceTree = "<group>"; };
-		92E16C752403D60E00511EE1 /* KeybindPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindPreferenceViewController.swift; sourceTree = "<group>"; };
+		92E16C752403D60E00511EE1 /* HotkeyPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyPreferenceViewController.swift; sourceTree = "<group>"; };
 		92EB942F243B7B4900289316 /* AppItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppItemViewController.swift; sourceTree = "<group>"; };
-		92EE13552423A323001513A8 /* KeybindPreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeybindPreferenceViewController.xib; sourceTree = "<group>"; };
+		92EE13552423A323001513A8 /* HotkeyPreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotkeyPreferenceViewController.xib; sourceTree = "<group>"; };
 		92F3BAFA24549DF200AE3057 /* BookmarkWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkWebService.swift; sourceTree = "<group>"; };
 		92F3BAFD2454B29F00AE3057 /* AppPrefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPrefs.swift; sourceTree = "<group>"; };
 		92F7D8B0244F308C00C13AA1 /* MetaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MetaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +192,7 @@
 			children = (
 				92A1B2FE23C4AA2200D7BEF1 /* Main.storyboard */,
 				92A1B2F723C4AA2100D7BEF1 /* MainViewController.swift */,
+				92C519792462C7A500CD1006 /* MenuPanelViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -286,6 +297,7 @@
 		92A1B2F423C4AA2100D7BEF1 /* Meta */ = {
 			isa = PBXGroup;
 			children = (
+				92C5196C2461CD7500CD1006 /* Onboarding */,
 				92885F592455B0D400E779B9 /* Networking */,
 				92BAFB7724250D43008BC2B5 /* Resources */,
 				92ACE91C2412874F009994EB /* Supporting Files */,
@@ -300,6 +312,7 @@
 		92A1B33623C4DBBF00D7BEF1 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				92F3BAFD2454B29F00AE3057 /* AppPrefs.swift */,
 				92ACE8E9240FC133009994EB /* Themes */,
 				92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */,
 			);
@@ -309,7 +322,6 @@
 		92A1B33D23C4E7EB00D7BEF1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				92F3BAFC2454B29500AE3057 /* Persistence */,
 				92ACE8AE240FB108009994EB /* UI */,
 				9283108723CA7CBF00B115D1 /* Spotlights */,
 				925A245523C8D7D8002BB85F /* Bookmarks */,
@@ -360,8 +372,8 @@
 			isa = PBXGroup;
 			children = (
 				927C62FE2430B0CE00B03CF2 /* AppUpdate */,
-				92D98A7B240439740072F68F /* KeybindPreferences */,
-				927C633B2431154C00B03CF2 /* PreferenceWindow.swift */,
+				92D98A7B240439740072F68F /* HotkeyPreference */,
+				927C633B2431154C00B03CF2 /* PreferencesWindow.swift */,
 				92BAFB652424F2DE008BC2B5 /* Preferences.storyboard */,
 				92BAFB672424F438008BC2B5 /* PreferencesViewController.swift */,
 			);
@@ -383,14 +395,25 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		92D98A7B240439740072F68F /* KeybindPreferences */ = {
+		92C5196C2461CD7500CD1006 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				925F8C102406C0E3008CC1DE /* KeybindTagView.swift */,
-				92E16C752403D60E00511EE1 /* KeybindPreferenceViewController.swift */,
-				92EE13552423A323001513A8 /* KeybindPreferenceViewController.xib */,
+				92C5196F2461CE2D00CD1006 /* Onboarding.storyboard */,
+				92C519732461DE3600CD1006 /* OnboardingModel.swift */,
+				92C5196D2461CDD900CD1006 /* OnboardingPageController.swift */,
+				92C5197524621C6600CD1006 /* OnboardingPageAdapterVC.swift */,
 			);
-			path = KeybindPreferences;
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		92D98A7B240439740072F68F /* HotkeyPreference */ = {
+			isa = PBXGroup;
+			children = (
+				925F8C102406C0E3008CC1DE /* HotkeyComboView.swift */,
+				92E16C752403D60E00511EE1 /* HotkeyPreferenceViewController.swift */,
+				92EE13552423A323001513A8 /* HotkeyPreferenceViewController.xib */,
+			);
+			path = HotkeyPreference;
 			sourceTree = "<group>";
 		};
 		92F3BAF924549DDC00AE3057 /* API */ = {
@@ -399,14 +422,6 @@
 				92F3BAFA24549DF200AE3057 /* BookmarkWebService.swift */,
 			);
 			path = API;
-			sourceTree = "<group>";
-		};
-		92F3BAFC2454B29500AE3057 /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-				92F3BAFD2454B29F00AE3057 /* AppPrefs.swift */,
-			);
-			path = Persistence;
 			sourceTree = "<group>";
 		};
 		B9367A57FC91513B2724C723 /* Pods */ = {
@@ -505,11 +520,12 @@
 			files = (
 				92A1B2FD23C4AA2200D7BEF1 /* Assets.xcassets in Resources */,
 				92BAFB662424F2DE008BC2B5 /* Preferences.storyboard in Resources */,
-				92EE13562423A323001513A8 /* KeybindPreferenceViewController.xib in Resources */,
+				92EE13562423A323001513A8 /* HotkeyPreferenceViewController.xib in Resources */,
 				927C633A2431109800B03CF2 /* DownloaderController.xib in Resources */,
 				921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */,
 				9246322023CB32C200042EFE /* HomeItemViewController.storyboard in Resources */,
 				92A1B30023C4AA2200D7BEF1 /* Main.storyboard in Resources */,
+				92C519702461CE2D00CD1006 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,25 +583,29 @@
 				927C63022430B64A00B03CF2 /* DownloaderController.swift in Sources */,
 				92FE9B2523D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift in Sources */,
 				92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */,
-				92E16C762403D60E00511EE1 /* KeybindPreferenceViewController.swift in Sources */,
+				92E16C762403D60E00511EE1 /* HotkeyPreferenceViewController.swift in Sources */,
 				92F3BAFE2454B29F00AE3057 /* AppPrefs.swift in Sources */,
 				92C85C9224290A1300002173 /* AppUpdateWebService.swift in Sources */,
+				92C519742461DE3600CD1006 /* OnboardingModel.swift in Sources */,
 				92885F5B2455B0E900E779B9 /* API.swift in Sources */,
 				928DD067243B4EBE007A38B0 /* ButtonCellItem.swift in Sources */,
 				925A245723C8D811002BB85F /* BookmarkStore.swift in Sources */,
 				925A241523C7378B002BB85F /* BookmarkRepository.swift in Sources */,
+				92C5197A2462C7A500CD1006 /* MenuPanelViewController.swift in Sources */,
 				92A1B2F823C4AA2100D7BEF1 /* MainViewController.swift in Sources */,
 				92ACE8EB240FC175009994EB /* DarkTheme.swift in Sources */,
 				92EB9430243B7B4900289316 /* AppItemViewController.swift in Sources */,
 				925A245923C8D88C002BB85F /* BookmarkUserDefaults.swift in Sources */,
+				92C5196E2461CDD900CD1006 /* OnboardingPageController.swift in Sources */,
 				9283108023CA773200B115D1 /* LinkCollectionViewItem.swift in Sources */,
+				92C5197624621C6600CD1006 /* OnboardingPageAdapterVC.swift in Sources */,
 				925A245E23C8DB80002BB85F /* Link.swift in Sources */,
 				92BAFB682424F438008BC2B5 /* PreferencesViewController.swift in Sources */,
 				9283108423CA78D700B115D1 /* LinkItemViewController.swift in Sources */,
 				92A0C8CA2409173F000C5011 /* HomeCollectionViewController.swift in Sources */,
-				927C633C2431154C00B03CF2 /* PreferenceWindow.swift in Sources */,
+				927C633C2431154C00B03CF2 /* PreferencesWindow.swift in Sources */,
 				923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */,
-				925F8C112406C0E3008CC1DE /* KeybindTagView.swift in Sources */,
+				925F8C112406C0E3008CC1DE /* HotkeyComboView.swift in Sources */,
 				927C62FD2430A7EF00B03CF2 /* AppUpdateController.swift in Sources */,
 				92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */,
 			);

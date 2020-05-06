@@ -40,7 +40,7 @@
 		0D480531D32ED2780E7DF696598408D9 /* FavIcon-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FavIcon-umbrella.h"; sourceTree = "<group>"; };
 		1C212E509AB9F5935346EEBF952C3C9D /* FavIcon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FavIcon-prefix.pch"; sourceTree = "<group>"; };
 		1DEDB1E66EA0911879C77C99B0A0C084 /* Pods-Meta-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Meta-Info.plist"; sourceTree = "<group>"; };
-		1EC80EE458FE182A97AF9A05E88BBB71 /* Pods_Meta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Meta.framework; path = "Pods-Meta.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EC80EE458FE182A97AF9A05E88BBB71 /* Pods_Meta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28434C789E19D0955226862B352E42DA /* Pods-Meta-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Meta-umbrella.h"; sourceTree = "<group>"; };
 		2C6AE49160F260BA49A4B41EE7970329 /* FavIcon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FavIcon-dummy.m"; sourceTree = "<group>"; };
 		30526FC26B26904BBD914F485D784262 /* Pods-Meta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Meta.release.xcconfig"; sourceTree = "<group>"; };
@@ -50,13 +50,13 @@
 		5E0D6B7C05D1FFEE484497A031D096D2 /* Pods-Meta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Meta.debug.xcconfig"; sourceTree = "<group>"; };
 		6C65B03B9546266F9FC84F5EC597F550 /* Pods-Meta-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Meta-frameworks.sh"; sourceTree = "<group>"; };
 		6D42466A4BB412DAF0CDF5E605EB88AD /* Pods-MetaPanel-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetaPanel-acknowledgements.markdown"; sourceTree = "<group>"; };
-		805CF67E0B24BC09847C2A91B8D9EF10 /* libPods-MetaPanel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-MetaPanel.a"; path = "libPods-MetaPanel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		805CF67E0B24BC09847C2A91B8D9EF10 /* libPods-MetaPanel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MetaPanel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B370255C07879721DA88E90183B833 /* Pods-Meta-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Meta-acknowledgements.plist"; sourceTree = "<group>"; };
-		8CB6208DE53EC3E7501305A5FC7BD217 /* FavIcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FavIcon.framework; path = FavIcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CB6208DE53EC3E7501305A5FC7BD217 /* FavIcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FavIcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D2B6E6E2C1CCEFCD4C62AC3DF9E71F /* Pods-Meta.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Meta.alpha.xcconfig"; sourceTree = "<group>"; };
 		966339C15222B368AC05E3C003516390 /* Detection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Detection.swift; path = Sources/FavIcon/Detection.swift; sourceTree = "<group>"; };
 		9B1A496C7192A0495EB73E07C3E6150D /* FavIcon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FavIcon.modulemap; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A38905AE9825D2E6272AB8E93995F3FE /* Pods-Meta-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Meta-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A56B6F12EABAF925D51EE3F502FC2B63 /* ContentTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContentTypes.swift; path = Sources/FavIcon/ContentTypes.swift; sourceTree = "<group>"; };
 		AD555EE37A8CC8C2A04A7986542B7D3A /* Pods-Meta-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Meta-dummy.m"; sourceTree = "<group>"; };
@@ -183,7 +183,6 @@
 				ECD05C36D50A36A554DBC2D27AF0ABB7 /* XML.swift */,
 				04FF7933DF06B427D453BA14811E96AB /* Support Files */,
 			);
-			name = FavIcon;
 			path = FavIcon;
 			sourceTree = "<group>";
 		};
@@ -304,7 +303,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1130;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -312,6 +311,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = CB2EE2839E7B0BABCBC649DE36315C40 /* Products */;
@@ -392,7 +392,6 @@
 			baseConfigurationReference = 30526FC26B26904BBD914F485D784262 /* Pods-Meta.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -491,7 +490,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B2BFBC63B2EB147AF779B0E94060AFDD /* FavIcon.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -519,6 +517,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -529,7 +528,6 @@
 			baseConfigurationReference = 5E0D6B7C05D1FFEE484497A031D096D2 /* Pods-Meta.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -569,7 +567,6 @@
 			baseConfigurationReference = BE53C9E6EE7A4EA3D5343B6CEB0FE440 /* Pods-MetaPanel.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -592,7 +589,6 @@
 			baseConfigurationReference = E0EA3CE15B9A56FF236D0E0565E531D6 /* Pods-MetaPanel.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -679,7 +675,6 @@
 			baseConfigurationReference = 90D2B6E6E2C1CCEFCD4C62AC3DF9E71F /* Pods-Meta.alpha.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -718,7 +713,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B2BFBC63B2EB147AF779B0E94060AFDD /* FavIcon.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -746,6 +740,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -755,7 +750,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -837,7 +831,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B2BFBC63B2EB147AF779B0E94060AFDD /* FavIcon.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -865,6 +858,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
