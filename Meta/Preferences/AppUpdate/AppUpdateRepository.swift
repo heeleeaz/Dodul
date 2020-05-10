@@ -9,7 +9,7 @@
 import Foundation
 import MetaCore
 
-class AppUpdateWebService{
+class AppUpdateRepository{
     func requestVersion(_ completionHandler: @escaping (String?, Error?)->()){
         let request = NetworkRequest()
         request.setURL(url: "\(API.serverURL)/lastestVersion")

@@ -34,7 +34,7 @@ class LinkCollectionViewItem: NSCollectionViewItem {
     private lazy var addressTextField: NSTextField = {
         let textField = NSTextField()
         textField.font = NSFont.systemFont(ofSize: 13)
-        textField.textColor = NSColor.white
+        textField.textColor = DarkTheme.textColor
         textField.isEditable = false
         textField.isSelectable = false
         textField.drawsBackground = false
@@ -96,8 +96,10 @@ class LinkCollectionViewItem: NSCollectionViewItem {
                                      addressTextField.heightAnchor.constraint(equalToConstant: 25)])
         
         moreButton.isHidden = true
-        moreButton.addClickGestureRecognizer{self.moreClicked?()}
+        moreButton.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(didClickedMoreButton)))
     }
+    
+    @objc private func didClickedMoreButton(){self.moreClicked?()}
     
     private func updateView(){
         addressTextField.stringValue = link.displayTitle ?? ""

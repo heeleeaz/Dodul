@@ -15,9 +15,7 @@ class AboutPreferenceViewController: NSViewController{
     @IBOutlet weak var appVersionLabel: NSTextField!
     @IBOutlet weak var copyrightLabel: NSTextField!
     @IBOutlet weak var updateViewContainer: NSView!
-    
-    private lazy var appUpdateController = AppUpdateController()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +26,7 @@ class AboutPreferenceViewController: NSViewController{
         copyrightLabel.stringValue = infoDictionary["NSHumanReadableCopyright"] as? String ?? ""
         
         //add update controller view
-        addChildHelper(appUpdateController, view: updateViewContainer)
+        addChildHelper(AppUpdateController(), view: updateViewContainer)
     }
     
     override func keyDown(with event: NSEvent) {if event.keyCode == kVK_Escape{super.keyDown(with: event)}}

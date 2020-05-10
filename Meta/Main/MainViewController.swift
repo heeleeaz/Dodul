@@ -10,10 +10,14 @@ import AppKit
 import MetaCore
 
 class MainViewController: EditableTouchBarController {
-    override func viewDidAppear() {
-        super.viewDidAppear()
+    @IBOutlet weak var menuPanelContainer: NSView!
+    @IBOutlet weak var saveMenuContainer: NSView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-//        OnboardingPageController.presentAsWindowKeyAndOrderFront()
+        addChildHelper(MenuPanelViewController.createFromNib()!, view: menuPanelContainer)
+        addChildHelper(SaveMenuViewController(), view: saveMenuContainer)
     }
     
     override func cancelOperation(_ sender: Any?) {

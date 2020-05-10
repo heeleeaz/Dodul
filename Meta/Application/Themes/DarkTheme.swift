@@ -10,11 +10,13 @@ import AppKit
 import MetaCore
 
 class DarkTheme: Theme {
-    static var hotkeyTextColor = NSColor(named: "EditingHotkeyTextColor")!
     static var hotkeyBackgroundColor = NSColor(named: "HotKeyBackgroundColor")!
     static var quickObserverColor = NSColor(named: "QuickObserverColor")!
     static var quickLaunchPreferenceContainerBackgroundColor = NSColor(named: "QLPContainerBackgroundColor")!
-    
+    static var borderColor = NSColor(named: "BorderColor")!
+    static var textColor = NSColor(named: "TextColor")
+    static var buttonTextColor = NSColor(named: "ButtonTextColor")
+
     struct Fonts {
         static func sourceSansProRegular(with size: CGFloat) -> NSFont {
             guard let font = NSFont(name: "SourceSansPro-Regular", size: size) else {

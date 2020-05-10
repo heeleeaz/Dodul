@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MenuPanelViewController" customModule="Meta" customModuleProvider="target">
+            <connections>
+                <outlet property="hotKeyComboView" destination="bDu-yt-gn2" id="cUG-K8-hgX"/>
+                <outlet property="view" destination="YFg-PI-cTd" id="cYY-ye-Jmk"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="YFg-PI-cTd" userLabel="View">
+            <rect key="frame" x="0.0" y="0.0" width="909" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="sTJ-lw-yMN">
+                    <rect key="frame" x="330" y="0.0" width="5" height="44"/>
+                </box>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7AJ-nc-qyg">
+                    <rect key="frame" x="16" y="10" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="qqi-2X-m3X"/>
+                        <constraint firstAttribute="width" constant="24" id="stn-AQ-whP"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DragIcon" id="jes-QE-uMF"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ceu-pa-v39">
+                    <rect key="frame" x="43" y="11" width="275" height="23"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Drag preffered items to Touchbar" id="xrA-pb-JpQ">
+                        <font key="font" metaFont="systemThin" size="20"/>
+                        <color key="textColor" name="TextColor"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bDu-yt-gn2" customClass="HotkeyComboView" customModule="Meta" customModuleProvider="target">
+                    <rect key="frame" x="403" y="9" width="50" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="FgC-qi-b9s"/>
+                        <constraint firstAttribute="width" constant="50" id="kwJ-pj-J6U"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </stackView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KSR-gQ-kAq">
+                    <rect key="frame" x="347" y="11" width="50" height="23"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Press" id="0xf-B1-Qt9">
+                        <font key="font" metaFont="systemThin" size="20"/>
+                        <color key="textColor" name="TextColor"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="INa-Lh-8aB">
+                    <rect key="frame" x="454" y="9" width="47" height="13"/>
+                    <buttonCell key="cell" type="bevel" title="(change)" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="OWh-m9-Ok4">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="systemLight" size="10"/>
+                    </buttonCell>
+                    <color key="contentTintColor" name="ButtonTextColor"/>
+                    <connections>
+                        <action selector="changeHotkeyTapped:" target="-2" id="bhz-qg-EEX"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Px8-9a-gmU">
+                    <rect key="frame" x="504" y="11" width="387" height="23"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="to show and open the items from the Touchbar" id="98u-pW-Rrp">
+                        <font key="font" metaFont="systemThin" size="20"/>
+                        <color key="textColor" name="TextColor"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="bDu-yt-gn2" firstAttribute="centerY" secondItem="YFg-PI-cTd" secondAttribute="centerY" id="1nq-OQ-BHW"/>
+                <constraint firstItem="KSR-gQ-kAq" firstAttribute="leading" secondItem="sTJ-lw-yMN" secondAttribute="trailing" constant="16" id="2I8-rP-bJM"/>
+                <constraint firstItem="INa-Lh-8aB" firstAttribute="leading" secondItem="bDu-yt-gn2" secondAttribute="trailing" constant="1" id="Dyd-uP-Swo"/>
+                <constraint firstItem="INa-Lh-8aB" firstAttribute="bottom" secondItem="bDu-yt-gn2" secondAttribute="bottom" id="IaR-58-UVV"/>
+                <constraint firstItem="7AJ-nc-qyg" firstAttribute="leading" secondItem="YFg-PI-cTd" secondAttribute="leading" constant="16" id="Q3M-Wg-zbt"/>
+                <constraint firstItem="ceu-pa-v39" firstAttribute="leading" secondItem="7AJ-nc-qyg" secondAttribute="trailing" constant="5" id="RDJ-lD-Xjn"/>
+                <constraint firstItem="ceu-pa-v39" firstAttribute="centerY" secondItem="YFg-PI-cTd" secondAttribute="centerY" id="df0-2F-ar4"/>
+                <constraint firstItem="7AJ-nc-qyg" firstAttribute="centerY" secondItem="YFg-PI-cTd" secondAttribute="centerY" id="djd-c1-fdi"/>
+                <constraint firstAttribute="bottom" secondItem="sTJ-lw-yMN" secondAttribute="bottom" id="fHo-SY-IUD"/>
+                <constraint firstItem="Px8-9a-gmU" firstAttribute="leading" secondItem="INa-Lh-8aB" secondAttribute="trailing" constant="5" id="ix7-Oo-R0s"/>
+                <constraint firstItem="sTJ-lw-yMN" firstAttribute="top" secondItem="YFg-PI-cTd" secondAttribute="top" id="pxb-ou-S9I"/>
+                <constraint firstItem="KSR-gQ-kAq" firstAttribute="centerY" secondItem="YFg-PI-cTd" secondAttribute="centerY" id="rPS-XE-wr0"/>
+                <constraint firstItem="sTJ-lw-yMN" firstAttribute="leading" secondItem="ceu-pa-v39" secondAttribute="trailing" constant="16" id="sqY-eO-fzr"/>
+                <constraint firstItem="bDu-yt-gn2" firstAttribute="leading" secondItem="KSR-gQ-kAq" secondAttribute="trailing" constant="8" id="ud5-7D-DQ4"/>
+                <constraint firstItem="Px8-9a-gmU" firstAttribute="centerY" secondItem="YFg-PI-cTd" secondAttribute="centerY" id="yAz-GD-KTN"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="_backgroundColor">
+                    <color key="value" name="QLPContainerBackgroundColor"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-165.5" y="94"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="DragIcon" width="171" height="171"/>
+        <namedColor name="ButtonTextColor">
+            <color red="0.67400002479553223" green="0.67000001668930054" blue="0.67799997329711914" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="QLPContainerBackgroundColor">
+            <color red="0.15999999642372131" green="0.15999999642372131" blue="0.15999999642372131" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.82099997997283936" green="0.81699997186660767" blue="0.82599997520446777" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

@@ -24,7 +24,7 @@ class AppCollectionViewItem: NSCollectionViewItem {
     private lazy var appNameTextField: NSTextField = {
         let textField = NSTextField()
         textField.font = NSFont.systemFont(ofSize: 13)
-        textField.textColor = NSColor.white
+        textField.textColor = DarkTheme.textColor
         textField.isEditable = false
         textField.isSelectable = false
         textField.drawsBackground = false
@@ -52,8 +52,7 @@ class AppCollectionViewItem: NSCollectionViewItem {
                                      viewContainer.widthAnchor.constraint(equalToConstant: 90),
                                      viewContainer.heightAnchor.constraint(equalToConstant: 40)])
         
-        
-        
+        //icon image
         viewContainer.addSubview(appIconImageView)
         appIconImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([appIconImageView.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor),
@@ -61,7 +60,7 @@ class AppCollectionViewItem: NSCollectionViewItem {
                                      appIconImageView.widthAnchor.constraint(equalToConstant: 26),
                                      appIconImageView.heightAnchor.constraint(equalToConstant: 26)])
         
-        
+        //app name
         view.addSubview(appNameTextField)
         appNameTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([appNameTextField.topAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: 5),

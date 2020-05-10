@@ -40,7 +40,7 @@ class LinkItemViewController: HomeCollectionViewController, StoryboardLoadable{
         
         //setup default bookmark from webserver
         if !AppPrefs.shared.hasSetupDefaultBookmark{
-            BookmarkWebService.shared.defaultBookmarks { (links, error) in
+            BookmarkWebService.shared.getBookmarks { (links, error) in
                 DispatchQueue.main.async {
                     links?.forEach{
                         self.bookmarkLinks.insert($0, at: self.bookmarkLinks.endIndex - 1)// insert before the navigation item

@@ -9,7 +9,7 @@
 import AppKit
 import Carbon
 
-public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
+public struct GlobalKeybindPreferences: Codable {
     public let control : Bool
     public let command : Bool
     public let shift : Bool
@@ -17,29 +17,28 @@ public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
     public let carbonFlags : UInt32
     public let characters : String?
     public let keyCode : UInt32
-    
-    public var description: String{return description("-")}
-    
-    public func description(_ seperator: String = "") -> String{
-        var stringBuilder = ""
+        
+    public var toArray: [String] {
+        var arr = [String]()
         if self.control {
-            stringBuilder += "⌃\(seperator)"
+            arr.append("⌃")
         }
         if self.option {
-            stringBuilder += "⌥\(seperator)"
+            arr.append("⌥")
         }
         if self.command {
-            stringBuilder += "⌘\(seperator)"
+            arr.append("⌘")
         }
         if self.shift {
-            stringBuilder += "⇧\(seperator)"
+            arr.append("⇧")
         }
         if let characters = self.characters {
-            stringBuilder += "\(characters.uppercased())\(seperator)"
+            arr.append(characters.uppercased())
         }
-        return "\(stringBuilder.dropLast(seperator.count))"
+        
+        return arr
     }
-    
+            
     public init(control: Bool, command: Bool, shift: Bool, option: Bool, carbonFlags: UInt32, characters: String?, keyCode: UInt32) {
         self.control = control
         self.command = command
@@ -52,7 +51,7 @@ public struct GlobalKeybindPreferences: Codable, CustomStringConvertible {
     
     public var hasModifierFlag: Bool {control || command || shift || option}
     
-    public static var acceptedModifiersDescription: String {"Press either ⌃, ⌥, ⌘, or ⇧ with any other key. e.g ⌘E"}
+    public static let acceptedModifiers =  ["⌃", "⌥", "⌘", "⇧"]
 }
 
 extension GlobalKeybindPreferences{

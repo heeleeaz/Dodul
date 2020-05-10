@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jIa-Fr-VBe">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="oam-6M-nKT">
+            <objects>
+                <windowController id="jIa-Fr-VBe" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="aay-Zw-Iva" customClass="NSPanel">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <connections>
+                            <outlet property="delegate" destination="jIa-Fr-VBe" id="q36-oY-8qQ"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="yFC-zf-7Lm" kind="relationship" relationship="window.shadowedContentViewController" id="knw-Yq-X5i"/>
+                    </connections>
+                </windowController>
+                <customObject id="Bbz-7y-VJX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="205" y="-155"/>
+        </scene>
+        <!--Onboarding Page Controller-->
+        <scene sceneID="SAS-jL-2gg">
+            <objects>
+                <pagecontroller id="yFC-zf-7Lm" customClass="OnboardingPageController" customModule="Meta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="AgJ-9i-hra">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HHg-D5-3tF">
+                                <rect key="frame" x="407" y="13" width="60" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="HT9-qI-MaH"/>
+                                    <constraint firstAttribute="height" constant="22" id="OmH-Le-mLP"/>
+                                </constraints>
+                                <buttonCell key="cell" type="bevel" title="Next" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="8RI-Yh-GOq">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Chd-0r-AdA">
+                                <rect key="frame" x="339" y="13" width="60" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="aIx-bU-eyO"/>
+                                    <constraint firstAttribute="height" constant="22" id="ifo-gG-Guo"/>
+                                </constraints>
+                                <buttonCell key="cell" type="bevel" title="Prev" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="g6S-bv-8U9">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HHg-D5-3tF" secondAttribute="trailing" constant="13" id="94B-Zv-ja5"/>
+                            <constraint firstAttribute="bottom" secondItem="HHg-D5-3tF" secondAttribute="bottom" constant="13" id="UKE-t9-opQ"/>
+                            <constraint firstItem="HHg-D5-3tF" firstAttribute="leading" secondItem="Chd-0r-AdA" secondAttribute="trailing" constant="8" id="VQw-QE-FKT"/>
+                            <constraint firstAttribute="bottom" secondItem="Chd-0r-AdA" secondAttribute="bottom" constant="13" id="vvN-OG-vvY"/>
+                        </constraints>
+                    </view>
+                </pagecontroller>
+                <customObject id="fJT-lL-AuC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="205" y="276"/>
+        </scene>
+        <!--Onboarding Page AdapterVC-->
+        <scene sceneID="ffd-6m-xqy">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingPageAdapterVC" id="Gf1-uI-29B" customClass="OnboardingPageAdapterVC" customModule="Meta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="syN-fH-FDa">
+                        <rect key="frame" x="0.0" y="0.0" width="454" height="282"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k7v-DA-sNb">
+                                <rect key="frame" x="17" y="72" width="420" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="420" id="Ato-0S-7Nb"/>
+                                    <constraint firstAttribute="height" constant="200" id="Sza-na-3MB"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xqb-41-W9a"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ela-7s-4lE">
+                                <rect key="frame" x="18" y="35" width="418" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="vlm-V4-VOU">
+                                    <font key="font" metaFont="systemLight" size="14"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Ela-7s-4lE" firstAttribute="leading" secondItem="syN-fH-FDa" secondAttribute="leading" constant="20" id="AjP-5d-wNH"/>
+                            <constraint firstItem="k7v-DA-sNb" firstAttribute="centerX" secondItem="syN-fH-FDa" secondAttribute="centerX" id="JOR-Ap-yIJ"/>
+                            <constraint firstItem="k7v-DA-sNb" firstAttribute="top" secondItem="syN-fH-FDa" secondAttribute="top" constant="10" id="Ogd-t3-MnH"/>
+                            <constraint firstItem="Ela-7s-4lE" firstAttribute="top" secondItem="k7v-DA-sNb" secondAttribute="bottom" constant="20" id="RCP-gk-mgo"/>
+                            <constraint firstAttribute="trailing" secondItem="Ela-7s-4lE" secondAttribute="trailing" constant="20" id="bjs-vt-vPK"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="_backgroundColor">
+                                <color key="value" name="HomeBackgroundColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="k7v-DA-sNb" id="jjq-WK-nkR"/>
+                        <outlet property="instructionLabel" destination="Ela-7s-4lE" id="0sz-EA-5ed"/>
+                    </connections>
+                </viewController>
+                <customObject id="Flj-25-Cak" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100" y="674"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="HomeBackgroundColor">
+            <color red="0.20200000703334808" green="0.20200000703334808" blue="0.20200000703334808" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
