@@ -19,6 +19,15 @@ class SaveMenuViewController: NSViewController {
         return controller
     }()
     
+    var isSaveButtonEnabled: Bool{
+        set{
+            (view.subviews.last as? NSButton)?.isEnabled = newValue
+        }
+        get{
+            return (view.subviews.last as? NSButton)?.isEnabled ?? false
+        }
+    }
+    
     override func loadView() {
         self.view = NSView()
         view.wantsLayer = true
@@ -30,11 +39,11 @@ class SaveMenuViewController: NSViewController {
         super.viewDidLoad()
         setupCloseAndSaveView()
     }
-    
+        
     private func setupCloseAndSaveView(){
         //setup close button
         let closeButton = createButton(title: "Close",
-                                       icon: NSImage(named: "CloseIcon")!, action: #selector(didClickSaveButton))
+                                       icon: NSImage(named: "CloseIcon")!, action: #selector(didClickClose))
         view.addSubview(closeButton)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([closeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
@@ -56,6 +65,7 @@ class SaveMenuViewController: NSViewController {
         //setup save button
         let saveButton = createButton(title: "Save and Close",
                                       icon: NSImage(named: "CheckIcon")!, action: #selector(didClickSaveButton))
+        saveButton.isEnabled = false
         view.addSubview(saveButton)
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([saveButton.leadingAnchor.constraint(equalTo: verticalLine.trailingAnchor, constant: 10),
@@ -80,10 +90,7 @@ class SaveMenuViewController: NSViewController {
         return button
     }
     
-    
-    @objc private func didClickSaveButton(button: NSButton){
-        editableTouchBarController.commitTouchBarEditing()
-        
+    private func showHotkeyTooltipNotification(terminateApp: Bool){
         DistributedNotificationCenter.default().postNotificationName(.touchItemReload, object: nil, userInfo: nil, options: .deliverImmediately)
         
         if let keyArray = GlobalKeybindPreferencesStore.fetch()?.toArray{
@@ -93,12 +100,17 @@ class SaveMenuViewController: NSViewController {
             content.message = "Press \(keyArray.joined(separator: "")) to show and open the items from the Touchbar."
             content.actionString = "Got it!"
             content.timeInterval = 2
-            SupportNotificationManager.shedule(content){ _ in DispatchQueue.main.async {NSApp.terminate(nil)}}
+            SupportNotificationManager.shedule(content){ _ in
+                if terminateApp{DispatchQueue.main.async {NSApp.terminate(nil)}}
+            }
         }
-        
     }
     
-    private func commitChangesAndDispatchUpdateNotification(){
+    @objc private func didClickSaveButton(button: NSButton){
+        editableTouchBarController.commitTouchBarEditing()
         
+        showHotkeyTooltipNotification(terminateApp: true)
     }
+ 
+    @objc private func didClickClose(button: NSButton){showHotkeyTooltipNotification(terminateApp: true)}
 }

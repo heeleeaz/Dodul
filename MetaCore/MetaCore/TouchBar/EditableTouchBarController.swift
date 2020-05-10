@@ -9,7 +9,12 @@
 import AppKit
 
 open class EditableTouchBarController: ReadonlyTouchBarController{
+    public var isTouchbarDirty: Bool {
+        !TouchBarItemUserDefault.shared.compare(collectionViewTouchBarItem.items)
+    }
+
     private var draggingImageComponent: [NSDraggingImageComponent]?
+    
     
     //serves for item removal and insertion accepted point rect
     private lazy var acceptChangesRect = NSRect(x: 0, y: 0, width: view.frame.width, height: 3)
@@ -27,7 +32,6 @@ open class EditableTouchBarController: ReadonlyTouchBarController{
         (view as? DragDestinationObservableView)?.delegate = self
     }
     
-    public var isTouchbarDirty:Bool {!TouchBarItemUserDefault.shared.compare(collectionViewTouchBarItem.items)}
     
     @discardableResult public func commitTouchBarEditing() -> Bool{
         do{
