@@ -45,9 +45,5 @@ class MenuPanelViewController: NSViewController, NibLoadable{
         }
     }
     
-    @IBAction func changeHotkeyTapped(_ sender: Any) {
-        HotkeyPrefsViewController.presentAsWindowKeyAndOrderFront(nil)
-    }
-    
-    override func keyDown(with event: NSEvent) {if event.keyCode == kVK_Escape{super.keyDown(with: event)}}
+    @IBAction func changeHotkeyTapped(_ sender: Any) {HotkeyPrefsViewController.presentAsWindowKeyAndOrderFront(nil)}    
 }

@@ -8,45 +8,30 @@
 
 import AppKit
 import MetaCore
+import Carbon
 
 class MainViewController: EditableTouchBarController {
     @IBOutlet weak var menuPanelContainer: NSView!
     @IBOutlet weak var saveMenuContainer: NSView!
     
+    private lazy var saveMenuViewController = SaveMenuViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addChildHelper(MenuPanelViewController.createFromNib()!, view: menuPanelContainer)
-        addChildHelper(SaveMenuViewController(), view: saveMenuContainer)
+        addChildHelper(saveMenuViewController, view: saveMenuContainer)
     }
     
-    override func cancelOperation(_ sender: Any?) {
-        if isTouchbarDirty{
-            let alert = NSAlert()
-            alert.messageText = "Save Changes?"
-            alert.informativeText = "You've made some changes, they will only reflect if you save them."
-            alert.alertStyle = .informational
-            
-            alert.addButton(withTitle: "Save")
-            alert.addButton(withTitle: "Close")
-            alert.beginSheetModal(for: view.window!) { ( modalResponse) in
-                switch modalResponse{
-                case .alertFirstButtonReturn:
-                    self.commitChangesAndDispatchUpdateNotification()
-                default:
-                    NSApp.terminate(nil)
-                }
-            }
-        }else{
-            commitChangesAndDispatchUpdateNotification()
+    override func didUpdateTouchbarItemList() {
+        if !saveMenuViewController.isSaveButtonEnabled{
+            //isTouchDirty loops to compare list under the hood. hence, stick to calling it once
+            saveMenuViewController.isSaveButtonEnabled = isTouchbarDirty
         }
     }
     
-    private func commitChangesAndDispatchUpdateNotification(){
-        commitTouchBarEditing()
-        
-        DistributedNotificationCenter.default().postNotificationName(.touchItemReload, object: nil, userInfo: nil, options: .deliverImmediately)
-        NSApp.terminate(nil)
+    override func keyDown(with event: NSEvent) {
+        //do nothing to ignore to keystroke sound
     }
 }
 

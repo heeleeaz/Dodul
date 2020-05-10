@@ -9,6 +9,7 @@
 import AppKit
 
 open class ReadonlyTouchBarController: NSViewController, ReadonlyEmptyTouchBarItemDelegate{
+    
     var activeIdentifier = Constants.collectionIdentifier{didSet{touchBar = nil}}
     
     var emptyCollectionTouchbarItem: NSTouchBarItem {
@@ -57,6 +58,37 @@ open class ReadonlyTouchBarController: NSViewController, ReadonlyEmptyTouchBarIt
     
     open func readonlyEmptyTouchBarItem(editButtonTapped touchBarItem: NSTouchBarItem) {
     }
+    
+    open func didUpdateTouchbarItemList(){
+    }
+}
+
+extension ReadonlyTouchBarController: CollectionViewTouchBarItemDelegate{
+    public func collectionViewTouchBarItem(collectionViewTouchBarItem: CollectionViewTouchBarItem, onTap item: TouchBarItem) {
+        Logger.log(text: "launching \(String(describing: item.identifier))")
+               
+        switch item.type {
+        case .Web:
+            NSWorkspace.shared.open(URL(fileURLWithPath: item.identifier))
+            trackItemClickEvent(label: kCSFWebLink, identifier: item.identifier)
+        case .App:
+            NSWorkspace.shared.launchApplication(withBundleIdentifier: item.identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
+            trackItemClickEvent(label: kCSFApp, identifier: item.identifier)
+        default:
+            Logger.log(text: "unrecognised touch item type \(String(describing: item.type))")
+            trackItemClickEvent(label: kCSFUnspecified, identifier: item.identifier)
+        }
+    }
+       
+    func collectionViewTouchBarItem(didSetItem collectionViewTouchBarItem: CollectionViewTouchBarItem) {
+        if collectionViewTouchBarItem.items.isEmpty{
+            if activeIdentifier != Constants.emptyCollectionIdentifier {activeIdentifier = Constants.emptyCollectionIdentifier}
+        }else {
+            if activeIdentifier != Constants.collectionIdentifier{activeIdentifier = Constants.collectionIdentifier}
+            didUpdateTouchbarItemList()
+        }
+    }
+    
 }
 
 extension ReadonlyTouchBarController: NSTouchBarDelegate{
@@ -70,32 +102,6 @@ extension ReadonlyTouchBarController: NSTouchBarDelegate{
             return collectionViewTouchBarItem
         default:
             return nil
-        }
-    }
-}
-
-extension ReadonlyTouchBarController: CollectionViewTouchBarItemDelegate{
-    func collectionViewTouchBarItem(collectionViewTouchBarItem: CollectionViewTouchBarItem, onTap item: TouchBarItem) {
-        Logger.log(text: "launching \(String(describing: item.identifier))")
-            
-        switch item.type {
-        case .Web:
-            NSWorkspace.shared.open(URL(fileURLWithPath: item.identifier))
-            trackItemClickEvent(label: kCSFWebLink, identifier: item.identifier)
-        case .App:
-            NSWorkspace.shared.launchApplication(withBundleIdentifier: item.identifier, options: .default, additionalEventParamDescriptor: nil, launchIdentifier: nil)
-            trackItemClickEvent(label: kCSFApp, identifier: item.identifier)
-        default:
-            Logger.log(text: "unrecognised touch item type \(String(describing: item.type))")
-            trackItemClickEvent(label: kCSFUnspecified, identifier: item.identifier)
-        }
-    }
-    
-    func collectionViewTouchBarItem(didSetItem collectionViewTouchBarItem: CollectionViewTouchBarItem) {
-        if collectionViewTouchBarItem.items.isEmpty{
-            if activeIdentifier != Constants.emptyCollectionIdentifier {activeIdentifier = Constants.emptyCollectionIdentifier}
-        }else {
-            if activeIdentifier != Constants.collectionIdentifier{activeIdentifier = Constants.collectionIdentifier}
         }
     }
 }
