@@ -3,10 +3,11 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="DownloaderController" customModule="TouchletMenu" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="DownloaderController" customModule="Meta" customModuleProvider="target">
             <connections>
                 <outlet property="continueInBackgroundButton" destination="RP4-wR-f9a" id="tMa-vP-zZU"/>
                 <outlet property="progressIndicator" destination="UQG-21-etd" id="d8N-e4-hnb"/>
@@ -30,7 +31,7 @@
                     <rect key="frame" x="8" y="70" width="82" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="downloading" id="fDr-mF-Pie">
                         <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" name="TextColor"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
@@ -57,4 +58,9 @@
             <point key="canvasLocation" x="75.5" y="73.5"/>
         </customView>
     </objects>
+    <resources>
+        <namedColor name="TextColor">
+            <color red="0.82099997997283936" green="0.81699997186660767" blue="0.82599997520446777" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

@@ -9,11 +9,11 @@
 import AppKit
 
 @nonobjc extension NSViewController {
-    public func addChildHelper(_ child: NSViewController, view: NSView? = nil) {
+    public func addChildHelper(_ child: NSViewController, view: NSView) {
         addChild(child)
-        (view ?? self.view).addSubview(child.view)
+        view.addSubview(child.view)
         
-        if let view = view{child.view.setFrameSize(view.frame.size)}
+        child.view.setFrameSize(view.frame.size)
     }
     
     public func removeChildHelper(view: NSView? = nil) {

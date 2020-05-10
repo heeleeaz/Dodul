@@ -120,6 +120,8 @@ extension NSView{
             return layer?.borderWidth ?? 0
         }
     }
+    
+    public func removeAllSubviews(){subviews.forEach{$0.removeFromSuperview()}}
 }
 
 extension NSView{
@@ -136,6 +138,12 @@ extension NSView{
     }
     
     public var leastOrigin: CGFloat{ leastOrigin(view: self, minY: CGFloat(Int.max))}
+    
+    public var clampRect: CGRect {
+        var clamp = CGRect.zero
+        subviews.forEach{clamp = clamp.union($0.frame)}
+        return clamp
+    }
 }
 
 
