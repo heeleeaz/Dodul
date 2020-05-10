@@ -22,7 +22,7 @@ class HotkeyPrefsViewController: NSViewController, NibLoadable {
         super.viewDidLoad()
         
         let acceptedModifiers = GlobalKeybindPreferences.acceptedModifiers.joined(separator: ", ")
-        tipLabelTextView.stringValue = "Use either \(acceptedModifiers) with any other letter. e.g ⌘E"
+        tipLabelTextView.stringValue = "Use either \(acceptedModifiers) with any other character. e.g ⌘E"
         
         cancelButton.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(cancelClick)))
         setupHotkeyComboViewData()
@@ -34,9 +34,7 @@ class HotkeyPrefsViewController: NSViewController, NibLoadable {
             cancelButton.title = "Cancel"
             
             hotKeyComboView.clearView()
-            globalKeyBindPreferences.description.split(separator: "-").forEach{
-                hotKeyComboView.addKey($0.first!, isEditing: true)
-            }
+            globalKeyBindPreferences.toArray.forEach{hotKeyComboView.addKey($0.first!, isEditing: true)}
         }
     }
     

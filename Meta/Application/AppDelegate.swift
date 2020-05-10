@@ -9,16 +9,29 @@
 import AppKit
 import MetaCore
 import ServiceManagement
+import UserNotifications
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    override init() {
+        if #available(OSX 10.14, *) {NSApp.appearance = NSAppearance(named: .darkAqua)}
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        NSApplication.shared.windows[0].contentView?.enterFullScreenMode()
-        
+        NSApp.windows[0].contentView?.enterFullScreenMode()
+            
         if #available(OSX 10.12.2, *) {NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true}
     
         setupMetaPanel(enabled: true)
         setupGoogleAnalytics()
+    
+
+        if #available(OSX 10.14, *) {
+            UNUserNotificationCenter.current().delegate = self
+        } else {
+            NSUserNotificationCenter.default.delegate = self
+        }
     }
     
     private func setupGoogleAnalytics(){
@@ -36,7 +49,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Logger.log(text: "\(identifier) as LoginItem enabled: \(isEnabled)")
     }
     
-    func applicationWillTerminate(_ notification: Notification) {
-        MPAnalyticsTimingManager.shared.endTracking()
+    func applicationWillTerminate(_ notification: Notification) {MPAnalyticsTimingManager.shared.endTracking()}
+}
+
+@available(OSX 10.14, *)
+extension AppDelegate: UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    }
+}
+
+extension AppDelegate: NSUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        return true
     }
 }
