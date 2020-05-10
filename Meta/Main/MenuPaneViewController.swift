@@ -32,9 +32,9 @@ class MenuPanelViewController: NSViewController, NibLoadable{
             GlobalKeybindPreferencesStore.save(keyBind: GlobalKeybindPreferences.defaultKeyBind)
         }
         
-        hotKeyComboView.removeAll()
+        hotKeyComboView.clearView()
         if let keybind = GlobalKeybindPreferencesStore.fetch(){
-            keybind.description.split(separator: "-").forEach{hotKeyComboView.addKey($0.first!, isEditing: false)}
+            keybind.toArray.forEach{hotKeyComboView.addKey($0.first!, isEditing: false)}
         }
     }
     
@@ -46,7 +46,7 @@ class MenuPanelViewController: NSViewController, NibLoadable{
     }
     
     @IBAction func changeHotkeyTapped(_ sender: Any) {
-        HotkeyPreferenceViewController.presentAsWindowKeyAndOrderFront(nil)
+        HotkeyPrefsViewController.presentAsWindowKeyAndOrderFront(nil)
     }
     
     override func keyDown(with event: NSEvent) {if event.keyCode == kVK_Escape{super.keyDown(with: event)}}

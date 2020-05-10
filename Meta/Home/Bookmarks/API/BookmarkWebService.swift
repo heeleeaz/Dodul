@@ -12,14 +12,14 @@ import MetaCore
 class BookmarkWebService{
     static let shared = BookmarkWebService()
     
-    func defaultBookmarks(_ completionHandler: @escaping ([Link]?, Error?)->()){
+    func getBookmarks(_ complete: @escaping ([Link]?, Error?)->()){
         let request = NetworkRequest()
         request.setURL(url: "\(API.serverURL)/defaultBookmarks")
         request.request { (data, error) in
             if let data = data, let links = try? JSONDecoder().decode([Link].self, from: data){
-                completionHandler(links, nil)
+                complete(links, nil)
             }else{
-                completionHandler(nil, error)
+                complete(nil, error)
             }
         }
     }
