@@ -71,7 +71,7 @@ class AppCollectionViewItem: NSCollectionViewItem {
     
     private func updateView(){
         appNameTextField.stringValue = spotlight.displayName ?? ""
-        appIconImageView.image = SpotlightRepository.findAppIcon(bundleIdentifier: spotlight.bundleIdentifier) ?? NSImage(named: "NSApplicationIcon")
+        appIconImageView.image = SpotlightRepository.findAppIcon(bundleIdentifier: spotlight.bundleIdentifier) ?? NSImage(named: "DefaultAppIcon")
     }
     
     override var draggingImageComponents: [NSDraggingImageComponent]{
