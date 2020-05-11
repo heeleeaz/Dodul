@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSRequiresAquaSystemAppearance</key>
-	<string>false</string>
 	<key>APP_SECURITY_GROUP</key>
 	<string>$(APP_SECURITY_GROUP)</string>
 	<key>ATSApplicationFontsPath</key>
@@ -43,6 +41,8 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSRequiresAquaSystemAppearance</key>
+	<string>false</string>
 	<key>SERVER_URL</key>
 	<string>$(SERVER_URL)</string>
 </dict>
