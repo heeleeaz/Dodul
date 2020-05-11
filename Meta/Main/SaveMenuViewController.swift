@@ -42,7 +42,7 @@ class SaveMenuViewController: NSViewController {
         
     private func setupCloseAndSaveView(){
         //setup close button
-        let closeButton = createButton(title: "Close",
+        let closeButton = createButton(title: "Quit",
                                        icon: NSImage(named: "CloseIcon")!, action: #selector(didClickClose))
         view.addSubview(closeButton)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +63,7 @@ class SaveMenuViewController: NSViewController {
         
         
         //setup save button
-        let saveButton = createButton(title: "Save and Close",
+        let saveButton = createButton(title: "Save and Quit",
                                       icon: NSImage(named: "CheckIcon")!, action: #selector(didClickSaveButton))
         saveButton.isEnabled = false
         view.addSubview(saveButton)
