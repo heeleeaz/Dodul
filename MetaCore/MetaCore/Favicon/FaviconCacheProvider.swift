@@ -10,7 +10,7 @@ import Foundation
 import AppKit
 
 public class FaviconCacheProvider{
-    public static let instance = FaviconCacheProvider()
+    public static let shared = FaviconCacheProvider()
     
     private var cache: Cache<String, Data>!
     
@@ -19,6 +19,10 @@ public class FaviconCacheProvider{
     }
     
     private init() {
+        cache = (try? Cache.loadFromDisk(withName: Constant.cachePath)) ?? Cache()
+    }
+    
+    public func refresh(){
         cache = (try? Cache.loadFromDisk(withName: Constant.cachePath)) ?? Cache()
     }
     

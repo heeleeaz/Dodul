@@ -107,7 +107,7 @@ class LinkCollectionViewItem: NSCollectionViewItem {
         linkIconimageView.image = NSImage(named: "NSBookmarksTemplate")
         isImageLoaded = false
         
-        if let favicon = FaviconCacheProvider.instance.loadFromCache(path: link.url){
+        if let favicon = FaviconCacheProvider.shared.loadFromCache(path: link.url){
             self.linkIconimageView.image = favicon
             self.isImageLoaded = true
         }else{
@@ -128,7 +128,7 @@ class LinkCollectionViewItem: NSCollectionViewItem {
                 switch $0{
                 case .success(let image):
                     if let data = image.resize(destSize: size).data {
-                        FaviconCacheProvider.instance.insert(data, path: url)
+                        FaviconCacheProvider.shared.insert(data, path: url)
                         completion(image, nil)
                     }
                 case .failure(let error):
