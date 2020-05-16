@@ -20,46 +20,46 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="sTJ-lw-yMN">
-                    <rect key="frame" x="330" y="0.0" width="5" height="44"/>
+                    <rect key="frame" x="359" y="0.0" width="5" height="44"/>
                 </box>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7AJ-nc-qyg">
-                    <rect key="frame" x="16" y="10" width="24" height="24"/>
+                    <rect key="frame" x="16" y="8" width="28" height="28"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="24" id="qqi-2X-m3X"/>
-                        <constraint firstAttribute="width" constant="24" id="stn-AQ-whP"/>
+                        <constraint firstAttribute="height" constant="28" id="qqi-2X-m3X"/>
+                        <constraint firstAttribute="width" constant="28" id="stn-AQ-whP"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DragIcon" id="jes-QE-uMF"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ceu-pa-v39">
-                    <rect key="frame" x="43" y="11" width="275" height="23"/>
+                    <rect key="frame" x="47" y="9" width="300" height="26"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Drag preffered items to Touchbar" id="xrA-pb-JpQ">
-                        <font key="font" metaFont="systemThin" size="20"/>
+                        <font key="font" metaFont="systemThin" size="22"/>
                         <color key="textColor" name="TextColor"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bDu-yt-gn2" customClass="HotkeyComboView" customModule="Meta" customModuleProvider="target">
-                    <rect key="frame" x="403" y="9" width="50" height="26"/>
+                    <rect key="frame" x="422" y="9" width="50" height="26"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="26" id="FgC-qi-b9s"/>
                         <constraint firstAttribute="width" constant="50" id="kwJ-pj-J6U"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                            <real key="value" value="20"/>
+                            <real key="value" value="22"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </stackView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KSR-gQ-kAq">
-                    <rect key="frame" x="347" y="11" width="50" height="23"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Press" id="0xf-B1-Qt9">
-                        <font key="font" metaFont="systemThin" size="20"/>
+                    <rect key="frame" x="376" y="9" width="40" height="26"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Use" id="0xf-B1-Qt9">
+                        <font key="font" metaFont="systemThin" size="22"/>
                         <color key="textColor" name="TextColor"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="INa-Lh-8aB">
-                    <rect key="frame" x="454" y="9" width="47" height="13"/>
+                    <rect key="frame" x="473" y="9" width="47" height="13"/>
                     <buttonCell key="cell" type="bevel" title="(change)" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="OWh-m9-Ok4">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="systemLight" size="10"/>
@@ -70,9 +70,9 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Px8-9a-gmU">
-                    <rect key="frame" x="504" y="11" width="387" height="23"/>
+                    <rect key="frame" x="523" y="9" width="423" height="26"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="to show and open the items from the Touchbar" id="98u-pW-Rrp">
-                        <font key="font" metaFont="systemThin" size="20"/>
+                        <font key="font" metaFont="systemThin" size="22"/>
                         <color key="textColor" name="TextColor"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

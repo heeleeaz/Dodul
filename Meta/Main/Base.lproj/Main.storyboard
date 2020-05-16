@@ -106,7 +106,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="dMK-MW-RVV">
-                                <rect key="frame" x="50" y="120" width="1240" height="583"/>
+                                <rect key="frame" x="50" y="120" width="1240" height="610"/>
                                 <subviews>
                                     <containerView translatesAutoresizingMaskIntoConstraints="NO" id="0qx-2D-8fR">
                                         <rect key="frame" x="20" y="70" width="1200" height="400"/>
@@ -133,10 +133,10 @@
                                         </connections>
                                     </containerView>
                                     <containerView translatesAutoresizingMaskIntoConstraints="NO" id="dQQ-Ew-KHH">
-                                        <rect key="frame" x="166" y="504" width="909" height="56"/>
+                                        <rect key="frame" x="135" y="536" width="970" height="64"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="LKV-WM-tEo"/>
-                                            <constraint firstAttribute="width" constant="909" id="osd-rs-cHa"/>
+                                            <constraint firstAttribute="height" constant="64" id="LKV-WM-tEo"/>
+                                            <constraint firstAttribute="width" constant="970" id="osd-rs-cHa"/>
                                         </constraints>
                                     </containerView>
                                 </subviews>
@@ -144,8 +144,8 @@
                                     <constraint firstItem="0qx-2D-8fR" firstAttribute="centerX" secondItem="dMK-MW-RVV" secondAttribute="centerX" id="BUu-Ea-Uod"/>
                                     <constraint firstItem="dQQ-Ew-KHH" firstAttribute="centerX" secondItem="dMK-MW-RVV" secondAttribute="centerX" id="G5J-ll-mwd"/>
                                     <constraint firstAttribute="bottom" secondItem="0qx-2D-8fR" secondAttribute="bottom" constant="70" id="HTs-QI-hEE"/>
-                                    <constraint firstItem="dQQ-Ew-KHH" firstAttribute="top" secondItem="dMK-MW-RVV" secondAttribute="top" constant="23" id="i1t-TT-kzU"/>
-                                    <constraint firstAttribute="height" constant="583" id="vO6-nX-yKI"/>
+                                    <constraint firstItem="dQQ-Ew-KHH" firstAttribute="top" secondItem="dMK-MW-RVV" secondAttribute="top" constant="10" id="i1t-TT-kzU"/>
+                                    <constraint firstAttribute="height" constant="610" id="vO6-nX-yKI"/>
                                 </constraints>
                             </customView>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="xbb-nn-fkf" customClass="RoundedRectButton" customModule="MetaCore">

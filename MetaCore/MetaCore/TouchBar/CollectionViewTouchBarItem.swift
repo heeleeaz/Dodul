@@ -155,7 +155,7 @@ extension CollectionViewTouchBarItem: NSCollectionViewDataSource{
         case .App:
             return SpotlightRepository.findAppIcon(bundleIdentifier: touchBarItem.identifier)
         default:
-            return FaviconCacheProvider.instance.loadFromCache(path: touchBarItem.identifier)
+            return FaviconCacheProvider.shared.loadFromCache(path: touchBarItem.identifier)
         }
     }
 }

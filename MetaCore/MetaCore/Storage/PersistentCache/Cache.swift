@@ -1,5 +1,5 @@
 //
-//  ImageCache.swift
+//  Cache.swift
 //  Touchlet
 //
 //  Created by Elias on 15/01/2020.

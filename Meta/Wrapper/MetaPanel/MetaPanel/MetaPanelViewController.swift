@@ -26,6 +26,7 @@ class MetaPanelViewController: ReadonlyTouchBarController{
     
     @objc func refreshTouchItems(){
         super.reloadItems()
+        FaviconCacheProvider.shared.refresh()
     }
     
     deinit {
