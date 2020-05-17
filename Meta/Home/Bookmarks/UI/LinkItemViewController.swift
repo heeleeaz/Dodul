@@ -93,7 +93,7 @@ extension LinkItemViewController: NSCollectionViewDataSource{
     override func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
         let isLoaded = (collectionView.item(at: indexes.first!) as! LinkCollectionViewItem).isImageLoaded
         if !isLoaded{
-            view.undermostWindowView?.makeToast("Drag is only possible when icon is completely downloaded", style: DefaultStyle(position: .bottom))
+            view.undermostWindowView?.makeToast("Wait while icon is downloaded before dragging to Touchbar", style: DefaultStyle(position: .bottom))
         }
         
         return isLoaded
