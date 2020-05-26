@@ -100,8 +100,16 @@ class SaveMenuViewController: NSViewController {
             content.message = "Press \(keyArray.joined(separator: "")) to show and open the items from the Touchbar."
             content.actionString = "Got it!"
             content.timeInterval = 2
-            SupportNotificationManager.shedule(content){ _ in
-                if terminateApp{DispatchQueue.main.async {NSApp.terminate(nil)}}
+            
+            if #available(OSX 10.14, *) {
+                let center = UNUserNotificationCenter.current()
+                SupportNotificationManager.sheduleV14(center: center, content){_ in
+                    if terminateApp{DispatchQueue.main.async {NSApp.terminate(nil)}}
+                }
+            } else {
+                SupportNotificationManager.shedule(content){_ in
+                    if terminateApp{DispatchQueue.main.async {NSApp.terminate(nil)}}
+                }
             }
         }
     }
