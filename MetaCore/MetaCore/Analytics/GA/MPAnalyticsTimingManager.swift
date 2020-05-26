@@ -22,10 +22,7 @@ public class MPAnalyticsTimingManager{
     
     public func beginTracking(timingVariable: String, tracker: MPGoogleAnalyticsTracker = .shared){
         timer = Timer(timeInterval: timeInterval, repeats: true, block: {
-            let time = Int($0.fireDate.timeIntervalSince1970)
-            tracker.trackTiming(with: MPTimingParams(category: "online", variable: timingVariable, time: time))
-            self.delegate?.mpAnalyticsTimingDispatcher(timingDispached: self)
-            
+            self.doTrackTiming(time: Int($0.fireDate.timeIntervalSince1970), timingVariable: timingVariable)
         })
         RunLoop.main.add(timer!, forMode: .default)
     }
@@ -33,6 +30,11 @@ public class MPAnalyticsTimingManager{
     public func endTracking(){
         timer?.invalidate()
         delegate?.mpAnalyticsTimingDispatcher(timingEnded: self)
+    }
+    
+    public func doTrackTiming(time: Int, timingVariable: String, tracker: MPGoogleAnalyticsTracker = .shared){
+        tracker.trackTiming(with: MPTimingParams(category: "online", variable: timingVariable, time: time))
+        self.delegate?.mpAnalyticsTimingDispatcher(timingDispached: self)
     }
 }
 

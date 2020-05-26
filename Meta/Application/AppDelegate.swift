@@ -25,13 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
         setupMetaPanel(enabled: true)
         setupGoogleAnalytics()
-    
 
-        if #available(OSX 10.14, *) {
-            UNUserNotificationCenter.current().delegate = self
-        } else {
-            NSUserNotificationCenter.default.delegate = self
-        }
+        NSUserNotificationCenter.default.delegate = self
     }
     
     private func setupGoogleAnalytics(){
@@ -50,12 +45,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationWillTerminate(_ notification: Notification) {MPAnalyticsTimingManager.shared.endTracking()}
-}
-
-@available(OSX 10.14, *)
-extension AppDelegate: UNUserNotificationCenterDelegate{
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-    }
 }
 
 extension AppDelegate: NSUserNotificationCenterDelegate{
