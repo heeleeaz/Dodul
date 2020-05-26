@@ -101,15 +101,8 @@ class SaveMenuViewController: NSViewController {
             content.actionString = "Got it!"
             content.timeInterval = 2
             
-            if #available(OSX 10.14, *) {
-                let center = UNUserNotificationCenter.current()
-                SupportNotificationManager.sheduleV14(center: center, content){_ in
-                    if terminateApp{DispatchQueue.main.async {NSApp.terminate(nil)}}
-                }
-            } else {
-                SupportNotificationManager.shedule(content){_ in
-                    if terminateApp{DispatchQueue.main.async {NSApp.terminate(nil)}}
-                }
+            SupportNotificationManager.shedule(content){_ in
+                if terminateApp{DispatchQueue.main.async {NSApp.terminate(nil)}}
             }
         }
     }
