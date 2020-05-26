@@ -11,14 +11,6 @@ import UserNotifications
 
 public class SupportNotificationManager{
     public static func shedule(_ content: Content, _ completionHandler: @escaping (Error?)->Void){
-        if #available(OSX 10.14, *) {
-            SupportNotificationManager().sheduleNotificationV14(content, completionHandler)
-        } else {
-            SupportNotificationManager().sheduleNotification(content, completionHandler)
-        }
-    }
-    
-    private func sheduleNotification(_ content: Content, _ completionHandler: @escaping (Error?)->Void){
         let notification = NSUserNotification()
         
         notification.identifier = content.id
@@ -38,8 +30,7 @@ public class SupportNotificationManager{
     }
     
     @available(OSX 10.14, *)
-    private func sheduleNotificationV14(_ content: Content, _ completionHandler: @escaping (Error?)->Void){
-        let center = UNUserNotificationCenter.current()
+    public static func sheduleV14(center: UNUserNotificationCenter, _ content: Content, _ completionHandler: @escaping (Error?)->Void){
         center.requestAuthorization(options: [.alert, .sound]) { granted, error in
             let notificationContent = UNMutableNotificationContent()
             notificationContent.title = content.title
