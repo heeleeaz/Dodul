@@ -1,0 +1,18 @@
+//
+//  Release.xcconfig
+//  Meta
+//
+//  Created by Elias on 04/07/2020.
+//  Copyright © 2020 Elias Igbalajobi. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_NAME = Dodul
+APP_ICON = AppIcon
+APP_SECURITY_GROUP = group.com.heeleeaz.dodul
+GA_IDENTIFIER = UA-121293848-3
+EXECUTABLE_NAME = Dodul
+BUNDLE_IDENTIFIER = com.heeleeaz.Dodul
+SERVER_URL = "https://us-central1-touchlet-11807.cloudfunctions.net"

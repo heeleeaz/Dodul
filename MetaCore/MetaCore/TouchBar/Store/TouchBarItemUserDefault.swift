@@ -64,5 +64,5 @@ class TouchBarItemUserDefault: TouchBarItemStore {
 }
 
 extension UserDefaults {
-    static let touchBarSuite = UserDefaults(suiteName: "\(Global.shared.APP_SECURITY_GROUP)")!
+    static let touchBarSuite = UserDefaults(suiteName: "\(Global.instance.APP_SECURITY_GROUP)")!
 }

@@ -9,38 +9,38 @@
 import AppKit
 
 public class Global{
-    public var APP_SECURITY_GROUP: String{Bundle.main.object(forInfoDictionaryKey: "APP_SECURITY_GROUP") as! String}
+    public var APP_SECURITY_GROUP: String {
+        Bundle.main.object(forInfoDictionaryKey: "APP_SECURITY_GROUP") as! String
+    }
 
-    public static let shared = Global()
+    public static let instance = Global()
     
     private init(){}
         
-    public func bundleIdentifier(for project: Project) -> String{
+    public func bundleIdentifier(for project: Project, bundle: Bundle = Bundle.main) -> String{
+        guard let identifier = Bundle.main.bundleIdentifier else { return "" }
+        
         switch project {
-        case .meta:
-            return "com.heeleeaz.Meta\(environmentSuffixString("."))"
+        case .menu:
+            return identifier.replacingOccurrences(of: ".Panel", with: "")
+            
         case .panel:
-            return "com.heeleeaz.MetaPanel\(environmentSuffixString("."))"
+            return identifier.replacingOccurrences(of: "Dodul", with: "Dodul.Panel")
         }
     }
     
-    public func appName(for project: Project) -> String{
-        switch project {
-        case .meta:
-            return "Meta\(environmentSuffixString("-"))"
-        case .panel:
-            return "MetaPanel\(environmentSuffixString("-"))"
-        }
-    }
-    
-    public func environmentSuffixString(_ seperator: String) -> String {
-        #if DEBUG
-            return "\(seperator)debug"
-        #elseif ALPHA
-            return "\(seperator)alpha"
-        #else
+    public func appName(for project: Project, bundle: Bundle = Bundle.main) -> String{
+        guard let name = bundle.object(forInfoDictionaryKey: kCFBundleNameKey as String) as? String else{
             return ""
-        #endif
+        }
+
+        switch project {
+        case .menu:
+            return name.replacingOccurrences(of: "Panel", with: "")
+            
+        case .panel:
+            return name.replacingOccurrences(of: "Dodul", with: "DodulPanel")
+        }
     }
     
     @discardableResult
@@ -58,12 +58,12 @@ public class Global{
     }
     
     public enum Project{
-        case meta, panel
+        case menu, panel
     }
 }
 
 extension Notification.Name{
-    public static let hotKeySetup = NSNotification.Name("\(Global.shared.APP_SECURITY_GROUP).hotKeySetup")
-    public static let touchItemReload = Notification.Name("\(Global.shared.APP_SECURITY_GROUP).refreshTouchItem")
-    public static let killApp = NSNotification.Name("\(Global.shared.APP_SECURITY_GROUP).killApp")
+    public static let hotKeySetup = NSNotification.Name("\(Global.instance.APP_SECURITY_GROUP).hotKeySetup")
+    public static let touchItemReload = Notification.Name("\(Global.instance.APP_SECURITY_GROUP).refreshTouchItem")
+    public static let killApp = NSNotification.Name("\(Global.instance.APP_SECURITY_GROUP).killApp")
 }

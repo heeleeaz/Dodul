@@ -124,7 +124,7 @@ extension Cache: Codable where Key: Codable, Value: Codable {
 
 extension Cache where Key: Codable, Value: Codable {
     public func saveToDisk(withName name: String, using fileManager: FileManager = .default) throws {
-        if let folderURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: Global.shared.APP_SECURITY_GROUP){
+        if let folderURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: Global.instance.APP_SECURITY_GROUP){
             let fileURL = folderURL.appendingPathComponent(name + ".c")
             let data = try JSONEncoder().encode(self)
             try data.write(to: fileURL)
@@ -134,7 +134,7 @@ extension Cache where Key: Codable, Value: Codable {
     }
     
     public static func loadFromDisk(withName name: String, using fileManager: FileManager = .default) throws -> Cache {
-        if let folderURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: Global.shared.APP_SECURITY_GROUP){
+        if let folderURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: Global.instance.APP_SECURITY_GROUP){
             let fileURL = folderURL.appendingPathComponent(name + ".c")
             let data = try Data(contentsOf: fileURL)
             
