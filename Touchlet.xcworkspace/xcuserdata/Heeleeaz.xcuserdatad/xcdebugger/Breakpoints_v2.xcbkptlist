@@ -1,6 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "464622CA-0A12-41FB-AEE7-DD8C1BF9007D"
+   uuid = "96D101F8-1A46-4AAE-9EB8-1D23DD1C0FA5"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA671F44-AAD8-405D-9916-513032B4229F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Meta/Wrapper/MetaPanel/MetaPanel/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "setupGoogleAnalytics()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AD102AD1-DA9A-4021-AF31-A2FD1EF4266A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Meta/Wrapper/MetaPanel/MetaPanel/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "setupGoogleAnalytics()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6D5AD958-5CC3-40F7-A7C2-659ABD446147"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MetaCore/MetaCore/Project/Global.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "appName(for:bundle:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6D5AD958-5CC3-40F7-A7C2-659ABD446147 - 4362f816229ff627"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MetaCore.Global.appName(for: MetaCore.Global.Project) -&gt; Swift.String"
+                  moduleName = "MetaCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Heeleeaz/Documents/XCodeProject/Touchlet/MetaCore/MetaCore/Project/Global.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "933">
+               </Location>
+               <Location
+                  uuid = "6D5AD958-5CC3-40F7-A7C2-659ABD446147 - ed8df7da5b2b97a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MetaCore.Global.appName(for: MetaCore.Global.Project, bundle: __C.NSBundle) -&gt; Swift.String"
+                  moduleName = "MetaCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Heeleeaz/Documents/XCodeProject/Touchlet/MetaCore/MetaCore/Project/Global.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "207">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

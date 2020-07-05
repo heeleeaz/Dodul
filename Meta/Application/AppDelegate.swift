@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
         if #available(OSX 10.12.2, *) {NSApplication.shared.isAutomaticCustomizeTouchBarMenuItemEnabled = true}
     
-        setupMetaPanel(enabled: true)
+        setupPanel(enabled: true)
         setupGoogleAnalytics()
 
         NSUserNotificationCenter.default.delegate = self
@@ -38,13 +38,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         MPAnalyticsTimingManager.shared.beginTracking(timingVariable: Bundle.main.bundleIdentifier ?? "Main")
     }
     
-    private func setupMetaPanel(enabled: Bool){
-        let identifier = Global.shared.bundleIdentifier(for: .panel)
+    private func setupPanel(enabled: Bool){
+        let identifier = Global.instance.bundleIdentifier(for: .panel)
         let isEnabled = SMLoginItemSetEnabled(identifier as CFString, enabled)
         Logger.log(text: "\(identifier) as LoginItem enabled: \(isEnabled)")
     }
     
-    func applicationWillTerminate(_ notification: Notification) {MPAnalyticsTimingManager.shared.endTracking()}
+    func applicationWillTerminate(_ notification: Notification) { MPAnalyticsTimingManager.shared.endTracking() }
 }
 
 extension AppDelegate: NSUserNotificationCenterDelegate{

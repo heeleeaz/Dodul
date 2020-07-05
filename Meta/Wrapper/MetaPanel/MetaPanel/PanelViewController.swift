@@ -9,7 +9,7 @@
 import Cocoa
 import MetaCore
 
-class MetaPanelViewController: ReadonlyTouchBarController{
+class PanelViewController: ReadonlyTouchBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,11 +17,11 @@ class MetaPanelViewController: ReadonlyTouchBarController{
     }
     
     override func readonlyEmptyTouchBarItem(addButtonTapped touchBarItem: NSTouchBarItem) {
-        Global.shared.launch(removeLast: 3, append: ["MacOS", Global.shared.appName(for: .meta)])
+        Global.instance.launch(removeLast: 3, append: ["MacOS", Global.instance.appName(for: .menu)])
     }
     
     override func readonlyEmptyTouchBarItem(editButtonTapped touchBarItem: NSTouchBarItem) {
-        Global.shared.launch(removeLast: 3, append: ["MacOS", Global.shared.appName(for: .meta)])
+        Global.instance.launch(removeLast: 3, append: ["MacOS", Global.instance.appName(for: .menu)])
     }
     
     @objc func refreshTouchItems(){

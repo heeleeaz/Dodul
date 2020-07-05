@@ -9,12 +9,23 @@
 /* Begin PBXBuildFile section */
 		20468E6BC27612C015685E66 /* libPods-MetaPanel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC92578EEABC9FEEA29D6745 /* libPods-MetaPanel.a */; };
 		921927B52412A9980008CCC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 921927B32412A9980008CCC8 /* Assets.xcassets */; };
+		9253506924B25BA400F0F838 /* DodulPanelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253506824B25BA400F0F838 /* DodulPanelTests.swift */; };
 		92ACE9B5241295F6009994EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE9B4241295F6009994EB /* AppDelegate.swift */; };
-		92ACE9B7241295F6009994EB /* MetaPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE9B6241295F6009994EB /* MetaPanelViewController.swift */; };
+		92ACE9B7241295F6009994EB /* PanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE9B6241295F6009994EB /* PanelViewController.swift */; };
 		92ACE9BC241295F6009994EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92ACE9BA241295F6009994EB /* Main.storyboard */; };
 		92F7D8B5244F30F300C13AA1 /* MetaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F7D8B4244F30F300C13AA1 /* MetaCore.framework */; };
 		92F7D8B6244F30F300C13AA1 /* MetaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92F7D8B4244F30F300C13AA1 /* MetaCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9253506B24B25BA400F0F838 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92ACE9A9241295F6009994EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92ACE9B0241295F6009994EB;
+			remoteInfo = MetaPanel;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		92F7D8B7244F30F300C13AA1 /* Embed Frameworks */ = {
@@ -38,10 +49,15 @@
 		921927B22412A9980008CCC8 /* MetaPanel.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = MetaPanel.entitlements; sourceTree = "<group>"; };
 		921927B32412A9980008CCC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		921927B42412A9980008CCC8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9253505124B1C33900F0F838 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		9253505224B1C35100F0F838 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		9253506624B25BA400F0F838 /* DodulPanelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DodulPanelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9253506824B25BA400F0F838 /* DodulPanelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodulPanelTests.swift; sourceTree = "<group>"; };
+		9253506A24B25BA400F0F838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9288B9AE2442159300D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92ACE9B1241295F6009994EB /* MetaPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetaPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92ACE9B1241295F6009994EB /* DodulPanel (Dev).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DodulPanel (Dev).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92ACE9B4241295F6009994EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		92ACE9B6241295F6009994EB /* MetaPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaPanelViewController.swift; sourceTree = "<group>"; };
+		92ACE9B6241295F6009994EB /* PanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelViewController.swift; sourceTree = "<group>"; };
 		92ACE9BB241295F6009994EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92F7D8B4244F30F300C13AA1 /* MetaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MetaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7D70E102E34AA2CE7CF60A1 /* Pods-TouchletPanel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchletPanel.debug.xcconfig"; path = "Target Support Files/Pods-TouchletPanel/Pods-TouchletPanel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +67,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9253506324B25BA400F0F838 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92ACE9AE241295F6009994EB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -88,12 +111,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9253506724B25BA400F0F838 /* DodulPanelTests */ = {
+			isa = PBXGroup;
+			children = (
+				9253506824B25BA400F0F838 /* DodulPanelTests.swift */,
+				9253506A24B25BA400F0F838 /* Info.plist */,
+			);
+			path = DodulPanelTests;
+			sourceTree = "<group>";
+		};
 		9288B9B6244217C800D50D27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				921927B32412A9980008CCC8 /* Assets.xcassets */,
 				921927B42412A9980008CCC8 /* Info.plist */,
 				921927B22412A9980008CCC8 /* MetaPanel.entitlements */,
+				9253505124B1C33900F0F838 /* Debug.xcconfig */,
+				9253505224B1C35100F0F838 /* Release.xcconfig */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -102,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				92ACE9B3241295F6009994EB /* MetaPanel */,
+				9253506724B25BA400F0F838 /* DodulPanelTests */,
 				92ACE9B2241295F6009994EB /* Products */,
 				920488442432735C0017FEC6 /* Frameworks */,
 				10793CF76A215FB880091FC4 /* Pods */,
@@ -111,7 +146,8 @@
 		92ACE9B2241295F6009994EB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				92ACE9B1241295F6009994EB /* MetaPanel.app */,
+				92ACE9B1241295F6009994EB /* DodulPanel (Dev).app */,
+				9253506624B25BA400F0F838 /* DodulPanelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,7 +157,7 @@
 			children = (
 				9288B9B6244217C800D50D27 /* Supporting Files */,
 				92ACE9B4241295F6009994EB /* AppDelegate.swift */,
-				92ACE9B6241295F6009994EB /* MetaPanelViewController.swift */,
+				92ACE9B6241295F6009994EB /* PanelViewController.swift */,
 				92ACE9BA241295F6009994EB /* Main.storyboard */,
 			);
 			path = MetaPanel;
@@ -130,6 +166,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9253506524B25BA400F0F838 /* DodulPanelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9253506D24B25BA400F0F838 /* Build configuration list for PBXNativeTarget "DodulPanelTests" */;
+			buildPhases = (
+				9253506224B25BA400F0F838 /* Sources */,
+				9253506324B25BA400F0F838 /* Frameworks */,
+				9253506424B25BA400F0F838 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9253506C24B25BA400F0F838 /* PBXTargetDependency */,
+			);
+			name = DodulPanelTests;
+			productName = DodulPanelTests;
+			productReference = 9253506624B25BA400F0F838 /* DodulPanelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		92ACE9B0241295F6009994EB /* MetaPanel */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92ACE9C1241295F6009994EB /* Build configuration list for PBXNativeTarget "MetaPanel" */;
@@ -146,7 +200,7 @@
 			);
 			name = MetaPanel;
 			productName = TouchletPanel;
-			productReference = 92ACE9B1241295F6009994EB /* MetaPanel.app */;
+			productReference = 92ACE9B1241295F6009994EB /* DodulPanel (Dev).app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -159,6 +213,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Elias Igbalajobi";
 				TargetAttributes = {
+					9253506524B25BA400F0F838 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 92ACE9B0241295F6009994EB;
+					};
 					92ACE9B0241295F6009994EB = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -178,11 +236,19 @@
 			projectRoot = "";
 			targets = (
 				92ACE9B0241295F6009994EB /* MetaPanel */,
+				9253506524B25BA400F0F838 /* DodulPanelTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9253506424B25BA400F0F838 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92ACE9AF241295F6009994EB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -220,16 +286,32 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9253506224B25BA400F0F838 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9253506924B25BA400F0F838 /* DodulPanelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92ACE9AD241295F6009994EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92ACE9B7241295F6009994EB /* MetaPanelViewController.swift in Sources */,
+				92ACE9B7241295F6009994EB /* PanelViewController.swift in Sources */,
 				92ACE9B5241295F6009994EB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9253506C24B25BA400F0F838 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92ACE9B0241295F6009994EB /* MetaPanel */;
+			targetProxy = 9253506B24B25BA400F0F838 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		92ACE9BA241295F6009994EB /* Main.storyboard */ = {
@@ -243,8 +325,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9253506E24B25BA400F0F838 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZWXH8BD23X;
+				INFOPLIST_FILE = DodulPanelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.DodulPanelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DodulPanel (Dev).app/Contents/MacOS/Dudul";
+			};
+			name = Debug;
+		};
+		9253506F24B25BA400F0F838 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZWXH8BD23X;
+				INFOPLIST_FILE = DodulPanelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.DodulPanelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DodulPanel (Dev).app/Contents/MacOS/Dudul";
+			};
+			name = Release;
+		};
 		92ACE9BF241295F6009994EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9253505124B1C33900F0F838 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -305,6 +430,7 @@
 		};
 		92ACE9C0241295F6009994EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9253505224B1C35100F0F838 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -360,7 +486,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 31BF6528554A8878031D20C9 /* Pods-MetaPanel.debug.xcconfig */;
 			buildSettings = {
-				APP_SECURITY_GROUP = group.com.heeleeaz.meta.debug;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MetaPanel/MetaPanel.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -369,7 +494,6 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GA_IDENTIFIER = "UA-121293848-3";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MetaPanel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -378,8 +502,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.MetaPanel.debug;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(APP_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -390,7 +514,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D8B5BD70B00FD0D0EA37615D /* Pods-MetaPanel.release.xcconfig */;
 			buildSettings = {
-				APP_SECURITY_GROUP = group.com.heeleeaz.meta;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MetaPanel/MetaPanel.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -399,7 +522,6 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GA_IDENTIFIER = "UA-121293848-3";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MetaPanel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -408,8 +530,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.MetaPanel;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(APP_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -419,6 +541,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9253506D24B25BA400F0F838 /* Build configuration list for PBXNativeTarget "DodulPanelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9253506E24B25BA400F0F838 /* Debug */,
+				9253506F24B25BA400F0F838 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		92ACE9AC241295F6009994EB /* Build configuration list for PBXProject "MetaPanel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

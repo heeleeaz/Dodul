@@ -30,7 +30,6 @@
 		92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92861C922406DD34001B8EFD /* AddLinkViewController.swift */; };
 		92885F5B2455B0E900E779B9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92885F5A2455B0E900E779B9 /* API.swift */; };
 		928DD067243B4EBE007A38B0 /* ButtonCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928DD066243B4EBE007A38B0 /* ButtonCellItem.swift */; };
-		929A4BC72455C60A00173887 /* MetaPanel.app in Copy Login Items */ = {isa = PBXBuildFile; fileRef = 92885F562455AC5D00E779B9 /* MetaPanel.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		92A0C8CA2409173F000C5011 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */; };
 		92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */; };
 		92A1B2F823C4AA2100D7BEF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B2F723C4AA2100D7BEF1 /* MainViewController.swift */; };
@@ -45,6 +44,7 @@
 		92C5197624621C6600CD1006 /* OnboardingPageAdapterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C5197524621C6600CD1006 /* OnboardingPageAdapterVC.swift */; };
 		92C5197A2462C7A500CD1006 /* MenuPaneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C519792462C7A500CD1006 /* MenuPaneViewController.swift */; };
 		92C85C9224290A1300002173 /* AppUpdateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C85C8D2429039C00002173 /* AppUpdateRepository.swift */; };
+		92CD82C524B103B7005F3309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92CD82C424B103B7005F3309 /* Images.xcassets */; };
 		92E16C762403D60E00511EE1 /* HotkeyPrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16C752403D60E00511EE1 /* HotkeyPrefsViewController.swift */; };
 		92EB9430243B7B4900289316 /* AppItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB942F243B7B4900289316 /* AppItemViewController.swift */; };
 		92EE13562423A323001513A8 /* HotkeyPrefsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EE13552423A323001513A8 /* HotkeyPrefsViewController.xib */; };
@@ -55,16 +55,6 @@
 		92FE9B2523D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		92885F552455AC5D00E779B9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 92D392912455687B005576C5 /* MetaPanel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 92ACE9B1241295F6009994EB;
-			remoteInfo = MetaPanel;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		9204883524326B2D0017FEC6 /* Copy Login Items */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -72,7 +62,6 @@
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
-				929A4BC72455C60A00173887 /* MetaPanel.app in Copy Login Items */,
 			);
 			name = "Copy Login Items";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,7 +127,7 @@
 		9288B9A62442155800D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		928DD066243B4EBE007A38B0 /* ButtonCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellItem.swift; sourceTree = "<group>"; };
 		92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
-		92A1B2F223C4AA2100D7BEF1 /* Meta-debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meta-debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92A1B2F223C4AA2100D7BEF1 /* Dodul (Dev).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dodul (Dev).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92A1B2F723C4AA2100D7BEF1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		92A1B2FC23C4AA2200D7BEF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -157,7 +146,9 @@
 		92C5197524621C6600CD1006 /* OnboardingPageAdapterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageAdapterVC.swift; sourceTree = "<group>"; };
 		92C519792462C7A500CD1006 /* MenuPaneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPaneViewController.swift; sourceTree = "<group>"; };
 		92C85C8D2429039C00002173 /* AppUpdateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateRepository.swift; sourceTree = "<group>"; };
-		92D392912455687B005576C5 /* MetaPanel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MetaPanel.xcodeproj; path = Meta/Wrapper/MetaPanel/MetaPanel.xcodeproj; sourceTree = "<group>"; };
+		92CD82C124B0F60E005F3309 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		92CD82C224B0F7BD005F3309 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		92CD82C424B103B7005F3309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		92E16C752403D60E00511EE1 /* HotkeyPrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyPrefsViewController.swift; sourceTree = "<group>"; };
 		92EB942F243B7B4900289316 /* AppItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppItemViewController.swift; sourceTree = "<group>"; };
 		92EE13552423A323001513A8 /* HotkeyPrefsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotkeyPrefsViewController.xib; sourceTree = "<group>"; };
@@ -269,14 +260,6 @@
 			path = Spotlights;
 			sourceTree = "<group>";
 		};
-		92885F522455AC5D00E779B9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				92885F562455AC5D00E779B9 /* MetaPanel.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		92885F592455B0D400E779B9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,14 +275,13 @@
 				92A1B2F323C4AA2100D7BEF1 /* Products */,
 				925A243623C76205002BB85F /* Frameworks */,
 				B9367A57FC91513B2724C723 /* Pods */,
-				92D392912455687B005576C5 /* MetaPanel.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
 		92A1B2F323C4AA2100D7BEF1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				92A1B2F223C4AA2100D7BEF1 /* Meta-debug.app */,
+				92A1B2F223C4AA2100D7BEF1 /* Dodul (Dev).app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -309,12 +291,12 @@
 			children = (
 				92C5196C2461CD7500CD1006 /* Onboarding */,
 				92885F592455B0D400E779B9 /* Networking */,
-				92BAFB7724250D43008BC2B5 /* Resources */,
 				92ACE91C2412874F009994EB /* Supporting Files */,
 				92A1B33623C4DBBF00D7BEF1 /* Application */,
 				923B987023C602E300BC48A7 /* Main */,
 				92BAFB642424F220008BC2B5 /* Preferences */,
 				92A1B33D23C4E7EB00D7BEF1 /* Home */,
+				92CD82C424B103B7005F3309 /* Images.xcassets */,
 			);
 			path = Meta;
 			sourceTree = "<group>";
@@ -375,6 +357,8 @@
 				92A1B2FC23C4AA2200D7BEF1 /* Assets.xcassets */,
 				92A1B30123C4AA2200D7BEF1 /* Info.plist */,
 				92A1B30223C4AA2200D7BEF1 /* Meta.entitlements */,
+				92CD82C124B0F60E005F3309 /* Debug.xcconfig */,
+				92CD82C224B0F7BD005F3309 /* Release.xcconfig */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -389,21 +373,6 @@
 				92BAFB672424F438008BC2B5 /* PreferencesViewController.swift */,
 			);
 			path = Preferences;
-			sourceTree = "<group>";
-		};
-		92BAFB6C2425064D008BC2B5 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		92BAFB7724250D43008BC2B5 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				92BAFB6C2425064D008BC2B5 /* Fonts */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		92C5196C2461CD7500CD1006 /* Onboarding */ = {
@@ -472,7 +441,7 @@
 			);
 			name = Meta;
 			productName = Touchlet;
-			productReference = 92A1B2F223C4AA2100D7BEF1 /* Meta-debug.app */;
+			productReference = 92A1B2F223C4AA2100D7BEF1 /* Dodul (Dev).app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -502,12 +471,6 @@
 			mainGroup = 92A1B2E923C4AA2100D7BEF1;
 			productRefGroup = 92A1B2F323C4AA2100D7BEF1 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 92885F522455AC5D00E779B9 /* Products */;
-					ProjectRef = 92D392912455687B005576C5 /* MetaPanel.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				92A1B2F123C4AA2100D7BEF1 /* Meta */,
@@ -515,22 +478,13 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		92885F562455AC5D00E779B9 /* MetaPanel.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = MetaPanel.app;
-			remoteRef = 92885F552455AC5D00E779B9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		92A1B2F023C4AA2100D7BEF1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				92A1B2FD23C4AA2200D7BEF1 /* Assets.xcassets in Resources */,
+				92CD82C524B103B7005F3309 /* Images.xcassets in Resources */,
 				92BAFB662424F2DE008BC2B5 /* Preferences.storyboard in Resources */,
 				92EE13562423A323001513A8 /* HotkeyPrefsViewController.xib in Resources */,
 				927C633A2431109800B03CF2 /* DownloaderController.xib in Resources */,
@@ -643,6 +597,7 @@
 /* Begin XCBuildConfiguration section */
 		92A1B31923C4AA2200D7BEF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92CD82C124B0F60E005F3309 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -706,6 +661,7 @@
 		};
 		92A1B31A23C4AA2200D7BEF1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92CD82C224B0F7BD005F3309 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -764,7 +720,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6E4D424333255645C1E2CAD /* Pods-Meta.debug.xcconfig */;
 			buildSettings = {
-				APP_SECURITY_GROUP = group.com.heeleeaz.meta.debug;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Meta/Meta.entitlements;
@@ -774,7 +729,6 @@
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GA_IDENTIFIER = "UA-121293848-3";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/HotKey/HotKey.framework/Headers\"",
@@ -787,8 +741,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.Meta.debug;
-				PRODUCT_NAME = "$(TARGET_NAME)-debug";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(APP_NAME)";
 				SERVER_URL = "https://us-central1-touchlet-11807.cloudfunctions.net";
 				SWIFT_INCLUDE_PATHS = "$(inherited) $(SDKROOT)/usr/include/libxml2";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -800,7 +754,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 461911A34E7D53CBF79ED4A9 /* Pods-Meta.release.xcconfig */;
 			buildSettings = {
-				APP_SECURITY_GROUP = group.com.heeleeaz.meta;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Meta/Meta.entitlements;
@@ -810,7 +763,6 @@
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GA_IDENTIFIER = "UA-121293848-3";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/HotKey/HotKey.framework/Headers\"",
@@ -823,8 +775,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.Meta;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(APP_NAME)";
 				SERVER_URL = "https://us-central1-touchlet-11807.cloudfunctions.net";
 				SWIFT_INCLUDE_PATHS = "$(inherited) $(SDKROOT)/usr/include/libxml2";
 				SWIFT_VERSION = 5.0;

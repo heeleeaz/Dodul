@@ -1,0 +1,15 @@
+//
+//  Release.xcconfig
+//  MetaPanel
+//
+//  Created by Elias on 05/07/2020.
+//  Copyright © 2020 Elias Igbalajobi. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "../../Release.xcconfig"
+
+APP_NAME = DodulPanel
+BUNDLE_IDENTIFIER = $(inherited).Panel
