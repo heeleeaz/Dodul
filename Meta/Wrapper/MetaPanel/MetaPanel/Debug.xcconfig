@@ -12,4 +12,4 @@
 #include "Release.xcconfig"
 
 APP_NAME = DodulPanel (Dev)
-BUNDLE_IDENTIFIER = $(inherited).Panel
+BUNDLE_IDENTIFIER = $(inherited).debug

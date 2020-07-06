@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		20468E6BC27612C015685E66 /* libPods-MetaPanel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC92578EEABC9FEEA29D6745 /* libPods-MetaPanel.a */; };
 		921927B52412A9980008CCC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 921927B32412A9980008CCC8 /* Assets.xcassets */; };
-		9253506924B25BA400F0F838 /* DodulPanelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253506824B25BA400F0F838 /* DodulPanelTests.swift */; };
+		9253506924B25BA400F0F838 /* GlobalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253506824B25BA400F0F838 /* GlobalTests.swift */; };
 		92ACE9B5241295F6009994EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE9B4241295F6009994EB /* AppDelegate.swift */; };
 		92ACE9B7241295F6009994EB /* PanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACE9B6241295F6009994EB /* PanelViewController.swift */; };
 		92ACE9BC241295F6009994EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92ACE9BA241295F6009994EB /* Main.storyboard */; };
@@ -52,7 +52,7 @@
 		9253505124B1C33900F0F838 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		9253505224B1C35100F0F838 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		9253506624B25BA400F0F838 /* DodulPanelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DodulPanelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9253506824B25BA400F0F838 /* DodulPanelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodulPanelTests.swift; sourceTree = "<group>"; };
+		9253506824B25BA400F0F838 /* GlobalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTests.swift; sourceTree = "<group>"; };
 		9253506A24B25BA400F0F838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9288B9AE2442159300D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92ACE9B1241295F6009994EB /* DodulPanel (Dev).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DodulPanel (Dev).app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,7 +114,7 @@
 		9253506724B25BA400F0F838 /* DodulPanelTests */ = {
 			isa = PBXGroup;
 			children = (
-				9253506824B25BA400F0F838 /* DodulPanelTests.swift */,
+				9253506824B25BA400F0F838 /* GlobalTests.swift */,
 				9253506A24B25BA400F0F838 /* Info.plist */,
 			);
 			path = DodulPanelTests;
@@ -290,7 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9253506924B25BA400F0F838 /* DodulPanelTests.swift in Sources */,
+				9253506924B25BA400F0F838 /* GlobalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +342,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.DodulPanelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DodulPanel (Dev).app/Contents/MacOS/Dudul";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DodulPanel (Dev).app/Contents/MacOS/Dodul";
 			};
 			name = Debug;
 		};
@@ -363,7 +363,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.DodulPanelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DodulPanel (Dev).app/Contents/MacOS/Dudul";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DodulPanel (Dev).app/Contents/MacOS/Dodul";
 			};
 			name = Release;
 		};
@@ -494,6 +494,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
 				ENABLE_HARDENED_RUNTIME = YES;
+				EXECUTABLE_NAME = "$(APP_NAME)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MetaPanel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -522,6 +523,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
 				ENABLE_HARDENED_RUNTIME = YES;
+				EXECUTABLE_NAME = "$(APP_NAME)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MetaPanel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

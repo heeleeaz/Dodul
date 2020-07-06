@@ -61,7 +61,7 @@ class ReadonlyCollectionEditButtonTouchBarItem: NSCustomTouchBarItem {
                                     view.heightAnchor.constraint(equalToConstant: 30)])
     }
     
-    @objc private func editButtonTapped(){delegate?.readonlyEmptyTouchBarItem(editButtonTapped: self)}
+    @objc private func editButtonTapped(){ delegate?.readonlyEmptyTouchBarItem(editButtonTapped: self) }
     
     private class Button: NSButton{
         override class var cellClass: AnyClass?{get{return ButtonCell.self} set{}}

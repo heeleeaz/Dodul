@@ -15,7 +15,7 @@ import UserNotifications
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     override init() {
-        if #available(OSX 10.14, *) {NSApp.appearance = NSAppearance(named: .darkAqua)}
+        if #available(OSX 10.14, *) { NSApp.appearance = NSAppearance(named: .darkAqua) }
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
