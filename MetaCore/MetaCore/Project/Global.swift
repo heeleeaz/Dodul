@@ -54,7 +54,10 @@ public class Global{
         if removeLast > 0{pathComponents.removeLast(removeLast)}
         append.forEach{pathComponents.append($0)}
         
-        return NSWorkspace.shared.launchApplication(NSString.path(withComponents: pathComponents))
+        
+        let path = NSString.path(withComponents: pathComponents)
+        print(path)
+        return NSWorkspace.shared.launchApplication(path)
     }
     
     public enum Project{

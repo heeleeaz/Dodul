@@ -26,7 +26,7 @@ class PanelViewController: ReadonlyTouchBarController{
     
     @objc func refreshTouchItems(){
         super.reloadItems()
-        FaviconCacheProvider.shared.refresh()
+        FaviconCacheProvider.shared.reload()
     }
     
     deinit {

@@ -22,7 +22,7 @@ public class FaviconCacheProvider{
         cache = (try? Cache.loadFromDisk(withName: Constant.cachePath)) ?? Cache()
     }
     
-    public func refresh(){
+    public func reload(){
         cache = (try? Cache.loadFromDisk(withName: Constant.cachePath)) ?? Cache()
     }
     
