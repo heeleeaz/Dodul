@@ -30,6 +30,7 @@
 		92861C932406DD34001B8EFD /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92861C922406DD34001B8EFD /* AddLinkViewController.swift */; };
 		92885F5B2455B0E900E779B9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92885F5A2455B0E900E779B9 /* API.swift */; };
 		928DD067243B4EBE007A38B0 /* ButtonCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928DD066243B4EBE007A38B0 /* ButtonCellItem.swift */; };
+		9297A42924B2630400E2CF4F /* GlobalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9297A42824B2630400E2CF4F /* GlobalTests.swift */; };
 		92A0C8CA2409173F000C5011 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */; };
 		92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */; };
 		92A1B2F823C4AA2100D7BEF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B2F723C4AA2100D7BEF1 /* MainViewController.swift */; };
@@ -54,6 +55,16 @@
 		92F7D8B2244F308C00C13AA1 /* MetaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92F7D8B0244F308C00C13AA1 /* MetaCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		92FE9B2523D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9297A42B24B2630400E2CF4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92A1B2EA23C4AA2100D7BEF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92A1B2F123C4AA2100D7BEF1;
+			remoteInfo = Meta;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9204883524326B2D0017FEC6 /* Copy Login Items */ = {
@@ -126,6 +137,9 @@
 		9288B8FB2441FF5700D50D27 /* libTouchletCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libTouchletCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9288B9A62442155800D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		928DD066243B4EBE007A38B0 /* ButtonCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellItem.swift; sourceTree = "<group>"; };
+		9297A42624B2630400E2CF4F /* DodulTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DodulTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9297A42824B2630400E2CF4F /* GlobalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTests.swift; sourceTree = "<group>"; };
+		9297A42A24B2630400E2CF4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		92A1B2F223C4AA2100D7BEF1 /* Dodul (Dev).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dodul (Dev).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +177,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9297A42324B2630400E2CF4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92A1B2EF23C4AA2100D7BEF1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,10 +289,20 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		9297A42724B2630400E2CF4F /* DodulTests */ = {
+			isa = PBXGroup;
+			children = (
+				9297A42824B2630400E2CF4F /* GlobalTests.swift */,
+				9297A42A24B2630400E2CF4F /* Info.plist */,
+			);
+			path = DodulTests;
+			sourceTree = "<group>";
+		};
 		92A1B2E923C4AA2100D7BEF1 = {
 			isa = PBXGroup;
 			children = (
 				92A1B2F423C4AA2100D7BEF1 /* Meta */,
+				9297A42724B2630400E2CF4F /* DodulTests */,
 				92A1B2F323C4AA2100D7BEF1 /* Products */,
 				925A243623C76205002BB85F /* Frameworks */,
 				B9367A57FC91513B2724C723 /* Pods */,
@@ -282,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				92A1B2F223C4AA2100D7BEF1 /* Dodul (Dev).app */,
+				9297A42624B2630400E2CF4F /* DodulTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -422,6 +454,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9297A42524B2630400E2CF4F /* DodulTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9297A42F24B2630400E2CF4F /* Build configuration list for PBXNativeTarget "DodulTests" */;
+			buildPhases = (
+				9297A42224B2630400E2CF4F /* Sources */,
+				9297A42324B2630400E2CF4F /* Frameworks */,
+				9297A42424B2630400E2CF4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9297A42C24B2630400E2CF4F /* PBXTargetDependency */,
+			);
+			name = DodulTests;
+			productName = DodulTests;
+			productReference = 9297A42624B2630400E2CF4F /* DodulTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		92A1B2F123C4AA2100D7BEF1 /* Meta */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92A1B31B23C4AA2200D7BEF1 /* Build configuration list for PBXNativeTarget "Meta" */;
@@ -454,6 +504,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Elias Igbalajobi";
 				TargetAttributes = {
+					9297A42524B2630400E2CF4F = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 92A1B2F123C4AA2100D7BEF1;
+					};
 					92A1B2F123C4AA2100D7BEF1 = {
 						CreatedOnToolsVersion = 10.3;
 						LastSwiftMigration = 1130;
@@ -474,11 +528,19 @@
 			projectRoot = "";
 			targets = (
 				92A1B2F123C4AA2100D7BEF1 /* Meta */,
+				9297A42524B2630400E2CF4F /* DodulTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9297A42424B2630400E2CF4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92A1B2F023C4AA2100D7BEF1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -541,6 +603,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9297A42224B2630400E2CF4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9297A42924B2630400E2CF4F /* GlobalTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92A1B2EE23C4AA2100D7BEF1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -583,6 +653,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9297A42C24B2630400E2CF4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92A1B2F123C4AA2100D7BEF1 /* Meta */;
+			targetProxy = 9297A42B24B2630400E2CF4F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		92A1B2FE23C4AA2200D7BEF1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -595,6 +673,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9297A42D24B2630400E2CF4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZWXH8BD23X;
+				INFOPLIST_FILE = DodulTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.dodul.DodulTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dodul (Dev).app/Contents/MacOS/Dodul";
+			};
+			name = Debug;
+		};
+		9297A42E24B2630400E2CF4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZWXH8BD23X;
+				INFOPLIST_FILE = DodulTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.dodul.DodulTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dodul (Dev).app/Contents/MacOS/Dodul";
+			};
+			name = Release;
+		};
 		92A1B31923C4AA2200D7BEF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 92CD82C124B0F60E005F3309 /* Debug.xcconfig */;
@@ -729,6 +849,7 @@
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
 				ENABLE_HARDENED_RUNTIME = YES;
+				EXECUTABLE_NAME = "$(APP_NAME)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/HotKey/HotKey.framework/Headers\"",
@@ -763,6 +884,7 @@
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
 				ENABLE_HARDENED_RUNTIME = YES;
+				EXECUTABLE_NAME = "$(APP_NAME)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/HotKey/HotKey.framework/Headers\"",
@@ -786,6 +908,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9297A42F24B2630400E2CF4F /* Build configuration list for PBXNativeTarget "DodulTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9297A42D24B2630400E2CF4F /* Debug */,
+				9297A42E24B2630400E2CF4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		92A1B2ED23C4AA2100D7BEF1 /* Build configuration list for PBXProject "Meta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

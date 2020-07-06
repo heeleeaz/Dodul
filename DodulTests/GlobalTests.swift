@@ -1,6 +1,6 @@
 //
-//  DodulPanelTests.swift
-//  DodulPanelTests
+//  DodulTests.swift
+//  DodulTests
 //
 //  Created by Elias on 05/07/2020.
 //  Copyright © 2020 Elias Igbalajobi. All rights reserved.
@@ -9,7 +9,7 @@
 import XCTest
 import MetaCore
 
-class DodulPanelTests: XCTestCase {
+class GlobalTests: XCTestCase {
     private let global = Global.instance
     
     override func setUp() {
@@ -20,20 +20,21 @@ class DodulPanelTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
 
-    func testMenuAppName() {
+    func testPanelAppName() {
         #if DEBUG
-        XCTAssertEqual(global.appName(for: .menu), "Dodul (Dev)")
+        XCTAssertEqual(global.appName(for: .panel), "DodulPanel (Dev)")
         #else
-        XCTAssertEqual(global.appName(for: .menu), "Dodul")
+        XCTAssertEqual(global.appName(for: .menu), "DodulPanel")
         #endif
     }
     
-    func testMenuAppBundleIdentifier() {
+    func testPanelAppBundleIdentifier() {
         #if DEBUG
-        XCTAssertEqual(global.bundleIdentifier(for: .menu), "com.heeleeaz.dodul.debug")
+        XCTAssertEqual(global.bundleIdentifier(for: .panel), "com.heeleeaz.Dodul.Panel.debug")
         #else
-        XCTAssertEqual(global.appName(for: .menu), "com.heeleeaz.dodul.debug")
+        XCTAssertEqual(global.appName(for: .panel), "com.heeleeaz.Dodul.Panel")
         #endif
     }
 
