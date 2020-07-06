@@ -55,7 +55,7 @@
 		9253506824B25BA400F0F838 /* GlobalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTests.swift; sourceTree = "<group>"; };
 		9253506A24B25BA400F0F838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9288B9AE2442159300D50D27 /* TouchletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TouchletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92ACE9B1241295F6009994EB /* DodulPanel (Dev).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DodulPanel (Dev).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92ACE9B1241295F6009994EB /* DodulPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DodulPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92ACE9B4241295F6009994EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92ACE9B6241295F6009994EB /* PanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelViewController.swift; sourceTree = "<group>"; };
 		92ACE9BB241295F6009994EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		92ACE9B2241295F6009994EB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				92ACE9B1241295F6009994EB /* DodulPanel (Dev).app */,
+				92ACE9B1241295F6009994EB /* DodulPanel.app */,
 				9253506624B25BA400F0F838 /* DodulPanelTests.xctest */,
 			);
 			name = Products;
@@ -200,7 +200,7 @@
 			);
 			name = MetaPanel;
 			productName = TouchletPanel;
-			productReference = 92ACE9B1241295F6009994EB /* DodulPanel (Dev).app */;
+			productReference = 92ACE9B1241295F6009994EB /* DodulPanel.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -342,7 +342,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.DodulPanelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DodulPanel (Dev).app/Contents/MacOS/Dodul";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DodulPanel.app/Contents/MacOS/DodulPanel";
 			};
 			name = Debug;
 		};
@@ -363,7 +363,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.touchlet.DodulPanelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DodulPanel (Dev).app/Contents/MacOS/Dodul";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DodulPanel.app/Contents/MacOS/DodulPanel";
 			};
 			name = Release;
 		};
@@ -494,7 +494,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
 				ENABLE_HARDENED_RUNTIME = YES;
-				EXECUTABLE_NAME = "$(APP_NAME)";
+				EXECUTABLE_NAME = "$(EXECUTABLE_NAME)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MetaPanel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -523,7 +523,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = ZWXH8BD23X;
 				ENABLE_HARDENED_RUNTIME = YES;
-				EXECUTABLE_NAME = "$(APP_NAME)";
+				EXECUTABLE_NAME = "$(EXECUTABLE_NAME)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MetaPanel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

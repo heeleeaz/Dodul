@@ -13,3 +13,4 @@
 
 APP_NAME = DodulPanel
 BUNDLE_IDENTIFIER = $(inherited).Panel
+EXECUTABLE_NAME = DodulPanel //do not inherit from APP_NAME
