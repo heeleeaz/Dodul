@@ -49,5 +49,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         MPGoogleAnalyticsTracker.shared.activate(configuration: MPAnalyticsConfiguration(identifier: GAIdentifier))
     }
     
-    @objc private func killApp(){NSApp.terminate(nil)}
+    @objc private func killApp(){ NSApp.terminate(nil) }
 }

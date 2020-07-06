@@ -31,7 +31,7 @@
 		92885F5B2455B0E900E779B9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92885F5A2455B0E900E779B9 /* API.swift */; };
 		928DD067243B4EBE007A38B0 /* ButtonCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928DD066243B4EBE007A38B0 /* ButtonCellItem.swift */; };
 		9297A42924B2630400E2CF4F /* GlobalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9297A42824B2630400E2CF4F /* GlobalTests.swift */; };
-		9297A43924B334EA00E2CF4F /* DodulPanel (Dev).app in Copy Login Items */ = {isa = PBXBuildFile; fileRef = 9297A43624B334D900E2CF4F /* DodulPanel (Dev).app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9297A43A24B33E1200E2CF4F /* DodulPanel (Dev).app in Copy Login Items */ = {isa = PBXBuildFile; fileRef = 9297A43624B334D900E2CF4F /* DodulPanel (Dev).app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		92A0C8CA2409173F000C5011 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A0C8C92409173F000C5011 /* HomeCollectionViewController.swift */; };
 		92A1B2F623C4AA2100D7BEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B2F523C4AA2100D7BEF1 /* AppDelegate.swift */; };
 		92A1B2F823C4AA2100D7BEF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1B2F723C4AA2100D7BEF1 /* MainViewController.swift */; };
@@ -83,11 +83,11 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		9204883524326B2D0017FEC6 /* Copy Login Items */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
-				9297A43924B334EA00E2CF4F /* DodulPanel (Dev).app in Copy Login Items */,
+				9297A43A24B33E1200E2CF4F /* DodulPanel (Dev).app in Copy Login Items */,
 			);
 			name = "Copy Login Items";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -736,7 +736,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.dodul.DodulTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dodul (Dev).app/Contents/MacOS/Dodul";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dodul (Dev).app/Contents/MacOS/Dodul (Dev)";
 			};
 			name = Debug;
 		};
@@ -757,7 +757,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.heeleeaz.dodul.DodulTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dodul (Dev).app/Contents/MacOS/Dodul";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dodul (Dev).app/Contents/MacOS/Dodul (Dev)";
 			};
 			name = Release;
 		};
