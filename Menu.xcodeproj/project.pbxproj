@@ -14,6 +14,7 @@
 		923AA49824B9AD2C0003A5D1 /* AppLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923AA49724B9AD2C0003A5D1 /* AppLib.framework */; };
 		923AA49924B9AD2C0003A5D1 /* AppLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 923AA49724B9AD2C0003A5D1 /* AppLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		923AA4C024B9B91A0003A5D1 /* GlobalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9297A42824B2630400E2CF4F /* GlobalTests.swift */; };
+		923AA4DD24B9BE0D0003A5D1 /* DodulPanel.app in Copy Login Items */ = {isa = PBXBuildFile; fileRef = 923AA4DA24B9BDD60003A5D1 /* DodulPanel.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		923B986123C5CF8D00BC48A7 /* AppCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */; };
 		923B986E23C600C000BC48A7 /* HomeItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B986C23C600C000BC48A7 /* HomeItemViewController.swift */; };
 		9246322023CB32C200042EFE /* HomeItemViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9246321F23CB32C200042EFE /* HomeItemViewController.storyboard */; };
@@ -56,26 +57,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		923AA4AE24B9B84D0003A5D1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 923AA4A924B9B84D0003A5D1 /* Panel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 92ACE9B1241295F6009994EB;
-			remoteInfo = Panel;
-		};
-		923AA4B024B9B84D0003A5D1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 923AA4A924B9B84D0003A5D1 /* Panel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9253506624B25BA400F0F838;
-			remoteInfo = DodulPanelTests;
-		};
 		923AA4BB24B9B90B0003A5D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 92A1B2EA23C4AA2100D7BEF1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 92A1B2F123C4AA2100D7BEF1;
 			remoteInfo = Menu;
+		};
+		923AA4D924B9BDD60003A5D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 923AA4D424B9BDD60003A5D1 /* Panel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 92ACE9B1241295F6009994EB;
+			remoteInfo = Panel;
+		};
+		923AA4DB24B9BDD60003A5D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 923AA4D424B9BDD60003A5D1 /* Panel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 923AA4C524B9B96E0003A5D1;
+			remoteInfo = PanelTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -86,6 +87,7 @@
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
+				923AA4DD24B9BE0D0003A5D1 /* DodulPanel.app in Copy Login Items */,
 			);
 			name = "Copy Login Items";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,9 +130,9 @@
 		921A7B882468163E0086EFD4 /* HotkeyPrefsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyPrefsWindow.swift; sourceTree = "<group>"; };
 		9239E36424533A9F00D970D3 /* developerID_application.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = developerID_application.cer; path = ../../../Desktop/developerID_application.cer; sourceTree = "<group>"; };
 		923AA49724B9AD2C0003A5D1 /* AppLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		923AA4A924B9B84D0003A5D1 /* Panel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Panel.xcodeproj; path = Menu/Wrapper/MetaPanel/Panel.xcodeproj; sourceTree = "<group>"; };
 		923AA4B624B9B90B0003A5D1 /* MenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		923AA4BA24B9B90B0003A5D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		923AA4D424B9BDD60003A5D1 /* Panel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Panel.xcodeproj; path = Menu/Wrapper/Panel/Panel.xcodeproj; sourceTree = "<group>"; };
 		923B985F23C5CF8D00BC48A7 /* AppCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewItem.swift; sourceTree = "<group>"; };
 		923B986C23C600C000BC48A7 /* HomeItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemViewController.swift; sourceTree = "<group>"; };
 		923E6EC9244142BE00F1083B /* libTouchletCore2.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libTouchletCore2.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,15 +223,6 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
-		923AA4AA24B9B84D0003A5D1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				923AA4AF24B9B84D0003A5D1 /* DodulPanel.app */,
-				923AA4B124B9B84D0003A5D1 /* DodulPanelTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		923AA4B724B9B90B0003A5D1 /* MenuTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +230,15 @@
 				923AA4BA24B9B90B0003A5D1 /* Info.plist */,
 			);
 			path = MenuTests;
+			sourceTree = "<group>";
+		};
+		923AA4D524B9BDD60003A5D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				923AA4DA24B9BDD60003A5D1 /* DodulPanel.app */,
+				923AA4DC24B9BDD60003A5D1 /* PanelTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		923B987023C602E300BC48A7 /* Main */ = {
@@ -325,7 +327,7 @@
 		92A1B2E923C4AA2100D7BEF1 = {
 			isa = PBXGroup;
 			children = (
-				923AA4A924B9B84D0003A5D1 /* Panel.xcodeproj */,
+				923AA4D424B9BDD60003A5D1 /* Panel.xcodeproj */,
 				92A1B2F423C4AA2100D7BEF1 /* Menu */,
 				923AA4B724B9B90B0003A5D1 /* MenuTests */,
 				92A1B2F323C4AA2100D7BEF1 /* Products */,
@@ -551,8 +553,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 923AA4AA24B9B84D0003A5D1 /* Products */;
-					ProjectRef = 923AA4A924B9B84D0003A5D1 /* Panel.xcodeproj */;
+					ProductGroup = 923AA4D524B9BDD60003A5D1 /* Products */;
+					ProjectRef = 923AA4D424B9BDD60003A5D1 /* Panel.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -564,18 +566,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		923AA4AF24B9B84D0003A5D1 /* DodulPanel.app */ = {
+		923AA4DA24B9BDD60003A5D1 /* DodulPanel.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = DodulPanel.app;
-			remoteRef = 923AA4AE24B9B84D0003A5D1 /* PBXContainerItemProxy */;
+			remoteRef = 923AA4D924B9BDD60003A5D1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		923AA4B124B9B84D0003A5D1 /* DodulPanelTests.xctest */ = {
+		923AA4DC24B9BDD60003A5D1 /* PanelTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = DodulPanelTests.xctest;
-			remoteRef = 923AA4B024B9B84D0003A5D1 /* PBXContainerItemProxy */;
+			path = PanelTests.xctest;
+			remoteRef = 923AA4DB24B9BDD60003A5D1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

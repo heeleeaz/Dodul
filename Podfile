@@ -4,13 +4,11 @@ platform :macos, '10.13'
 workspace 'Touchlet'
 
 
-target 'Meta' do
+target 'Menu' do
   use_frameworks!
   pod 'FavIcon'
 end
 
-target 'MetaPanel' do
-  project 'Meta/Wrapper/MetaPanel/MetaPanel.xcodeproj'
+target 'Panel' do
+  project 'Menu/Wrapper/Panel/Panel.xcodeproj'
 end
-
-
