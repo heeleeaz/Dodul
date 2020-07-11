@@ -15,4 +15,4 @@ APP_SECURITY_GROUP = group.com.heeleeaz.dodul
 GA_IDENTIFIER = UA-121293848-3
 EXECUTABLE_NAME = Dodul
 BUNDLE_IDENTIFIER = com.heeleeaz.Dodul
-SERVER_URL = "https://us-central1-touchlet-11807.cloudfunctions.net"
+SERVER_URL = https:\/\/us-central1-touchlet-11807.cloudfunctions.net

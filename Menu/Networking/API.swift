@@ -9,5 +9,5 @@
 import Foundation
 
 struct API {
-    public static let serverURL = Bundle.main.object(forInfoDictionaryKey: "SERVER_URL") as! String
+    public static let serverURL = (Bundle.main.object(forInfoDictionaryKey: "SERVER_URL") as! String).replacingOccurrences(of: "\\", with: "")
 }
