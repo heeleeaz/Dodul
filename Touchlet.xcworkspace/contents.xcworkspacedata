@@ -5,7 +5,7 @@
       location = "group:/Users/Heeleeaz/Documents/XCodeProject/Touchlet/Menu.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/Heeleeaz/Documents/XCodeProject/Touchlet/MetaCore/AppLib.xcodeproj">
+      location = "group:AppLib/AppLib.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
