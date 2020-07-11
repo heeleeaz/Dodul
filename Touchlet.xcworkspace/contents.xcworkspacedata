@@ -2,15 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Meta/Wrapper/MetaPanel/MetaPanel.xcodeproj">
+      location = "group:/Users/Heeleeaz/Documents/XCodeProject/Touchlet/Menu.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Meta.xcodeproj">
+      location = "group:/Users/Heeleeaz/Documents/XCodeProject/Touchlet/MetaCore/AppLib.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:MetaCore/MetaCore.xcodeproj">
    </FileRef>
 </Workspace>
