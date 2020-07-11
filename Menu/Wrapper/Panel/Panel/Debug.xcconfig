@@ -11,5 +11,5 @@
 
 #include "Release.xcconfig"
 
-BUNDLE_IDENTIFIER = $(inherited).debug
 //APP_NAME = DodulPanel (Dev)//do not inherit from APP_NAME
+BUNDLE_IDENTIFIER = $(inherited).debug
