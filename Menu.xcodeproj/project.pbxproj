@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07A39152B0D9321B2012C74A /* Pods_Meta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F74CB5C8D05D98E18FFDD1 /* Pods_Meta.framework */; };
+		158974415D93D4258DA5EDC9 /* Pods_Menu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE9DB42654D23C35C8E6EC46 /* Pods_Menu.framework */; };
 		921329F42406EB2000D9FE9E /* AddLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921329F32406EB2000D9FE9E /* AddLinkViewController.xib */; };
 		921A7B842466B3450086EFD4 /* SaveMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921A7B832466B3450086EFD4 /* SaveMenuViewController.swift */; };
 		921A7B892468163E0086EFD4 /* HotkeyPrefsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921A7B882468163E0086EFD4 /* HotkeyPrefsWindow.swift */; };
@@ -116,6 +116,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		11833BA1577907CF206F26F1 /* Pods-Menu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Menu.debug.xcconfig"; path = "Target Support Files/Pods-Menu/Pods-Menu.debug.xcconfig"; sourceTree = "<group>"; };
 		3CE5E929780F50A3654027A5 /* Pods_TouchletLauncher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouchletLauncher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		461911A34E7D53CBF79ED4A9 /* Pods-Meta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meta.release.xcconfig"; path = "Target Support Files/Pods-Meta/Pods-Meta.release.xcconfig"; sourceTree = "<group>"; };
 		4F2E0877807212134A667B55 /* Pods-Meta.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meta.alpha.xcconfig"; path = "Target Support Files/Pods-Meta/Pods-Meta.alpha.xcconfig"; sourceTree = "<group>"; };
@@ -187,9 +188,10 @@
 		92F7D8B0244F308C00C13AA1 /* MetaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MetaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FE9B2323D0ACBC00FA6AC6 /* ButtonCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewItem.swift; sourceTree = "<group>"; };
 		B72E19481489507B4114A98F /* libPods-Core.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Core.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9F74CB5C8D05D98E18FFDD1 /* Pods_Meta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E4D424333255645C1E2CAD /* Pods-Meta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meta.debug.xcconfig"; path = "Target Support Files/Pods-Meta/Pods-Meta.debug.xcconfig"; sourceTree = "<group>"; };
 		F89230C0431EAE8B7888EAEC /* libPods-TouchletMenu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TouchletMenu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC28FB266C0203F98680E2E6 /* Pods-Menu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Menu.release.xcconfig"; path = "Target Support Files/Pods-Menu/Pods-Menu.release.xcconfig"; sourceTree = "<group>"; };
+		FE9DB42654D23C35C8E6EC46 /* Pods_Menu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Menu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,7 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				923AA49824B9AD2C0003A5D1 /* AppLib.framework in Frameworks */,
-				07A39152B0D9321B2012C74A /* Pods_Meta.framework in Frameworks */,
+				158974415D93D4258DA5EDC9 /* Pods_Menu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +273,7 @@
 				3CE5E929780F50A3654027A5 /* Pods_TouchletLauncher.framework */,
 				B72E19481489507B4114A98F /* libPods-Core.a */,
 				F89230C0431EAE8B7888EAEC /* libPods-TouchletMenu.a */,
-				C9F74CB5C8D05D98E18FFDD1 /* Pods_Meta.framework */,
+				FE9DB42654D23C35C8E6EC46 /* Pods_Menu.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -473,6 +475,8 @@
 				E6E4D424333255645C1E2CAD /* Pods-Meta.debug.xcconfig */,
 				461911A34E7D53CBF79ED4A9 /* Pods-Meta.release.xcconfig */,
 				4F2E0877807212134A667B55 /* Pods-Meta.alpha.xcconfig */,
+				11833BA1577907CF206F26F1 /* Pods-Menu.debug.xcconfig */,
+				FC28FB266C0203F98680E2E6 /* Pods-Menu.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -624,7 +628,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Meta-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Menu-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -637,15 +641,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Meta/Pods-Meta-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Menu/Pods-Menu-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Meta/Pods-Meta-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Menu/Pods-Menu-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meta/Pods-Meta-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Menu/Pods-Menu-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -886,7 +890,7 @@
 		};
 		92A1B31C23C4AA2200D7BEF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6E4D424333255645C1E2CAD /* Pods-Meta.debug.xcconfig */;
+			baseConfigurationReference = 11833BA1577907CF206F26F1 /* Pods-Menu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
 				CLANG_ENABLE_MODULES = YES;
@@ -919,7 +923,7 @@
 		};
 		92A1B31D23C4AA2200D7BEF1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 461911A34E7D53CBF79ED4A9 /* Pods-Meta.release.xcconfig */;
+			baseConfigurationReference = FC28FB266C0203F98680E2E6 /* Pods-Menu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
 				CLANG_ENABLE_MODULES = YES;
