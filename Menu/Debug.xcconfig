@@ -12,6 +12,6 @@
 #include "Release.xcconfig"
 
 APP_NAME = Dodul (Dev)
-APP_ICON = $(inherited)Dev
+APP_ICON = AppIconDev
 APP_SECURITY_GROUP = $(inherited).debug
 BUNDLE_IDENTIFIER = $(inherited).debug
