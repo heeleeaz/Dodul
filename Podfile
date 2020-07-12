@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 platform :macos, '10.13'
 
-workspace 'Touchlet'
+workspace 'Dodul'
 
 
 target 'Menu' do
