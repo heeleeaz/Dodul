@@ -10,4 +10,10 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Menu/Wrapper/Panel/Panel.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Menu.xcodeproj">
+   </FileRef>
 </Workspace>
