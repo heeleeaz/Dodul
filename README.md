@@ -7,4 +7,4 @@ A macOS Touchbar customization software.
 
 
 # Download
-[https://](https://heeleeaz.github.io/dodul.io/)https://heeleeaz.github.io/dodul.io/
+https://heeleeaz.github.io/dodul.io/
